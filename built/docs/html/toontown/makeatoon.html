@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>makeatoon package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="minigame package" href="minigame.html" />
+    <link rel="prev" title="login package" href="login.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">makeatoon package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-bodyshop-module">makeatoon.BodyShop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-clothesgui-module">makeatoon.ClothesGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-colorshop-module">makeatoon.ColorShop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-gendershop-module">makeatoon.GenderShop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-makeatoon-module">makeatoon.MakeAToon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-makeatoon.MakeAToonGlobals">makeatoon.MakeAToonGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-makeclothesgui-module">makeatoon.MakeClothesGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-namechecktest-module">makeatoon.NameCheckTest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-makeatoon.NameFunctions">makeatoon.NameFunctions module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#makeatoon.NameFunctions.NameFunctions"><code class="docutils literal notranslate"><span class="pre">NameFunctions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-namegenerator-module">makeatoon.NameGenerator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-nameshop-module">makeatoon.NameShop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-shufflebutton-module">makeatoon.ShuffleButton module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makeatoon-ttpickanamepattern-module">makeatoon.TTPickANamePattern module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-makeatoon">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">makeatoon package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/makeatoon.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="makeatoon-package">
+<h1>makeatoon package<a class="headerlink" href="#makeatoon-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-bodyshop-module">
+<h2>makeatoon.BodyShop module<a class="headerlink" href="#makeatoon-bodyshop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-clothesgui-module">
+<h2>makeatoon.ClothesGUI module<a class="headerlink" href="#makeatoon-clothesgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-colorshop-module">
+<h2>makeatoon.ColorShop module<a class="headerlink" href="#makeatoon-colorshop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-gendershop-module">
+<h2>makeatoon.GenderShop module<a class="headerlink" href="#makeatoon-gendershop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-makeatoon-module">
+<h2>makeatoon.MakeAToon module<a class="headerlink" href="#makeatoon-makeatoon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-makeatoon.MakeAToonGlobals">
+<span id="makeatoon-makeatoonglobals-module"></span><h2>makeatoon.MakeAToonGlobals module<a class="headerlink" href="#module-makeatoon.MakeAToonGlobals" title="Permalink to this heading"></a></h2>
+<p>MakeAToonGlobals module: contains global vars for the MakeAToon classes</p>
+</section>
+<section id="makeatoon-makeclothesgui-module">
+<h2>makeatoon.MakeClothesGUI module<a class="headerlink" href="#makeatoon-makeclothesgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-namechecktest-module">
+<h2>makeatoon.NameCheckTest module<a class="headerlink" href="#makeatoon-namechecktest-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-makeatoon.NameFunctions">
+<span id="makeatoon-namefunctions-module"></span><h2>makeatoon.NameFunctions module<a class="headerlink" href="#module-makeatoon.NameFunctions" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">makeatoon.NameFunctions.</span></span><span class="sig-name descname"><span class="pre">NameFunctions</span></span><a class="reference internal" href="../_modules/makeatoon/NameFunctions.html#NameFunctions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.boyFirsts">
+<span class="sig-name descname"><span class="pre">boyFirsts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Alvin',</span> <span class="pre">'Astro',</span> <span class="pre">'Barney',</span> <span class="pre">'Bart',</span> <span class="pre">'Beppo',</span> <span class="pre">'Bert',</span> <span class="pre">'Bonzo',</span> <span class="pre">'Buford',</span> <span class="pre">'Bunky',</span> <span class="pre">'Buster',</span> <span class="pre">'Butch',</span> <span class="pre">'Buzz',</span> <span class="pre">'Cecil',</span> <span class="pre">'Chester',</span> <span class="pre">'Chip',</span> <span class="pre">'Chipper',</span> <span class="pre">'Clancy',</span> <span class="pre">'Clarence',</span> <span class="pre">'Cliff',</span> <span class="pre">'Clyde',</span> <span class="pre">'Dudley',</span> <span class="pre">'Duke',</span> <span class="pre">'Ernie',</span> <span class="pre">'Felix',</span> <span class="pre">'Fritz',</span> <span class="pre">'Graham',</span> <span class="pre">'Harvey',</span> <span class="pre">'Hector',</span> <span class="pre">'Huey',</span> <span class="pre">'Jacques',</span> <span class="pre">'Jake',</span> <span class="pre">'Knuckles',</span> <span class="pre">'Lancelot',</span> <span class="pre">'Leroy',</span> <span class="pre">'Lionel',</span> <span class="pre">'Lloyd',</span> <span class="pre">'Louie',</span> <span class="pre">'Mac',</span> <span class="pre">'Max',</span> <span class="pre">'Moe',</span> <span class="pre">'Monty',</span> <span class="pre">'Milton',</span> <span class="pre">'Ned',</span> <span class="pre">'Orville',</span> <span class="pre">'Oscar',</span> <span class="pre">'Oswald',</span> <span class="pre">'Ozzie',</span> <span class="pre">'Pierre',</span> <span class="pre">'Reggie',</span> <span class="pre">'Ricky',</span> <span class="pre">'Rocco',</span> <span class="pre">'Rollie',</span> <span class="pre">'Romeo',</span> <span class="pre">'Rusty',</span> <span class="pre">'Sammie',</span> <span class="pre">'Skip',</span> <span class="pre">'Skipper',</span> <span class="pre">'Skippy',</span> <span class="pre">'Spike',</span> <span class="pre">'Stinky',</span> <span class="pre">'Teddy',</span> <span class="pre">'Tom',</span> <span class="pre">'Waldo',</span> <span class="pre">'Wally',</span> <span class="pre">'Wilbur']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.boyFirsts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.boyTitles">
+<span class="sig-name descname"><span class="pre">boyTitles</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Baron',</span> <span class="pre">'Duke',</span> <span class="pre">'King',</span> <span class="pre">'Master',</span> <span class="pre">'Mister',</span> <span class="pre">'Prince',</span> <span class="pre">'Sir']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.boyTitles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.capPrefixes">
+<span class="sig-name descname"><span class="pre">capPrefixes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Mc',</span> <span class="pre">'Mac']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.capPrefixes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.girlFirsts">
+<span class="sig-name descname"><span class="pre">girlFirsts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Bonnie',</span> <span class="pre">'Bubbles',</span> <span class="pre">'Candy',</span> <span class="pre">'Clover',</span> <span class="pre">'Cuddles',</span> <span class="pre">'Daffodil',</span> <span class="pre">'Daphne',</span> <span class="pre">'Dee</span> <span class="pre">Dee',</span> <span class="pre">'Dottie',</span> <span class="pre">'Ginger',</span> <span class="pre">'Gwen',</span> <span class="pre">'Ladybug',</span> <span class="pre">'Lily',</span> <span class="pre">'Marigold',</span> <span class="pre">'Maxie',</span> <span class="pre">'Melody',</span> <span class="pre">'Mo</span> <span class="pre">Mo',</span> <span class="pre">'Nutmeg',</span> <span class="pre">'Olive',</span> <span class="pre">'Peaches',</span> <span class="pre">'Pearl',</span> <span class="pre">'Penny',</span> <span class="pre">'Petunia',</span> <span class="pre">'Rainbow',</span> <span class="pre">'Raven',</span> <span class="pre">'Robin',</span> <span class="pre">'Rosie',</span> <span class="pre">'Roxy',</span> <span class="pre">'Sadie',</span> <span class="pre">'Sally',</span> <span class="pre">'Sandy',</span> <span class="pre">'Taffy',</span> <span class="pre">'Trixie',</span> <span class="pre">'Ursula',</span> <span class="pre">'Valentine',</span> <span class="pre">'Violet',</span> <span class="pre">'Vicky',</span> <span class="pre">'Willow']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.girlFirsts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.girlTitles">
+<span class="sig-name descname"><span class="pre">girlTitles</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Lady',</span> <span class="pre">'Miss',</span> <span class="pre">'Princess',</span> <span class="pre">'Queen',</span> <span class="pre">'Granny',</span> <span class="pre">'Aunt']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.girlTitles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.header">
+<span class="sig-name descname"><span class="pre">header</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['#</span> <span class="pre">This</span> <span class="pre">file</span> <span class="pre">contains</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">possible</span> <span class="pre">names</span> <span class="pre">used</span> <span class="pre">in</span> <span class="pre">toon</span> <span class="pre">name</span> <span class="pre">generation.',</span> <span class="pre">'#</span> <span class="pre">Each</span> <span class="pre">name</span> <span class="pre">has</span> <span class="pre">a</span> <span class="pre">unique</span> <span class="pre">id</span> <span class="pre">and</span> <span class="pre">a</span> <span class="pre">category:',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0</span> <span class="pre">-</span> <span class="pre">boyTitle',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">1</span> <span class="pre">-</span> <span class="pre">girlTitle',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">2</span> <span class="pre">-</span> <span class="pre">neutralTitle',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">3</span> <span class="pre">-</span> <span class="pre">boyFirst',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">4</span> <span class="pre">-</span> <span class="pre">girlFirst',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">5</span> <span class="pre">-</span> <span class="pre">neutralFirst',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">6</span> <span class="pre">-</span> <span class="pre">capPrefix',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">7</span> <span class="pre">-</span> <span class="pre">lastPrefix',</span> <span class="pre">'#</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">8</span> <span class="pre">-</span> <span class="pre">lastSuffix']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.header" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.lastPrefixes">
+<span class="sig-name descname"><span class="pre">lastPrefixes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Bagel',</span> <span class="pre">'Banana',</span> <span class="pre">'Bean',</span> <span class="pre">'Beanie',</span> <span class="pre">'Biggen',</span> <span class="pre">'Bizzen',</span> <span class="pre">'Blubber',</span> <span class="pre">'Boingen',</span> <span class="pre">'Bumber',</span> <span class="pre">'Bumble',</span> <span class="pre">'Bumpen',</span> <span class="pre">'Cheezy',</span> <span class="pre">'Crinkle',</span> <span class="pre">'Crumble',</span> <span class="pre">'Crunchen',</span> <span class="pre">'Crunchy',</span> <span class="pre">'Dandy',</span> <span class="pre">'Dingle',</span> <span class="pre">'Dizzen',</span> <span class="pre">'Dizzy',</span> <span class="pre">'Doggen',</span> <span class="pre">'Dyno',</span> <span class="pre">'Electro',</span> <span class="pre">'Feather',</span> <span class="pre">'Fiddle',</span> <span class="pre">'Frinkel',</span> <span class="pre">'Fizzle',</span> <span class="pre">'Flippen',</span> <span class="pre">'Flipper',</span> <span class="pre">'Fumble',</span> <span class="pre">'Funny',</span> <span class="pre">'Fuzzy',</span> <span class="pre">'Giggle',</span> <span class="pre">'Glitter',</span> <span class="pre">'Google',</span> <span class="pre">'Grumble',</span> <span class="pre">'Gumdrop',</span> <span class="pre">'Huckle',</span> <span class="pre">'Hula',</span> <span class="pre">'Jabber',</span> <span class="pre">'Jeeper',</span> <span class="pre">'Jinx',</span> <span class="pre">'Jumble',</span> <span class="pre">'Kooky',</span> <span class="pre">'Lemon',</span> <span class="pre">'Loopen',</span> <span class="pre">'Mac',</span> <span class="pre">'Mc',</span> <span class="pre">'Mega',</span> <span class="pre">'Mizzen',</span> <span class="pre">'Nickel',</span> <span class="pre">'Nutty',</span> <span class="pre">'Octo',</span> <span class="pre">'Paddle',</span> <span class="pre">'Pale',</span> <span class="pre">'Pedal',</span> <span class="pre">'Pepper',</span> <span class="pre">'Petal',</span> <span class="pre">'Pickle',</span> <span class="pre">'Pinker',</span> <span class="pre">'Poodle',</span> <span class="pre">'Precious',</span> <span class="pre">'Pumpkin',</span> <span class="pre">'Purple',</span> <span class="pre">'Poppen',</span> <span class="pre">'Rhino',</span> <span class="pre">'Robo',</span> <span class="pre">'Rocken',</span> <span class="pre">'Ruffle',</span> <span class="pre">'Sniffle',</span> <span class="pre">'Snorkel',</span> <span class="pre">'Sour',</span> <span class="pre">'Sparkle',</span> <span class="pre">'Squiggle',</span> <span class="pre">'Super',</span> <span class="pre">'Spackle',</span> <span class="pre">'Thunder',</span> <span class="pre">'Toppen',</span> <span class="pre">'Tricky',</span> <span class="pre">'Tweedle',</span> <span class="pre">'Twiddle',</span> <span class="pre">'Twinkle',</span> <span class="pre">'Wacky',</span> <span class="pre">'Weasel',</span> <span class="pre">'Whisker',</span> <span class="pre">'Whistle',</span> <span class="pre">'Wild',</span> <span class="pre">'Witty',</span> <span class="pre">'Wonder',</span> <span class="pre">'Wrinkle',</span> <span class="pre">'Ziller',</span> <span class="pre">'Zippen',</span> <span class="pre">'Zooble']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.lastPrefixes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.lastSuffixes">
+<span class="sig-name descname"><span class="pre">lastSuffixes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['bee',</span> <span class="pre">'berry',</span> <span class="pre">'blabber',</span> <span class="pre">'bocker',</span> <span class="pre">'boing',</span> <span class="pre">'boom',</span> <span class="pre">'bounce',</span> <span class="pre">'bouncer',</span> <span class="pre">'brains',</span> <span class="pre">'bubble',</span> <span class="pre">'bumble',</span> <span class="pre">'bump',</span> <span class="pre">'bumper',</span> <span class="pre">'burger',</span> <span class="pre">'chomp',</span> <span class="pre">'corn',</span> <span class="pre">'crash',</span> <span class="pre">'crumbs',</span> <span class="pre">'crump',</span> <span class="pre">'crunch',</span> <span class="pre">'doodle',</span> <span class="pre">'dorf',</span> <span class="pre">'face',</span> <span class="pre">'fidget',</span> <span class="pre">'fish',</span> <span class="pre">'flap',</span> <span class="pre">'fuddy',</span> <span class="pre">'flapper',</span> <span class="pre">'fink',</span> <span class="pre">'flinger',</span> <span class="pre">'flip',</span> <span class="pre">'flipper',</span> <span class="pre">'foot',</span> <span class="pre">'fussen',</span> <span class="pre">'gadget',</span> <span class="pre">'gargle',</span> <span class="pre">'glop',</span> <span class="pre">'gloop',</span> <span class="pre">'goober',</span> <span class="pre">'goose',</span> <span class="pre">'grooven',</span> <span class="pre">'hoffer',</span> <span class="pre">'hopper',</span> <span class="pre">'jinks',</span> <span class="pre">'klunk',</span> <span class="pre">'knees',</span> <span class="pre">'marble',</span> <span class="pre">'mash',</span> <span class="pre">'monkey',</span> <span class="pre">'mooch',</span> <span class="pre">'mouth',</span> <span class="pre">'muddle',</span> <span class="pre">'muffin',</span> <span class="pre">'mush',</span> <span class="pre">'nerd',</span> <span class="pre">'noodle',</span> <span class="pre">'nose',</span> <span class="pre">'nugget',</span> <span class="pre">'phew',</span> <span class="pre">'phooey',</span> <span class="pre">'pocket',</span> <span class="pre">'pop',</span> <span class="pre">'pow',</span> <span class="pre">'pretzel',</span> <span class="pre">'pounce',</span> <span class="pre">'poof',</span> <span class="pre">'quack',</span> <span class="pre">'roni',</span> <span class="pre">'scooter',</span> <span class="pre">'screech',</span> <span class="pre">'seed',</span> <span class="pre">'smirk',</span> <span class="pre">'snoop',</span> <span class="pre">'snooker',</span> <span class="pre">'snout',</span> <span class="pre">'socks',</span> <span class="pre">'speed',</span> <span class="pre">'spinner',</span> <span class="pre">'splat',</span> <span class="pre">'sprinkles',</span> <span class="pre">'sticks',</span> <span class="pre">'stink',</span> <span class="pre">'swirl',</span> <span class="pre">'teeth',</span> <span class="pre">'thud',</span> <span class="pre">'toes',</span> <span class="pre">'ton',</span> <span class="pre">'toon',</span> <span class="pre">'tooth',</span> <span class="pre">'twist',</span> <span class="pre">'whip',</span> <span class="pre">'wig',</span> <span class="pre">'woof',</span> <span class="pre">'zaner',</span> <span class="pre">'zap',</span> <span class="pre">'zapper',</span> <span class="pre">'zilla',</span> <span class="pre">'zoom']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.lastSuffixes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.neutralFirsts">
+<span class="sig-name descname"><span class="pre">neutralFirsts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['B.D.',</span> <span class="pre">'Banjo',</span> <span class="pre">'Batty',</span> <span class="pre">'Beany',</span> <span class="pre">'Bebop',</span> <span class="pre">'Bingo',</span> <span class="pre">'Binky',</span> <span class="pre">'Biscuit',</span> <span class="pre">'Bongo',</span> <span class="pre">'Boo</span> <span class="pre">Boo',</span> <span class="pre">'Bonkers',</span> <span class="pre">'Bouncey',</span> <span class="pre">'Bizzy',</span> <span class="pre">'Blinky',</span> <span class="pre">'Bumpy',</span> <span class="pre">'C.J.',</span> <span class="pre">'C.W.',</span> <span class="pre">'Chirpy',</span> <span class="pre">'Chunky',</span> <span class="pre">'Coconut',</span> <span class="pre">'Comet',</span> <span class="pre">'Corky',</span> <span class="pre">'Corny',</span> <span class="pre">'Cranky',</span> <span class="pre">'Crazy',</span> <span class="pre">'Cricket',</span> <span class="pre">'Crumbly',</span> <span class="pre">'Curly',</span> <span class="pre">'Cuckoo',</span> <span class="pre">'Daffy',</span> <span class="pre">'Dinky',</span> <span class="pre">'Dizzy',</span> <span class="pre">'Domino',</span> <span class="pre">'Drippy',</span> <span class="pre">'Droopy',</span> <span class="pre">'Dusty',</span> <span class="pre">'Dynamite',</span> <span class="pre">'Fancy',</span> <span class="pre">'Fangs',</span> <span class="pre">'Fireball',</span> <span class="pre">'Fleabag',</span> <span class="pre">'Flapjack',</span> <span class="pre">'Flappy',</span> <span class="pre">'Flip',</span> <span class="pre">'Fluffy',</span> <span class="pre">'Freckles',</span> <span class="pre">'Frizzy',</span> <span class="pre">'Furball',</span> <span class="pre">'Goopy',</span> <span class="pre">'Huddles',</span> <span class="pre">'J.C.',</span> <span class="pre">'Jazzy',</span> <span class="pre">'Jellyroll',</span> <span class="pre">'Kippy',</span> <span class="pre">'Kit',</span> <span class="pre">'Lefty',</span> <span class="pre">'Lollipop',</span> <span class="pre">'Loony',</span> <span class="pre">'Loopy',</span> <span class="pre">'Lucky',</span> <span class="pre">'Mildew',</span> <span class="pre">'Murky',</span> <span class="pre">'Nutty',</span> <span class="pre">'Pancake',</span> <span class="pre">'Peanut',</span> <span class="pre">'Peppy',</span> <span class="pre">'Pickles',</span> <span class="pre">'Pinky',</span> <span class="pre">'Popcorn',</span> <span class="pre">'Poppy',</span> <span class="pre">'Presto',</span> <span class="pre">'Rhubarb',</span> <span class="pre">'Salty',</span> <span class="pre">'Scooter',</span> <span class="pre">'Skids',</span> <span class="pre">'Skimpy',</span> <span class="pre">'Soupy',</span> <span class="pre">'Slappy',</span> <span class="pre">'Slippy',</span> <span class="pre">'Slumpy',</span> <span class="pre">'Smirky',</span> <span class="pre">'Snappy',</span> <span class="pre">'Sniffy',</span> <span class="pre">'Snuffy',</span> <span class="pre">'Spiffy',</span> <span class="pre">'Spotty',</span> <span class="pre">'Spunky',</span> <span class="pre">'Squeaky',</span> <span class="pre">'Stripey',</span> <span class="pre">'Star',</span> <span class="pre">'Stubby',</span> <span class="pre">'Tricky',</span> <span class="pre">'Tubby',</span> <span class="pre">'Von',</span> <span class="pre">'Wacky',</span> <span class="pre">'Wacko',</span> <span class="pre">'Whiskers',</span> <span class="pre">'Winky',</span> <span class="pre">'Yippie',</span> <span class="pre">'Z.Z.',</span> <span class="pre">'Zany',</span> <span class="pre">'Ziggy',</span> <span class="pre">'Zilly',</span> <span class="pre">'Zippy',</span> <span class="pre">'Zippety',</span> <span class="pre">'Zowie']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.neutralFirsts" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.neutralTitles">
+<span class="sig-name descname"><span class="pre">neutralTitles</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Big',</span> <span class="pre">'Captain',</span> <span class="pre">'Cool',</span> <span class="pre">'Colonel',</span> <span class="pre">'Crazy',</span> <span class="pre">'Deputy',</span> <span class="pre">'Dippy',</span> <span class="pre">'Doctor',</span> <span class="pre">'Fat',</span> <span class="pre">&quot;Good</span> <span class="pre">ol'&quot;,</span> <span class="pre">'Little',</span> <span class="pre">'Loopy',</span> <span class="pre">'Loud',</span> <span class="pre">'Noisy',</span> <span class="pre">'Prof.',</span> <span class="pre">'Sheriff',</span> <span class="pre">'Skinny',</span> <span class="pre">'Silly',</span> <span class="pre">'Super',</span> <span class="pre">'Ugly',</span> <span class="pre">'Weird']</span></em><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.neutralTitles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.readNameMaster">
+<span class="sig-name descname"><span class="pre">readNameMaster</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/makeatoon/NameFunctions.html#NameFunctions.readNameMaster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.readNameMaster" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="makeatoon.NameFunctions.NameFunctions.writeNameMaster">
+<span class="sig-name descname"><span class="pre">writeNameMaster</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/makeatoon/NameFunctions.html#NameFunctions.writeNameMaster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#makeatoon.NameFunctions.NameFunctions.writeNameMaster" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="makeatoon-namegenerator-module">
+<h2>makeatoon.NameGenerator module<a class="headerlink" href="#makeatoon-namegenerator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-nameshop-module">
+<h2>makeatoon.NameShop module<a class="headerlink" href="#makeatoon-nameshop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-shufflebutton-module">
+<h2>makeatoon.ShuffleButton module<a class="headerlink" href="#makeatoon-shufflebutton-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="makeatoon-ttpickanamepattern-module">
+<h2>makeatoon.TTPickANamePattern module<a class="headerlink" href="#makeatoon-ttpickanamepattern-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-makeatoon">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-makeatoon" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="login.html" class="btn btn-neutral float-left" title="login package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="minigame.html" class="btn btn-neutral float-right" title="minigame package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

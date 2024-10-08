@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>testenv.toc &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">testenv.toc</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for testenv.toc</h1><div class="highlight"><pre>
+<span></span><span class="c1">############################################</span>
+<span class="c1"># Py-TOC 2.4</span>
+<span class="c1">#</span>
+<span class="c1"># Jamie Turner &lt;jamwt@jamwt.com&gt;</span>
+<span class="c1">#</span>
+
+<span class="n">_VERSION</span> <span class="o">=</span> <span class="s2">&quot;2.4&quot;</span>
+
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="c1"># import select</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="kn">import</span> <span class="nn">_thread</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+
+
+<span class="n">TOC_SERV_AUTH</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;login.oscar.aol.com&quot;</span><span class="p">,</span> <span class="mi">5159</span> <span class="p">)</span>
+<span class="n">TOC_SERV</span> <span class="o">=</span> <span class="p">(</span> <span class="s2">&quot;toc.oscar.aol.com&quot;</span><span class="p">,</span> <span class="mi">9898</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="TOCError"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TOCError">[docs]</a><span class="k">class</span> <span class="nc">TOCError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span> 
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TOCDisconnectError"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TOCDisconnectError">[docs]</a><span class="k">class</span> <span class="nc">TOCDisconnectError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span> 
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TocTalk"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk">[docs]</a><span class="k">class</span> <span class="nc">TocTalk</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nick</span><span class="p">,</span><span class="n">passwd</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_nick</span> <span class="o">=</span> <span class="n">nick</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_passwd</span> <span class="o">=</span> <span class="n">passwd</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_agent</span> <span class="o">=</span> <span class="s2">&quot;PY-TOC&quot;</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_info</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m running the Python TOC Module by Jamie Turner &lt;jamwt@jamwt.com&gt;&quot;</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_seq</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">65535</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_logfd</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_debug</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_running</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_ignore</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_tsem</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">build_funcs</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="TocTalk.build_funcs"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.build_funcs">[docs]</a>        <span class="k">def</span> <span class="nf">build_funcs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_dir</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="p">(</span> <span class="nb">type</span><span class="p">(</span> <span class="nb">eval</span><span class="p">(</span><span class="s2">&quot;self.</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span><span class="p">))</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span> <span class="ow">and</span>
+                        <span class="n">item</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;on_&quot;</span> <span class="p">):</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">_dir</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span></div>
+
+                        
+<div class="viewcode-block" id="TocTalk.go"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.go">[docs]</a>        <span class="k">def</span> <span class="nf">go</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_running</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">process_loop</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TocTalk.start"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.start">[docs]</a>        <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="TocTalk.connect"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.connect">[docs]</a>        <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="c1">#create the socket object</span>
+                <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL:  Couldn&#39;t create a socket&quot;</span><span class="p">)</span>
+
+                <span class="c1"># make the connection</span>
+                <span class="k">try</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span> <span class="n">TOC_SERV</span> <span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCDisconnectError</span><span class="p">(</span><span class="s2">&quot;FATAL: Could not connect to TOC Server&quot;</span><span class="p">)</span>
+                
+                <span class="n">buf</span>  <span class="o">=</span> <span class="s2">&quot;FLAPON</span><span class="se">\r\n\r\n</span><span class="s2">&quot;</span>
+                <span class="n">bsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">bsent</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">buf</span><span class="p">):</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL: Couldn&#39;t send FLAPON!&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.start_log_in"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.start_log_in">[docs]</a>        <span class="k">def</span> <span class="nf">start_log_in</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">ep</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pwdenc</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_normnick</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nick</span><span class="p">)</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;!HHHH&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_normnick</span><span class="p">))</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_normnick</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span>
+
+                <span class="c1">#now, login</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_signon </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> english </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">TOC_SERV_AUTH</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">TOC_SERV_AUTH</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="bp">self</span><span class="o">.</span><span class="n">_normnick</span><span class="p">,</span><span class="n">ep</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_agent</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span></div>
+
+                
+<div class="viewcode-block" id="TocTalk.normalize"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.normalize">[docs]</a>        <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+                <span class="k">return</span>  <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;[^A-Za-z0-9]&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TocTalk.encode"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.encode">[docs]</a>        <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">()</span><span class="si">{}</span><span class="s2">[]$</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">:</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">letter</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\\</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">letter</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">data</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span></div>
+        
+<div class="viewcode-block" id="TocTalk.flap_to_toc"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.flap_to_toc">[docs]</a>        <span class="k">def</span> <span class="nf">flap_to_toc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ftype</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">ftype</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span> <span class="o">+</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;!B&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">ditems</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">ditems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
+                <span class="n">ditems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;!BHH&quot;</span><span class="p">,</span><span class="n">ftype</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_seq</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">msg</span><span class="p">)))</span>
+                <span class="n">ditems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+                <span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ditems</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2048</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;TOC data with protocol overhead cannot exceed 2048 bytes.&quot;</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">derror</span><span class="p">(</span> <span class="s2">&quot;SEND : </span><span class="se">\&#39;</span><span class="si">%r</span><span class="se">\&#39;</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">data</span> <span class="p">)</span>
+                
+
+                <span class="c1"># in case we&#39;re threading</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_tsem</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+                <span class="n">bsent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_tsem</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+
+                <span class="k">if</span> <span class="n">bsent</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+                        <span class="c1">#maybe make less severe later</span>
+                        <span class="c1"># I&#39;ve never seen this happen.. have you??</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL: Couldn&#39;t send all data to TOC Server</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">_seq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_seq</span> <span class="o">+</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="TocTalk.pwdenc"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.pwdenc">[docs]</a>        <span class="k">def</span> <span class="nf">pwdenc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">lookup</span> <span class="o">=</span> <span class="s2">&quot;Tic/Toc&quot;</span>
+                <span class="n">ept</span> <span class="o">=</span> <span class="p">[]</span>
+
+                <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_passwd</span><span class="p">:</span>
+                        <span class="n">ept</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%02x</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span> <span class="nb">ord</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span> <span class="o">^</span> <span class="nb">ord</span><span class="p">(</span> <span class="n">lookup</span><span class="p">[</span><span class="n">x</span> <span class="o">%</span> <span class="mi">7</span><span class="p">])</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">return</span> <span class="s2">&quot;0x&quot;</span> <span class="o">+</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ept</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="TocTalk.process_loop"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.process_loop">[docs]</a>        <span class="k">def</span> <span class="nf">process_loop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="c1"># the &quot;main&quot; loop</span>
+                <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">event</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">recv_event</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="p">:</span>
+                                <span class="k">continue</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">handle_event</span><span class="p">(</span><span class="n">event</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.handle_event"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.handle_event">[docs]</a>        <span class="k">def</span> <span class="nf">handle_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">event</span><span class="p">):</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">derror</span><span class="p">(</span> <span class="s2">&quot;RECV : </span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+
+                <span class="c1">#else, fig out what to do with it</span>
+                <span class="c1">#special case-- login</span>
+                <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">start_log_in</span><span class="p">()</span>
+                        <span class="k">return</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">):</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                        <span class="nb">id</span> <span class="o">=</span> <span class="s2">&quot;NOID&quot;</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                        <span class="n">ind</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+                        <span class="nb">id</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="n">ind</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+
+                <span class="c1">#handle manually now</span>
+                <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="s2">&quot;SIGN_ON&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">c_SIGN_ON</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+                        <span class="k">return</span>
+
+                <span class="k">if</span> <span class="nb">id</span> <span class="o">==</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">c_ERROR</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+                        <span class="k">return</span>
+
+                <span class="c1">#their imp</span>
+                <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;on_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">id</span> <span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dir</span><span class="p">:</span>
+                        <span class="n">exec</span> <span class="p">(</span> <span class="s2">&quot;self.on_</span><span class="si">%s</span><span class="s2">(data)&quot;</span> <span class="o">%</span> <span class="nb">id</span> <span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">werror</span><span class="p">(</span><span class="s2">&quot;INFO : Received unimplemented &#39;</span><span class="si">%s</span><span class="s2">&#39; id&quot;</span> <span class="o">%</span> <span class="nb">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.recv_event"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.recv_event">[docs]</a>        <span class="k">def</span> <span class="nf">recv_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+                <span class="c1"># TODO: this is a non-blocking hack.</span>
+                <span class="c1"># what if the first 6 bytes are there but nothing else?</span>
+                
+                <span class="k">try</span><span class="p">:</span>
+                        <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                        <span class="k">return</span>
+
+                <span class="k">if</span> <span class="n">header</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">err_disconnect</span><span class="p">()</span>
+                        <span class="k">return</span>
+
+                <span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="n">mtype</span><span class="p">,</span><span class="n">seq</span><span class="p">,</span><span class="n">buflen</span><span class="p">)</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;!sBhh&quot;</span><span class="p">,</span><span class="n">header</span><span class="p">)</span>
+
+                <span class="c1">#get the info</span>
+                <span class="n">dtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">buflen</span><span class="p">)</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">dtemp</span>
+                <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="n">buflen</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">dtemp</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">err_disconnect</span><span class="p">()</span>
+                                <span class="k">return</span>
+                        <span class="n">dtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">buflen</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">+</span> <span class="n">dtemp</span>
+
+                <span class="k">return</span> <span class="p">(</span><span class="n">mtype</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.thread_recv_events"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.thread_recv_events">[docs]</a>        <span class="k">def</span> <span class="nf">thread_recv_events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_running</span><span class="p">:</span>
+                        <span class="n">rfd</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">dc</span> <span class="o">=</span> <span class="n">select</span><span class="o">.</span><span class="n">select</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="p">],[],[])</span>
+                        <span class="k">if</span> <span class="n">rfd</span> <span class="o">==</span> <span class="p">[]:</span>
+                                <span class="k">continue</span>
+                        <span class="k">try</span><span class="p">:</span>
+                                <span class="n">header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> 
+                        <span class="k">except</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">err_disconnect</span><span class="p">()</span>
+
+                        <span class="k">if</span> <span class="n">header</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">err_disconnect</span><span class="p">()</span>
+
+                        <span class="p">(</span><span class="n">marker</span><span class="p">,</span><span class="n">mtype</span><span class="p">,</span><span class="n">seq</span><span class="p">,</span><span class="n">buflen</span><span class="p">)</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;!sBhh&quot;</span><span class="p">,</span><span class="n">header</span><span class="p">)</span>
+
+                        <span class="c1">#get the info</span>
+                        <span class="n">dtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">buflen</span><span class="p">)</span>
+                        <span class="n">data</span> <span class="o">=</span> <span class="n">dtemp</span>
+                        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="n">buflen</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="n">dtemp</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                                        <span class="bp">self</span><span class="o">.</span><span class="n">err_disconnect</span><span class="p">()</span>
+                                <span class="n">dtemp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">buflen</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+                                <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">+</span> <span class="n">dtemp</span>
+
+                        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ignore</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">handle_event</span><span class="p">([</span><span class="n">mtype</span><span class="p">,</span><span class="n">data</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TocTalk.err_disconnect"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.err_disconnect">[docs]</a>        <span class="k">def</span> <span class="nf">err_disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">werror</span><span class="p">(</span> <span class="s2">&quot;INFO: Disconnected!</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="n">TOCDisconnectError</span><span class="p">(</span><span class="s2">&quot;FATAL: We seem to have been disconnected from the TOC server.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+        <span class="c1"># our event handling</span>
+<div class="viewcode-block" id="TocTalk.c_ERROR"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.c_ERROR">[docs]</a>        <span class="k">def</span> <span class="nf">c_ERROR</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+                <span class="c1"># let&#39;s just grab the errors we care about!</span>
+
+                <span class="c1">#still more fields</span>
+                <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">):</span> 
+                        <span class="n">dt</span> <span class="o">=</span> <span class="nb">int</span> <span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)])</span>
+                <span class="k">else</span><span class="p">:</span>
+                        <span class="n">dt</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># let&#39;s get an int outta it</span>
+                
+                <span class="k">if</span> <span class="n">dt</span> <span class="o">==</span> <span class="mi">980</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL: Couldn&#39;t sign on; Incorrect nickname/password combination&quot;</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">dt</span> <span class="o">==</span> <span class="mi">981</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL: Couldn&#39;t sign on; The AIM service is temporarily unavailable&quot;</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">dt</span> <span class="o">==</span> <span class="mi">982</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL: Couldn&#39;t sign on; Your warning level is too high&quot;</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">dt</span> <span class="o">==</span> <span class="mi">983</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL: Couldn&#39;t sign on; You have been connecting and disconnecting too frequently&quot;</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">dt</span> <span class="o">==</span> <span class="mi">989</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">TOCError</span><span class="p">(</span><span class="s2">&quot;FATAL: Couldn&#39;t sign on; An unknown error occurred&quot;</span><span class="p">)</span>
+
+                <span class="c1"># ... etc etc etc</span>
+                <span class="k">else</span><span class="p">:</span>
+                        <span class="c1"># try to let further implementation handle it</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;on_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">id</span> <span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dir</span><span class="p">:</span>
+                                <span class="n">exec</span> <span class="p">(</span> <span class="s2">&quot;self.on_</span><span class="si">%s</span><span class="s2">(data)&quot;</span> <span class="o">%</span> <span class="nb">id</span> <span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">werror</span><span class="p">(</span><span class="s2">&quot;ERROR: The TOC server sent an unhandled error string: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.c_SIGN_ON"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.c_SIGN_ON">[docs]</a>        <span class="k">def</span> <span class="nf">c_SIGN_ON</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">type</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_add_buddy </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nick</span><span class="p">))</span> <span class="c1"># needs to start up corectly</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_set_info </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_info</span><span class="p">)</span> <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_init_done&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TocTalk.strip_html"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.strip_html">[docs]</a>        <span class="k">def</span> <span class="nf">strip_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;&lt;[^&gt;]*&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.normbuds"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.normbuds">[docs]</a>        <span class="k">def</span> <span class="nf">normbuds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">buddies</span><span class="p">):</span>
+                <span class="n">nbuds</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">buddy</span> <span class="ow">in</span> <span class="n">buddies</span><span class="p">:</span>
+                        <span class="n">nbuds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">buddy</span><span class="p">))</span>
+                <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nbuds</span><span class="p">)</span></div>
+        
+        <span class="c1">#actions--help the user w/common tasks</span>
+
+        <span class="c1">#the all-important</span>
+<div class="viewcode-block" id="TocTalk.do_SEND_IM"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_SEND_IM">[docs]</a>        <span class="k">def</span> <span class="nf">do_SEND_IM</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">user</span><span class="p">,</span><span class="n">message</span><span class="p">,</span><span class="n">autoaway</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">sendmessage</span> <span class="o">=</span> <span class="s2">&quot;toc_send_im </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">user</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="n">autoaway</span><span class="p">:</span>
+                        <span class="n">sendmessage</span> <span class="o">=</span> <span class="n">sendmessage</span> <span class="o">+</span> <span class="s2">&quot; auto&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sendmessage</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_ADD_BUDDY"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_ADD_BUDDY">[docs]</a>        <span class="k">def</span> <span class="nf">do_ADD_BUDDY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">buddies</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_add_buddy </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">normbuds</span><span class="p">(</span><span class="n">buddies</span><span class="p">)</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_ADD_PERMIT"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_ADD_PERMIT">[docs]</a>        <span class="k">def</span> <span class="nf">do_ADD_PERMIT</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">buddies</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_add_permit </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">normbuds</span><span class="p">(</span><span class="n">buddies</span><span class="p">)</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_ADD_DENY"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_ADD_DENY">[docs]</a>        <span class="k">def</span> <span class="nf">do_ADD_DENY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">buddies</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_add_deny </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">normbuds</span><span class="p">(</span><span class="n">buddies</span><span class="p">)</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_REMOVE_BUDDY"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_REMOVE_BUDDY">[docs]</a>        <span class="k">def</span> <span class="nf">do_REMOVE_BUDDY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">buddies</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_remove_buddy </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">normbuds</span><span class="p">(</span><span class="n">buddies</span><span class="p">)</span> <span class="p">)</span></div>
+
+        <span class="c1"># away, idle, user info handling</span>
+<div class="viewcode-block" id="TocTalk.do_SET_IDLE"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_SET_IDLE">[docs]</a>        <span class="k">def</span> <span class="nf">do_SET_IDLE</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">itime</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_set_idle </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">itime</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_SET_AWAY"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_SET_AWAY">[docs]</a>        <span class="k">def</span> <span class="nf">do_SET_AWAY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">awaymess</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">awaymess</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_set_away&quot;</span><span class="p">)</span>
+                        <span class="k">return</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_set_away </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">awaymess</span><span class="p">)</span> <span class="p">)</span></div>
+                
+<div class="viewcode-block" id="TocTalk.do_GET_INFO"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_GET_INFO">[docs]</a>        <span class="k">def</span> <span class="nf">do_GET_INFO</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">user</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_get_info </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_SET_INFO"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_SET_INFO">[docs]</a>        <span class="k">def</span> <span class="nf">do_SET_INFO</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">info</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_set_info </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="p">)</span></div>
+
+        <span class="c1"># warning capability</span>
+<div class="viewcode-block" id="TocTalk.do_EVIL"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_EVIL">[docs]</a>        <span class="k">def</span> <span class="nf">do_EVIL</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">user</span><span class="p">,</span><span class="n">anon</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">anon</span><span class="p">:</span>
+                        <span class="n">acode</span> <span class="o">=</span> <span class="s2">&quot;anon&quot;</span>
+                <span class="k">else</span><span class="p">:</span>
+                        <span class="n">acode</span> <span class="o">=</span> <span class="s2">&quot;norm&quot;</span>
+                        
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_evil </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">user</span><span class="p">),</span> <span class="n">acode</span><span class="p">)</span> <span class="p">)</span></div>
+
+        <span class="c1">#chat</span>
+<div class="viewcode-block" id="TocTalk.do_CHAT_INVITE"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_CHAT_INVITE">[docs]</a>        <span class="k">def</span> <span class="nf">do_CHAT_INVITE</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">room</span><span class="p">,</span><span class="n">imess</span><span class="p">,</span><span class="n">buddies</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_chat_invite </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">room</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">imess</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">normbuds</span><span class="p">(</span><span class="n">buddies</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_CHAT_ACCEPT"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_CHAT_ACCEPT">[docs]</a>        <span class="k">def</span> <span class="nf">do_CHAT_ACCEPT</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_chat_accept </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">id</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_CHAT_LEAVE"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_CHAT_LEAVE">[docs]</a>        <span class="k">def</span> <span class="nf">do_CHAT_LEAVE</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">id</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_chat_leave </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">id</span><span class="p">)</span></div>
+                
+<div class="viewcode-block" id="TocTalk.do_CHAT_WHISPER"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_CHAT_WHISPER">[docs]</a>        <span class="k">def</span> <span class="nf">do_CHAT_WHISPER</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">room</span><span class="p">,</span><span class="n">user</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_chat_whisper </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">room</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">user</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_CHAT_SEND"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_CHAT_SEND">[docs]</a>        <span class="k">def</span> <span class="nf">do_CHAT_SEND</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">room</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_chat_send </span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">room</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">message</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span></div>
+                
+<div class="viewcode-block" id="TocTalk.do_CHAT_JOIN"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_CHAT_JOIN">[docs]</a>        <span class="k">def</span> <span class="nf">do_CHAT_JOIN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">roomname</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_chat_join 4 </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">roomname</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TocTalk.do_SET_CONFIG"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.do_SET_CONFIG">[docs]</a>        <span class="k">def</span> <span class="nf">do_SET_CONFIG</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">configstr</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">flap_to_toc</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;toc_set_config </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">configstr</span><span class="p">)</span></div>
+
+        <span class="c1"># error funcs</span>
+<div class="viewcode-block" id="TocTalk.werror"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.werror">[docs]</a>        <span class="k">def</span> <span class="nf">werror</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">errorstr</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_debug</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_logfd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;(</span><span class="si">%s</span><span class="s2">) </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nick</span><span class="p">,</span><span class="n">errorstr</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TocTalk.derror"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.TocTalk.derror">[docs]</a>        <span class="k">def</span> <span class="nf">derror</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">errorstr</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_debug</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_logfd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;(</span><span class="si">%s</span><span class="s2">) </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nick</span><span class="p">,</span><span class="n">errorstr</span><span class="p">))</span></div></div>
+
+<div class="viewcode-block" id="BotManagerError"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManagerError">[docs]</a><span class="k">class</span> <span class="nc">BotManagerError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="BotManager"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManager">[docs]</a><span class="k">class</span> <span class="nc">BotManager</span><span class="p">:</span>
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bots</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="BotManager.addBot"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManager.addBot">[docs]</a>        <span class="k">def</span> <span class="nf">addBot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bot</span><span class="p">,</span><span class="n">botref</span><span class="p">,</span><span class="n">go</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">reconnect</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">delay</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">botref</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">BotManagerError</span><span class="p">(</span><span class="s2">&quot;That botref is already registered&quot;</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">]</span> <span class="o">=</span> <span class="n">bot</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">]</span><span class="o">.</span><span class="n">_reconnect</span> <span class="o">=</span> <span class="n">reconnect</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">]</span><span class="o">.</span><span class="n">_delay</span> <span class="o">=</span> <span class="n">delay</span>
+                <span class="k">if</span> <span class="n">go</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">botGo</span><span class="p">(</span><span class="n">botref</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BotManager.botGo"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManager.botGo">[docs]</a>        <span class="k">def</span> <span class="nf">botGo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">botref</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">botref</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">BotManagerError</span><span class="p">(</span><span class="s2">&quot;That botref has not been registered&quot;</span><span class="p">)</span>
+                <span class="n">_thread</span><span class="o">.</span><span class="n">start_new_thread</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dispatcher</span><span class="p">,(</span><span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">],))</span></div>
+
+<div class="viewcode-block" id="BotManager.botStop"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManager.botStop">[docs]</a>        <span class="k">def</span> <span class="nf">botStop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">botref</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">botref</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">BotManagerError</span><span class="p">(</span><span class="s2">&quot;That botref has not been registered&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">]</span><span class="o">.</span><span class="n">_running</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">]</span><span class="o">.</span><span class="n">_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="BotManager.botPause"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManager.botPause">[docs]</a>        <span class="k">def</span> <span class="nf">botPause</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">botref</span><span class="p">,</span><span class="n">val</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">botref</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">BotManagerError</span><span class="p">(</span><span class="s2">&quot;That botref has not been registered&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">]</span><span class="o">.</span><span class="n">_ignore</span> <span class="o">=</span> <span class="n">val</span></div>
+
+<div class="viewcode-block" id="BotManager.getBot"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManager.getBot">[docs]</a>        <span class="k">def</span> <span class="nf">getBot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">botref</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">botref</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">BotManagerError</span><span class="p">(</span><span class="s2">&quot;That botref has not been registered&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bots</span><span class="p">[</span><span class="n">botref</span><span class="p">]</span></div>
+                
+
+        <span class="k">def</span> <span class="nf">_dispatcher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">bot</span><span class="p">):</span>
+                <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="k">try</span><span class="p">:</span>
+                                <span class="n">bot</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+                                <span class="n">bot</span><span class="o">.</span><span class="n">_running</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">bot</span><span class="o">.</span><span class="n">thread_recv_events</span><span class="p">()</span>
+                        <span class="k">except</span> <span class="n">TOCDisconnectError</span><span class="p">:</span>
+                                <span class="k">if</span> <span class="ow">not</span> <span class="n">bot</span><span class="o">.</span><span class="n">_reconnect</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">bot</span><span class="o">.</span><span class="n">_running</span><span class="p">:</span>
+                                        <span class="k">break</span>
+                                <span class="n">bot</span><span class="o">.</span><span class="n">_running</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">bot</span><span class="o">.</span><span class="n">_delay</span><span class="p">)</span> <span class="c1"># then we reconnect</span>
+                        <span class="k">else</span><span class="p">:</span>
+                                <span class="k">break</span>
+                <span class="n">_thread</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+<div class="viewcode-block" id="BotManager.wait"><a class="viewcode-back" href="../../toontown/testenv.html#testenv.toc.BotManager.wait">[docs]</a>        <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2000000</span><span class="p">)</span> <span class="c1"># not coming back from this...</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

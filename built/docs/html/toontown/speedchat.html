@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>speedchat package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="suit package" href="suit.html" />
+    <link rel="prev" title="shtiker package" href="shtiker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">speedchat package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCAprilToonsMenu">speedchat.TTSCAprilToonsMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCBoardingMenu">speedchat.TTSCBoardingMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCCarolMenu">speedchat.TTSCCarolMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCCogMenu">speedchat.TTSCCogMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCDecoders">speedchat.TTSCDecoders module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCFactoryMenu">speedchat.TTSCFactoryMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCGolfMenu">speedchat.TTSCGolfMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCHalloweenMenu">speedchat.TTSCHalloweenMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCIdesOfMarchMenu">speedchat.TTSCIdesOfMarchMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCIndexedTerminal">speedchat.TTSCIndexedTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCJellybeanJamMenu">speedchat.TTSCJellybeanJamMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCKartRacingMenu">speedchat.TTSCKartRacingMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCLawbotNerfMenu">speedchat.TTSCLawbotNerfMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCPetTrickMenu">speedchat.TTSCPetTrickMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCPromotionalMenu">speedchat.TTSCPromotionalMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCResistanceMenu">speedchat.TTSCResistanceMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCResistanceTerminal">speedchat.TTSCResistanceTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSellbotFieldOfficeMenu">speedchat.TTSCSellbotFieldOfficeMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSellbotInvasionMenu">speedchat.TTSCSellbotInvasionMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSellbotNerfMenu">speedchat.TTSCSellbotNerfMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSillyPhaseFiveMenu">speedchat.TTSCSillyPhaseFiveMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSillyPhaseFourMenu">speedchat.TTSCSillyPhaseFourMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSillyPhaseOneMenu">speedchat.TTSCSillyPhaseOneMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSillyPhaseThreeMenu">speedchat.TTSCSillyPhaseThreeMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSillyPhaseTwoMenu">speedchat.TTSCSillyPhaseTwoMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSingingMenu">speedchat.TTSCSingingMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCSingingTerminal">speedchat.TTSCSingingTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCToontaskMenu">speedchat.TTSCToontaskMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCToontaskTerminal">speedchat.TTSCToontaskTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCVictoryPartiesMenu">speedchat.TTSCVictoryPartiesMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSCWinterMenu">speedchat.TTSCWinterMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSpeedChatGlobals">speedchat.TTSpeedChatGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.TTSpeedChatTypes">speedchat.TTSpeedChatTypes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">speedchat package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/speedchat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="speedchat-package">
+<h1>speedchat package<a class="headerlink" href="#speedchat-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCAprilToonsMenu">
+<span id="speedchat-ttscapriltoonsmenu-module"></span><h2>speedchat.TTSCAprilToonsMenu module<a class="headerlink" href="#module-speedchat.TTSCAprilToonsMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCBoardingMenu">
+<span id="speedchat-ttscboardingmenu-module"></span><h2>speedchat.TTSCBoardingMenu module<a class="headerlink" href="#module-speedchat.TTSCBoardingMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCCarolMenu">
+<span id="speedchat-ttsccarolmenu-module"></span><h2>speedchat.TTSCCarolMenu module<a class="headerlink" href="#module-speedchat.TTSCCarolMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCCogMenu">
+<span id="speedchat-ttsccogmenu-module"></span><h2>speedchat.TTSCCogMenu module<a class="headerlink" href="#module-speedchat.TTSCCogMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCDecoders">
+<span id="speedchat-ttscdecoders-module"></span><h2>speedchat.TTSCDecoders module<a class="headerlink" href="#module-speedchat.TTSCDecoders" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCFactoryMenu">
+<span id="speedchat-ttscfactorymenu-module"></span><h2>speedchat.TTSCFactoryMenu module<a class="headerlink" href="#module-speedchat.TTSCFactoryMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCGolfMenu">
+<span id="speedchat-ttscgolfmenu-module"></span><h2>speedchat.TTSCGolfMenu module<a class="headerlink" href="#module-speedchat.TTSCGolfMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCHalloweenMenu">
+<span id="speedchat-ttschalloweenmenu-module"></span><h2>speedchat.TTSCHalloweenMenu module<a class="headerlink" href="#module-speedchat.TTSCHalloweenMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCIdesOfMarchMenu">
+<span id="speedchat-ttscidesofmarchmenu-module"></span><h2>speedchat.TTSCIdesOfMarchMenu module<a class="headerlink" href="#module-speedchat.TTSCIdesOfMarchMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCIndexedTerminal">
+<span id="speedchat-ttscindexedterminal-module"></span><h2>speedchat.TTSCIndexedTerminal module<a class="headerlink" href="#module-speedchat.TTSCIndexedTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCJellybeanJamMenu">
+<span id="speedchat-ttscjellybeanjammenu-module"></span><h2>speedchat.TTSCJellybeanJamMenu module<a class="headerlink" href="#module-speedchat.TTSCJellybeanJamMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCKartRacingMenu">
+<span id="speedchat-ttsckartracingmenu-module"></span><h2>speedchat.TTSCKartRacingMenu module<a class="headerlink" href="#module-speedchat.TTSCKartRacingMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCLawbotNerfMenu">
+<span id="speedchat-ttsclawbotnerfmenu-module"></span><h2>speedchat.TTSCLawbotNerfMenu module<a class="headerlink" href="#module-speedchat.TTSCLawbotNerfMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCPetTrickMenu">
+<span id="speedchat-ttscpettrickmenu-module"></span><h2>speedchat.TTSCPetTrickMenu module<a class="headerlink" href="#module-speedchat.TTSCPetTrickMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCPromotionalMenu">
+<span id="speedchat-ttscpromotionalmenu-module"></span><h2>speedchat.TTSCPromotionalMenu module<a class="headerlink" href="#module-speedchat.TTSCPromotionalMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCResistanceMenu">
+<span id="speedchat-ttscresistancemenu-module"></span><h2>speedchat.TTSCResistanceMenu module<a class="headerlink" href="#module-speedchat.TTSCResistanceMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCResistanceTerminal">
+<span id="speedchat-ttscresistanceterminal-module"></span><h2>speedchat.TTSCResistanceTerminal module<a class="headerlink" href="#module-speedchat.TTSCResistanceTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSellbotFieldOfficeMenu">
+<span id="speedchat-ttscsellbotfieldofficemenu-module"></span><h2>speedchat.TTSCSellbotFieldOfficeMenu module<a class="headerlink" href="#module-speedchat.TTSCSellbotFieldOfficeMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSellbotInvasionMenu">
+<span id="speedchat-ttscsellbotinvasionmenu-module"></span><h2>speedchat.TTSCSellbotInvasionMenu module<a class="headerlink" href="#module-speedchat.TTSCSellbotInvasionMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSellbotNerfMenu">
+<span id="speedchat-ttscsellbotnerfmenu-module"></span><h2>speedchat.TTSCSellbotNerfMenu module<a class="headerlink" href="#module-speedchat.TTSCSellbotNerfMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSillyPhaseFiveMenu">
+<span id="speedchat-ttscsillyphasefivemenu-module"></span><h2>speedchat.TTSCSillyPhaseFiveMenu module<a class="headerlink" href="#module-speedchat.TTSCSillyPhaseFiveMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSillyPhaseFourMenu">
+<span id="speedchat-ttscsillyphasefourmenu-module"></span><h2>speedchat.TTSCSillyPhaseFourMenu module<a class="headerlink" href="#module-speedchat.TTSCSillyPhaseFourMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSillyPhaseOneMenu">
+<span id="speedchat-ttscsillyphaseonemenu-module"></span><h2>speedchat.TTSCSillyPhaseOneMenu module<a class="headerlink" href="#module-speedchat.TTSCSillyPhaseOneMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSillyPhaseThreeMenu">
+<span id="speedchat-ttscsillyphasethreemenu-module"></span><h2>speedchat.TTSCSillyPhaseThreeMenu module<a class="headerlink" href="#module-speedchat.TTSCSillyPhaseThreeMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSillyPhaseTwoMenu">
+<span id="speedchat-ttscsillyphasetwomenu-module"></span><h2>speedchat.TTSCSillyPhaseTwoMenu module<a class="headerlink" href="#module-speedchat.TTSCSillyPhaseTwoMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSingingMenu">
+<span id="speedchat-ttscsingingmenu-module"></span><h2>speedchat.TTSCSingingMenu module<a class="headerlink" href="#module-speedchat.TTSCSingingMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCSingingTerminal">
+<span id="speedchat-ttscsingingterminal-module"></span><h2>speedchat.TTSCSingingTerminal module<a class="headerlink" href="#module-speedchat.TTSCSingingTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCToontaskMenu">
+<span id="speedchat-ttsctoontaskmenu-module"></span><h2>speedchat.TTSCToontaskMenu module<a class="headerlink" href="#module-speedchat.TTSCToontaskMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCToontaskTerminal">
+<span id="speedchat-ttsctoontaskterminal-module"></span><h2>speedchat.TTSCToontaskTerminal module<a class="headerlink" href="#module-speedchat.TTSCToontaskTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCVictoryPartiesMenu">
+<span id="speedchat-ttscvictorypartiesmenu-module"></span><h2>speedchat.TTSCVictoryPartiesMenu module<a class="headerlink" href="#module-speedchat.TTSCVictoryPartiesMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSCWinterMenu">
+<span id="speedchat-ttscwintermenu-module"></span><h2>speedchat.TTSCWinterMenu module<a class="headerlink" href="#module-speedchat.TTSCWinterMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSpeedChatGlobals">
+<span id="speedchat-ttspeedchatglobals-module"></span><h2>speedchat.TTSpeedChatGlobals module<a class="headerlink" href="#module-speedchat.TTSpeedChatGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.TTSpeedChatTypes">
+<span id="speedchat-ttspeedchattypes-module"></span><h2>speedchat.TTSpeedChatTypes module<a class="headerlink" href="#module-speedchat.TTSpeedChatTypes" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-speedchat" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shtiker.html" class="btn btn-neutral float-left" title="shtiker package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="suit.html" class="btn btn-neutral float-right" title="suit package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

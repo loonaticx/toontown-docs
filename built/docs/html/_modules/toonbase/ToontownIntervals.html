@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>toonbase.ToontownIntervals &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">toonbase.ToontownIntervals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for toonbase.ToontownIntervals</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Generic intervals that can be used throughout Toontown classes.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">direct.interval.MetaInterval</span> <span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span> <span class="nn">direct.interval.FunctionInterval</span> <span class="kn">import</span> <span class="n">Wait</span><span class="p">,</span> <span class="n">Func</span>
+
+<span class="n">PULSE_GUI_DURATION</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">PULSE_GUI_CHANGE</span> <span class="o">=</span> <span class="mf">.333</span>
+
+<div class="viewcode-block" id="cleanup"><a class="viewcode-back" href="../../toontown/toonbase.html#toonbase.ToontownIntervals.cleanup">[docs]</a><span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean stop of an ival&quot;&quot;&quot;</span>
+    <span class="n">taskMgr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>   </div>
+
+<div class="viewcode-block" id="start"><a class="viewcode-back" href="../../toontown/toonbase.html#toonbase.ToontownIntervals.start">[docs]</a><span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="n">ival</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean start of an ival&quot;&quot;&quot;</span>
+    <span class="n">cleanup</span><span class="p">(</span><span class="n">ival</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+    <span class="n">ival</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ival</span></div>
+
+    
+<div class="viewcode-block" id="loop"><a class="viewcode-back" href="../../toontown/toonbase.html#toonbase.ToontownIntervals.loop">[docs]</a><span class="k">def</span> <span class="nf">loop</span><span class="p">(</span><span class="n">ival</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clean loop of an ival&quot;&quot;&quot;</span>
+    <span class="n">cleanup</span><span class="p">(</span><span class="n">ival</span><span class="o">.</span><span class="n">getName</span><span class="p">())</span>
+    <span class="n">ival</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">ival</span></div>
+
+
+<div class="viewcode-block" id="getPulseLargerIval"><a class="viewcode-back" href="../../toontown/toonbase.html#toonbase.ToontownIntervals.getPulseLargerIval">[docs]</a><span class="k">def</span> <span class="nf">getPulseLargerIval</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">PULSE_GUI_DURATION</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a boing larger effect&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">getPulseIval</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">PULSE_GUI_CHANGE</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="getPulseSmallerIval"><a class="viewcode-back" href="../../toontown/toonbase.html#toonbase.ToontownIntervals.getPulseSmallerIval">[docs]</a><span class="k">def</span> <span class="nf">getPulseSmallerIval</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">PULSE_GUI_DURATION</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a boing smaller effect&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">getPulseIval</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">PULSE_GUI_CHANGE</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">duration</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="getPulseIval"><a class="viewcode-back" href="../../toontown/toonbase.html#toonbase.ToontownIntervals.getPulseIval">[docs]</a><span class="k">def</span> <span class="nf">getPulseIval</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">change</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">PULSE_GUI_CHANGE</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Creates a boing interval builder&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">Sequence</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">scaleInterval</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">change</span><span class="p">,</span> <span class="n">blendType</span><span class="o">=</span><span class="s1">&#39;easeOut&#39;</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">scaleInterval</span><span class="p">(</span><span class="n">duration</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">blendType</span><span class="o">=</span><span class="s1">&#39;easeIn&#39;</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">autoFinish</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="getPresentGuiIval"><a class="viewcode-back" href="../../toontown/toonbase.html#toonbase.ToontownIntervals.getPresentGuiIval">[docs]</a><span class="k">def</span> <span class="nf">getPresentGuiIval</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">waitDuration</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">moveDuration</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">aspect2d</span><span class="p">,</span> <span class="n">startPos</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Presents a new GUI:</span>
+<span class="sd">    Shows/boings the gui right on the center of the screen,</span>
+<span class="sd">    then moves the gui to where it&#39;s supposed to go.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">endPos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">getPos</span><span class="p">()</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">startPos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">startPos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">startPos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">Sequence</span><span class="p">(</span>
+        <span class="n">Func</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">show</span><span class="p">),</span>
+        <span class="n">getPulseLargerIval</span><span class="p">(</span><span class="n">np</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">getScale</span><span class="p">()),</span>
+        <span class="n">Wait</span><span class="p">(</span><span class="n">waitDuration</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">posInterval</span><span class="p">(</span>
+            <span class="n">moveDuration</span><span class="p">,</span>
+            <span class="n">endPos</span><span class="p">,</span>
+            <span class="n">blendType</span><span class="o">=</span><span class="s2">&quot;easeInOut&quot;</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">autoFinish</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span></div>
+        
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>login package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="movement package" href="movement.html" />
+    <link rel="prev" title="leveleditor package" href="leveleditor.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">otp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html">level package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">login package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-accountserverconstants-module">login.AccountServerConstants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-createaccountscreen-module">login.CreateAccountScreen module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-guiscreen-module">login.GuiScreen module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-httputil-module">login.HTTPUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-leavetopaydialog-module">login.LeaveToPayDialog module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-login.LoginBase">login.LoginBase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#login.LoginBase.LoginBase"><code class="docutils literal notranslate"><span class="pre">LoginBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-login.LoginDISLTokenAccount">login.LoginDISLTokenAccount module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#login.LoginDISLTokenAccount.LoginDISLTokenAccount"><code class="docutils literal notranslate"><span class="pre">LoginDISLTokenAccount</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#login-logingsaccount-module">login.LoginGSAccount module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-logingoaccount-module">login.LoginGoAccount module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-loginscreen-module">login.LoginScreen module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-loginttaccount-module">login.LoginTTAccount module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-loginttspecificdevaccount-module">login.LoginTTSpecificDevAccount module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-loginwebplaytokenaccount-module">login.LoginWebPlayTokenAccount module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-multipagetextframe-module">login.MultiPageTextFrame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-privacypolicypanel-module">login.PrivacyPolicyPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-remotevalueset-module">login.RemoteValueSet module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-secretfriendsinfopanel-module">login.SecretFriendsInfoPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#login-ttaccount-module">login.TTAccount module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-login">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">navigation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html">otpbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">otp</a></li>
+      <li class="breadcrumb-item active">login package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/login.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="login-package">
+<h1>login package<a class="headerlink" href="#login-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-accountserverconstants-module">
+<h2>login.AccountServerConstants module<a class="headerlink" href="#login-accountserverconstants-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-createaccountscreen-module">
+<h2>login.CreateAccountScreen module<a class="headerlink" href="#login-createaccountscreen-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-guiscreen-module">
+<h2>login.GuiScreen module<a class="headerlink" href="#login-guiscreen-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-httputil-module">
+<h2>login.HTTPUtil module<a class="headerlink" href="#login-httputil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-leavetopaydialog-module">
+<h2>login.LeaveToPayDialog module<a class="headerlink" href="#login-leavetopaydialog-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-login.LoginBase">
+<span id="login-loginbase-module"></span><h2>login.LoginBase module<a class="headerlink" href="#module-login.LoginBase" title="Permalink to this heading"></a></h2>
+<p>LoginBase is the base class for LoginXXAccount classes</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="login.LoginBase.LoginBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">login.LoginBase.</span></span><span class="sig-name descname"><span class="pre">LoginBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginBase.html#LoginBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginBase.LoginBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="login.LoginBase.LoginBase.freeTimeExpires">
+<span class="sig-name descname"><span class="pre">freeTimeExpires</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#login.LoginBase.LoginBase.freeTimeExpires" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginBase.LoginBase.getErrorCode">
+<span class="sig-name descname"><span class="pre">getErrorCode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginBase.html#LoginBase.getErrorCode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginBase.LoginBase.getErrorCode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginBase.LoginBase.needToSetParentPassword">
+<span class="sig-name descname"><span class="pre">needToSetParentPassword</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginBase.html#LoginBase.needToSetParentPassword"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginBase.LoginBase.needToSetParentPassword" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginBase.LoginBase.sendLoginMsg">
+<span class="sig-name descname"><span class="pre">sendLoginMsg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loginName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">createFlag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginBase.html#LoginBase.sendLoginMsg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginBase.LoginBase.sendLoginMsg" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-login.LoginDISLTokenAccount">
+<span id="login-logindisltokenaccount-module"></span><h2>login.LoginDISLTokenAccount module<a class="headerlink" href="#module-login.LoginDISLTokenAccount" title="Permalink to this heading"></a></h2>
+<p>LoginDISLTokenAccount: Login using a pre-supplied DISL token.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="login.LoginDISLTokenAccount.LoginDISLTokenAccount">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">login.LoginDISLTokenAccount.</span></span><span class="sig-name descname"><span class="pre">LoginDISLTokenAccount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginDISLTokenAccount.html#LoginDISLTokenAccount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginDISLTokenAccount.LoginDISLTokenAccount" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#login.LoginBase.LoginBase" title="login.LoginBase.LoginBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoginBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginDISLTokenAccount.LoginDISLTokenAccount.authorize">
+<span class="sig-name descname"><span class="pre">authorize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loginName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginDISLTokenAccount.html#LoginDISLTokenAccount.authorize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginDISLTokenAccount.LoginDISLTokenAccount.authorize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginDISLTokenAccount.LoginDISLTokenAccount.sendLoginMsg">
+<span class="sig-name descname"><span class="pre">sendLoginMsg</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginDISLTokenAccount.html#LoginDISLTokenAccount.sendLoginMsg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginDISLTokenAccount.LoginDISLTokenAccount.sendLoginMsg" title="Permalink to this definition"></a></dt>
+<dd><p>Send a message to the server with our loginName</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsAuthenticateDelete">
+<span class="sig-name descname"><span class="pre">supportsAuthenticateDelete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginDISLTokenAccount.html#LoginDISLTokenAccount.supportsAuthenticateDelete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsAuthenticateDelete" title="Permalink to this definition"></a></dt>
+<dd><p>Returns true if authenticateDelete is implemented
+for this type of account system</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsParentPassword">
+<span class="sig-name descname"><span class="pre">supportsParentPassword</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginDISLTokenAccount.html#LoginDISLTokenAccount.supportsParentPassword"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsParentPassword" title="Permalink to this definition"></a></dt>
+<dd><p>Returns true if authenticateParentPassword is implemented
+and meaningful for this type of account system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsRelogin">
+<span class="sig-name descname"><span class="pre">supportsRelogin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/login/LoginDISLTokenAccount.html#LoginDISLTokenAccount.supportsRelogin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsRelogin" title="Permalink to this definition"></a></dt>
+<dd><p>Returns true if this login interface supports logging in
+multiple different times.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="login-logingsaccount-module">
+<h2>login.LoginGSAccount module<a class="headerlink" href="#login-logingsaccount-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-logingoaccount-module">
+<h2>login.LoginGoAccount module<a class="headerlink" href="#login-logingoaccount-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-loginscreen-module">
+<h2>login.LoginScreen module<a class="headerlink" href="#login-loginscreen-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-loginttaccount-module">
+<h2>login.LoginTTAccount module<a class="headerlink" href="#login-loginttaccount-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-loginttspecificdevaccount-module">
+<h2>login.LoginTTSpecificDevAccount module<a class="headerlink" href="#login-loginttspecificdevaccount-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-loginwebplaytokenaccount-module">
+<h2>login.LoginWebPlayTokenAccount module<a class="headerlink" href="#login-loginwebplaytokenaccount-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-multipagetextframe-module">
+<h2>login.MultiPageTextFrame module<a class="headerlink" href="#login-multipagetextframe-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-privacypolicypanel-module">
+<h2>login.PrivacyPolicyPanel module<a class="headerlink" href="#login-privacypolicypanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-remotevalueset-module">
+<h2>login.RemoteValueSet module<a class="headerlink" href="#login-remotevalueset-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-secretfriendsinfopanel-module">
+<h2>login.SecretFriendsInfoPanel module<a class="headerlink" href="#login-secretfriendsinfopanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="login-ttaccount-module">
+<h2>login.TTAccount module<a class="headerlink" href="#login-ttaccount-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-login">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-login" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="leveleditor.html" class="btn btn-neutral float-left" title="leveleditor package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="movement.html" class="btn btn-neutral float-right" title="movement package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

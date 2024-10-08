@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>leveleditor.ObjectPalette &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">leveleditor.ObjectPalette</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for leveleditor.ObjectPalette</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is just a sample code.</span>
+
+<span class="sd">LevelEditor, ObjectHandler, ObjectPalette should be rewritten</span>
+<span class="sd">to be game specific.</span>
+
+<span class="sd">You can define object template class inheriting ObjectBase</span>
+<span class="sd">to define properties shared by multiple object types.</span>
+<span class="sd">When you are defining properties</span>
+<span class="sd">you should specify their name, UI type, data type,</span>
+<span class="sd">update function, default value, and value range.</span>
+
+<span class="sd">Then you need implement ObjectPalette class inheriting ObjectPaletteBase,</span>
+<span class="sd">and in the populate function you can define ObjectPalette tree structure.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">direct.leveleditor.ObjectPaletteBase</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="ObjectProp"><a class="viewcode-back" href="../../toontown/leveleditor.html#leveleditor.ObjectPalette.ObjectProp">[docs]</a><span class="k">class</span> <span class="nc">ObjectProp</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="n">ObjectBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s1">&#39;Abc&#39;</span><span class="p">]</span> <span class="o">=</span><span class="p">[</span><span class="n">OG</span><span class="o">.</span><span class="n">PROP_UI_RADIO</span><span class="p">,</span> <span class="c1"># UI type</span>
+                                 <span class="n">OG</span><span class="o">.</span><span class="n">PROP_STR</span><span class="p">,</span>      <span class="c1"># data type</span>
+                                 <span class="kc">None</span><span class="p">,</span>             <span class="c1"># update function</span>
+                                 <span class="s1">&#39;a&#39;</span><span class="p">,</span>              <span class="c1"># default value</span>
+                                 <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]]</span>  <span class="c1"># value range</span></div>
+
+
+<div class="viewcode-block" id="ObjectSmiley"><a class="viewcode-back" href="../../toontown/leveleditor.html#leveleditor.ObjectPalette.ObjectSmiley">[docs]</a><span class="k">class</span> <span class="nc">ObjectSmiley</span><span class="p">(</span><span class="n">ObjectProp</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="n">ObjectProp</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s1">&#39;123&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">OG</span><span class="o">.</span><span class="n">PROP_UI_COMBO</span><span class="p">,</span>
+                                  <span class="n">OG</span><span class="o">.</span><span class="n">PROP_INT</span><span class="p">,</span>
+                                  <span class="kc">None</span><span class="p">,</span>
+                                  <span class="mi">1</span><span class="p">,</span>
+                                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span></div>
+
+
+<div class="viewcode-block" id="ObjectDoubleSmileys"><a class="viewcode-back" href="../../toontown/leveleditor.html#leveleditor.ObjectPalette.ObjectDoubleSmileys">[docs]</a><span class="k">class</span> <span class="nc">ObjectDoubleSmileys</span><span class="p">(</span><span class="n">ObjectProp</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="n">ObjectProp</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span><span class="p">[</span><span class="s1">&#39;Distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">OG</span><span class="o">.</span><span class="n">PROP_UI_SLIDE</span><span class="p">,</span>
+                                                    <span class="n">OG</span><span class="o">.</span><span class="n">PROP_FLOAT</span><span class="p">,</span>
+                                                    <span class="p">(</span><span class="s1">&#39;.updateDoubleSmiley&#39;</span><span class="p">,</span>
+                                                     <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_VAL</span><span class="p">,</span> <span class="s1">&#39;obj&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_OBJ</span><span class="p">}),</span>
+                                                    <span class="c1"># In this case, an update function for property is defined</span>
+                                                    <span class="c1"># so whenever you change the value of this property from UI</span>
+                                                    <span class="c1"># this update function will be called with these arguments.</span>
+                                                    <span class="c1"># OG.ARG_VAL will be replaced by the value from UI.</span>
+                                                    <span class="c1"># OG.ARG_OBJ will be replaced by object data structure.</span>
+                                                    <span class="c1"># When an update function is starting with .</span>
+                                                    <span class="c1"># it means this function belongs to the default objectHandler.</span>
+                                                    <span class="mf">1.0</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]]</span></div>
+
+        
+<div class="viewcode-block" id="ObjectPalette"><a class="viewcode-back" href="../../toontown/leveleditor.html#leveleditor.ObjectPalette.ObjectPalette">[docs]</a><span class="k">class</span> <span class="nc">ObjectPalette</span><span class="p">(</span><span class="n">ObjectPaletteBase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">ObjectPaletteBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ObjectPalette.populate"><a class="viewcode-back" href="../../toontown/leveleditor.html#leveleditor.ObjectPalette.ObjectPalette.populate">[docs]</a>    <span class="k">def</span> <span class="nf">populate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Create a group called &#39;Prop&#39; in the ObjectPalette tree</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Prop&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Pirates&#39;</span><span class="p">,</span> <span class="s1">&#39;Prop&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">propName</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;barrel&#39;</span><span class="p">,</span> <span class="s1">&#39;basket&#39;</span><span class="p">,</span> <span class="s1">&#39;bench&#39;</span><span class="p">,</span> <span class="s1">&#39;bottle_brown&#39;</span><span class="p">,</span> <span class="s1">&#39;bucket&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;candle&#39;</span><span class="p">,</span> <span class="s1">&#39;cart_broken&#39;</span><span class="p">,</span> <span class="s1">&#39;cart_flat&#39;</span><span class="p">,</span> <span class="s1">&#39;cart_reg&#39;</span><span class="p">,</span> <span class="s1">&#39;chair_bar&#39;</span><span class="p">,</span> <span class="s1">&#39;crate&#39;</span><span class="p">,</span> <span class="s1">&#39;cup_tin&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;jug&#39;</span><span class="p">,</span> <span class="s1">&#39;lamp_candle&#39;</span><span class="p">,</span> <span class="s1">&#39;pir_m_prp_fnc_woodfenceGate&#39;</span><span class="p">,</span> <span class="s1">&#39;pitcher_brown&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;rock_1_floor&#39;</span><span class="p">,</span> <span class="s1">&#39;treasureChest&#39;</span> <span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">propName</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;models/props/</span><span class="si">%s</span><span class="s1">.bam&#39;</span><span class="o">%</span><span class="n">propName</span><span class="p">),</span> <span class="s1">&#39;Pirates&#39;</span><span class="p">)</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Toontown&#39;</span><span class="p">,</span> <span class="s1">&#39;Prop&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">propName</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s1">&#39;mailbox_TT&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">,</span> <span class="s1">&#39;receiver&#39;</span><span class="p">,</span> <span class="s1">&#39;shredder&#39;</span><span class="p">,</span> <span class="s1">&#39;spray&#39;</span><span class="p">,</span> <span class="s1">&#39;tart&#39;</span><span class="p">,</span> <span class="s1">&#39;big_planter&#39;</span>
+            <span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">propName</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;phase_3.5/models/props/</span><span class="si">%s</span><span class="s1">.bam&#39;</span><span class="o">%</span><span class="n">propName</span><span class="p">),</span> <span class="s1">&#39;Toontown&#39;</span><span class="p">)</span>        
+
+        <span class="k">for</span> <span class="n">propName</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s1">&#39;mickey_on_horse&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;toontown_central_fountain&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;piers_tt&#39;</span><span class="p">,</span>
+            <span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">propName</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;phase_4/models/props/</span><span class="si">%s</span><span class="s1">.bam&#39;</span><span class="o">%</span><span class="n">propName</span><span class="p">),</span> <span class="s1">&#39;Toontown&#39;</span><span class="p">)</span>     
+
+        <span class="k">for</span> <span class="n">propName</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;baseball&#39;</span><span class="p">,</span> <span class="s1">&#39;dagger&#39;</span><span class="p">,</span> <span class="s1">&#39;lawbook&#39;</span><span class="p">,</span> <span class="s1">&#39;safe&#39;</span><span class="p">,</span> <span class="s1">&#39;trashcan_TT&#39;</span><span class="p">,</span> <span class="s1">&#39;TT_hydrant&#39;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">propName</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;phase_5/models/props/</span><span class="si">%s</span><span class="s1">.bam&#39;</span><span class="o">%</span><span class="n">propName</span><span class="p">),</span> <span class="s1">&#39;Toontown&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tree&#39;</span><span class="p">,</span>
+                            <span class="n">createFunction</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.createToontownTree&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+                            <span class="n">properties</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Tree Type&#39;</span><span class="p">:[</span><span class="n">OG</span><span class="o">.</span><span class="n">PROP_UI_COMBO</span><span class="p">,</span>
+                                                     <span class="n">OG</span><span class="o">.</span><span class="n">PROP_STR</span><span class="p">,</span>
+                                                     <span class="p">(</span><span class="s1">&#39;.updateToontownTree&#39;</span><span class="p">,</span>
+                                                      <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_VAL</span><span class="p">,</span> <span class="s1">&#39;obj&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_OBJ</span><span class="p">}),</span>
+                                                     <span class="s1">&#39;prop_tree_fat_no_box_ul&#39;</span><span class="p">,</span>
+                                                     <span class="p">[</span><span class="s1">&#39;prop_tree_fat_no_box_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_fat_brickbox_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_fat_no_box_ur&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_fat_brickbox_ur&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_large_no_box_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_large_woodbox_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_large_brickbox_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_large_no_box_ur&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_large_woodbox_ur&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_large_brickbox_ur&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_small_no_box_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_small_woodbox_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_small_brickbox_ul&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_small_nobox_ur&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_small_woodbox_ur&#39;</span><span class="p">,</span>
+                                                      <span class="s1">&#39;prop_tree_small_brickbox_ur&#39;</span><span class="p">,</span>
+                                                      <span class="p">],</span>
+                                                     <span class="p">],</span>
+                                        <span class="p">}),</span>
+                 <span class="s1">&#39;Toontown&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;streetlight_TT&#39;</span><span class="p">,</span>
+                            <span class="n">createFunction</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.createStreetlightTT&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+                            <span class="n">properties</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Light Type&#39;</span><span class="p">:[</span><span class="n">OG</span><span class="o">.</span><span class="n">PROP_UI_COMBO</span><span class="p">,</span>
+                                                      <span class="n">OG</span><span class="o">.</span><span class="n">PROP_STR</span><span class="p">,</span>
+                                                      <span class="p">(</span><span class="s1">&#39;.updateStreetlightTT&#39;</span><span class="p">,</span>
+                                                       <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_VAL</span><span class="p">,</span> <span class="s1">&#39;obj&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_OBJ</span><span class="p">}),</span>
+                                                      <span class="s1">&#39;prop_post_one_light&#39;</span><span class="p">,</span>
+                                                      <span class="p">[</span><span class="s1">&#39;prop_post_one_light&#39;</span><span class="p">,</span>
+                                                       <span class="s1">&#39;prop_post_three_light&#39;</span><span class="p">,</span>
+                                                       <span class="s1">&#39;prop_post_sign&#39;</span>
+                                                       <span class="p">],</span>
+                                                      <span class="p">],</span>
+                                        <span class="p">}),</span>
+                 <span class="s1">&#39;Toontown&#39;</span><span class="p">)</span>
+            
+        <span class="c1"># Create a group called &#39;Double Smileys&#39; under &#39;Prop&#39; group</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Double Smileys&#39;</span><span class="p">,</span> <span class="s1">&#39;Prop&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Add an object type &#39;Smiley&#39; which is inheriting ObjectSmiley template</span>
+        <span class="c1"># and have following properties.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectSmiley</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Smiley&#39;</span><span class="p">,</span>
+                              <span class="n">model</span><span class="o">=</span><span class="s1">&#39;models/smiley.egg&#39;</span><span class="p">,</span>
+                              <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;models/smiley.egg&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;models/frowney.egg&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;models/jack.egg&#39;</span><span class="p">],</span>
+                              <span class="c1"># when an object is just a simple geometry, you can define</span>
+                              <span class="c1"># model, and models like this</span>
+                              <span class="c1"># instead of defining createFunction</span>
+                              <span class="n">properties</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Happy&#39;</span><span class="p">:[</span><span class="n">OG</span><span class="o">.</span><span class="n">PROP_UI_CHECK</span><span class="p">,</span>
+                                                   <span class="n">OG</span><span class="o">.</span><span class="n">PROP_BOOL</span><span class="p">,</span>
+                                                   <span class="kc">None</span><span class="p">,</span>
+                                                   <span class="kc">True</span><span class="p">],</span>
+                                          <span class="s1">&#39;Number&#39;</span><span class="p">:[</span><span class="n">OG</span><span class="o">.</span><span class="n">PROP_UI_SPIN</span><span class="p">,</span>
+                                                    <span class="n">OG</span><span class="o">.</span><span class="n">PROP_INT</span><span class="p">,</span>
+                                                    <span class="p">(</span><span class="s1">&#39;.updateSmiley&#39;</span><span class="p">,</span>
+                                                     <span class="p">{</span><span class="s1">&#39;val&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_VAL</span><span class="p">,</span> <span class="s1">&#39;obj&#39;</span><span class="p">:</span><span class="n">OG</span><span class="o">.</span><span class="n">ARG_OBJ</span><span class="p">}),</span>
+                                                    <span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]],</span>
+                                        <span class="p">}),</span>
+                 <span class="s1">&#39;Prop&#39;</span><span class="p">)</span> <span class="c1"># This object type will be added under the &#39;Prop&#39; group.        </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectDoubleSmileys</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;H Double Smiley&#39;</span><span class="p">,</span>
+                                     <span class="n">createFunction</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.createDoubleSmiley&#39;</span><span class="p">,</span> <span class="p">{})),</span>
+                                     <span class="c1"># When the createFunction is defined like this,</span>
+                                     <span class="c1"># this function will be called to create the object.</span>
+                                     <span class="c1"># When a create function is starting with .</span>
+                                     <span class="c1"># it means this function belongs to the default objectHandler.</span>
+                 <span class="s1">&#39;Double Smileys&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectDoubleSmileys</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;V Double Smiley&#39;</span><span class="p">,</span>
+                                     <span class="n">createFunction</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.createDoubleSmiley&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;horizontal&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">})),</span>
+                                     <span class="c1"># You can specify argument for the create function, too</span>
+                 <span class="s1">&#39;Double Smileys&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Animal&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Panda&#39;</span><span class="p">,</span>
+                            <span class="n">createFunction</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.createPanda&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+                            <span class="n">anims</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;models/panda-walk4.egg&#39;</span><span class="p">,],</span>
+                            <span class="n">properties</span> <span class="o">=</span> <span class="p">{}),</span>
+                 <span class="s1">&#39;Animal&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;models/char/dog_hi.bam&#39;</span><span class="p">,</span>
+                            <span class="n">anims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;models/char/dog_idle_sitting.bam&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;models/char/dog_idle_standing.bam&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;models/char/dog_bark_sitting.bam&#39;</span><span class="p">,</span>
+                                   <span class="s1">&#39;models/char/dog_walk.bam&#39;</span><span class="p">],</span> <span class="n">actor</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                 <span class="s1">&#39;Animal&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;BG&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Grass&#39;</span><span class="p">,</span>
+                            <span class="n">createFunction</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.createGrass&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+                            <span class="n">properties</span> <span class="o">=</span> <span class="p">{}),</span>
+                 <span class="s1">&#39;BG&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;HQ_interior&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;phase_3.5/models/modules/HQ_interior.bam&#39;</span><span class="p">),</span> <span class="s1">&#39;BG&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Toontown_Central&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;phase_4/models/neighborhoods/toontown_central.bam&#39;</span><span class="p">),</span> <span class="s1">&#39;BG&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tortuga&#39;</span><span class="p">,</span>
+                            <span class="n">createFunction</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.createTortuga&#39;</span><span class="p">,</span> <span class="p">{}),</span>
+                            <span class="p">),</span>
+                 <span class="s1">&#39;BG&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;Buildings&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;ToonBuildings&#39;</span><span class="p">,</span> <span class="s1">&#39;Buildings&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">modelName</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s1">&#39;partyGate_TT&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;trolley_station_TT&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;safe_zone_tunnel_TT&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Speedway_Tunnel&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;bank&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;library&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;school_house&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;mercantile&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;gagShop_TT&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;PetShopExterior_TT&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;clothshopTT&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;gazebo&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;toonhall&#39;</span><span class="p">,</span>
+            <span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">modelName</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;phase_4/models/modules/</span><span class="si">%s</span><span class="s1">.bam&#39;</span><span class="o">%</span><span class="n">modelName</span><span class="p">),</span> <span class="s1">&#39;ToonBuildings&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;hqTT&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;phase_3.5/models/modules/hqTT.bam&#39;</span><span class="p">),</span> <span class="s1">&#39;ToonBuildings&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;PiratesBuildings&#39;</span><span class="p">,</span> <span class="s1">&#39;Buildings&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Pier&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;models/islands/pier_platform.bam&#39;</span><span class="p">,</span>
+                            <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;models/islands/pier_platform&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/islands/pier_port_royal_2deck&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/islands/pier_1_kings&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/islands/pier_2_kings&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/islands/pier_port_royal_1deck&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/islands/pier_walkway&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/props/ship_parking_booth&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/props/ship_valet&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/islands/pier_midisland&#39;</span><span class="p">,]),</span>
+                 <span class="s1">&#39;PiratesBuildings&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ObjectBase</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Building Exterior&#39;</span><span class="p">,</span>
+                            <span class="n">model</span><span class="o">=</span><span class="s1">&#39;models/buildings/jail_exterior&#39;</span><span class="p">,</span>
+                            <span class="n">models</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;models/buildings/jail_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/fort_door&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_cellar_door&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_guildhall_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_gypsywagon_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_tavern_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_repairshop_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_leanto_A&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_leanto_B&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_a_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_A&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_B&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_C&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_D&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_E&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_F&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_G&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_H&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_I&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_J&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_npc_house_combo_Platform&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/shanty_signpost&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_a_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_b_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_c_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_d_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_e_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_f_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_g_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_i_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_j_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_k_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_l_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_n_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_o_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_p_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_house_q_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_tavern_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/pir_m_bld_spn_tavern&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/pir_m_bld_spn_tavern_burned&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/pir_m_bld_spn_tavern_door&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/town/bar_exterior&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_fullarchL&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_fullarchR&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_fullnostonearchL&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_fullnostonearchR&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfarchL&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfarchR&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfarchflatL&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfarchflatR&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfarchwindowL&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfarchwindowR&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfporchL&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/spanish_npc_attach_halfporchR&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/burned_gate&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/burned_half_house&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/burned_house&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/burned_woods&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_a&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_b&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_c&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_d&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_e&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_f&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_g&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_h&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_i&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_j&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_k&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_k_tutorial&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_l&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_m&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_n&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_corner_a&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_corner_b&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_corner_c&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_corner_c2&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_corner_d&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_corner_e&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_corner_f&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/english_mansion&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/pir_m_bld_eng_mansion&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/pir_m_bld_eng_mansion_burned&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/pir_m_bld_eng_mansion_door&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/fort_eitc&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/fort_small_cave&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/islands/kingshead_zero&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;models/buildings/pir_m_bld_frt_innerWall_gate&#39;</span><span class="p">,</span>
+                                    <span class="p">]),</span>
+                 <span class="s1">&#39;PiratesBuildings&#39;</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

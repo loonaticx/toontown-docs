@@ -1,0 +1,891 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>distributed package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="friends package" href="friends.html" />
+    <link rel="prev" title="debug package" href="debug.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">otp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">distributed package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.Account">distributed.Account module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.Account.Account"><code class="docutils literal notranslate"><span class="pre">Account</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.AccountAI">distributed.AccountAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.AccountAI.AccountAI"><code class="docutils literal notranslate"><span class="pre">AccountAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.AccountUD">distributed.AccountUD module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.AccountUD.AccountUD"><code class="docutils literal notranslate"><span class="pre">AccountUD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.CentralLogger">distributed.CentralLogger module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.CentralLogger.CentralLogger"><code class="docutils literal notranslate"><span class="pre">CentralLogger</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.CentralLoggerAI">distributed.CentralLoggerAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.CentralLoggerAI.CentralLoggerAI"><code class="docutils literal notranslate"><span class="pre">CentralLoggerAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.CentralLoggerUD">distributed.CentralLoggerUD module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.CentralLoggerUD.CentralLoggerUD"><code class="docutils literal notranslate"><span class="pre">CentralLoggerUD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedDirectory">distributed.DistributedDirectory module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedDirectory.DistributedDirectory"><code class="docutils literal notranslate"><span class="pre">DistributedDirectory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedDirectoryAI">distributed.DistributedDirectoryAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedDirectoryAI.DistributedDirectoryAI"><code class="docutils literal notranslate"><span class="pre">DistributedDirectoryAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedDistrict">distributed.DistributedDistrict module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedDistrict.DistributedDistrict"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedDistrictAI">distributed.DistributedDistrictAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedDistrictAI.DistributedDistrictAI"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedDistrictUD">distributed.DistributedDistrictUD module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedDistrictUD.DistributedDistrictUD"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictUD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedInterestOpener">distributed.DistributedInterestOpener module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedInterestOpener.DistributedInterestOpener"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpener</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedInterestOpenerAI">distributed.DistributedInterestOpenerAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpenerAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedPuppeteer">distributed.DistributedPuppeteer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedPuppeteer.DistributedPuppeteer"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedTestObject">distributed.DistributedTestObject module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedTestObject.DistributedTestObject"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.DistributedTestObjectAI">distributed.DistributedTestObjectAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.DistributedTestObjectAI.DistributedTestObjectAI"><code class="docutils literal notranslate"><span class="pre">DistributedTestObjectAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.GameServerTestSuite">distributed.GameServerTestSuite module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.GameServerTestSuite.GameServerTestSuite"><code class="docutils literal notranslate"><span class="pre">GameServerTestSuite</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#distributed-otpclientrepository-module">distributed.OTPClientRepository module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.ObjectServer">distributed.ObjectServer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.ObjectServer.ObjectServer"><code class="docutils literal notranslate"><span class="pre">ObjectServer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.ObjectServerAI">distributed.ObjectServerAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.ObjectServerAI.ObjectServerAI"><code class="docutils literal notranslate"><span class="pre">ObjectServerAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.ObjectServerUD">distributed.ObjectServerUD module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.ObjectServerUD.ObjectServerUD"><code class="docutils literal notranslate"><span class="pre">ObjectServerUD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.OtpDoGlobals">distributed.OtpDoGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.PotentialAvatar">distributed.PotentialAvatar module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.PotentialAvatar.PotentialAvatar"><code class="docutils literal notranslate"><span class="pre">PotentialAvatar</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.PotentialShard">distributed.PotentialShard module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.PotentialShard.PotentialShard"><code class="docutils literal notranslate"><span class="pre">PotentialShard</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.Puppeteer">distributed.Puppeteer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.Puppeteer.Puppeteer"><code class="docutils literal notranslate"><span class="pre">Puppeteer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed.TelemetryLimited">distributed.TelemetryLimited module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#distributed.TelemetryLimited.TelemetryLimited"><code class="docutils literal notranslate"><span class="pre">TelemetryLimited</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#distributed-telemetrylimiter-module">distributed.TelemetryLimiter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-distributed">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html">level package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">navigation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html">otpbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">otp</a></li>
+      <li class="breadcrumb-item active">distributed package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/distributed.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="distributed-package">
+<h1>distributed package<a class="headerlink" href="#distributed-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-distributed.Account">
+<span id="distributed-account-module"></span><h2>distributed.Account module<a class="headerlink" href="#module-distributed.Account" title="Permalink to this heading"></a></h2>
+<p>Account module: stub to fulfill the Account toon.dc Distributed Class
+This is a class Roger needs for the server to be able to display these values
+appropriately in the db web interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.Account.Account">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.Account.</span></span><span class="sig-name descname"><span class="pre">Account</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/Account.html#Account"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.Account.Account" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.AccountAI">
+<span id="distributed-accountai-module"></span><h2>distributed.AccountAI module<a class="headerlink" href="#module-distributed.AccountAI" title="Permalink to this heading"></a></h2>
+<p>Account module: stub to fulfill the Account toon.dc Distributed Class
+This is a class Roger needs for the server to be able to display these values
+appropriately in the db web interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.AccountAI.AccountAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.AccountAI.</span></span><span class="sig-name descname"><span class="pre">AccountAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountAI.html#AccountAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountAI.AccountAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountAI.AccountAI.getPirate">
+<span class="sig-name descname"><span class="pre">getPirate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountAI.html#AccountAI.getPirate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountAI.AccountAI.getPirate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountAI.AccountAI.getSlotLimit">
+<span class="sig-name descname"><span class="pre">getSlotLimit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountAI.html#AccountAI.getSlotLimit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountAI.AccountAI.getSlotLimit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountAI.AccountAI.may">
+<span class="sig-name descname"><span class="pre">may</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">perm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountAI.html#AccountAI.may"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountAI.AccountAI.may" title="Permalink to this definition"></a></dt>
+<dd><p>Ask whether the account has permission to &lt;string&gt;.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.AccountAI.AccountAI.pirateAvatars">
+<span class="sig-name descname"><span class="pre">pirateAvatars</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></em><a class="headerlink" href="#distributed.AccountAI.AccountAI.pirateAvatars" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountAI.AccountAI.setPirate">
+<span class="sig-name descname"><span class="pre">setPirate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avatarId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountAI.html#AccountAI.setPirate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountAI.AccountAI.setPirate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.AccountUD">
+<span id="distributed-accountud-module"></span><h2>distributed.AccountUD module<a class="headerlink" href="#module-distributed.AccountUD" title="Permalink to this heading"></a></h2>
+<p>Account module: stub to fulfill the Account toon.dc Distributed Class
+This is a class Roger needs for the server to be able to display these values
+appropriately in the db web interface.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.AccountUD.AccountUD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.AccountUD.</span></span><span class="sig-name descname"><span class="pre">AccountUD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountUD.html#AccountUD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountUD.AccountUD" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectUD</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountUD.AccountUD.getPirate">
+<span class="sig-name descname"><span class="pre">getPirate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountUD.html#AccountUD.getPirate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountUD.AccountUD.getPirate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountUD.AccountUD.getSlotLimit">
+<span class="sig-name descname"><span class="pre">getSlotLimit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountUD.html#AccountUD.getSlotLimit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountUD.AccountUD.getSlotLimit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountUD.AccountUD.may">
+<span class="sig-name descname"><span class="pre">may</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">perm</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountUD.html#AccountUD.may"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountUD.AccountUD.may" title="Permalink to this definition"></a></dt>
+<dd><p>Ask whether the account has permission to &lt;string&gt;.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.AccountUD.AccountUD.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.AccountUD.AccountUD.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.AccountUD.AccountUD.setPirate">
+<span class="sig-name descname"><span class="pre">setPirate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">slot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avatarId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/AccountUD.html#AccountUD.setPirate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.AccountUD.AccountUD.setPirate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.CentralLogger">
+<span id="distributed-centrallogger-module"></span><h2>distributed.CentralLogger module<a class="headerlink" href="#module-distributed.CentralLogger" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.CentralLogger.CentralLogger">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.CentralLogger.</span></span><span class="sig-name descname"><span class="pre">CentralLogger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/CentralLogger.html#CentralLogger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.CentralLogger.CentralLogger" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectGlobal</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.CentralLogger.CentralLogger.PlayersReportedThisSession">
+<span class="sig-name descname"><span class="pre">PlayersReportedThisSession</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#distributed.CentralLogger.CentralLogger.PlayersReportedThisSession" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.CentralLogger.CentralLogger.hasReportedPlayer">
+<span class="sig-name descname"><span class="pre">hasReportedPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targetDISLId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetAvId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/CentralLogger.html#CentralLogger.hasReportedPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.CentralLogger.CentralLogger.hasReportedPlayer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.CentralLogger.CentralLogger.reportPlayer">
+<span class="sig-name descname"><span class="pre">reportPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetDISLId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targetAvId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'None'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/CentralLogger.html#CentralLogger.reportPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.CentralLogger.CentralLogger.reportPlayer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.CentralLogger.CentralLogger.writeClientEvent">
+<span class="sig-name descname"><span class="pre">writeClientEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eventString</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/CentralLogger.html#CentralLogger.writeClientEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.CentralLogger.CentralLogger.writeClientEvent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.CentralLoggerAI">
+<span id="distributed-centralloggerai-module"></span><h2>distributed.CentralLoggerAI module<a class="headerlink" href="#module-distributed.CentralLoggerAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.CentralLoggerAI.CentralLoggerAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.CentralLoggerAI.</span></span><span class="sig-name descname"><span class="pre">CentralLoggerAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/CentralLoggerAI.html#CentralLoggerAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.CentralLoggerAI.CentralLoggerAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectGlobalAI</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.CentralLoggerUD">
+<span id="distributed-centralloggerud-module"></span><h2>distributed.CentralLoggerUD module<a class="headerlink" href="#module-distributed.CentralLoggerUD" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.CentralLoggerUD.CentralLoggerUD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.CentralLoggerUD.</span></span><span class="sig-name descname"><span class="pre">CentralLoggerUD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/CentralLoggerUD.html#CentralLoggerUD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.CentralLoggerUD.CentralLoggerUD" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectGlobalUD</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedDirectory">
+<span id="distributed-distributeddirectory-module"></span><h2>distributed.DistributedDirectory module<a class="headerlink" href="#module-distributed.DistributedDirectory" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedDirectory.DistributedDirectory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedDirectory.</span></span><span class="sig-name descname"><span class="pre">DistributedDirectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDirectory.html#DistributedDirectory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDirectory.DistributedDirectory" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+<p>This object has no attributes and none of them get created, but it
+is still needed.  It is used as a parent for the individual games.
+The dc system uses the parenting rules as if this object existed.</p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedDirectoryAI">
+<span id="distributed-distributeddirectoryai-module"></span><h2>distributed.DistributedDirectoryAI module<a class="headerlink" href="#module-distributed.DistributedDirectoryAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedDirectoryAI.DistributedDirectoryAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedDirectoryAI.</span></span><span class="sig-name descname"><span class="pre">DistributedDirectoryAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDirectoryAI.html#DistributedDirectoryAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDirectoryAI.DistributedDirectoryAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<p>This object has no attributes and none of them get created, but it
+is still needed.  It is used as a parent for the individual games.
+The dc system uses the parenting rules as if this object existed.</p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedDistrict">
+<span id="distributed-distributeddistrict-module"></span><h2>distributed.DistributedDistrict module<a class="headerlink" href="#module-distributed.DistributedDistrict" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedDistrict.DistributedDistrict">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedDistrict.</span></span><span class="sig-name descname"><span class="pre">DistributedDistrict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrict.html#DistributedDistrict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrict.DistributedDistrict" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+<p>See Also: “otp/src/distributed/DistributedDistrictAI.py”</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrict.DistributedDistrict.announceGenerate">
+<span class="sig-name descname"><span class="pre">announceGenerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrict.html#DistributedDistrict.announceGenerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrict.DistributedDistrict.announceGenerate" title="Permalink to this definition"></a></dt>
+<dd><p>Sends a message to the world after the object has been
+generated and all of its required fields filled in.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrict.DistributedDistrict.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrict.html#DistributedDistrict.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrict.DistributedDistrict.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.DistributedDistrict.DistributedDistrict.neverDisable">
+<span class="sig-name descname"><span class="pre">neverDisable</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#distributed.DistributedDistrict.DistributedDistrict.neverDisable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.DistributedDistrict.DistributedDistrict.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.DistributedDistrict.DistributedDistrict.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrict.DistributedDistrict.setAvailable">
+<span class="sig-name descname"><span class="pre">setAvailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrict.html#DistributedDistrict.setAvailable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrict.DistributedDistrict.setAvailable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrict.DistributedDistrict.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrict.html#DistributedDistrict.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrict.DistributedDistrict.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedDistrictAI">
+<span id="distributed-distributeddistrictai-module"></span><h2>distributed.DistributedDistrictAI module<a class="headerlink" href="#module-distributed.DistributedDistrictAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedDistrictAI.</span></span><span class="sig-name descname"><span class="pre">DistributedDistrictAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'untitled'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.b_setAvailable">
+<span class="sig-name descname"><span class="pre">b_setAvailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.b_setAvailable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.b_setAvailable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.b_setName">
+<span class="sig-name descname"><span class="pre">b_setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.b_setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.b_setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.d_setAvailable">
+<span class="sig-name descname"><span class="pre">d_setAvailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.d_setAvailable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.d_setAvailable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.d_setName">
+<span class="sig-name descname"><span class="pre">d_setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.d_setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.d_setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectAI more than once.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.getAvailable">
+<span class="sig-name descname"><span class="pre">getAvailable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.getAvailable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.getAvailable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.getName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.setAvailable">
+<span class="sig-name descname"><span class="pre">setAvailable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">available</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.setAvailable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.setAvailable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictAI.DistributedDistrictAI.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictAI.html#DistributedDistrictAI.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictAI.DistributedDistrictAI.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedDistrictUD">
+<span id="distributed-distributeddistrictud-module"></span><h2>distributed.DistributedDistrictUD module<a class="headerlink" href="#module-distributed.DistributedDistrictUD" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedDistrictUD.DistributedDistrictUD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedDistrictUD.</span></span><span class="sig-name descname"><span class="pre">DistributedDistrictUD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'untitled'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedDistrictUD.html#DistributedDistrictUD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedDistrictUD.DistributedDistrictUD" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedInterestOpener">
+<span id="distributed-distributedinterestopener-module"></span><h2>distributed.DistributedInterestOpener module<a class="headerlink" href="#module-distributed.DistributedInterestOpener" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpener.DistributedInterestOpener">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedInterestOpener.</span></span><span class="sig-name descname"><span class="pre">DistributedInterestOpener</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpener.html#DistributedInterestOpener"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpener.DistributedInterestOpener" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+<p>Delays opening of an interest set underneath this object until a
+specific set of doIds is present on the client.
+See also DistributedInterestOpenerAI.py</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpener.DistributedInterestOpener.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpener.html#DistributedInterestOpener.disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpener.DistributedInterestOpener.disable" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on disable</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpener.DistributedInterestOpener.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpener.html#DistributedInterestOpener.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpener.DistributedInterestOpener.generate" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on generate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpener.DistributedInterestOpener.setChildZones">
+<span class="sig-name descname"><span class="pre">setChildZones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">childZones</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpener.html#DistributedInterestOpener.setChildZones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpener.DistributedInterestOpener.setChildZones" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpener.DistributedInterestOpener.setRequiredDoIds">
+<span class="sig-name descname"><span class="pre">setRequiredDoIds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requiredDoIds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpener.html#DistributedInterestOpener.setRequiredDoIds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpener.DistributedInterestOpener.setRequiredDoIds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedInterestOpenerAI">
+<span id="distributed-distributedinterestopenerai-module"></span><h2>distributed.DistributedInterestOpenerAI module<a class="headerlink" href="#module-distributed.DistributedInterestOpenerAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedInterestOpenerAI.</span></span><span class="sig-name descname"><span class="pre">DistributedInterestOpenerAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">requiredDoIds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zones</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpenerAI.html#DistributedInterestOpenerAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<p>Use this class to cause the client to delay opening of an interest
+set (underneath this object) until a specific set of doIds is present
+on the client.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.announceGenerate">
+<span class="sig-name descname"><span class="pre">announceGenerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpenerAI.html#DistributedInterestOpenerAI.announceGenerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.announceGenerate" title="Permalink to this definition"></a></dt>
+<dd><p>Called after the object has been generated and all
+of its required fields filled in. Overwrite when needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.getChildZones">
+<span class="sig-name descname"><span class="pre">getChildZones</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpenerAI.html#DistributedInterestOpenerAI.getChildZones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.getChildZones" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.getRequiredDoIds">
+<span class="sig-name descname"><span class="pre">getRequiredDoIds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpenerAI.html#DistributedInterestOpenerAI.getRequiredDoIds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.getRequiredDoIds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.setRequiredDoIds">
+<span class="sig-name descname"><span class="pre">setRequiredDoIds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">requiredDoIds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedInterestOpenerAI.html#DistributedInterestOpenerAI.setRequiredDoIds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.setRequiredDoIds" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedPuppeteer">
+<span id="distributed-distributedpuppeteer-module"></span><h2>distributed.DistributedPuppeteer module<a class="headerlink" href="#module-distributed.DistributedPuppeteer" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedPuppeteer.DistributedPuppeteer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedPuppeteer.</span></span><span class="sig-name descname"><span class="pre">DistributedPuppeteer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedPuppeteer.html#DistributedPuppeteer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedPuppeteer.DistributedPuppeteer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedPuppeteer.DistributedPuppeteer.acceptPuppet">
+<span class="sig-name descname"><span class="pre">acceptPuppet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedPuppeteer.html#DistributedPuppeteer.acceptPuppet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedPuppeteer.DistributedPuppeteer.acceptPuppet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.DistributedPuppeteer.DistributedPuppeteer.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.DistributedPuppeteer.DistributedPuppeteer.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedPuppeteer.DistributedPuppeteer.rejectPuppet">
+<span class="sig-name descname"><span class="pre">rejectPuppet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedPuppeteer.html#DistributedPuppeteer.rejectPuppet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedPuppeteer.DistributedPuppeteer.rejectPuppet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedPuppeteer.DistributedPuppeteer.requestPuppet">
+<span class="sig-name descname"><span class="pre">requestPuppet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedPuppeteer.html#DistributedPuppeteer.requestPuppet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedPuppeteer.DistributedPuppeteer.requestPuppet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedPuppeteer.DistributedPuppeteer.startPuppet">
+<span class="sig-name descname"><span class="pre">startPuppet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puppet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedPuppeteer.html#DistributedPuppeteer.startPuppet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedPuppeteer.DistributedPuppeteer.startPuppet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedPuppeteer.DistributedPuppeteer.stopPuppet">
+<span class="sig-name descname"><span class="pre">stopPuppet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puppet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedPuppeteer.html#DistributedPuppeteer.stopPuppet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedPuppeteer.DistributedPuppeteer.stopPuppet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedTestObject">
+<span id="distributed-distributedtestobject-module"></span><h2>distributed.DistributedTestObject module<a class="headerlink" href="#module-distributed.DistributedTestObject" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedTestObject.</span></span><span class="sig-name descname"><span class="pre">DistributedTestObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.gotNonReqThatWasntSet">
+<span class="sig-name descname"><span class="pre">gotNonReqThatWasntSet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.gotNonReqThatWasntSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.gotNonReqThatWasntSet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setB">
+<span class="sig-name descname"><span class="pre">setB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setB"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setB" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setBA">
+<span class="sig-name descname"><span class="pre">setBA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BA</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setBA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setBA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setBO">
+<span class="sig-name descname"><span class="pre">setBO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BO</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setBO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setBO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setBR">
+<span class="sig-name descname"><span class="pre">setBR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BR</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setBR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setBR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setBRA">
+<span class="sig-name descname"><span class="pre">setBRA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BRA</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setBRA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setBRA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setBRO">
+<span class="sig-name descname"><span class="pre">setBRO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BRO</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setBRO"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setBRO" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setBROA">
+<span class="sig-name descname"><span class="pre">setBROA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">BROA</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setBROA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setBROA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObject.DistributedTestObject.setRequiredField">
+<span class="sig-name descname"><span class="pre">setRequiredField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObject.html#DistributedTestObject.setRequiredField"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObject.DistributedTestObject.setRequiredField" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.DistributedTestObjectAI">
+<span id="distributed-distributedtestobjectai-module"></span><h2>distributed.DistributedTestObjectAI module<a class="headerlink" href="#module-distributed.DistributedTestObjectAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.DistributedTestObjectAI.DistributedTestObjectAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.DistributedTestObjectAI.</span></span><span class="sig-name descname"><span class="pre">DistributedTestObjectAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObjectAI.html#DistributedTestObjectAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObjectAI.DistributedTestObjectAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.DistributedTestObjectAI.DistributedTestObjectAI.getRequiredField">
+<span class="sig-name descname"><span class="pre">getRequiredField</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/DistributedTestObjectAI.html#DistributedTestObjectAI.getRequiredField"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.DistributedTestObjectAI.DistributedTestObjectAI.getRequiredField" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.GameServerTestSuite">
+<span id="distributed-gameservertestsuite-module"></span><h2>distributed.GameServerTestSuite module<a class="headerlink" href="#module-distributed.GameServerTestSuite" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.GameServerTestSuite.GameServerTestSuite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.GameServerTestSuite.</span></span><span class="sig-name descname"><span class="pre">GameServerTestSuite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/GameServerTestSuite.html#GameServerTestSuite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.GameServerTestSuite.GameServerTestSuite" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DirectObject</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">TaskThreaded</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.GameServerTestSuite.GameServerTestSuite.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.GameServerTestSuite.GameServerTestSuite.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="distributed-otpclientrepository-module">
+<h2>distributed.OTPClientRepository module<a class="headerlink" href="#distributed-otpclientrepository-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-distributed.ObjectServer">
+<span id="distributed-objectserver-module"></span><h2>distributed.ObjectServer module<a class="headerlink" href="#module-distributed.ObjectServer" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.ObjectServer.ObjectServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.ObjectServer.</span></span><span class="sig-name descname"><span class="pre">ObjectServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServer.html#ObjectServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServer.ObjectServer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+<p>This is an object to represent the OTP Object Server itself.  You might
+not get a create for this object, but at some point you’ll probably
+make contact with it to start an AI or some such.</p>
+<p>The server version of this object is created by Roger’s code.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.ObjectServer.ObjectServer.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.ObjectServer.ObjectServer.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.ObjectServer.ObjectServer.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServer.html#ObjectServer.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServer.ObjectServer.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.ObjectServerAI">
+<span id="distributed-objectserverai-module"></span><h2>distributed.ObjectServerAI module<a class="headerlink" href="#module-distributed.ObjectServerAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.ObjectServerAI.ObjectServerAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.ObjectServerAI.</span></span><span class="sig-name descname"><span class="pre">ObjectServerAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerAI.html#ObjectServerAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerAI.ObjectServerAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<p>This is an object to represent the OTP Object Server itself.  You might
+not get a create for this object, but at some point you’ll probably
+make contact with it to start an AI or some such.</p>
+<p>The server version of this object is created by Roger’s code.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.ObjectServerAI.ObjectServerAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerAI.html#ObjectServerAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerAI.ObjectServerAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectAI more than once.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.ObjectServerAI.ObjectServerAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.ObjectServerAI.ObjectServerAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.ObjectServerAI.ObjectServerAI.setDcHash">
+<span class="sig-name descname"><span class="pre">setDcHash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dcHash</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerAI.html#ObjectServerAI.setDcHash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerAI.ObjectServerAI.setDcHash" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.ObjectServerAI.ObjectServerAI.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerAI.html#ObjectServerAI.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerAI.ObjectServerAI.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.ObjectServerUD">
+<span id="distributed-objectserverud-module"></span><h2>distributed.ObjectServerUD module<a class="headerlink" href="#module-distributed.ObjectServerUD" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.ObjectServerUD.ObjectServerUD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.ObjectServerUD.</span></span><span class="sig-name descname"><span class="pre">ObjectServerUD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerUD.html#ObjectServerUD"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerUD.ObjectServerUD" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectUD</span></code></p>
+<p>This is an object to represent the OTP Object Server itself.  You might
+not get a create for this object, but at some point you’ll probably
+make contact with it to start an UD or some such.</p>
+<p>The server version of this object is created by Roger’s code.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.ObjectServerUD.ObjectServerUD.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerUD.html#ObjectServerUD.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerUD.ObjectServerUD.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectUD more than once.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.ObjectServerUD.ObjectServerUD.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.ObjectServerUD.ObjectServerUD.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.ObjectServerUD.ObjectServerUD.setDcHash">
+<span class="sig-name descname"><span class="pre">setDcHash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dcHash</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerUD.html#ObjectServerUD.setDcHash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerUD.ObjectServerUD.setDcHash" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.ObjectServerUD.ObjectServerUD.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/ObjectServerUD.html#ObjectServerUD.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.ObjectServerUD.ObjectServerUD.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.OtpDoGlobals">
+<span id="distributed-otpdoglobals-module"></span><h2>distributed.OtpDoGlobals module<a class="headerlink" href="#module-distributed.OtpDoGlobals" title="Permalink to this heading"></a></h2>
+<p>Contains otp specific network message types.</p>
+</section>
+<section id="module-distributed.PotentialAvatar">
+<span id="distributed-potentialavatar-module"></span><h2>distributed.PotentialAvatar module<a class="headerlink" href="#module-distributed.PotentialAvatar" title="Permalink to this heading"></a></h2>
+<p>PotentialAvatar module: contains the PotenialAvatarClass</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.PotentialAvatar.PotentialAvatar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.PotentialAvatar.</span></span><span class="sig-name descname"><span class="pre">PotentialAvatar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allowedName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">creator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shared</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">online</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wishState</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CLOSED'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wishName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaultShard</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastLogout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/PotentialAvatar.html#PotentialAvatar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.PotentialAvatar.PotentialAvatar" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.PotentialShard">
+<span id="distributed-potentialshard-module"></span><h2>distributed.PotentialShard module<a class="headerlink" href="#module-distributed.PotentialShard" title="Permalink to this heading"></a></h2>
+<p>PotentialShard module: contains the PotenialShardClass</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.PotentialShard.PotentialShard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.PotentialShard.</span></span><span class="sig-name descname"><span class="pre">PotentialShard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/PotentialShard.html#PotentialShard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.PotentialShard.PotentialShard" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-distributed.Puppeteer">
+<span id="distributed-puppeteer-module"></span><h2>distributed.Puppeteer module<a class="headerlink" href="#module-distributed.Puppeteer" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.Puppeteer.Puppeteer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.Puppeteer.</span></span><span class="sig-name descname"><span class="pre">Puppeteer</span></span><a class="reference internal" href="../_modules/distributed/Puppeteer.html#Puppeteer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.Puppeteer.Puppeteer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DirectObject</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.Puppeteer.Puppeteer.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.Puppeteer.Puppeteer.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.Puppeteer.Puppeteer.startPuppet">
+<span class="sig-name descname"><span class="pre">startPuppet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puppet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/Puppeteer.html#Puppeteer.startPuppet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.Puppeteer.Puppeteer.startPuppet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.Puppeteer.Puppeteer.stopPuppet">
+<span class="sig-name descname"><span class="pre">stopPuppet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puppet</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/Puppeteer.html#Puppeteer.stopPuppet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.Puppeteer.Puppeteer.stopPuppet" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-distributed.TelemetryLimited">
+<span id="distributed-telemetrylimited-module"></span><h2>distributed.TelemetryLimited module<a class="headerlink" href="#module-distributed.TelemetryLimited" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="distributed.TelemetryLimited.TelemetryLimited">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">distributed.TelemetryLimited.</span></span><span class="sig-name descname"><span class="pre">TelemetryLimited</span></span><a class="reference internal" href="../_modules/distributed/TelemetryLimited.html#TelemetryLimited"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.TelemetryLimited.TelemetryLimited" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="distributed.TelemetryLimited.TelemetryLimited.Sng">
+<span class="sig-name descname"><span class="pre">Sng</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.showbase.PythonUtil.SerialNumGen</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#distributed.TelemetryLimited.TelemetryLimited.Sng" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.TelemetryLimited.TelemetryLimited.addTelemetryLimit">
+<span class="sig-name descname"><span class="pre">addTelemetryLimit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/TelemetryLimited.html#TelemetryLimited.addTelemetryLimit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.TelemetryLimited.TelemetryLimited.addTelemetryLimit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.TelemetryLimited.TelemetryLimited.enforceTelemetryLimits">
+<span class="sig-name descname"><span class="pre">enforceTelemetryLimits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/TelemetryLimited.html#TelemetryLimited.enforceTelemetryLimits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.TelemetryLimited.TelemetryLimited.enforceTelemetryLimits" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.TelemetryLimited.TelemetryLimited.getTelemetryLimiterId">
+<span class="sig-name descname"><span class="pre">getTelemetryLimiterId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/TelemetryLimited.html#TelemetryLimited.getTelemetryLimiterId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.TelemetryLimited.TelemetryLimited.getTelemetryLimiterId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="distributed.TelemetryLimited.TelemetryLimited.removeTelemetryLimit">
+<span class="sig-name descname"><span class="pre">removeTelemetryLimit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/distributed/TelemetryLimited.html#TelemetryLimited.removeTelemetryLimit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#distributed.TelemetryLimited.TelemetryLimited.removeTelemetryLimit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="distributed-telemetrylimiter-module">
+<h2>distributed.TelemetryLimiter module<a class="headerlink" href="#distributed-telemetrylimiter-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-distributed">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-distributed" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="debug.html" class="btn btn-neutral float-left" title="debug package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="friends.html" class="btn btn-neutral float-right" title="friends package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>effects package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="estate package" href="estate.html" />
+    <link rel="prev" title="dna package" href="dna.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">effects package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-blasteffect-module">effects.BlastEffect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-bubbles-module">effects.Bubbles module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-carsmoke-module">effects.CarSmoke module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-chrysanthemumeffect-module">effects.ChrysanthemumEffect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-distributedfireworkshow-module">effects.DistributedFireworkShow module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-distributedfireworkshowai-module">effects.DistributedFireworkShowAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-drift-module">effects.Drift module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-dustcloud-module">effects.DustCloud module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-effectcontroller-module">effects.EffectController module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-firework-module">effects.Firework module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworkeffect-module">effects.FireworkEffect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-effects.FireworkGlobals">effects.FireworkGlobals module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#effects.FireworkGlobals.FireworkBurstType"><code class="docutils literal notranslate"><span class="pre">FireworkBurstType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#effects.FireworkGlobals.FireworkTrailType"><code class="docutils literal notranslate"><span class="pre">FireworkTrailType</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#effects.FireworkGlobals.FireworkType"><code class="docutils literal notranslate"><span class="pre">FireworkType</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworkmanagerai-module">effects.FireworkManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworkshow-module">effects.FireworkShow module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworkshowmixin-module">effects.FireworkShowMixin module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworkshows-module">effects.FireworkShows module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworksparkles-module">effects.FireworkSparkles module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworks-module">effects.Fireworks module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-fireworkseditor-module">effects.FireworksEditor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-flasheffect-module">effects.FlashEffect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-glow-module">effects.Glow module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-glowtrail-module">effects.GlowTrail module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-icecream-module">effects.IceCream module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-noisesparkles-module">effects.NoiseSparkles module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-peonyeffect-module">effects.PeonyEffect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-planarreflector-module">effects.PlanarReflector module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-polytrail-module">effects.PolyTrail module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-pooledeffect-module">effects.PooledEffect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-rayburst-module">effects.RayBurst module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-ringeffect-module">effects.RingEffect module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-ripples-module">effects.Ripples module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-rocketexplosion-module">effects.RocketExplosion module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-scavengerhunteffects-module">effects.ScavengerHuntEffects module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-simplesparkles-module">effects.SimpleSparkles module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-skullburst-module">effects.SkullBurst module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-skullflash-module">effects.SkullFlash module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-sparks-module">effects.Sparks module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-sparkstrail-module">effects.SparksTrail module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-sparkstraillong-module">effects.SparksTrailLong module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-splash-module">effects.Splash module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-starburst-module">effects.StarBurst module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-trailexplosion-module">effects.TrailExplosion module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#effects-wake-module">effects.Wake module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-effects">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">effects package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/effects.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="effects-package">
+<h1>effects package<a class="headerlink" href="#effects-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-blasteffect-module">
+<h2>effects.BlastEffect module<a class="headerlink" href="#effects-blasteffect-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-bubbles-module">
+<h2>effects.Bubbles module<a class="headerlink" href="#effects-bubbles-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-carsmoke-module">
+<h2>effects.CarSmoke module<a class="headerlink" href="#effects-carsmoke-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-chrysanthemumeffect-module">
+<h2>effects.ChrysanthemumEffect module<a class="headerlink" href="#effects-chrysanthemumeffect-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-distributedfireworkshow-module">
+<h2>effects.DistributedFireworkShow module<a class="headerlink" href="#effects-distributedfireworkshow-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-distributedfireworkshowai-module">
+<h2>effects.DistributedFireworkShowAI module<a class="headerlink" href="#effects-distributedfireworkshowai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-drift-module">
+<h2>effects.Drift module<a class="headerlink" href="#effects-drift-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-dustcloud-module">
+<h2>effects.DustCloud module<a class="headerlink" href="#effects-dustcloud-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-effectcontroller-module">
+<h2>effects.EffectController module<a class="headerlink" href="#effects-effectcontroller-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-firework-module">
+<h2>effects.Firework module<a class="headerlink" href="#effects-firework-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-fireworkeffect-module">
+<h2>effects.FireworkEffect module<a class="headerlink" href="#effects-fireworkeffect-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-effects.FireworkGlobals">
+<span id="effects-fireworkglobals-module"></span><h2>effects.FireworkGlobals module<a class="headerlink" href="#module-effects.FireworkGlobals" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">effects.FireworkGlobals.</span></span><span class="sig-name descname"><span class="pre">FireworkBurstType</span></span><a class="reference internal" href="../_modules/effects/FireworkGlobals.html#FireworkBurstType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.BeeShell">
+<span class="sig-name descname"><span class="pre">BeeShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.BeeShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.ChrysanthemumDiademShell">
+<span class="sig-name descname"><span class="pre">ChrysanthemumDiademShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.ChrysanthemumDiademShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.ChrysanthemumShell">
+<span class="sig-name descname"><span class="pre">ChrysanthemumShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.ChrysanthemumShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.IceCream">
+<span class="sig-name descname"><span class="pre">IceCream</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.IceCream" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.PeonyDiademShell">
+<span class="sig-name descname"><span class="pre">PeonyDiademShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.PeonyDiademShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.PeonyParticleShell">
+<span class="sig-name descname"><span class="pre">PeonyParticleShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.PeonyParticleShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.PeonyShell">
+<span class="sig-name descname"><span class="pre">PeonyShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.PeonyShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.RingShell">
+<span class="sig-name descname"><span class="pre">RingShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.RingShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.SaturnShell">
+<span class="sig-name descname"><span class="pre">SaturnShell</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.SaturnShell" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.SkullBlast">
+<span class="sig-name descname"><span class="pre">SkullBlast</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.SkullBlast" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.Sparkles">
+<span class="sig-name descname"><span class="pre">Sparkles</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.Sparkles" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkBurstType.TrailExplosion">
+<span class="sig-name descname"><span class="pre">TrailExplosion</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkBurstType.TrailExplosion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">effects.FireworkGlobals.</span></span><span class="sig-name descname"><span class="pre">FireworkTrailType</span></span><a class="reference internal" href="../_modules/effects/FireworkGlobals.html#FireworkTrailType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType.Default">
+<span class="sig-name descname"><span class="pre">Default</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType.Default" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType.Glow">
+<span class="sig-name descname"><span class="pre">Glow</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType.Glow" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType.GlowSparkle">
+<span class="sig-name descname"><span class="pre">GlowSparkle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType.GlowSparkle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType.LongGlowSparkle">
+<span class="sig-name descname"><span class="pre">LongGlowSparkle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType.LongGlowSparkle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType.LongSparkle">
+<span class="sig-name descname"><span class="pre">LongSparkle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType.LongSparkle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType.Polygonal">
+<span class="sig-name descname"><span class="pre">Polygonal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType.Polygonal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkTrailType.Sparkle">
+<span class="sig-name descname"><span class="pre">Sparkle</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkTrailType.Sparkle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">effects.FireworkGlobals.</span></span><span class="sig-name descname"><span class="pre">FireworkType</span></span><a class="reference internal" href="../_modules/effects/FireworkGlobals.html#FireworkType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#effects.FireworkGlobals.FireworkType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.AdvancedPeony">
+<span class="sig-name descname"><span class="pre">AdvancedPeony</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.AdvancedPeony" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.AmericanFlag">
+<span class="sig-name descname"><span class="pre">AmericanFlag</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.AmericanFlag" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.BasicPeony">
+<span class="sig-name descname"><span class="pre">BasicPeony</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.BasicPeony" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.Bees">
+<span class="sig-name descname"><span class="pre">Bees</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.Bees" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.Chrysanthemum">
+<span class="sig-name descname"><span class="pre">Chrysanthemum</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.Chrysanthemum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.DiademChrysanthemum">
+<span class="sig-name descname"><span class="pre">DiademChrysanthemum</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.DiademChrysanthemum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.DiademPeony">
+<span class="sig-name descname"><span class="pre">DiademPeony</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.DiademPeony" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.GlowFlare">
+<span class="sig-name descname"><span class="pre">GlowFlare</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.GlowFlare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.IceCream">
+<span class="sig-name descname"><span class="pre">IceCream</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">14</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.IceCream" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.Mickey">
+<span class="sig-name descname"><span class="pre">Mickey</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">11</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.Mickey" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.PalmTree">
+<span class="sig-name descname"><span class="pre">PalmTree</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.PalmTree" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.PirateSkull">
+<span class="sig-name descname"><span class="pre">PirateSkull</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">12</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.PirateSkull" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.Ring">
+<span class="sig-name descname"><span class="pre">Ring</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.Ring" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.Saturn">
+<span class="sig-name descname"><span class="pre">Saturn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.Saturn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="effects.FireworkGlobals.FireworkType.TrailBurst">
+<span class="sig-name descname"><span class="pre">TrailBurst</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></em><a class="headerlink" href="#effects.FireworkGlobals.FireworkType.TrailBurst" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="effects-fireworkmanagerai-module">
+<h2>effects.FireworkManagerAI module<a class="headerlink" href="#effects-fireworkmanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-fireworkshow-module">
+<h2>effects.FireworkShow module<a class="headerlink" href="#effects-fireworkshow-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-fireworkshowmixin-module">
+<h2>effects.FireworkShowMixin module<a class="headerlink" href="#effects-fireworkshowmixin-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-fireworkshows-module">
+<h2>effects.FireworkShows module<a class="headerlink" href="#effects-fireworkshows-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-fireworksparkles-module">
+<h2>effects.FireworkSparkles module<a class="headerlink" href="#effects-fireworksparkles-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-fireworks-module">
+<h2>effects.Fireworks module<a class="headerlink" href="#effects-fireworks-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-fireworkseditor-module">
+<h2>effects.FireworksEditor module<a class="headerlink" href="#effects-fireworkseditor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-flasheffect-module">
+<h2>effects.FlashEffect module<a class="headerlink" href="#effects-flasheffect-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-glow-module">
+<h2>effects.Glow module<a class="headerlink" href="#effects-glow-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-glowtrail-module">
+<h2>effects.GlowTrail module<a class="headerlink" href="#effects-glowtrail-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-icecream-module">
+<h2>effects.IceCream module<a class="headerlink" href="#effects-icecream-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-noisesparkles-module">
+<h2>effects.NoiseSparkles module<a class="headerlink" href="#effects-noisesparkles-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-peonyeffect-module">
+<h2>effects.PeonyEffect module<a class="headerlink" href="#effects-peonyeffect-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-planarreflector-module">
+<h2>effects.PlanarReflector module<a class="headerlink" href="#effects-planarreflector-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-polytrail-module">
+<h2>effects.PolyTrail module<a class="headerlink" href="#effects-polytrail-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-pooledeffect-module">
+<h2>effects.PooledEffect module<a class="headerlink" href="#effects-pooledeffect-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-rayburst-module">
+<h2>effects.RayBurst module<a class="headerlink" href="#effects-rayburst-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-ringeffect-module">
+<h2>effects.RingEffect module<a class="headerlink" href="#effects-ringeffect-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-ripples-module">
+<h2>effects.Ripples module<a class="headerlink" href="#effects-ripples-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-rocketexplosion-module">
+<h2>effects.RocketExplosion module<a class="headerlink" href="#effects-rocketexplosion-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-scavengerhunteffects-module">
+<h2>effects.ScavengerHuntEffects module<a class="headerlink" href="#effects-scavengerhunteffects-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-simplesparkles-module">
+<h2>effects.SimpleSparkles module<a class="headerlink" href="#effects-simplesparkles-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-skullburst-module">
+<h2>effects.SkullBurst module<a class="headerlink" href="#effects-skullburst-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-skullflash-module">
+<h2>effects.SkullFlash module<a class="headerlink" href="#effects-skullflash-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-sparks-module">
+<h2>effects.Sparks module<a class="headerlink" href="#effects-sparks-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-sparkstrail-module">
+<h2>effects.SparksTrail module<a class="headerlink" href="#effects-sparkstrail-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-sparkstraillong-module">
+<h2>effects.SparksTrailLong module<a class="headerlink" href="#effects-sparkstraillong-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-splash-module">
+<h2>effects.Splash module<a class="headerlink" href="#effects-splash-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-starburst-module">
+<h2>effects.StarBurst module<a class="headerlink" href="#effects-starburst-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-trailexplosion-module">
+<h2>effects.TrailExplosion module<a class="headerlink" href="#effects-trailexplosion-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="effects-wake-module">
+<h2>effects.Wake module<a class="headerlink" href="#effects-wake-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-effects">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-effects" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dna.html" class="btn btn-neutral float-left" title="dna package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="estate.html" class="btn btn-neutral float-right" title="estate package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>safezone.DistributedPicnicTableAI &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">safezone.DistributedPicnicTableAI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for safezone.DistributedPicnicTableAI</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">direct.distributed.DistributedNodeAI</span> <span class="kn">import</span> <span class="n">DistributedNodeAI</span>
+<span class="kn">from</span> <span class="nn">direct.distributed.ClockDelta</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">direct.fsm</span> <span class="kn">import</span> <span class="n">ClassicFSM</span><span class="p">,</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">direct.fsm</span> <span class="kn">import</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">direct.fsm</span> <span class="kn">import</span> <span class="n">StateData</span>
+<span class="kn">from</span> <span class="nn">toontown.safezone</span> <span class="kn">import</span> <span class="n">DistributedChineseCheckersAI</span>
+<span class="kn">from</span> <span class="nn">toontown.safezone</span> <span class="kn">import</span> <span class="n">DistributedCheckersAI</span>
+<span class="kn">from</span> <span class="nn">toontown.safezone</span> <span class="kn">import</span> <span class="n">DistributedFindFourAI</span>
+
+
+<div class="viewcode-block" id="DistributedPicnicTableAI"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI">[docs]</a><span class="k">class</span> <span class="nc">DistributedPicnicTableAI</span><span class="p">(</span><span class="n">DistributedNodeAI</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">air</span><span class="p">,</span> <span class="n">zone</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="n">DistributedNodeAI</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">air</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">air</span> <span class="o">=</span> <span class="n">air</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">seats</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setHpr</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">myPos</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myHpr</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">playerIdList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkersZoneId</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">generateOtpObject</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">districtId</span><span class="p">,</span> <span class="n">zone</span><span class="p">,</span> <span class="n">optionalFields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;setX&quot;</span><span class="p">,</span><span class="s2">&quot;setY&quot;</span><span class="p">,</span><span class="s2">&quot;setZ&quot;</span><span class="p">,</span> <span class="s2">&quot;setH&quot;</span><span class="p">,</span> <span class="s2">&quot;setP&quot;</span><span class="p">,</span> <span class="s2">&quot;setR&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">observers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">allowPickers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameDoId</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+        <span class="c1">#Will NOT allow boarders once game has begun</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isAccepting</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.announceGenerate"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.announceGenerate">[docs]</a>    <span class="k">def</span> <span class="nf">announceGenerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.delete"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">DistributedNodeAI</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameDoId</span> <span class="o">=</span> <span class="kc">None</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.setGameDoId"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.setGameDoId">[docs]</a>    <span class="k">def</span> <span class="nf">setGameDoId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameDoId</span> <span class="o">=</span> <span class="n">doId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">doId2do</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doId</span><span class="p">)</span></div>
+
+
+    <span class="c1">###############################################################</span>
+    <span class="c1">#Table &quot;State&quot;</span>
+    <span class="c1">#</span>
+    <span class="c1">#These Functions send the current table state when the client asks</span>
+    <span class="c1">#for it, it is needed so that the client can (usually upon zone in)</span>
+    <span class="c1">#can keep or have a current status of the table, instead of only</span>
+    <span class="c1">#getting &quot;deltas&quot; of the tables state</span>
+    <span class="c1">###</span>
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.requestTableState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestTableState">[docs]</a>    <span class="k">def</span> <span class="nf">requestTableState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getTableState</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.getTableState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.getTableState">[docs]</a>    <span class="k">def</span> <span class="nf">getTableState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tableStateList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="kc">None</span><span class="p">):</span>
+                <span class="n">tableStateList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">tableStateList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;playing&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setTableState&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">tableStateList</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setTableState&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">tableStateList</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.sendIsPlaying"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.sendIsPlaying">[docs]</a>    <span class="k">def</span> <span class="nf">sendIsPlaying</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;playing&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setIsPlaying&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># 1 is true</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setIsPlaying&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># 0 is false</span></div>
+
+    <span class="c1">#################################################################</span>
+    <span class="c1">## Announce Winner - announcement for table winner (sends whisper</span>
+    <span class="c1">## on the client</span>
+    <span class="c1">###</span>
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.announceWinner"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.announceWinner">[docs]</a>    <span class="k">def</span> <span class="nf">announceWinner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameName</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;announceWinner&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">gameName</span><span class="p">,</span> <span class="n">avId</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameDoId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+     <span class="c1">################################################################</span>
+    <span class="c1">#                    Table enter functions</span>
+    <span class="c1">#--- requstJoin (Distributed), rejectBoarder, acceptBoarder</span>
+    <span class="c1">#</span>
+    <span class="c1">#These functiosn handle all of the table requests to join ect</span>
+    <span class="c1">###</span>
+<div class="viewcode-block" id="DistributedPicnicTableAI.requestJoin"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestJoin">[docs]</a>    <span class="k">def</span> <span class="nf">requestJoin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">si</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+        <span class="c1">#add him to the player list</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">findAvatar</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Ignoring multiple requests from </span><span class="si">%s</span><span class="s2"> to board.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+            <span class="k">return</span>
+
+        <span class="n">av</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">doId2do</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">av</span><span class="p">:</span>
+            <span class="c1"># Only toons with hp greater than 0 may board the trolley.</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">av</span><span class="o">.</span><span class="n">hp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">isAccepting</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">[</span><span class="n">si</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;accepting boarder </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">avId</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acceptBoarder</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="n">si</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;rejecting boarder </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">avId</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;rejectJoin&quot;</span><span class="p">,</span> <span class="p">[])</span>
+                <span class="c1">#If he is rejected, no sense wasting bandwith just dont accept</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;avid: </span><span class="si">%s</span><span class="s2"> does not exist, but tried to board a picnicTable&quot;</span> <span class="o">%</span> <span class="n">avId</span>
+                <span class="p">)</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.acceptBoarder"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.acceptBoarder">[docs]</a>    <span class="k">def</span> <span class="nf">acceptBoarder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="n">seatIndex</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;acceptBoarder </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">avId</span><span class="p">)</span>
+        <span class="c1"># Make sure we have a valid seat number</span>
+        <span class="c1"># Make sure the seat is empty</span>
+        <span class="c1"># Make sure this avatar isn&#39;t already seated</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">findAvatar</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">return</span>
+        <span class="n">isEmpty</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">xx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">xx</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">isEmpty</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">isEmpty</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;allowPick&quot;</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">allowPickers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span> <span class="c1">#Only people ALLOWED to pick can pick games</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;setZone&#39;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">zoneId</span><span class="p">])</span>
+        <span class="c1"># Put the avatar in that seat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">[</span><span class="n">seatIndex</span><span class="p">]</span> <span class="o">=</span> <span class="n">avId</span>
+        <span class="c1"># Add a hook that handles the case where the avatar exits</span>
+        <span class="c1"># the district unexpectedly</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">acceptOnce</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarExitEvent</span><span class="p">(</span><span class="n">avId</span><span class="p">),</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">__handleUnexpectedExit</span><span class="p">,</span> <span class="n">extraArgs</span><span class="o">=</span><span class="p">[</span><span class="n">avId</span><span class="p">])</span>
+        <span class="c1"># Record the time of boarding</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeOfBoarding</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getRealTime</span><span class="p">()</span>
+        <span class="c1">#Count for the Game to know whos sitting and not &quot;playing&quot; yet</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">informGameOfPlayer</span><span class="p">()</span>
+        <span class="c1"># Tell the clients to put the avatar in that seat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;fillSlot&quot;</span><span class="p">,</span>
+                        <span class="p">[</span><span class="n">avId</span><span class="p">,</span> <span class="n">seatIndex</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span>
+                         <span class="n">globalClockDelta</span><span class="o">.</span><span class="n">localToNetworkTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timeOfBoarding</span><span class="p">),</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">doId</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getTableState</span><span class="p">()</span></div>
+        <span class="c1"># Put us into waitCountdown state... If we are already there,</span>
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.requestPickedGame"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestPickedGame">[docs]</a>    <span class="k">def</span> <span class="nf">requestPickedGame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameNum</span><span class="p">):</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">==</span> <span class="kc">False</span> <span class="ow">and</span> <span class="n">avId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">allowPickers</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">numPickers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">allowPickers</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">allowPickers</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pickGame</span><span class="p">(</span><span class="n">gameNum</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">numPickers</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">informGameOfPlayer</span><span class="p">()</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.pickGame"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.pickGame">[docs]</a>    <span class="k">def</span> <span class="nf">pickGame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameNum</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">gameNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ConfigVariableBool</span><span class="p">(</span><span class="s2">&quot;want-chinese&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">DistributedChineseCheckersAI</span><span class="o">.</span><span class="n">DistributedChineseCheckersAI</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">doId</span><span class="p">,</span>  <span class="s1">&#39;chinese&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getX</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getY</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getZ</span><span class="p">()</span><span class="o">+</span><span class="mf">2.83</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getH</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">getP</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">getR</span><span class="p">())</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s1">&#39;setZone&#39;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">zoneId</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">gameNum</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ConfigVariableBool</span><span class="p">(</span><span class="s2">&quot;want-checkers&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">DistributedCheckersAI</span><span class="o">.</span><span class="n">DistributedCheckersAI</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">doId</span><span class="p">,</span>  <span class="s1">&#39;checkers&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getX</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getY</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getZ</span><span class="p">()</span><span class="o">+</span><span class="mf">2.83</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getH</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">getP</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">getR</span><span class="p">())</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s1">&#39;setZone&#39;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">zoneId</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">ConfigVariableBool</span><span class="p">(</span><span class="s2">&quot;want-findfour&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">getValue</span><span class="p">():</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">DistributedFindFourAI</span><span class="o">.</span><span class="n">DistributedFindFourAI</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">doId</span><span class="p">,</span>  <span class="s1">&#39;findFour&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getX</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getY</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">getZ</span><span class="p">()</span><span class="o">+</span><span class="mf">2.83</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getH</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">getP</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">getR</span><span class="p">())</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s1">&#39;setZone&#39;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">zoneId</span><span class="p">])</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.requestZone"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestZone">[docs]</a>    <span class="k">def</span> <span class="nf">requestZone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avId</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;setZone&#39;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">zoneId</span><span class="p">])</span></div>
+    <span class="c1">#########################################################</span>
+    <span class="c1">#        Observer ONLY</span>
+    <span class="c1">#</span>
+    <span class="c1">#These game zone functions are specific to the &quot;observer&quot; case because the zoneId ect,</span>
+    <span class="c1">#are sent as a package in the Fillslot function</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="c1">#For this case - When it sends a 1 or a zero with the setGameZone, This is to account for the fact</span>
+    <span class="c1">#an observer can (and will) come into games halfway through, somehow that client needs to know</span>
+    <span class="c1">#about the current state of the game.</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="c1">#1 == Playing</span>
+    <span class="c1">#0 == Not Playing</span>
+    <span class="c1">########</span>
+<div class="viewcode-block" id="DistributedPicnicTableAI.requestGameZone"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestGameZone">[docs]</a>    <span class="k">def</span> <span class="nf">requestGameZone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">playersObserving</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">acceptOnce</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarExitEvent</span><span class="p">(</span><span class="n">avId</span><span class="p">),</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">handleObserverExit</span><span class="p">,</span> <span class="n">extraArgs</span><span class="o">=</span><span class="p">[</span><span class="n">avId</span><span class="p">])</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;playing&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;setGameZone&quot;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">checkersZoneId</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;setGameZone&quot;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">checkersZoneId</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.leaveObserve"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.leaveObserve">[docs]</a>    <span class="k">def</span> <span class="nf">leaveObserve</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+         <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+             <span class="k">if</span> <span class="n">avId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">playersObserving</span><span class="p">:</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">playersObserving</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.handleObserverExit"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.handleObserverExit">[docs]</a>    <span class="k">def</span> <span class="nf">handleObserverExit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="ow">and</span> <span class="n">avId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">playersObserving</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">playersObserving</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarExitEvent</span><span class="p">(</span><span class="n">avId</span><span class="p">))</span></div>
+
+    <span class="c1">#################################################################</span>
+    <span class="c1">#                Table Exit functions</span>
+    <span class="c1">#--- requestExit (Distributed), acceptExiter, __handleUnexpected Exit</span>
+    <span class="c1">#</span>
+    <span class="c1">#These functions handle all of the Exiting of the table</span>
+    <span class="c1">###</span>
+<div class="viewcode-block" id="DistributedPicnicTableAI.requestExit"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestExit">[docs]</a>    <span class="k">def</span> <span class="nf">requestExit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;requestExit&quot;</span><span class="p">)</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="n">av</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">doId2do</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">av</span><span class="p">:</span>
+            <span class="c1"># Check to make sure the AI hasn&#39;t already told the players to exit</span>
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">countFullSeats</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acceptExiter</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Player tried to exit after AI already kicked everyone out&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s2">&quot;avId: </span><span class="si">%s</span><span class="s2"> does not exist, but tried to exit picnicTable&quot;</span> <span class="o">%</span> <span class="n">avId</span>
+                <span class="p">)</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.acceptExiter"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.acceptExiter">[docs]</a>    <span class="k">def</span> <span class="nf">acceptExiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="c1"># Find the exiter&#39;s seat index</span>
+        <span class="n">seatIndex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findAvatar</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+        <span class="c1"># It is possible that the avatar exited the shard unexpectedly.</span>
+        <span class="k">if</span> <span class="n">seatIndex</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">avId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;emptySlot&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">avId</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">globalClockDelta</span><span class="o">.</span><span class="n">getRealNetworkTime</span><span class="p">()])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">[</span><span class="n">seatIndex</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="c1">#Dont care about clients unexpected exit</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarExitEvent</span><span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+
+
+            <span class="c1"># Tell the clients that the avatar is leaving that seat</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;emptySlot&quot;</span><span class="p">,</span>
+                            <span class="p">[</span><span class="n">avId</span><span class="p">,</span> <span class="n">seatIndex</span><span class="p">,</span> <span class="n">globalClockDelta</span><span class="o">.</span><span class="n">getRealNetworkTime</span><span class="p">()])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getTableState</span><span class="p">()</span>
+            <span class="n">numActive</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">numActive</span> <span class="o">=</span> <span class="n">numActive</span> <span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">informGameOfPlayerLeave</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">handlePlayerExit</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">numActive</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">isAccepting</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">handleEmptyGame</span><span class="p">()</span>
+                    <span class="c1">#del self.game</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">requestDelete</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+    <span class="k">def</span> <span class="nf">__handleUnexpectedExit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Avatar: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span> <span class="o">+</span>
+                        <span class="s2">&quot; has exited unexpectedly&quot;</span><span class="p">)</span>
+        <span class="n">seatIndex</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findAvatar</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+
+        <span class="c1"># Make sure the avatar is really here</span>
+        <span class="k">if</span> <span class="n">seatIndex</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">[</span><span class="n">seatIndex</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="c1">#Dont care about clients unexpected exit</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ignore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarExitEvent</span><span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">informGameOfPlayerLeave</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">handlePlayerExit</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getTableState</span><span class="p">()</span>
+            <span class="n">numActive</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">numActive</span> <span class="o">=</span> <span class="n">numActive</span> <span class="o">+</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">numActive</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+                <span class="n">simbase</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">deallocateZone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">zoneId</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">requestDelete</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">gameDoId</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="viewcode-block" id="DistributedPicnicTableAI.informGameOfPlayerExit"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.informGameOfPlayerExit">[docs]</a>    <span class="k">def</span> <span class="nf">informGameOfPlayerExit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">handlePlayerExit</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.handleGameOver"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.handleGameOver">[docs]</a>    <span class="k">def</span> <span class="nf">handleGameOver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">acceptExiter</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">observers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">playersObserving</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">acceptExiter</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameDoId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hasPicked</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+    <span class="c1">##################################################</span>
+    <span class="c1">#               Helper functions</span>
+    <span class="c1">#--- findAvatar, countFullSeats, findAvailableSeat</span>
+    <span class="c1">###</span>
+<div class="viewcode-block" id="DistributedPicnicTableAI.findAvatar"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.findAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">findAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">avId</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.countFullSeats"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.countFullSeats">[docs]</a>    <span class="k">def</span> <span class="nf">countFullSeats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avCounter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="p">:</span>
+                <span class="n">avCounter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">avCounter</span></div>
+
+<div class="viewcode-block" id="DistributedPicnicTableAI.findAvailableSeat"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.findAvailableSeat">[docs]</a>    <span class="k">def</span> <span class="nf">findAvailableSeat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">seats</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">i</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+<div class="viewcode-block" id="DistributedPicnicTableAI.setCheckersZoneId"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.setCheckersZoneId">[docs]</a>    <span class="k">def</span> <span class="nf">setCheckersZoneId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zoneId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">checkersZoneId</span> <span class="o">=</span> <span class="n">zoneId</span></div></div>
+    <span class="c1">############END OF HELPERS########################</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

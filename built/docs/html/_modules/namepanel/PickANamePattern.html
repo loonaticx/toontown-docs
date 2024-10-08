@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>namepanel.PickANamePattern &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">namepanel.PickANamePattern</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for namepanel.PickANamePattern</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="PickANamePattern"><a class="viewcode-back" href="../../otp/namepanel.html#namepanel.PickANamePattern.PickANamePattern">[docs]</a><span></span><span class="k">class</span> <span class="nc">PickANamePattern</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Given a name string, converts it to a pick-a-name if possible&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nameStr</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nameStr</span> <span class="o">=</span> <span class="n">nameStr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_namePattern</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nameStr</span><span class="p">,</span> <span class="n">gender</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PickANamePattern.hasNamePattern"><a class="viewcode-back" href="../../otp/namepanel.html#namepanel.PickANamePattern.PickANamePattern.hasNamePattern">[docs]</a>    <span class="k">def</span> <span class="nf">hasNamePattern</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_namePattern</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="PickANamePattern.getNamePattern"><a class="viewcode-back" href="../../otp/namepanel.html#namepanel.PickANamePattern.PickANamePattern.getNamePattern">[docs]</a>    <span class="k">def</span> <span class="nf">getNamePattern</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_namePattern</span></div>
+
+<div class="viewcode-block" id="PickANamePattern.getNameString"><a class="viewcode-back" href="../../otp/namepanel.html#namepanel.PickANamePattern.PickANamePattern.getNameString">[docs]</a>    <span class="k">def</span> <span class="nf">getNameString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="n">nameParts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getNameParts</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span>
+        <span class="c1"># convert from string-&gt;index to index-&gt;string</span>
+        <span class="n">invNameParts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nameParts</span><span class="p">)):</span>
+            <span class="n">invNameParts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">invertDict</span><span class="p">(</span><span class="n">nameParts</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pattern</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                    <span class="n">name</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span>
+                <span class="n">name</span> <span class="o">+=</span> <span class="n">invNameParts</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">pattern</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+
+<div class="viewcode-block" id="PickANamePattern.getNamePartString"><a class="viewcode-back" href="../../otp/namepanel.html#namepanel.PickANamePattern.PickANamePattern.getNamePartString">[docs]</a>    <span class="k">def</span> <span class="nf">getNamePartString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">patternIndex</span><span class="p">,</span> <span class="n">partIndex</span><span class="p">):</span>
+        <span class="n">nameParts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getNameParts</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span>
+        <span class="c1"># convert from string-&gt;index to index-&gt;string</span>
+        <span class="n">invNamePart</span> <span class="o">=</span> <span class="n">invertDict</span><span class="p">(</span><span class="n">nameParts</span><span class="p">[</span><span class="n">patternIndex</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">invNamePart</span><span class="p">[</span><span class="n">partIndex</span><span class="p">]</span></div>
+
+    <span class="k">def</span> <span class="nf">_genWordListSplitPermutations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">):</span>
+        <span class="c1"># recursively generate each possible permutation of words in the word list</span>
+        <span class="c1"># joined with a space</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+            <span class="c1"># list doesn&#39;t contain any words, yield nothing</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># list contains only one word, yield only one permutation</span>
+            <span class="k">yield</span> <span class="n">words</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">permutation</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_genWordListSplitPermutations</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+            <span class="c1"># yield a version with the current word as a separate word</span>
+            <span class="k">yield</span> <span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">permutation</span>
+            <span class="c1"># yield a version with the current word joined with the following word</span>
+            <span class="k">yield</span> <span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">permutation</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">permutation</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="k">def</span> <span class="nf">_genNameSplitPermutations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;yields each possible permutation of combinations of word splits for the provided</span>
+<span class="sd">        name string, using a single space to combine split strings, since that is what separates</span>
+<span class="sd">        multi-word name parts.</span>
+<span class="sd">        Allows us to match a name part like &#39;Boo Boo&#39; which has a space in it</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">splitName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_genWordListSplitPermutations</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">()):</span>
+            <span class="k">yield</span> <span class="n">splitName</span>
+
+    <span class="k">def</span> <span class="nf">_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nameStr</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;this does the work of calculating a pick-a-name pattern from</span>
+<span class="sd">        a name string, if possible&quot;&quot;&quot;</span>
+        <span class="c1"># get the appropriate name parts for the specified gender</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeWithNameParts</span><span class="p">(</span><span class="n">nameStr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getNameParts</span><span class="p">(</span><span class="n">gender</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_computeWithNameParts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nameStr</span><span class="p">,</span> <span class="n">nameParts</span><span class="p">):</span>
+        <span class="c1"># run through each permutation of consecutive words joined with a space</span>
+        <span class="c1"># to catch name parts like &quot;Boo Boo&quot;</span>
+        <span class="k">for</span> <span class="n">splitPermutation</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_genNameSplitPermutations</span><span class="p">(</span><span class="n">nameStr</span><span class="p">):</span>
+            <span class="n">pattern</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recursiveCompute</span><span class="p">(</span><span class="n">splitPermutation</span><span class="p">,</span> <span class="n">nameParts</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pattern</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">pattern</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">_getNameParts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="c1"># override and return list of name word dicts</span>
+        <span class="c1"># each name word dict should be word-&gt;index</span>
+        <span class="c1"># for instance [{&#39;Captain&#39;: 0}, {&#39;Bigbeard&#39;: 0, &#39;Longbeard&#39;: 1}]</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">_recursiveCompute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">nameParts</span><span class="p">,</span> <span class="n">wi</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nwli</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">wi</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+            <span class="c1"># matches have been found for every word in the name</span>
+            <span class="k">return</span> <span class="n">pattern</span>
+        <span class="k">if</span> <span class="n">nwli</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nameParts</span><span class="p">):</span>
+            <span class="c1"># matches have not been found for every word in the name, and we&#39;ve run out</span>
+            <span class="c1"># of name parts</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        
+        <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="n">wi</span><span class="p">]</span> <span class="ow">in</span> <span class="n">nameParts</span><span class="p">[</span><span class="n">nwli</span><span class="p">]:</span>
+            <span class="c1"># we got a match between the current word and the current list of name parts</span>
+            <span class="k">if</span> <span class="n">pattern</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">pattern</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">nameParts</span><span class="p">)</span>
+            <span class="n">word2index</span> <span class="o">=</span> <span class="n">nameParts</span><span class="p">[</span><span class="n">nwli</span><span class="p">]</span>
+            <span class="n">newPattern</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">[:]</span>
+            <span class="n">newPattern</span><span class="p">[</span><span class="n">nwli</span><span class="p">]</span> <span class="o">=</span> <span class="n">word2index</span><span class="p">[</span><span class="n">words</span><span class="p">[</span><span class="n">wi</span><span class="p">]]</span>
+            <span class="c1"># try to find a complete match for the name using this partial match</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recursiveCompute</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">nameParts</span><span class="p">,</span> <span class="n">wi</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">nwli</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">newPattern</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">result</span>
+
+        <span class="c1"># can&#39;t use a match with this name part, try the next one</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recursiveCompute</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">nameParts</span><span class="p">,</span> <span class="n">wi</span><span class="p">,</span>   <span class="n">nwli</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">pattern</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="PickANamePatternTwoPartLastName"><a class="viewcode-back" href="../../otp/namepanel.html#namepanel.PickANamePattern.PickANamePatternTwoPartLastName">[docs]</a><span class="k">class</span> <span class="nc">PickANamePatternTwoPartLastName</span><span class="p">(</span><span class="n">PickANamePattern</span><span class="p">):</span>
+<div class="viewcode-block" id="PickANamePatternTwoPartLastName.getNameString"><a class="viewcode-back" href="../../otp/namepanel.html#namepanel.PickANamePattern.PickANamePatternTwoPartLastName.getNameString">[docs]</a>    <span class="k">def</span> <span class="nf">getNameString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">PickANamePattern</span><span class="o">.</span><span class="n">getNameString</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">gender</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pattern</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># remove the space between the two parts of the last name</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                    <span class="n">name</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span>
+                <span class="n">name</span> <span class="o">+=</span> <span class="n">word</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+                <span class="n">name</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span>
+            <span class="n">name</span> <span class="o">+=</span> <span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="c1"># capitalize the last name suffix if appropriate (Mc, Mac, etc.)</span>
+            <span class="k">if</span> <span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getLastNameCapPrefixes</span><span class="p">()):</span>
+                <span class="n">name</span> <span class="o">+=</span> <span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">+=</span> <span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">name</span></div>
+
+    <span class="k">def</span> <span class="nf">_getLastNameCapPrefixes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># returns list of last name prefixes that capitalize their suffix</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    
+    <span class="k">def</span> <span class="nf">_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nameStr</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="n">nameParts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getNameParts</span><span class="p">(</span><span class="n">gender</span><span class="p">)</span>
+        <span class="n">combinedNameParts</span> <span class="o">=</span> <span class="n">nameParts</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        
+        <span class="c1"># temporarily combine the two name parts of the last names into one unified name part</span>
+        <span class="n">combinedNameParts</span><span class="o">.</span><span class="n">append</span><span class="p">({})</span>
+        <span class="n">combinedIndex2indices</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">lastNamePrefixesCapped</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_getLastNameCapPrefixes</span><span class="p">())</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">first</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nameParts</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">capitalize</span> <span class="o">=</span> <span class="n">first</span> <span class="ow">in</span> <span class="n">lastNamePrefixesCapped</span>
+            <span class="k">for</span> <span class="n">second</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">nameParts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">combinedLastName</span> <span class="o">=</span> <span class="n">first</span>
+                <span class="c1"># capitalize the last name suffix if appropriate (Mc, Mac, etc.)</span>
+                <span class="k">if</span> <span class="n">capitalize</span><span class="p">:</span>
+                    <span class="n">combinedLastName</span> <span class="o">+=</span> <span class="n">second</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">combinedLastName</span> <span class="o">+=</span> <span class="n">second</span>
+                <span class="n">combinedNameParts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">combinedLastName</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>
+                <span class="c1"># store the original indices so we can assign them if this last name</span>
+                <span class="c1"># combination is chosen</span>
+                <span class="n">combinedIndex2indices</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+                
+        <span class="n">pattern</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_computeWithNameParts</span><span class="p">(</span><span class="n">nameStr</span><span class="p">,</span> <span class="n">combinedNameParts</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">pattern</span><span class="p">:</span>
+            <span class="n">combinedIndex</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">pattern</span> <span class="o">=</span> <span class="n">pattern</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">pattern</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">pattern</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">combinedIndex</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># split out the last name into the original two indices</span>
+                <span class="n">pattern</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">combinedIndex2indices</span><span class="p">[</span><span class="n">combinedIndex</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">pattern</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">combinedIndex2indices</span><span class="p">[</span><span class="n">combinedIndex</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">pattern</span></div>
+
+<span class="k">if</span> <span class="n">__debug__</span><span class="p">:</span>
+    <span class="k">class</span> <span class="nc">TestClass</span><span class="p">(</span><span class="n">PickANamePattern</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_getNameParts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[{</span><span class="s1">&#39;Test&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Some&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,},</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Thing&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,}]</span>
+
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;Some&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;Thing&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;Test Name&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;Some Thing&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">assert</span> <span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNameString</span><span class="p">(</span><span class="n">TestClass</span><span class="p">(</span><span class="s1">&#39;Some Thing&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">(),</span> <span class="kc">None</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Some Thing&#39;</span>
+
+    <span class="k">del</span> <span class="n">TestClass</span>
+
+    <span class="k">class</span> <span class="nc">TestClass2</span><span class="p">(</span><span class="n">PickANamePatternTwoPartLastName</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">_getNameParts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[{</span><span class="s1">&#39;Test&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Some&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,},</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Thing&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,},</span>
+                    <span class="p">{</span><span class="s1">&#39;Fluffy&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Poofy&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Mc&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,},</span> <span class="p">{</span><span class="s1">&#39;pants&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;kins&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,},]</span>
+        <span class="k">def</span> <span class="nf">_getLastNameCapPrefixes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;Mc&#39;</span><span class="p">,]</span>
+
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;bleh&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;McPants&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test Thing&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test Name Fluffypants&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Some Poofykins&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;McPants&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">()</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test Name QWERkins&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="ow">not</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test Name PoofyQWER&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test Name Poofykins&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">hasNamePattern</span><span class="p">()</span>
+
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNameString</span><span class="p">(</span><span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;Test Name Fluffypants&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">(),</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;Test Name Fluffypants&#39;</span>
+    <span class="k">assert</span> <span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNameString</span><span class="p">(</span><span class="n">TestClass2</span><span class="p">(</span><span class="s1">&#39;McPants&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">getNamePattern</span><span class="p">(),</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;McPants&#39;</span>
+
+    <span class="k">del</span> <span class="n">TestClass2</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

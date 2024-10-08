@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>safezone.DistributedChineseCheckersAI &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">safezone.DistributedChineseCheckersAI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for safezone.DistributedChineseCheckersAI</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">direct.distributed.DistributedNodeAI</span> <span class="kn">import</span> <span class="n">DistributedNodeAI</span>
+<span class="kn">from</span> <span class="nn">direct.distributed.ClockDelta</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">direct.fsm</span> <span class="kn">import</span> <span class="n">ClassicFSM</span><span class="p">,</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">direct.fsm</span> <span class="kn">import</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">direct.fsm</span> <span class="kn">import</span> <span class="n">StateData</span>
+<span class="kn">from</span> <span class="nn">direct.distributed.ClockDelta</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">toontown.safezone</span> <span class="kn">import</span> <span class="n">ChineseCheckersBoard</span>
+
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI">[docs]</a><span class="k">class</span> <span class="nc">DistributedChineseCheckersAI</span><span class="p">(</span><span class="n">DistributedNodeAI</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">air</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="n">DistributedNodeAI</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">air</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">air</span> <span class="o">=</span> <span class="n">air</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setPos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setHpr</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">myPos</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">myHpr</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="o">=</span> <span class="n">ChineseCheckersBoard</span><span class="o">.</span><span class="n">ChineseCheckersBoard</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">doId2do</span><span class="p">[</span><span class="n">parent</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parentDo</span> <span class="o">=</span> <span class="n">parent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wantStart</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">movesMade</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1">#players game positions (separate from where they are sitting down</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">wantTimer</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turnEnd</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersObserving</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#Arbitrary numbers - can Adjust to feel</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">winLaffPoints</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">movesRequiredToWin</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">zoneId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">allocateZone</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generateOtpObject</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">districtId</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoneId</span><span class="p">,</span> <span class="n">optionalFields</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;setX&quot;</span><span class="p">,</span><span class="s2">&quot;setY&quot;</span><span class="p">,</span><span class="s2">&quot;setZ&quot;</span><span class="p">,</span> <span class="s2">&quot;setH&quot;</span><span class="p">,</span> <span class="s2">&quot;setP&quot;</span><span class="p">,</span> <span class="s2">&quot;setR&quot;</span><span class="p">])</span>
+        <span class="c1">#sets the ZoneId in the parent table so when people sit down they know what zone to add</span>
+        <span class="c1">#interest to when they sit down</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">setCheckersZoneId</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zoneId</span><span class="p">)</span>
+
+        <span class="c1">#parent.b_setCurrentGameId(self.doId)</span>
+
+        <span class="c1">#Starting indexes inside of board for setting starting positions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">46</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">65</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">86</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">88</span><span class="p">,</span><span class="mi">98</span><span class="p">,</span><span class="mi">99</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">111</span><span class="p">,</span><span class="mi">112</span><span class="p">,</span><span class="mi">113</span><span class="p">,</span><span class="mi">114</span><span class="p">,</span><span class="mi">115</span><span class="p">,</span><span class="mi">116</span><span class="p">,</span><span class="mi">117</span><span class="p">,</span><span class="mi">118</span><span class="p">,</span><span class="mi">119</span><span class="p">,</span><span class="mi">120</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">74</span><span class="p">,</span><span class="mi">84</span><span class="p">,</span><span class="mi">85</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">97</span><span class="p">,</span><span class="mi">107</span><span class="p">,</span><span class="mi">108</span><span class="p">,</span><span class="mi">109</span><span class="p">,</span><span class="mi">110</span><span class="p">],</span>
+                                  <span class="p">[</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">55</span><span class="p">]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timerStart</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span> <span class="o">=</span> <span class="n">ClassicFSM</span><span class="o">.</span><span class="n">ClassicFSM</span><span class="p">(</span><span class="s1">&#39;ChineseCheckers&#39;</span><span class="p">,</span>
+                                         <span class="p">[</span><span class="n">State</span><span class="o">.</span><span class="n">State</span><span class="p">(</span><span class="s1">&#39;waitingToBegin&#39;</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">enterWaitingToBegin</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">exitWaitingToBegin</span><span class="p">,</span>
+                                                      <span class="p">[</span><span class="s1">&#39;playing&#39;</span><span class="p">]),</span>
+                                          <span class="n">State</span><span class="o">.</span><span class="n">State</span><span class="p">(</span><span class="s1">&#39;playing&#39;</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">enterPlaying</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">exitPlaying</span><span class="p">,</span>
+                                                      <span class="p">[</span><span class="s1">&#39;gameOver&#39;</span><span class="p">]),</span>
+                                          <span class="n">State</span><span class="o">.</span><span class="n">State</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">,</span>
+                                                      <span class="bp">self</span><span class="o">.</span><span class="n">enterGameOver</span><span class="p">,</span>
+                                                       <span class="bp">self</span><span class="o">.</span><span class="n">exitGameOver</span><span class="p">,</span>
+                                                      <span class="p">[</span><span class="s1">&#39;waitingToBegin&#39;</span><span class="p">])],</span>
+                                      <span class="c1">#start state</span>
+                                      <span class="s1">&#39;waitingToBegin&#39;</span><span class="p">,</span>
+                                      <span class="c1">#final state</span>
+                                      <span class="s1">&#39;waitingToBegin&#39;</span><span class="p">,</span>
+                                      <span class="p">)</span>
+
+
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">enterInitialState</span><span class="p">()</span>
+        <span class="c1">#self.setGameCountownTime()</span>
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.announceGenerate"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.announceGenerate">[docs]</a>    <span class="k">def</span> <span class="nf">announceGenerate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">setGameDoId</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doId</span><span class="p">)</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.getTableDoId"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTableDoId">[docs]</a>    <span class="k">def</span> <span class="nf">getTableDoId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#print(&quot;PARENT -- &quot;, self._parent)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">parentDo</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.delete"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">requestFinalState</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playerSeatPos</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span>
+        <span class="c1">#simbase.air.deallocateZone(self.zoneId)</span>
+        <span class="n">DistributedNodeAI</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.requestSeatPositions"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestSeatPositions">[docs]</a>    <span class="k">def</span> <span class="nf">requestSeatPositions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;announceSeatPositions&quot;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">playerSeatPos</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;sendTurn&quot;</span><span class="p">,</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">+</span><span class="mi">1</span><span class="p">])</span></div>
+    <span class="c1">#########################################################################</span>
+    <span class="c1">##Inform of player and leave</span>
+    <span class="c1">#</span>
+    <span class="c1">#These functions are called by the table in the event of a player leave/join</span>
+    <span class="c1">#this is necessary so that the game may have an accurate count of who is in the table</span>
+    <span class="c1">#as well as a function that will fire upon single &quot;deltas&quot; of the table state</span>
+    <span class="c1">#</span>
+    <span class="c1">#Table state with avId(s) will be updated via setTableState as well as this</span>
+    <span class="c1">#function being called</span>
+    <span class="c1">####</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.informGameOfPlayer"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.informGameOfPlayer">[docs]</a>    <span class="k">def</span> <span class="nf">informGameOfPlayer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getRealTime</span><span class="p">()</span> <span class="o">+</span> <span class="mi">60</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setTimer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">globalClockDelta</span><span class="o">.</span><span class="n">localToNetworkTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span><span class="p">)])</span></div>
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.informGameOfPlayerLeave"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.informGameOfPlayerLeave">[docs]</a>    <span class="k">def</span> <span class="nf">informGameOfPlayerLeave</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="c1">#print(&quot;PLAYERSIT&quot;, self.playersSitting)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;waitingToBegin&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersSitting</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;waitingToBegin&#39;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setTimer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">globalClockDelta</span><span class="o">.</span><span class="n">localToNetworkTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span><span class="p">)])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setTimer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+    <span class="c1">###########################################################################</span>
+    <span class="c1">##Timer Functions for game</span>
+    <span class="c1">#</span>
+    <span class="c1">#These timer functions encapsulate the &quot;timer&quot; functions needed for the game table.</span>
+    <span class="c1">#   getTimer - is the timer for sitting down and beginning the game</span>
+    <span class="c1">#   getTurnTimer - gets and sets the turn timer for players moves</span>
+    <span class="c1">###</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.setGameCountdownTime"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.setGameCountdownTime">[docs]</a>    <span class="k">def</span> <span class="nf">setGameCountdownTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getRealTime</span><span class="p">()</span> <span class="o">+</span> <span class="mi">60</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.setTurnCountdownTime"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.setTurnCountdownTime">[docs]</a>    <span class="k">def</span> <span class="nf">setTurnCountdownTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turnEnd</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getRealTime</span><span class="p">()</span> <span class="o">+</span> <span class="mi">60</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.getTimer"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTimer">[docs]</a>    <span class="k">def</span> <span class="nf">getTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+           <span class="k">return</span> <span class="mi">0</span>
+           <span class="c1"># return globalClockDelta.localToNetworkTime(self.timerEnd)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.getTurnTimer"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTurnTimer">[docs]</a>    <span class="k">def</span> <span class="nf">getTurnTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">globalClockDelta</span><span class="o">.</span><span class="n">localToNetworkTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">turnEnd</span><span class="p">)</span></div>
+       <span class="c1"># return globalClockDelta.localToNewtorkTime(self.turnTimerEnd)</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.requestTimer"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestTimer">[docs]</a>    <span class="k">def</span> <span class="nf">requestTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="s2">&quot;setTimer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">globalClockDelta</span><span class="o">.</span><span class="n">localToNetworkTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span><span class="p">)])</span></div>
+    <span class="c1">###########################################################################</span>
+    <span class="c1">##handlePlayerExit and handleEmptyGame</span>
+    <span class="c1">#</span>
+    <span class="c1">#handlePlayerExit is the mother function that gets called when a player requests to leave an &quot;active&quot; game</span>
+    <span class="c1">#of chinese checkers - there are many special cases here, comments inside the function itself.</span>
+    <span class="c1">###</span>
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.handlePlayerExit"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.handlePlayerExit">[docs]</a>    <span class="k">def</span> <span class="nf">handlePlayerExit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="n">playerOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">avId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wantStart</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wantStart</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+        <span class="n">playstate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getStateNamed</span><span class="p">(</span><span class="s1">&#39;playing&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span>  <span class="s1">&#39;playing&#39;</span><span class="p">:</span>
+        <span class="c1">#Get the players Current &quot;player&quot; position in Chinese Checkers</span>
+            <span class="n">gamePos</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="n">gamePos</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span> <span class="o">==</span> <span class="n">gamePos</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">x</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendGameState</span><span class="p">(</span> <span class="p">[]</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">==</span> <span class="n">gamePos</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">advancePlayerTurn</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">d_sendTurn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">remainingPlayers</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">remainingPlayers</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">remainingPlayers</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">clearBoard</span><span class="p">()</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">sendGameState</span><span class="p">(</span> <span class="p">[]</span> <span class="p">)</span>
+                        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">movesMade</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">movesRequiredToWin</span><span class="p">):</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">distributeLaffPoints</span><span class="p">()</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">announceWinner</span><span class="p">(</span><span class="s2">&quot;Chinese Checkers&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.handleEmptyGame"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.handleEmptyGame">[docs]</a>    <span class="k">def</span> <span class="nf">handleEmptyGame</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#self.clearBoard()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">movesMade</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;waitingToBegin&#39;</span><span class="p">)</span></div>
+    <span class="c1">###############################################################</span>
+    <span class="c1">##Request win and distributed Laugh points</span>
+    <span class="c1">#</span>
+    <span class="c1">#This function explicitly tests for a player (that requested he won)</span>
+    <span class="c1">#and checks to see if his peices equal that of his opposite</span>
+    <span class="c1">##</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.requestWin"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestWin">[docs]</a>    <span class="k">def</span> <span class="nf">requestWin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">avId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;Has requested a Chinese Checkers win and is NOT playing! SeatList of  the table - </span><span class="si">%s</span><span class="s1"> - PlayersGamePos - </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">seats</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">))</span>
+            <span class="k">return</span>
+        <span class="n">requestWinGamePos</span>  <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">checkSquares</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">##Grab all the tiles with his stamp on them</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span> <span class="o">==</span> <span class="n">requestWinGamePos</span><span class="p">:</span>
+                <span class="n">checkSquares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">getNum</span><span class="p">())</span>
+        <span class="c1">#explicitly check if they are ==</span>
+        <span class="k">if</span> <span class="n">requestWinGamePos</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">checkSquares</span>  <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">3</span><span class="p">]):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">distributeLaffPoints</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">announceWinner</span><span class="p">(</span> <span class="s2">&quot;Chinese Checkers&quot;</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+                <span class="c1">#self.sendUpdate(&#39;announceWin&#39;, [avId])</span>
+        <span class="k">elif</span> <span class="n">requestWinGamePos</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">checkSquares</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">4</span><span class="p">]):</span>
+               <span class="c1"># self.sendUpdate(&#39;announceWin&#39;, [avId])</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">distributeLaffPoints</span><span class="p">()</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span>
+               <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">announceWinner</span><span class="p">(</span> <span class="s2">&quot;Chinese Checkers&quot;</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">requestWinGamePos</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">checkSquares</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">5</span><span class="p">]):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">distributeLaffPoints</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">announceWinner</span><span class="p">(</span><span class="s2">&quot;Chinese Checkers&quot;</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+               <span class="c1"># self.sendUpdate(&#39;announceWin&#39;, [avId])</span>
+        <span class="k">elif</span> <span class="n">requestWinGamePos</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">checkSquares</span>   <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">distributeLaffPoints</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">announceWinner</span><span class="p">(</span><span class="s2">&quot;Chinese Checkers&quot;</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+                <span class="c1">#self.sendUpdate(&#39;announceWin&#39;, [avId])</span>
+        <span class="k">elif</span> <span class="n">requestWinGamePos</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">checkSquares</span>  <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">announceWinner</span><span class="p">(</span><span class="s2">&quot;Chinese Checkers&quot;</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+                <span class="c1">#self.sendUpdate(&#39;announceWin&#39;, [avId])</span>
+        <span class="k">elif</span> <span class="n">requestWinGamePos</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">checkSquares</span>  <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">distributeLaffPoints</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;gameOver&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">announceWinner</span><span class="p">(</span><span class="s2">&quot;Chinese Checkers&quot;</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+                 <span class="c1">#self.sendUpdate(&#39;announceWin&#39;, [avId])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span> <span class="c1">#print(&quot;Player requested win, but didnt actually win! OH NOES&quot;)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.distributeLaffPoints"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.distributeLaffPoints">[docs]</a>    <span class="k">def</span> <span class="nf">distributeLaffPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">av</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">doId2do</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">av</span><span class="o">.</span><span class="n">toonUp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">winLaffPoints</span><span class="p">)</span></div>
+
+    <span class="c1">##################################################################</span>
+    <span class="c1">#                 Chinese Checkers FSM</span>
+    <span class="c1">#</span>
+    <span class="c1">#The FSM is primarily to keep track of buttons/screen text, but also</span>
+    <span class="c1">#serves the purpose of resetting variables upon game over ect.</span>
+    <span class="c1">###</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.enterWaitingToBegin"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterWaitingToBegin">[docs]</a>    <span class="k">def</span> <span class="nf">enterWaitingToBegin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setGameCountdownTime</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">isAccepting</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1">#self.clearBoard()</span>
+        <span class="k">pass</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.exitWaitingToBegin"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitWaitingToBegin">[docs]</a>    <span class="k">def</span> <span class="nf">exitWaitingToBegin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">turnEnd</span> <span class="o">=</span> <span class="mi">0</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.enterPlaying"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterPlaying">[docs]</a>    <span class="k">def</span> <span class="nf">enterPlaying</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">isAccepting</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">d_sendTurn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">break</span>
+       <span class="c1">#self.d_sendTurn(self.playersTurn)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setTurnCountdownTime</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setTurnTimer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">globalClockDelta</span><span class="o">.</span><span class="n">localToNetworkTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">turnEnd</span><span class="p">)])</span>
+        <span class="c1">#self.playersTurn += 1</span>
+
+        <span class="k">pass</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.exitPlaying"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitPlaying">[docs]</a>    <span class="k">def</span> <span class="nf">exitPlaying</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.enterGameOver"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterGameOver">[docs]</a>    <span class="k">def</span> <span class="nf">enterGameOver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#self.playersObserving = []</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timerEnd</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">isAccepting</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersObserving</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">handleGameOver</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearBoard</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendGameState</span><span class="p">(</span> <span class="p">[]</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">movesMade</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="c1">#self._parent = None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;waitingToBegin&#39;</span><span class="p">)</span>
+
+        <span class="k">pass</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.exitGameOver"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitGameOver">[docs]</a>    <span class="k">def</span> <span class="nf">exitGameOver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+    <span class="c1">##################################################################</span>
+    <span class="c1">#                    Game Start/begin logic</span>
+    <span class="c1">#</span>
+    <span class="c1">#Poor style with setting the player starting Positions I know, But</span>
+    <span class="c1">#is necessary for how the game table must look if odd numbers of people</span>
+    <span class="c1">#are playing IE (* = blank )</span>
+    <span class="c1">#     3        4       5</span>
+    <span class="c1">#   . * .    * . .   . . .</span>
+    <span class="c1">#</span>
+    <span class="c1">#   * . *    . . *   . . *</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="c1">#Request begin is sent by every avatar when either (1) they click the go button</span>
+    <span class="c1">#or when their start timer runs out</span>
+    <span class="c1">###</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.requestBegin"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestBegin">[docs]</a>    <span class="k">def</span> <span class="nf">requestBegin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="c1">#av = self.air.doId2do.get(avId)</span>
+        <span class="k">if</span> <span class="ow">not</span><span class="p">(</span> <span class="n">avId</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wantStart</span> <span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wantStart</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+        <span class="n">numPlayers</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">numPlayers</span> <span class="o">=</span> <span class="n">numPlayers</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wantStart</span><span class="p">)</span> <span class="o">==</span> <span class="n">numPlayers</span> <span class="ow">and</span> <span class="n">numPlayers</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">d_gameStart</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">sendIsPlaying</span><span class="p">()</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.d_gameStart"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.d_gameStart">[docs]</a>    <span class="k">def</span> <span class="nf">d_gameStart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">avId</span><span class="p">):</span>
+        <span class="c1">#255 is a special value just telling the client that he is an Observer</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersObserving</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">255</span><span class="p">])</span>
+        <span class="c1">###</span>
+
+        <span class="n">playerJoinOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+        <span class="n">zz</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">numPlayers</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">#print(&quot;WANT START&quot;, self.wantStart)</span>
+        <span class="c1">#print(&quot;SEATS&quot;, self._parent.seats)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">seats</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">numPlayers</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">numPlayers</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">player1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player1</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">player1</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="n">player2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player2</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">player2</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">numPlayers</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">player1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player1</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">player1</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">player2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player2</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">player2</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+            <span class="n">player3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player3</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">player3</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">numPlayers</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="n">player1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player1</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">player1</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="n">player2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player2</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">player2</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+            <span class="n">player3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player3</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">player3</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">player4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player4</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">player4</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">numPlayers</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">player1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player1</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">player1</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="n">player2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player2</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">player2</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+            <span class="n">player3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player3</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">player3</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">player4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player4</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">player4</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+            <span class="n">player5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player5</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">player5</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">numPlayers</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">player1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player1</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">player1</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="n">player2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player2</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">player2</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+
+            <span class="n">player3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player3</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">player3</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+            <span class="n">player4</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player4</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">player4</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">4</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+            <span class="n">player5</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player5</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">player5</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+            <span class="n">player6</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersPlaying</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdateToAvatarId</span><span class="p">(</span><span class="n">player6</span><span class="p">,</span> <span class="s2">&quot;gameStart&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">player6</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">5</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+        <span class="n">playerSeatPos</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">]</span> <span class="c1">#0 == not taken 1 == green ect.</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">id</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">playerSeatPos</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">seats</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;announceSeatPositions&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">playerSeatPos</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playerSeatPos</span> <span class="o">=</span> <span class="n">playerSeatPos</span>
+        <span class="c1">#print(&quot;PLAYER SEAT POS!&quot; , playerSeatPos)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendGameState</span><span class="p">(</span> <span class="p">[]</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wantStart</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s1">&#39;playing&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_parent</span><span class="o">.</span><span class="n">getTableState</span><span class="p">()</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.d_sendTurn"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.d_sendTurn">[docs]</a>    <span class="k">def</span> <span class="nf">d_sendTurn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">playersTurn</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;sendTurn&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">playersTurn</span><span class="p">])</span></div>
+
+    <span class="c1">##################################################################</span>
+    <span class="c1">#                    Legal Move Request/Checker</span>
+    <span class="c1">#</span>
+    <span class="c1">#This is probably the most complicated as well as most important part</span>
+    <span class="c1">#of the chinese checkers code. To completely understand the CheckLegalMoves,</span>
+    <span class="c1">#get out a peice of paper and try to DRAW out what the logic is doing, ill do</span>
+    <span class="c1">#my best to explain it.</span>
+    <span class="c1">#</span>
+    <span class="c1">#</span>
+    <span class="c1">#Players request moves as a list of Uint8s (already should be verified on the client side)</span>
+    <span class="c1">#but since players are cheating bastards, we check on the server. Basically, how the logic works</span>
+    <span class="c1">#is it takes pairs one at a time and checks for a legal move between the two, ect and traverses the</span>
+    <span class="c1">#list.</span>
+    <span class="c1">#</span>
+    <span class="c1">#A move is Legal if (it is adjacent to its last move) - in a checkerboard adjacent is stored in a list</span>
+    <span class="c1">#of 6 integers representing the other squares (see ChineseCheckerBoard.py)</span>
+    <span class="c1">#</span>
+    <span class="c1">#board.squareList[x].getAdjacent() visually looks like this</span>
+    <span class="c1">#    1 2</span>
+    <span class="c1">#   0 x 3  where those values [ ] are integers to adjacent squares.</span>
+    <span class="c1">#    5 4</span>
+    <span class="c1">#</span>
+    <span class="c1"># If a adjacent square does not exist on the board, say the first square only has two adjacent,</span>
+    <span class="c1"># the squares in the adjacent list are set to None</span>
+    <span class="c1">#</span>
+    <span class="c1">#A move is also legal if there exists a legal Jump from A to B. the logic here is difficult to</span>
+    <span class="c1">#express without a picture, but for instance, say A is jumping to B</span>
+    <span class="c1">#</span>
+    <span class="c1">#    1 2 1 2</span>
+    <span class="c1">#   0 A 3 B 3</span>
+    <span class="c1">#    5 4 5 6</span>
+    <span class="c1">#</span>
+    <span class="c1"># You check all of A&#39;s adjacents, and check the index of that \</span>
+    <span class="c1"># particular one (of A&#39;s adjacents) that it sits in A,</span>
+    <span class="c1">#if that is equal to B, there is a legal jump, if no one is found the move is illegal.</span>
+    <span class="c1">#</span>
+    <span class="c1"># EX. board.squareList[A].adjacent[3] == (some number to the left of b)</span>
+    <span class="c1">#     board.squareList[that number].getAdjacent[self.board.squareList[A].index(some number)</span>
+    <span class="c1">#</span>
+    <span class="c1">#     in this case it equals B (draw it out, Trust me it helps)</span>
+    <span class="c1">####</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.advancePlayerTurn"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.advancePlayerTurn">[docs]</a>    <span class="k">def</span> <span class="nf">advancePlayerTurn</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">foundNewPlayer</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">while</span> <span class="n">foundNewPlayer</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">playersGamePos</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">foundNewPlayer</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.requestMove"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestMove">[docs]</a>    <span class="k">def</span> <span class="nf">requestMove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moveList</span><span class="p">):</span>
+        <span class="c1">#Check if its a legal move first</span>
+        <span class="n">playerOrder</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">checkLegalMoves</span><span class="p">(</span><span class="n">moveList</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">movesMade</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">makeMove</span><span class="p">(</span><span class="n">moveList</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">advancePlayerTurn</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">d_sendTurn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">playersTurn</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setTurnCountdownTime</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;setTurnTimer&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">globalClockDelta</span><span class="o">.</span><span class="n">localToNetworkTime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">turnEnd</span><span class="p">)])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+            <span class="c1">#broadcast to him that its not legal, probably kick him out of</span>
+            <span class="c1">#game because hes likely cheating</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.checkLegalMoves"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.checkLegalMoves">[docs]</a>    <span class="k">def</span> <span class="nf">checkLegalMoves</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moveList</span><span class="p">):</span>
+        <span class="c1">#check logic .. Really we are assuming client makes a legal move</span>
+        <span class="c1">#but if he doesnt, he is likely trying to cheat</span>
+        <span class="c1">#print moveList, &quot;MOVELIST&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">moveList</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">moveList</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">moveList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkLegalMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">getSquare</span><span class="p">(</span><span class="n">moveList</span><span class="p">[</span><span class="n">x</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">getSquare</span><span class="p">(</span><span class="n">moveList</span><span class="p">[</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.checkLegalMove"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.checkLegalMove">[docs]</a>    <span class="k">def</span> <span class="nf">checkLegalMove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">firstSquare</span><span class="p">,</span> <span class="n">secondSquare</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">secondSquare</span><span class="o">.</span><span class="n">getNum</span><span class="p">()</span> <span class="ow">in</span> <span class="n">firstSquare</span><span class="o">.</span><span class="n">getAdjacent</span><span class="p">():</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">firstSquare</span><span class="o">.</span><span class="n">getAdjacent</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">pass</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">getAdjacent</span><span class="p">()[</span><span class="n">firstSquare</span><span class="o">.</span><span class="n">getAdjacent</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span> <span class="o">==</span> <span class="n">secondSquare</span><span class="o">.</span><span class="n">getNum</span><span class="p">():</span>
+                        <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.makeMove"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.makeMove">[docs]</a>    <span class="k">def</span> <span class="nf">makeMove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moveList</span><span class="p">):</span>
+        <span class="n">spot1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">moveList</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">moveList</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">moveList</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">moveList</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">spot1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendGameState</span><span class="p">(</span> <span class="n">moveList</span><span class="p">)</span></div>
+<span class="c1">###################</span>
+<div class="viewcode-block" id="DistributedChineseCheckersAI.getState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getState">[docs]</a>    <span class="k">def</span> <span class="nf">getState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fsm</span><span class="o">.</span><span class="n">getCurrentState</span><span class="p">()</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.getName"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getName">[docs]</a>    <span class="k">def</span> <span class="nf">getName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.getGameState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getGameState">[docs]</a>    <span class="k">def</span> <span class="nf">getGameState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">getStates</span><span class="p">(),</span> <span class="p">[]</span> <span class="p">]</span></div>
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.sendGameState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.sendGameState">[docs]</a>    <span class="k">def</span> <span class="nf">sendGameState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">moveList</span><span class="p">):</span>
+        <span class="n">gameState</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">getStates</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s1">&#39;setGameState&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">gameState</span><span class="p">,</span> <span class="n">moveList</span><span class="p">])</span></div>
+        <span class="c1">#self.d_setGameState(self.board.getStates())</span>
+
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.clearBoard"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.clearBoard">[docs]</a>    <span class="k">def</span> <span class="nf">clearBoard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">:</span>
+            <span class="n">x</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+        <span class="c1">#self.playersTurn = 0</span>
+        <span class="c1">#self.playersPlaying = []</span>
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.getPosHpr"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getPosHpr">[docs]</a>    <span class="k">def</span> <span class="nf">getPosHpr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">posHpr</span></div>
+
+<div class="viewcode-block" id="DistributedChineseCheckersAI.testWin"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.testWin">[docs]</a>    <span class="k">def</span> <span class="nf">testWin</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearBoard</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">51</span><span class="p">]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">startingPositions</span><span class="p">[</span><span class="mi">3</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">120</span><span class="p">]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">104</span><span class="p">]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendGameState</span><span class="p">(</span> <span class="p">[]</span> <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>parties.activityFSMMixins &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">parties.activityFSMMixins</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for parties.activityFSMMixins</h1><div class="highlight"><pre>
+<span></span><span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="c1"># Contact: Rob Gordon</span>
+<span class="c1"># Created: Oct 2008</span>
+<span class="c1">#</span>
+<span class="c1"># Purpose: This module provides mixin classes (mostly individual states) for</span>
+<span class="c1">#          use with ActivityFSM.</span>
+<span class="c1">#-------------------------------------------------------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module provides mixin classes (mostly individual states) for use with</span>
+<span class="sd">ActivityFSM.  Functionality is provided in this manner to avoid massive code</span>
+<span class="sd">duplication that would occur otherwise.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># parties imports</span>
+<span class="kn">from</span> <span class="nn">.BaseActivityFSM</span> <span class="kn">import</span> <span class="n">BaseActivityFSM</span>
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># Idle State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="IdleMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.IdleMixin">[docs]</a><span class="k">class</span> <span class="nc">IdleMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="IdleMixin.enterIdle"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.IdleMixin.enterIdle">[docs]</a>    <span class="k">def</span> <span class="nf">enterIdle</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterIdle: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startIdle</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startIdle</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="IdleMixin.filterIdle"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.IdleMixin.filterIdle">[docs]</a>    <span class="k">def</span> <span class="nf">filterIdle</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterIdle( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;Idle&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="IdleMixin.exitIdle"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.IdleMixin.exitIdle">[docs]</a>    <span class="k">def</span> <span class="nf">exitIdle</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitIdle: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishIdle</span><span class="p">()</span></div></div>
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># Active State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="ActiveMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ActiveMixin">[docs]</a><span class="k">class</span> <span class="nc">ActiveMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="ActiveMixin.enterActive"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ActiveMixin.enterActive">[docs]</a>    <span class="k">def</span> <span class="nf">enterActive</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterActive: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startActive</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startActive</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ActiveMixin.filterActive"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ActiveMixin.filterActive">[docs]</a>    <span class="k">def</span> <span class="nf">filterActive</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterActive( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;Active&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ActiveMixin.exitActive"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ActiveMixin.exitActive">[docs]</a>    <span class="k">def</span> <span class="nf">exitActive</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitActive: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishActive</span><span class="p">()</span></div></div>
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># Disabled State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="DisabledMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.DisabledMixin">[docs]</a><span class="k">class</span> <span class="nc">DisabledMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="DisabledMixin.enterDisabled"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.DisabledMixin.enterDisabled">[docs]</a>    <span class="k">def</span> <span class="nf">enterDisabled</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterDisabled: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startDisabled</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startDisabled</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="DisabledMixin.filterDisabled"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.DisabledMixin.filterDisabled">[docs]</a>    <span class="k">def</span> <span class="nf">filterDisabled</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterDisabled( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;Disabled&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DisabledMixin.exitDisabled"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.DisabledMixin.exitDisabled">[docs]</a>    <span class="k">def</span> <span class="nf">exitDisabled</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitDisabled: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishDisabled</span><span class="p">()</span></div></div>
+
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># Rules State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="RulesMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.RulesMixin">[docs]</a><span class="k">class</span> <span class="nc">RulesMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="RulesMixin.enterRules"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.RulesMixin.enterRules">[docs]</a>    <span class="k">def</span> <span class="nf">enterRules</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterRules: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startRules</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startRules</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="RulesMixin.filterRules"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.RulesMixin.filterRules">[docs]</a>    <span class="k">def</span> <span class="nf">filterRules</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterRules( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;Rules&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="RulesMixin.exitRules"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.RulesMixin.exitRules">[docs]</a>    <span class="k">def</span> <span class="nf">exitRules</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitRules: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishRules</span><span class="p">()</span></div></div>
+
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># WaitForEnough State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="WaitForEnoughMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForEnoughMixin">[docs]</a><span class="k">class</span> <span class="nc">WaitForEnoughMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="WaitForEnoughMixin.enterWaitForEnough"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForEnoughMixin.enterWaitForEnough">[docs]</a>    <span class="k">def</span> <span class="nf">enterWaitForEnough</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterWaitForEnough: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitForEnough</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitForEnough</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="WaitForEnoughMixin.filterWaitForEnough"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForEnoughMixin.filterWaitForEnough">[docs]</a>    <span class="k">def</span> <span class="nf">filterWaitForEnough</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterWaitForEnough( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;WaitForEnough&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="WaitForEnoughMixin.exitWaitForEnough"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForEnoughMixin.exitWaitForEnough">[docs]</a>    <span class="k">def</span> <span class="nf">exitWaitForEnough</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitWaitForEnough: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishWaitForEnough</span><span class="p">()</span></div></div>
+
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># WaitToStart State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="WaitToStartMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitToStartMixin">[docs]</a><span class="k">class</span> <span class="nc">WaitToStartMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="WaitToStartMixin.enterWaitToStart"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitToStartMixin.enterWaitToStart">[docs]</a>    <span class="k">def</span> <span class="nf">enterWaitToStart</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterWaitToStart: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitToStart</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitToStart</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="WaitToStartMixin.filterWaitToStart"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitToStartMixin.filterWaitToStart">[docs]</a>    <span class="k">def</span> <span class="nf">filterWaitToStart</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterWaitToStart( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;WaitToStart&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="WaitToStartMixin.exitWaitToStart"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitToStartMixin.exitWaitToStart">[docs]</a>    <span class="k">def</span> <span class="nf">exitWaitToStart</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitWaitToStart: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishWaitToStart</span><span class="p">()</span></div></div>
+
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># WaitClientsReady State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="WaitClientsReadyMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitClientsReadyMixin">[docs]</a><span class="k">class</span> <span class="nc">WaitClientsReadyMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="WaitClientsReadyMixin.enterWaitClientsReady"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitClientsReadyMixin.enterWaitClientsReady">[docs]</a>    <span class="k">def</span> <span class="nf">enterWaitClientsReady</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterWaitClientsReady: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitClientsReady</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitClientsReady</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="WaitClientsReadyMixin.filterWaitClientsReady"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitClientsReadyMixin.filterWaitClientsReady">[docs]</a>    <span class="k">def</span> <span class="nf">filterWaitClientsReady</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterWaitClientsReady( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;WaitClientsReady&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="WaitClientsReadyMixin.exitWaitClientsReady"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitClientsReadyMixin.exitWaitClientsReady">[docs]</a>    <span class="k">def</span> <span class="nf">exitWaitClientsReady</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitWaitClientsReady: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishWaitClientsReady</span><span class="p">()</span></div></div>
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># WaitForServer State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="WaitForServerMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForServerMixin">[docs]</a><span class="k">class</span> <span class="nc">WaitForServerMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="WaitForServerMixin.enterWaitForServer"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForServerMixin.enterWaitForServer">[docs]</a>    <span class="k">def</span> <span class="nf">enterWaitForServer</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterWaitForServer: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitForServer</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startWaitForServer</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="WaitForServerMixin.filterWaitForServer"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForServerMixin.filterWaitForServer">[docs]</a>    <span class="k">def</span> <span class="nf">filterWaitForServer</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterWaitForServer( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;WaitForServer&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="WaitForServerMixin.exitWaitForServer"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.WaitForServerMixin.exitWaitForServer">[docs]</a>    <span class="k">def</span> <span class="nf">exitWaitForServer</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitWaitForServer: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishWaitForServer</span><span class="p">()</span></div></div>
+
+
+<span class="c1">#--------------------------------------------------------------------------</span>
+<span class="c1"># Conclusion State</span>
+<span class="c1">#--------------------------------------------------------------------------</span>
+<div class="viewcode-block" id="ConclusionMixin"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ConclusionMixin">[docs]</a><span class="k">class</span> <span class="nc">ConclusionMixin</span><span class="p">:</span>
+<div class="viewcode-block" id="ConclusionMixin.enterConclusion"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ConclusionMixin.enterConclusion">[docs]</a>    <span class="k">def</span> <span class="nf">enterConclusion</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span> <span class="s2">&quot;enterConclusion: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startConclusion</span><span class="p">(</span> <span class="o">*</span><span class="n">args</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">startConclusion</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ConclusionMixin.filterConclusion"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ConclusionMixin.filterConclusion">[docs]</a>    <span class="k">def</span> <span class="nf">filterConclusion</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;filterConclusion( &#39;</span><span class="si">%s</span><span class="s2">&#39;, &#39;</span><span class="si">%s</span><span class="s2">&#39; )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;Conclusion&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaultFilter</span><span class="p">(</span> <span class="n">request</span><span class="p">,</span> <span class="n">args</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ConclusionMixin.exitConclusion"><a class="viewcode-back" href="../../toontown/parties.html#parties.activityFSMMixins.ConclusionMixin.exitConclusion">[docs]</a>    <span class="k">def</span> <span class="nf">exitConclusion</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+        <span class="n">BaseActivityFSM</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span> <span class="s2">&quot;exitConclusion: &#39;</span><span class="si">%s</span><span class="s2">&#39; -&gt; &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">oldState</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">newState</span><span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activity</span><span class="o">.</span><span class="n">finishConclusion</span><span class="p">()</span></div></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pets.PetTricks &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pets.PetTricks</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pets.PetTricks</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;PetTricks.py&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">direct.showbase.PythonUtil</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">invertDictLossless</span>
+<span class="kn">from</span> <span class="nn">direct.interval.IntervalGlobal</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># ONLY ADD TRICKS JUST BEFORE &#39;BALK&#39;</span>
+<span class="c1"># BALK is not really a trick; it&#39;s what the pets do if they don&#39;t do the trick</span>
+<span class="c1"># correctly. Keep it at the end of the Enum.</span>
+<span class="n">Tricks</span> <span class="o">=</span> <span class="n">Enum</span><span class="p">(</span><span class="s1">&#39;JUMP, BEG, PLAYDEAD, ROLLOVER, BACKFLIP, DANCE, SPEAK, BALK,&#39;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">BALK</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tricks</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="c1"># these are what aptitude 0. and 1. map to in an actual random range of [0,1]</span>
+<span class="n">NonHappyMinActualTrickAptitude</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">NonHappyMaxActualTrickAptitude</span> <span class="o">=</span> <span class="mf">.6</span>
+<span class="n">MinActualTrickAptitude</span> <span class="o">=</span> <span class="mf">.5</span>
+<span class="n">MaxActualTrickAptitude</span> <span class="o">=</span> <span class="mf">.97</span>
+
+<span class="n">AptitudeIncrementDidTrick</span> <span class="o">=</span> <span class="mf">.0005</span>
+<span class="n">MaxAptitudeIncrementGotPraise</span> <span class="o">=</span> <span class="mf">.0003</span>
+
+<span class="c1"># these are values in [0..1] that will be added to the pet&#39;s fatigue ([0..1])</span>
+<span class="c1"># when the pet does a trick. The actual value that will be used will be an</span>
+<span class="c1"># interpolation of these values, based on how good the pet is at the trick.</span>
+<span class="c1"># Note that the value in [0..1] at which the pet becomes fatigued (the</span>
+<span class="c1"># fatigueThreshold) is different from pet to pet; see PetTraits.TraitDescs.</span>
+<span class="n">MaxTrickFatigue</span> <span class="o">=</span> <span class="mf">.65</span>
+<span class="n">MinTrickFatigue</span> <span class="o">=</span> <span class="mf">.1</span>
+
+<span class="c1"># Trick ID to SpeedChat static-text phrase</span>
+<span class="n">ScId2trickId</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">21200</span><span class="p">:</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">JUMP</span><span class="p">,</span>
+    <span class="mi">21201</span><span class="p">:</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">BEG</span><span class="p">,</span>
+    <span class="mi">21202</span><span class="p">:</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">PLAYDEAD</span><span class="p">,</span>
+    <span class="mi">21203</span><span class="p">:</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">ROLLOVER</span><span class="p">,</span>
+    <span class="mi">21204</span><span class="p">:</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">BACKFLIP</span><span class="p">,</span>
+    <span class="mi">21205</span><span class="p">:</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">DANCE</span><span class="p">,</span>
+    <span class="mi">21206</span><span class="p">:</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">SPEAK</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="c1"># multiple SC entries may map to the same trick ID. This dict contains</span>
+<span class="c1"># lists of SC IDs for each trick ID.</span>
+<span class="n">TrickId2scIds</span> <span class="o">=</span> <span class="n">invertDictLossless</span><span class="p">(</span><span class="n">ScId2trickId</span><span class="p">)</span>
+
+<span class="n">TrickAnims</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">JUMP</span><span class="p">:</span> <span class="s1">&#39;jump&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BEG</span><span class="p">:</span>  <span class="p">(</span><span class="s1">&#39;toBeg&#39;</span><span class="p">,</span> <span class="s1">&#39;beg&#39;</span><span class="p">,</span> <span class="s1">&#39;fromBeg&#39;</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">PLAYDEAD</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;playDead&#39;</span><span class="p">,</span> <span class="s1">&#39;fromPlayDead&#39;</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">ROLLOVER</span><span class="p">:</span> <span class="s1">&#39;rollover&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BACKFLIP</span><span class="p">:</span> <span class="s1">&#39;backflip&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">DANCE</span><span class="p">:</span> <span class="s1">&#39;dance&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">SPEAK</span><span class="p">:</span> <span class="s1">&#39;speak&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BALK</span><span class="p">:</span> <span class="s1">&#39;neutral&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TrickAnims</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tricks</span><span class="p">)</span>
+
+<span class="n">TrickLengths</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">JUMP</span><span class="p">:</span> <span class="mf">2.</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BEG</span><span class="p">:</span>  <span class="mf">5.167</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">PLAYDEAD</span><span class="p">:</span> <span class="mf">15.21</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">ROLLOVER</span><span class="p">:</span> <span class="mf">8.</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BACKFLIP</span><span class="p">:</span> <span class="mf">4.88</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">DANCE</span><span class="p">:</span> <span class="mf">7.42</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">SPEAK</span><span class="p">:</span> <span class="mf">0.75</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BALK</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TrickLengths</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tricks</span><span class="p">)</span>
+
+<span class="n">TrickAccuracies</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">JUMP</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BEG</span><span class="p">:</span>  <span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">PLAYDEAD</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">ROLLOVER</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BACKFLIP</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">DANCE</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">SPEAK</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BALK</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TrickAccuracies</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tricks</span><span class="p">)</span>
+
+<span class="n">TrickHeals</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">JUMP</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BEG</span><span class="p">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">PLAYDEAD</span><span class="p">:</span> <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">ROLLOVER</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BACKFLIP</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">DANCE</span><span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">SPEAK</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BALK</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">TrickHeals</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Tricks</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">TrickHeals = {</span>
+<span class="sd">    Tricks.JUMP: 5,</span>
+<span class="sd">    Tricks.BEG:  6,</span>
+<span class="sd">    Tricks.PLAYDEAD: 5,</span>
+<span class="sd">    Tricks.ROLLOVER: 5,</span>
+<span class="sd">    Tricks.BACKFLIP: 5,</span>
+<span class="sd">    Tricks.DANCE: 7,</span>
+<span class="sd">    Tricks.SPEAK: 5,</span>
+<span class="sd">    Tricks.BALK: 0,</span>
+<span class="sd">    }</span>
+<span class="sd">assert len(TrickHeals) == len(Tricks)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">TrickSounds</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BACKFLIP</span><span class="p">:</span> <span class="s1">&#39;phase_5/audio/sfx/backflip.mp3&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">ROLLOVER</span><span class="p">:</span> <span class="s1">&#39;phase_5/audio/sfx/rollover.mp3&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">PLAYDEAD</span><span class="p">:</span> <span class="s1">&#39;phase_5/audio/sfx/play_dead.mp3&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">BEG</span><span class="p">:</span> <span class="s1">&#39;phase_5/audio/sfx/beg.mp3&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">DANCE</span><span class="p">:</span> <span class="s1">&#39;phase_5/audio/sfx/heal_dance.mp3&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">JUMP</span><span class="p">:</span> <span class="s1">&#39;phase_5/audio/sfx/jump.mp3&#39;</span><span class="p">,</span>
+    <span class="n">Tricks</span><span class="o">.</span><span class="n">SPEAK</span><span class="p">:</span> <span class="s1">&#39;phase_5/audio/sfx/speak_v1.mp3&#39;</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="getSoundIval"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetTricks.getSoundIval">[docs]</a><span class="k">def</span> <span class="nf">getSoundIval</span><span class="p">(</span><span class="n">trickId</span><span class="p">):</span>
+    <span class="n">sounds</span> <span class="o">=</span> <span class="n">TrickSounds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">trickId</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">sounds</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">sounds</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+            <span class="n">sound</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadSfx</span><span class="p">(</span><span class="n">sounds</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">SoundInterval</span><span class="p">(</span><span class="n">sound</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">soundIval</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sounds</span><span class="p">:</span>
+                <span class="n">sound</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">loadSfx</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+                <span class="n">soundIval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SoundInterval</span><span class="p">(</span><span class="n">sound</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">soundIval</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="getTrickIval"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetTricks.getTrickIval">[docs]</a><span class="k">def</span> <span class="nf">getTrickIval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span> <span class="n">trickId</span><span class="p">):</span>
+    <span class="n">anims</span> <span class="o">=</span> <span class="n">TrickAnims</span><span class="p">[</span><span class="n">trickId</span><span class="p">]</span>
+
+    <span class="c1"># Jitter the animation rate and stagger the trick playback</span>
+    <span class="c1"># with a Wait call. Primarily done for the case when multiple</span>
+    <span class="c1"># pets perform a trick.</span>
+    <span class="n">animRate</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+    <span class="n">waitTime</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">anims</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1"># If-Else statement to construct animation intervals based-on</span>
+        <span class="c1"># specific tricks that cannot be generated generically, ie the jump</span>
+        <span class="c1"># because the z-offset was left out of the animation.</span>
+        <span class="k">if</span> <span class="n">trickId</span> <span class="o">==</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">JUMP</span><span class="p">:</span>
+            <span class="n">animIval</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">()</span>
+            <span class="n">animIval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ActorInterval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span> <span class="n">anims</span><span class="p">,</span> <span class="n">playRate</span><span class="o">=</span><span class="n">animRate</span><span class="p">))</span>
+            <span class="n">animIval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Sequence</span><span class="p">(</span><span class="n">Wait</span><span class="p">(</span><span class="mf">.36</span><span class="p">),</span>
+                                    <span class="n">ProjectileInterval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span>
+                                                       <span class="n">startPos</span> <span class="o">=</span> <span class="n">pet</span><span class="o">.</span><span class="n">getPos</span><span class="p">(),</span>
+                                                       <span class="n">endPos</span> <span class="o">=</span> <span class="n">pet</span><span class="o">.</span><span class="n">getPos</span><span class="p">(),</span>
+                                                       <span class="n">duration</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span>
+                                                       <span class="n">gravityMult</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="p">)</span>
+                                    <span class="p">)</span>
+                           <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">trickId</span> <span class="o">==</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">ROLLOVER</span><span class="p">:</span>
+            <span class="n">animIval</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">()</span>
+            <span class="n">animIval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ActorInterval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span> <span class="n">anims</span><span class="p">,</span> <span class="n">playRate</span><span class="o">=</span><span class="n">animRate</span><span class="p">))</span>
+            <span class="n">animIval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ActorInterval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span> <span class="n">anims</span><span class="p">,</span> <span class="n">playRate</span><span class="o">=-</span><span class="mf">1.0</span><span class="o">*</span><span class="n">animRate</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">trickId</span> <span class="o">==</span> <span class="n">Tricks</span><span class="o">.</span><span class="n">SPEAK</span><span class="p">:</span>
+            <span class="n">animIval</span> <span class="o">=</span> <span class="n">ActorInterval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span> <span class="n">anims</span><span class="p">,</span> <span class="n">startFrame</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">playRate</span><span class="o">=</span><span class="n">animRate</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">animIval</span> <span class="o">=</span> <span class="n">ActorInterval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span> <span class="n">anims</span><span class="p">,</span> <span class="n">playRate</span><span class="o">=</span><span class="n">animRate</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">animIval</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">anim</span> <span class="ow">in</span> <span class="n">anims</span><span class="p">:</span>
+            <span class="n">animIval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ActorInterval</span><span class="p">(</span><span class="n">pet</span><span class="p">,</span> <span class="n">anim</span><span class="p">,</span> <span class="n">playRate</span><span class="o">=</span><span class="n">animRate</span><span class="p">))</span>
+
+    <span class="c1"># Setup the Trick Interval</span>
+    <span class="n">trickIval</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">animIval</span><span class="p">)</span>
+
+    <span class="n">soundIval</span> <span class="o">=</span> <span class="n">getSoundIval</span><span class="p">(</span><span class="n">trickId</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">soundIval</span><span class="p">:</span>
+        <span class="n">trickIval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">soundIval</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">Sequence</span><span class="p">(</span>
+        <span class="n">Func</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">lockPet</span><span class="p">),</span>
+        <span class="n">Wait</span><span class="p">(</span><span class="n">waitTime</span><span class="p">),</span>
+        <span class="n">trickIval</span><span class="p">,</span>
+        <span class="n">Func</span><span class="p">(</span><span class="n">pet</span><span class="o">.</span><span class="n">unlockPet</span><span class="p">)</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

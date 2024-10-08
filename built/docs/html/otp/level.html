@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>level package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="leveleditor package" href="leveleditor.html" />
+    <link rel="prev" title="launcher package" href="launcher.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">otp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">level package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-ambientsound-module">level.AmbientSound module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.AttribDesc">level.AttribDesc module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.AttribDesc.AttribDesc"><code class="docutils literal notranslate"><span class="pre">AttribDesc</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-basicentities-module">level.BasicEntities module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-collisionsolidentity-module">level.CollisionSolidEntity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-cutscene-module">level.CutScene module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-distributedentity-module">level.DistributedEntity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-distributedentityai-module">level.DistributedEntityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-distributedinteractiveentity-module">level.DistributedInteractiveEntity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-distributedinteractiveentityai-module">level.DistributedInteractiveEntityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-distributedlevel-module">level.DistributedLevel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-distributedlevelai-module">level.DistributedLevelAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-editmgr-module">level.EditMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-editmgrai-module">level.EditMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-editmgrbase-module">level.EditMgrBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-editorglobals-module">level.EditorGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-entity-module">level.Entity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-entitycreator-module">level.EntityCreator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-entitycreatorai-module">level.EntityCreatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.EntityCreatorBase">level.EntityCreatorBase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.EntityCreatorBase.EntityCreatorBase"><code class="docutils literal notranslate"><span class="pre">EntityCreatorBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-entitystatevarset-module">level.EntityStateVarSet module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.EntityTypeDesc">level.EntityTypeDesc module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.EntityTypeDesc.EntityTypeDesc"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-entitytyperegistry-module">level.EntityTypeRegistry module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-entitytypes-module">level.EntityTypes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-entrancepoint-module">level.EntrancePoint module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-level-module">level.Level module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.LevelConstants">level.LevelConstants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-levelmgr-module">level.LevelMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-levelmgrai-module">level.LevelMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-levelmgrbase-module">level.LevelMgrBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-levelspec-module">level.LevelSpec module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.LevelUtil">level.LevelUtil module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.LevelUtil.getZoneNum2Node"><code class="docutils literal notranslate"><span class="pre">getZoneNum2Node()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-locatorentity-module">level.LocatorEntity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-logicgate-module">level.LogicGate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-modelentity-module">level.ModelEntity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-pathentity-module">level.PathEntity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-propspinner-module">level.PropSpinner module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#level-specutil-module">level.SpecUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.VisibilityBlocker">level.VisibilityBlocker module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.VisibilityBlocker.VisibilityBlocker"><code class="docutils literal notranslate"><span class="pre">VisibilityBlocker</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.VisibilityExtender">level.VisibilityExtender module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.VisibilityExtender.VisibilityExtender"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#level-zoneentity-module">level.ZoneEntity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.ZoneEntityAI">level.ZoneEntityAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.ZoneEntityAI.ZoneEntityAI"><code class="docutils literal notranslate"><span class="pre">ZoneEntityAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level.ZoneEntityBase">level.ZoneEntityBase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level.ZoneEntityBase.ZoneEntityBase"><code class="docutils literal notranslate"><span class="pre">ZoneEntityBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-level">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">navigation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html">otpbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">otp</a></li>
+      <li class="breadcrumb-item active">level package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/level.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="level-package">
+<h1>level package<a class="headerlink" href="#level-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-ambientsound-module">
+<h2>level.AmbientSound module<a class="headerlink" href="#level-ambientsound-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-level.AttribDesc">
+<span id="level-attribdesc-module"></span><h2>level.AttribDesc module<a class="headerlink" href="#module-level.AttribDesc" title="Permalink to this heading"></a></h2>
+<p>AttribDesc.py module: contains the AttribDesc class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="level.AttribDesc.AttribDesc">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">level.AttribDesc.</span></span><span class="sig-name descname"><span class="pre">AttribDesc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datatype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'string'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/AttribDesc.html#AttribDesc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.AttribDesc.AttribDesc" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Entity attribute descriptor
+name == name of attribute
+default == default value for attrib</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="level.AttribDesc.AttribDesc.getDatatype">
+<span class="sig-name descname"><span class="pre">getDatatype</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/AttribDesc.html#AttribDesc.getDatatype"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.AttribDesc.AttribDesc.getDatatype" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.AttribDesc.AttribDesc.getDefaultValue">
+<span class="sig-name descname"><span class="pre">getDefaultValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/AttribDesc.html#AttribDesc.getDefaultValue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.AttribDesc.AttribDesc.getDefaultValue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.AttribDesc.AttribDesc.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/AttribDesc.html#AttribDesc.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.AttribDesc.AttribDesc.getName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.AttribDesc.AttribDesc.getParams">
+<span class="sig-name descname"><span class="pre">getParams</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/AttribDesc.html#AttribDesc.getParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.AttribDesc.AttribDesc.getParams" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="level-basicentities-module">
+<h2>level.BasicEntities module<a class="headerlink" href="#level-basicentities-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-collisionsolidentity-module">
+<h2>level.CollisionSolidEntity module<a class="headerlink" href="#level-collisionsolidentity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-cutscene-module">
+<h2>level.CutScene module<a class="headerlink" href="#level-cutscene-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-distributedentity-module">
+<h2>level.DistributedEntity module<a class="headerlink" href="#level-distributedentity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-distributedentityai-module">
+<h2>level.DistributedEntityAI module<a class="headerlink" href="#level-distributedentityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-distributedinteractiveentity-module">
+<h2>level.DistributedInteractiveEntity module<a class="headerlink" href="#level-distributedinteractiveentity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-distributedinteractiveentityai-module">
+<h2>level.DistributedInteractiveEntityAI module<a class="headerlink" href="#level-distributedinteractiveentityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-distributedlevel-module">
+<h2>level.DistributedLevel module<a class="headerlink" href="#level-distributedlevel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-distributedlevelai-module">
+<h2>level.DistributedLevelAI module<a class="headerlink" href="#level-distributedlevelai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-editmgr-module">
+<h2>level.EditMgr module<a class="headerlink" href="#level-editmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-editmgrai-module">
+<h2>level.EditMgrAI module<a class="headerlink" href="#level-editmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-editmgrbase-module">
+<h2>level.EditMgrBase module<a class="headerlink" href="#level-editmgrbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-editorglobals-module">
+<h2>level.EditorGlobals module<a class="headerlink" href="#level-editorglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-entity-module">
+<h2>level.Entity module<a class="headerlink" href="#level-entity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-entitycreator-module">
+<h2>level.EntityCreator module<a class="headerlink" href="#level-entitycreator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-entitycreatorai-module">
+<h2>level.EntityCreatorAI module<a class="headerlink" href="#level-entitycreatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-level.EntityCreatorBase">
+<span id="level-entitycreatorbase-module"></span><h2>level.EntityCreatorBase module<a class="headerlink" href="#module-level.EntityCreatorBase" title="Permalink to this heading"></a></h2>
+<p>EntityCreatorBase module: contains the EntityCreatorBase class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="level.EntityCreatorBase.EntityCreatorBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">level.EntityCreatorBase.</span></span><span class="sig-name descname"><span class="pre">EntityCreatorBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityCreatorBase.html#EntityCreatorBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityCreatorBase.EntityCreatorBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is responsible for creating instances of Entities on the
+AI and on the client. It must be subclassed to specify what entity
+types it can create, and to provide the creation implementation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityCreatorBase.EntityCreatorBase.createEntity">
+<span class="sig-name descname"><span class="pre">createEntity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityCreatorBase.html#EntityCreatorBase.createEntity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityCreatorBase.EntityCreatorBase.createEntity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityCreatorBase.EntityCreatorBase.getEntityTypes">
+<span class="sig-name descname"><span class="pre">getEntityTypes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityCreatorBase.html#EntityCreatorBase.getEntityTypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityCreatorBase.EntityCreatorBase.getEntityTypes" title="Permalink to this definition"></a></dt>
+<dd><p>by definition, this object knows the full list of entity types
+that may exist within the level</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="level.EntityCreatorBase.EntityCreatorBase.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#level.EntityCreatorBase.EntityCreatorBase.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityCreatorBase.EntityCreatorBase.privRegisterType">
+<span class="sig-name descname"><span class="pre">privRegisterType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityCreatorBase.html#EntityCreatorBase.privRegisterType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityCreatorBase.EntityCreatorBase.privRegisterType" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityCreatorBase.EntityCreatorBase.privRegisterTypes">
+<span class="sig-name descname"><span class="pre">privRegisterTypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type2ctor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityCreatorBase.html#EntityCreatorBase.privRegisterTypes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityCreatorBase.EntityCreatorBase.privRegisterTypes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="level-entitystatevarset-module">
+<h2>level.EntityStateVarSet module<a class="headerlink" href="#level-entitystatevarset-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-level.EntityTypeDesc">
+<span id="level-entitytypedesc-module"></span><h2>level.EntityTypeDesc module<a class="headerlink" href="#module-level.EntityTypeDesc" title="Permalink to this heading"></a></h2>
+<p>EntityTypeDesc module: contains the EntityTypeDesc class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">level.EntityTypeDesc.</span></span><span class="sig-name descname"><span class="pre">EntityTypeDesc</span></span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is meta-data that describes an Entity type.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.getAttribDescDict">
+<span class="sig-name descname"><span class="pre">getAttribDescDict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc.getAttribDescDict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.getAttribDescDict" title="Permalink to this definition"></a></dt>
+<dd><p>returns dict of attribName -&gt; attribDescriptor</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.getAttribNames">
+<span class="sig-name descname"><span class="pre">getAttribNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc.getAttribNames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.getAttribNames" title="Permalink to this definition"></a></dt>
+<dd><p>returns ordered list of attribute names for this entity type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.getAttribsOfType">
+<span class="sig-name descname"><span class="pre">getAttribsOfType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc.getAttribsOfType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.getAttribsOfType" title="Permalink to this definition"></a></dt>
+<dd><p>returns list of attrib names of the given type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.getOutputType">
+<span class="sig-name descname"><span class="pre">getOutputType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc.getOutputType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.getOutputType" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.isConcrete">
+<span class="sig-name descname"><span class="pre">isConcrete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc.isConcrete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.isConcrete" title="Permalink to this definition"></a></dt>
+<dd><p>means that entity of this exact type can be created</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.isPermanent">
+<span class="sig-name descname"><span class="pre">isPermanent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc.isPermanent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.isPermanent" title="Permalink to this definition"></a></dt>
+<dd><p>means that entity of this exact type cannot be inserted or
+removed in the editor</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.output">
+<span class="sig-name descname"><span class="pre">output</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.output" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.EntityTypeDesc.EntityTypeDesc.privCompileAttribDescs">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">privCompileAttribDescs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entTypeClass</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/EntityTypeDesc.html#EntityTypeDesc.privCompileAttribDescs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.EntityTypeDesc.EntityTypeDesc.privCompileAttribDescs" title="Permalink to this definition"></a></dt>
+<dd><p>this compiles an ordered list of attribDescs for the Entity class
+passed in. The attribute descriptors describe the properties of each
+of the Entity type’s attributes</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="level-entitytyperegistry-module">
+<h2>level.EntityTypeRegistry module<a class="headerlink" href="#level-entitytyperegistry-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-entitytypes-module">
+<h2>level.EntityTypes module<a class="headerlink" href="#level-entitytypes-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-entrancepoint-module">
+<h2>level.EntrancePoint module<a class="headerlink" href="#level-entrancepoint-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-level-module">
+<h2>level.Level module<a class="headerlink" href="#level-level-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-level.LevelConstants">
+<span id="level-levelconstants-module"></span><h2>level.LevelConstants module<a class="headerlink" href="#module-level.LevelConstants" title="Permalink to this heading"></a></h2>
+<p>LevelConstants module: contains Level-related constants</p>
+</section>
+<section id="level-levelmgr-module">
+<h2>level.LevelMgr module<a class="headerlink" href="#level-levelmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-levelmgrai-module">
+<h2>level.LevelMgrAI module<a class="headerlink" href="#level-levelmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-levelmgrbase-module">
+<h2>level.LevelMgrBase module<a class="headerlink" href="#level-levelmgrbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-levelspec-module">
+<h2>level.LevelSpec module<a class="headerlink" href="#level-levelspec-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-level.LevelUtil">
+<span id="level-levelutil-module"></span><h2>level.LevelUtil module<a class="headerlink" href="#module-level.LevelUtil" title="Permalink to this heading"></a></h2>
+<p>LevelUtil module: contains Level utility funcs</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="level.LevelUtil.getZoneNum2Node">
+<span class="sig-prename descclassname"><span class="pre">level.LevelUtil.</span></span><span class="sig-name descname"><span class="pre">getZoneNum2Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">levelModel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logFunc=&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/LevelUtil.html#getZoneNum2Node"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.LevelUtil.getZoneNum2Node" title="Permalink to this definition"></a></dt>
+<dd><p>given model, returns dict of ZoneNumber -&gt; ZoneNode</p>
+</dd></dl>
+
+</section>
+<section id="level-locatorentity-module">
+<h2>level.LocatorEntity module<a class="headerlink" href="#level-locatorentity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-logicgate-module">
+<h2>level.LogicGate module<a class="headerlink" href="#level-logicgate-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-modelentity-module">
+<h2>level.ModelEntity module<a class="headerlink" href="#level-modelentity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-pathentity-module">
+<h2>level.PathEntity module<a class="headerlink" href="#level-pathentity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-propspinner-module">
+<h2>level.PropSpinner module<a class="headerlink" href="#level-propspinner-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="level-specutil-module">
+<h2>level.SpecUtil module<a class="headerlink" href="#level-specutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-level.VisibilityBlocker">
+<span id="level-visibilityblocker-module"></span><h2>level.VisibilityBlocker module<a class="headerlink" href="#module-level.VisibilityBlocker" title="Permalink to this heading"></a></h2>
+<p>VisibilityBlocker module: contains the VisibilityBlocker class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="level.VisibilityBlocker.VisibilityBlocker">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">level.VisibilityBlocker.</span></span><span class="sig-name descname"><span class="pre">VisibilityBlocker</span></span><a class="reference internal" href="../_modules/level/VisibilityBlocker.html#VisibilityBlocker"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityBlocker.VisibilityBlocker" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a mixin class for level entities (see Entity.py) that in some
+way ‘block’ visibility (such as doors) – entities that can completely
+obscure what’s behind them. It provides the blocker with a mechanism
+whereby they are informed of when it is safe for them to ‘unblock’ the
+visibility and show what’s behind them. Without this mechanism, the
+blocker might show what’s behind it before all of the distributed objects
+behind it have been generated.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityBlocker.VisibilityBlocker.cancelUnblockVis">
+<span class="sig-name descname"><span class="pre">cancelUnblockVis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityBlocker.html#VisibilityBlocker.cancelUnblockVis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityBlocker.VisibilityBlocker.cancelUnblockVis" title="Permalink to this definition"></a></dt>
+<dd><p>derived class should call this if they have called
+requestUnblockVis, but no longer need that service.  For example
+the user could have canceled the request that started the
+visibility change.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityBlocker.VisibilityBlocker.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityBlocker.html#VisibilityBlocker.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityBlocker.VisibilityBlocker.destroy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityBlocker.VisibilityBlocker.isWaitingForUnblockVis">
+<span class="sig-name descname"><span class="pre">isWaitingForUnblockVis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityBlocker.html#VisibilityBlocker.isWaitingForUnblockVis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityBlocker.VisibilityBlocker.isWaitingForUnblockVis" title="Permalink to this definition"></a></dt>
+<dd><p>returns a boolean for whether there is a requestUnblockVis() pending.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityBlocker.VisibilityBlocker.okToUnblockVis">
+<span class="sig-name descname"><span class="pre">okToUnblockVis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityBlocker.html#VisibilityBlocker.okToUnblockVis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityBlocker.VisibilityBlocker.okToUnblockVis" title="Permalink to this definition"></a></dt>
+<dd><p>derived class should override this func and do the vis unblock
+(i.e. open the door, etc.)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityBlocker.VisibilityBlocker.requestUnblockVis">
+<span class="sig-name descname"><span class="pre">requestUnblockVis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityBlocker.html#VisibilityBlocker.requestUnblockVis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityBlocker.VisibilityBlocker.requestUnblockVis" title="Permalink to this definition"></a></dt>
+<dd><p>derived class should call this before the end of the frame in which
+they cause the visibility to be extended. okToUnblockVis (see below)
+will be called when it’s safe to show the new zones.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-level.VisibilityExtender">
+<span id="level-visibilityextender-module"></span><h2>level.VisibilityExtender module<a class="headerlink" href="#module-level.VisibilityExtender" title="Permalink to this heading"></a></h2>
+<p>VisibilityExtender module: contains the VisibilityExtender class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">level.VisibilityExtender.</span></span><span class="sig-name descname"><span class="pre">VisibilityExtender</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.attribChanged">
+<span class="sig-name descname"><span class="pre">attribChanged</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.attribChanged"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.attribChanged" title="Permalink to this definition"></a></dt>
+<dd><p>This is called when a parameter is tweaked and no setter
+is called; i.e. the value is set directly on the object.
+Some Entities might want to completely reset every time anything
+is tweaked; this is the place to do it, just override this func
+in your derived class</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.destroy" title="Permalink to this definition"></a></dt>
+<dd><p>This is called when the level wants this entity to go away.
+Once this is called, the Entity should be considered defunct.
+NOTE: distributed entities are still valid distributed objects
+after this is called, but they are no longer valid entities.
+Distributed entities ought to be disabled and/or deleted shortly
+after this is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.destroyVisExt">
+<span class="sig-name descname"><span class="pre">destroyVisExt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.destroyVisExt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.destroyVisExt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.extend">
+<span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.extend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.extend" title="Permalink to this definition"></a></dt>
+<dd><p>extend the visibility list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.handleEvent">
+<span class="sig-name descname"><span class="pre">handleEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doExtend</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.handleEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.handleEvent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.initVisExt">
+<span class="sig-name descname"><span class="pre">initVisExt</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.initVisExt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.initVisExt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.retract">
+<span class="sig-name descname"><span class="pre">retract</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.retract"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.retract" title="Permalink to this definition"></a></dt>
+<dd><p>un-extend the visibility list</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.VisibilityExtender.VisibilityExtender.setNewZones">
+<span class="sig-name descname"><span class="pre">setNewZones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newZones</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/VisibilityExtender.html#VisibilityExtender.setNewZones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.VisibilityExtender.VisibilityExtender.setNewZones" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="level-zoneentity-module">
+<h2>level.ZoneEntity module<a class="headerlink" href="#level-zoneentity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-level.ZoneEntityAI">
+<span id="level-zoneentityai-module"></span><h2>level.ZoneEntityAI module<a class="headerlink" href="#module-level.ZoneEntityAI" title="Permalink to this heading"></a></h2>
+<p>ZoneEntityAI module: contains the ZoneEntityAI class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="level.ZoneEntityAI.ZoneEntityAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">level.ZoneEntityAI.</span></span><span class="sig-name descname"><span class="pre">ZoneEntityAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityAI.html#ZoneEntityAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityAI.ZoneEntityAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#level.ZoneEntityBase.ZoneEntityBase" title="level.ZoneEntityBase.ZoneEntityBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZoneEntityBase</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="level.ZoneEntityAI.ZoneEntityAI.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityAI.html#ZoneEntityAI.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityAI.ZoneEntityAI.destroy" title="Permalink to this definition"></a></dt>
+<dd><p>This is called when the level wants this entity to go away.
+Once this is called, the Entity should be considered defunct.
+NOTE: distributed entities are still valid distributed objects
+after this is called, but they are no longer valid entities.
+Distributed entities ought to be disabled and/or deleted shortly
+after this is called.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-level.ZoneEntityBase">
+<span id="level-zoneentitybase-module"></span><h2>level.ZoneEntityBase module<a class="headerlink" href="#module-level.ZoneEntityBase" title="Permalink to this heading"></a></h2>
+<p>ZoneEntityBase module: contains the ZoneEntityBase class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="level.ZoneEntityBase.ZoneEntityBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">level.ZoneEntityBase.</span></span><span class="sig-name descname"><span class="pre">ZoneEntityBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityBase.html#ZoneEntityBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityBase.ZoneEntityBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Entity</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="level.ZoneEntityBase.ZoneEntityBase.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityBase.html#ZoneEntityBase.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityBase.ZoneEntityBase.destroy" title="Permalink to this definition"></a></dt>
+<dd><p>This is called when the level wants this entity to go away.
+Once this is called, the Entity should be considered defunct.
+NOTE: distributed entities are still valid distributed objects
+after this is called, but they are no longer valid entities.
+Distributed entities ought to be disabled and/or deleted shortly
+after this is called.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.ZoneEntityBase.ZoneEntityBase.getZoneId">
+<span class="sig-name descname"><span class="pre">getZoneId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityBase.html#ZoneEntityBase.getZoneId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityBase.ZoneEntityBase.getZoneId" title="Permalink to this definition"></a></dt>
+<dd><p>network zoneId</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.ZoneEntityBase.ZoneEntityBase.getZoneNum">
+<span class="sig-name descname"><span class="pre">getZoneNum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityBase.html#ZoneEntityBase.getZoneNum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityBase.ZoneEntityBase.getZoneNum" title="Permalink to this definition"></a></dt>
+<dd><p>zoneNum from model / entityId</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.ZoneEntityBase.ZoneEntityBase.isUberZone">
+<span class="sig-name descname"><span class="pre">isUberZone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityBase.html#ZoneEntityBase.isUberZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityBase.ZoneEntityBase.isUberZone" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="level.ZoneEntityBase.ZoneEntityBase.setZoneId">
+<span class="sig-name descname"><span class="pre">setZoneId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/level/ZoneEntityBase.html#ZoneEntityBase.setZoneId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#level.ZoneEntityBase.ZoneEntityBase.setZoneId" title="Permalink to this definition"></a></dt>
+<dd><p>set the network zoneId that this zone entity corresponds to</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-level">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-level" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="launcher.html" class="btn btn-neutral float-left" title="launcher package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="leveleditor.html" class="btn btn-neutral float-right" title="leveleditor package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

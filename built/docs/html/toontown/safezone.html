@@ -1,0 +1,1645 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>safezone package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="scavengerhunt package" href="scavengerhunt.html" />
+    <link rel="prev" title="rpc package" href="rpc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">safezone package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-brplayground-module">safezone.BRPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-brsafezoneloader-module">safezone.BRSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-brtreasureplannerai-module">safezone.BRTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-butterflyglobals-module">safezone.ButterflyGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.CheckersBoard">safezone.CheckersBoard module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.CheckersBoard.CheckersBoard"><code class="docutils literal notranslate"><span class="pre">CheckersBoard</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.CheckersBoard.CheckersTile"><code class="docutils literal notranslate"><span class="pre">CheckersTile</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.ChineseCheckersBoard">safezone.ChineseCheckersBoard module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.ChineseCheckersBoard.CheckersSquare"><code class="docutils literal notranslate"><span class="pre">CheckersSquare</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard"><code class="docutils literal notranslate"><span class="pre">ChineseCheckersBoard</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-ddplayground-module">safezone.DDPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-ddsafezoneloader-module">safezone.DDSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-ddtreasureplannerai-module">safezone.DDTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-dgplayground-module">safezone.DGPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-dgsafezoneloader-module">safezone.DGSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-dgtreasureplannerai-module">safezone.DGTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-dlplayground-module">safezone.DLPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-dlsafezoneloader-module">safezone.DLSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-dltreasureplannerai-module">safezone.DLTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedbrtreasure-module">safezone.DistributedBRTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedbrtreasureai-module">safezone.DistributedBRTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedboat-module">safezone.DistributedBoat module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedboatai-module">safezone.DistributedBoatAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedbutterfly-module">safezone.DistributedButterfly module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedbutterflyai-module">safezone.DistributedButterflyAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedcheckers-module">safezone.DistributedCheckers module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.DistributedCheckersAI">safezone.DistributedCheckersAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.DistributedCheckersAI.DistributedCheckersAI"><code class="docutils literal notranslate"><span class="pre">DistributedCheckersAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedchinesecheckers-module">safezone.DistributedChineseCheckers module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.DistributedChineseCheckersAI">safezone.DistributedChineseCheckersAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI"><code class="docutils literal notranslate"><span class="pre">DistributedChineseCheckersAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedddtreasure-module">safezone.DistributedDDTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedddtreasureai-module">safezone.DistributedDDTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributeddgflower-module">safezone.DistributedDGFlower module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributeddgflowerai-module">safezone.DistributedDGFlowerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributeddgtreasure-module">safezone.DistributedDGTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributeddgtreasureai-module">safezone.DistributedDGTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributeddltreasure-module">safezone.DistributedDLTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributeddltreasureai-module">safezone.DistributedDLTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedeflyingtreasure-module">safezone.DistributedEFlyingTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedeflyingtreasureai-module">safezone.DistributedEFlyingTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedetreasure-module">safezone.DistributedETreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedetreasureai-module">safezone.DistributedETreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedfindfour-module">safezone.DistributedFindFour module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.DistributedFindFourAI">safezone.DistributedFindFourAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.DistributedFindFourAI.DistributedFindFourAI"><code class="docutils literal notranslate"><span class="pre">DistributedFindFourAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedfishingspot-module">safezone.DistributedFishingSpot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedfishingspotai-module">safezone.DistributedFishingSpotAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedgolfkart-module">safezone.DistributedGolfKart module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedgolfkartai-module">safezone.DistributedGolfKartAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedmmpiano-module">safezone.DistributedMMPiano module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedmmpianoai-module">safezone.DistributedMMPianoAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedmmtreasure-module">safezone.DistributedMMTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedmmtreasureai-module">safezone.DistributedMMTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedoztreasure-module">safezone.DistributedOZTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedoztreasureai-module">safezone.DistributedOZTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedpartygate-module">safezone.DistributedPartyGate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedpartygateai-module">safezone.DistributedPartyGateAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedpicnicbasket-module">safezone.DistributedPicnicBasket module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedpicnicbasketai-module">safezone.DistributedPicnicBasketAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedpicnictable-module">safezone.DistributedPicnicTable module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.DistributedPicnicTableAI">safezone.DistributedPicnicTableAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI"><code class="docutils literal notranslate"><span class="pre">DistributedPicnicTableAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedsztreasure-module">safezone.DistributedSZTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedsztreasureai-module">safezone.DistributedSZTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedtttreasure-module">safezone.DistributedTTTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedtttreasureai-module">safezone.DistributedTTTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedtreasure-module">safezone.DistributedTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedtreasureai-module">safezone.DistributedTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedtrolley-module">safezone.DistributedTrolley module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-distributedtrolleyai-module">safezone.DistributedTrolleyAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-eflyingtreasureplannerai-module">safezone.EFlyingTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-etreasureplannerai-module">safezone.ETreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-gsplayground-module">safezone.GSPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-gssafezoneloader-module">safezone.GSSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-gzplayground-module">safezone.GZPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-gzsafezoneloader-module">safezone.GZSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-gamemenu-module">safezone.GameMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-gametutorials-module">safezone.GameTutorials module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-golfkart-module">safezone.GolfKart module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-mmplayground-module">safezone.MMPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-mmsafezoneloader-module">safezone.MMSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-mmtreasureplannerai-module">safezone.MMTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-ozplayground-module">safezone.OZPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-ozsafezoneloader-module">safezone.OZSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-oztreasureplannerai-module">safezone.OZTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-picnicbasket-module">safezone.PicnicBasket module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-playground-module">safezone.Playground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-publicwalk-module">safezone.PublicWalk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.RegenTreasurePlannerAI">safezone.RegenTreasurePlannerAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI"><code class="docutils literal notranslate"><span class="pre">RegenTreasurePlannerAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-safezoneloader-module">safezone.SafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-safezonemanager-module">safezone.SafeZoneManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-safezonemanagerai-module">safezone.SafeZoneManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-ttplayground-module">safezone.TTPlayground module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-ttsafezoneloader-module">safezone.TTSafeZoneLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-tttreasureplannerai-module">safezone.TTTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-train-module">safezone.Train module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.TreasurePlannerAI">safezone.TreasurePlannerAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#safezone.TreasurePlannerAI.TreasurePlannerAI"><code class="docutils literal notranslate"><span class="pre">TreasurePlannerAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone.TrolleyConstants">safezone.TrolleyConstants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#safezone-walk-module">safezone.Walk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-safezone">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">safezone package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/safezone.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="safezone-package">
+<h1>safezone package<a class="headerlink" href="#safezone-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-brplayground-module">
+<h2>safezone.BRPlayground module<a class="headerlink" href="#safezone-brplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-brsafezoneloader-module">
+<h2>safezone.BRSafeZoneLoader module<a class="headerlink" href="#safezone-brsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-brtreasureplannerai-module">
+<h2>safezone.BRTreasurePlannerAI module<a class="headerlink" href="#safezone-brtreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-butterflyglobals-module">
+<h2>safezone.ButterflyGlobals module<a class="headerlink" href="#safezone-butterflyglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone.CheckersBoard">
+<span id="safezone-checkersboard-module"></span><h2>safezone.CheckersBoard module<a class="headerlink" href="#module-safezone.CheckersBoard" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.CheckersBoard.</span></span><span class="sig-name descname"><span class="pre">CheckersBoard</span></span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.getAdjacent">
+<span class="sig-name descname"><span class="pre">getAdjacent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.getAdjacent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.getAdjacent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.getJumps">
+<span class="sig-name descname"><span class="pre">getJumps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.getJumps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.getJumps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.getSquare">
+<span class="sig-name descname"><span class="pre">getSquare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrayLoc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.getSquare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.getSquare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.getState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.getStates">
+<span class="sig-name descname"><span class="pre">getStates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.getStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.getStates" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.setState">
+<span class="sig-name descname"><span class="pre">setState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newState</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.setState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.setState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersBoard.setStates">
+<span class="sig-name descname"><span class="pre">setStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squares</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersBoard.setStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersBoard.setStates" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.CheckersBoard.</span></span><span class="sig-name descname"><span class="pre">CheckersTile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tileNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.getAdjacent">
+<span class="sig-name descname"><span class="pre">getAdjacent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.getAdjacent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.getAdjacent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.getJumps">
+<span class="sig-name descname"><span class="pre">getJumps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.getJumps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.getJumps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.getNum">
+<span class="sig-name descname"><span class="pre">getNum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.getNum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.getNum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.getState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.setAdjacent">
+<span class="sig-name descname"><span class="pre">setAdjacent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adjList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.setAdjacent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.setAdjacent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.setJumps">
+<span class="sig-name descname"><span class="pre">setJumps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jumpList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.setJumps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.setJumps" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.CheckersBoard.CheckersTile.setState">
+<span class="sig-name descname"><span class="pre">setState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newState</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/CheckersBoard.html#CheckersTile.setState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.CheckersBoard.CheckersTile.setState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-safezone.ChineseCheckersBoard">
+<span id="safezone-chinesecheckersboard-module"></span><h2>safezone.ChineseCheckersBoard module<a class="headerlink" href="#module-safezone.ChineseCheckersBoard" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.CheckersSquare">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.ChineseCheckersBoard.</span></span><span class="sig-name descname"><span class="pre">CheckersSquare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tileNu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#CheckersSquare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.CheckersSquare" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.CheckersSquare.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#CheckersSquare.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.CheckersSquare.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.CheckersSquare.getAdjacent">
+<span class="sig-name descname"><span class="pre">getAdjacent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#CheckersSquare.getAdjacent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.CheckersSquare.getAdjacent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.CheckersSquare.getNum">
+<span class="sig-name descname"><span class="pre">getNum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#CheckersSquare.getNum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.CheckersSquare.getNum" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.CheckersSquare.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#CheckersSquare.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.CheckersSquare.getState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.CheckersSquare.setAdjacent">
+<span class="sig-name descname"><span class="pre">setAdjacent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adjList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#CheckersSquare.setAdjacent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.CheckersSquare.setAdjacent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.CheckersSquare.setState">
+<span class="sig-name descname"><span class="pre">setState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">newState</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#CheckersSquare.setState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.CheckersSquare.setState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.ChineseCheckersBoard.</span></span><span class="sig-name descname"><span class="pre">ChineseCheckersBoard</span></span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.getAdjacent">
+<span class="sig-name descname"><span class="pre">getAdjacent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.getAdjacent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.getAdjacent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.getAdjacentOffset">
+<span class="sig-name descname"><span class="pre">getAdjacentOffset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.getAdjacentOffset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.getAdjacentOffset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.getSquare">
+<span class="sig-name descname"><span class="pre">getSquare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrayLoc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.getSquare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.getSquare" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.getSquareOffset">
+<span class="sig-name descname"><span class="pre">getSquareOffset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrayLoc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.getSquareOffset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.getSquareOffset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.getState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.getStateOffset">
+<span class="sig-name descname"><span class="pre">getStateOffset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arrayLoc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.getStateOffset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.getStateOffset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.getStates">
+<span class="sig-name descname"><span class="pre">getStates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.getStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.getStates" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.setState">
+<span class="sig-name descname"><span class="pre">setState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newState</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.setState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.setState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.setStateOffset">
+<span class="sig-name descname"><span class="pre">setStateOffset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squareNum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newState</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.setStateOffset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.setStateOffset" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.ChineseCheckersBoard.ChineseCheckersBoard.setStates">
+<span class="sig-name descname"><span class="pre">setStates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">squares</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/ChineseCheckersBoard.html#ChineseCheckersBoard.setStates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.ChineseCheckersBoard.ChineseCheckersBoard.setStates" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="safezone-ddplayground-module">
+<h2>safezone.DDPlayground module<a class="headerlink" href="#safezone-ddplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-ddsafezoneloader-module">
+<h2>safezone.DDSafeZoneLoader module<a class="headerlink" href="#safezone-ddsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-ddtreasureplannerai-module">
+<h2>safezone.DDTreasurePlannerAI module<a class="headerlink" href="#safezone-ddtreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-dgplayground-module">
+<h2>safezone.DGPlayground module<a class="headerlink" href="#safezone-dgplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-dgsafezoneloader-module">
+<h2>safezone.DGSafeZoneLoader module<a class="headerlink" href="#safezone-dgsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-dgtreasureplannerai-module">
+<h2>safezone.DGTreasurePlannerAI module<a class="headerlink" href="#safezone-dgtreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-dlplayground-module">
+<h2>safezone.DLPlayground module<a class="headerlink" href="#safezone-dlplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-dlsafezoneloader-module">
+<h2>safezone.DLSafeZoneLoader module<a class="headerlink" href="#safezone-dlsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-dltreasureplannerai-module">
+<h2>safezone.DLTreasurePlannerAI module<a class="headerlink" href="#safezone-dltreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedbrtreasure-module">
+<h2>safezone.DistributedBRTreasure module<a class="headerlink" href="#safezone-distributedbrtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedbrtreasureai-module">
+<h2>safezone.DistributedBRTreasureAI module<a class="headerlink" href="#safezone-distributedbrtreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedboat-module">
+<h2>safezone.DistributedBoat module<a class="headerlink" href="#safezone-distributedboat-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedboatai-module">
+<h2>safezone.DistributedBoatAI module<a class="headerlink" href="#safezone-distributedboatai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedbutterfly-module">
+<h2>safezone.DistributedButterfly module<a class="headerlink" href="#safezone-distributedbutterfly-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedbutterflyai-module">
+<h2>safezone.DistributedButterflyAI module<a class="headerlink" href="#safezone-distributedbutterflyai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedcheckers-module">
+<h2>safezone.DistributedCheckers module<a class="headerlink" href="#safezone-distributedcheckers-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone.DistributedCheckersAI">
+<span id="safezone-distributedcheckersai-module"></span><h2>safezone.DistributedCheckersAI module<a class="headerlink" href="#module-safezone.DistributedCheckersAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.DistributedCheckersAI.</span></span><span class="sig-name descname"><span class="pre">DistributedCheckersAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedNodeAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.advancePlayerTurn">
+<span class="sig-name descname"><span class="pre">advancePlayerTurn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.advancePlayerTurn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.advancePlayerTurn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.announceGenerate">
+<span class="sig-name descname"><span class="pre">announceGenerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.announceGenerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.announceGenerate" title="Permalink to this definition"></a></dt>
+<dd><p>Called after the object has been generated and all
+of its required fields filled in. Overwrite when needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.checkLegalJump">
+<span class="sig-name descname"><span class="pre">checkLegalJump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firstSquare</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secondSquare</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.checkLegalJump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.checkLegalJump" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.checkLegalMove">
+<span class="sig-name descname"><span class="pre">checkLegalMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firstSquare</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secondSquare</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.checkLegalMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.checkLegalMove" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.checkLegalMoves">
+<span class="sig-name descname"><span class="pre">checkLegalMoves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.checkLegalMoves"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.checkLegalMoves" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.clearBoard">
+<span class="sig-name descname"><span class="pre">clearBoard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.clearBoard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.clearBoard" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.d_gameStart">
+<span class="sig-name descname"><span class="pre">d_gameStart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.d_gameStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.d_gameStart" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.d_sendTurn">
+<span class="sig-name descname"><span class="pre">d_sendTurn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">playersTurn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.d_sendTurn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.d_sendTurn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectAI more than once.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.distributeLaffPoints">
+<span class="sig-name descname"><span class="pre">distributeLaffPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.distributeLaffPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.distributeLaffPoints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.enterGameOver">
+<span class="sig-name descname"><span class="pre">enterGameOver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.enterGameOver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.enterGameOver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.enterPlaying">
+<span class="sig-name descname"><span class="pre">enterPlaying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.enterPlaying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.enterPlaying" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.enterWaitingToBegin">
+<span class="sig-name descname"><span class="pre">enterWaitingToBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.enterWaitingToBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.enterWaitingToBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.existsLegalJumpsFrom">
+<span class="sig-name descname"><span class="pre">existsLegalJumpsFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.existsLegalJumpsFrom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.existsLegalJumpsFrom" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.existsLegalMovesFrom">
+<span class="sig-name descname"><span class="pre">existsLegalMovesFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">peice</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.existsLegalMovesFrom"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.existsLegalMovesFrom" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.exitGameOver">
+<span class="sig-name descname"><span class="pre">exitGameOver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.exitGameOver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.exitGameOver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.exitPlaying">
+<span class="sig-name descname"><span class="pre">exitPlaying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.exitPlaying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.exitPlaying" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.exitWaitingToBegin">
+<span class="sig-name descname"><span class="pre">exitWaitingToBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.exitWaitingToBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.exitWaitingToBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.getGameState">
+<span class="sig-name descname"><span class="pre">getGameState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.getGameState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.getGameState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.getName" title="Permalink to this definition"></a></dt>
+<dd><p>C++ Interface:
+get_name(NodePath self)</p>
+<dl>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the name of the referenced node.</p></li>
+</ul>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.getPosHpr">
+<span class="sig-name descname"><span class="pre">getPosHpr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.getPosHpr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.getPosHpr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.getState" title="Permalink to this definition"></a></dt>
+<dd><p>C++ Interface:
+get_state(NodePath self)
+get_state(NodePath self, const NodePath other, Thread current_thread)
+get_state(NodePath self, Thread current_thread)</p>
+<p>// Aggregate transform and state information.</p>
+<dl>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the complete state object set on this node.</p></li>
+</ul>
+<p><a href="#id3"><span class="problematic" id="id4">*</span></a>/</p>
+</dd>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the state changes that must be made to transition to the render</p></li>
+<li><p>state of this node from the render state of the other node.</p></li>
+</ul>
+<p><a href="#id5"><span class="problematic" id="id6">*</span></a>/</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.getTableDoId">
+<span class="sig-name descname"><span class="pre">getTableDoId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.getTableDoId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.getTableDoId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.getTimer">
+<span class="sig-name descname"><span class="pre">getTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.getTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.getTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.getTurnTimer">
+<span class="sig-name descname"><span class="pre">getTurnTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.getTurnTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.getTurnTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.handleEmptyGame">
+<span class="sig-name descname"><span class="pre">handleEmptyGame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.handleEmptyGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.handleEmptyGame" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.handlePlayerExit">
+<span class="sig-name descname"><span class="pre">handlePlayerExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.handlePlayerExit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.handlePlayerExit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.hasPeicesAndMoves">
+<span class="sig-name descname"><span class="pre">hasPeicesAndMoves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">normalNum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kingNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.hasPeicesAndMoves"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.hasPeicesAndMoves" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.informGameOfPlayer">
+<span class="sig-name descname"><span class="pre">informGameOfPlayer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.informGameOfPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.informGameOfPlayer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.informGameOfPlayerLeave">
+<span class="sig-name descname"><span class="pre">informGameOfPlayerLeave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.informGameOfPlayerLeave"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.informGameOfPlayerLeave" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.makeMove">
+<span class="sig-name descname"><span class="pre">makeMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.makeMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.makeMove" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.requestBegin">
+<span class="sig-name descname"><span class="pre">requestBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.requestBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.requestBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.requestMove">
+<span class="sig-name descname"><span class="pre">requestMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.requestMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.requestMove" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.requestTimer">
+<span class="sig-name descname"><span class="pre">requestTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.requestTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.requestTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.requestWin">
+<span class="sig-name descname"><span class="pre">requestWin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.requestWin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.requestWin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.sendGameState">
+<span class="sig-name descname"><span class="pre">sendGameState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.sendGameState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.sendGameState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.setGameCountdownTime">
+<span class="sig-name descname"><span class="pre">setGameCountdownTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.setGameCountdownTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.setGameCountdownTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedCheckersAI.DistributedCheckersAI.setTurnCountdownTime">
+<span class="sig-name descname"><span class="pre">setTurnCountdownTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedCheckersAI.html#DistributedCheckersAI.setTurnCountdownTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedCheckersAI.DistributedCheckersAI.setTurnCountdownTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="safezone-distributedchinesecheckers-module">
+<h2>safezone.DistributedChineseCheckers module<a class="headerlink" href="#safezone-distributedchinesecheckers-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone.DistributedChineseCheckersAI">
+<span id="safezone-distributedchinesecheckersai-module"></span><h2>safezone.DistributedChineseCheckersAI module<a class="headerlink" href="#module-safezone.DistributedChineseCheckersAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.DistributedChineseCheckersAI.</span></span><span class="sig-name descname"><span class="pre">DistributedChineseCheckersAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedNodeAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.advancePlayerTurn">
+<span class="sig-name descname"><span class="pre">advancePlayerTurn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.advancePlayerTurn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.advancePlayerTurn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.announceGenerate">
+<span class="sig-name descname"><span class="pre">announceGenerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.announceGenerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.announceGenerate" title="Permalink to this definition"></a></dt>
+<dd><p>Called after the object has been generated and all
+of its required fields filled in. Overwrite when needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.checkLegalMove">
+<span class="sig-name descname"><span class="pre">checkLegalMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firstSquare</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secondSquare</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.checkLegalMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.checkLegalMove" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.checkLegalMoves">
+<span class="sig-name descname"><span class="pre">checkLegalMoves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.checkLegalMoves"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.checkLegalMoves" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.clearBoard">
+<span class="sig-name descname"><span class="pre">clearBoard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.clearBoard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.clearBoard" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.d_gameStart">
+<span class="sig-name descname"><span class="pre">d_gameStart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.d_gameStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.d_gameStart" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.d_sendTurn">
+<span class="sig-name descname"><span class="pre">d_sendTurn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">playersTurn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.d_sendTurn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.d_sendTurn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectAI more than once.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.distributeLaffPoints">
+<span class="sig-name descname"><span class="pre">distributeLaffPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.distributeLaffPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.distributeLaffPoints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterGameOver">
+<span class="sig-name descname"><span class="pre">enterGameOver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.enterGameOver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterGameOver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterPlaying">
+<span class="sig-name descname"><span class="pre">enterPlaying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.enterPlaying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterPlaying" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterWaitingToBegin">
+<span class="sig-name descname"><span class="pre">enterWaitingToBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.enterWaitingToBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.enterWaitingToBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitGameOver">
+<span class="sig-name descname"><span class="pre">exitGameOver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.exitGameOver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitGameOver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitPlaying">
+<span class="sig-name descname"><span class="pre">exitPlaying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.exitPlaying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitPlaying" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitWaitingToBegin">
+<span class="sig-name descname"><span class="pre">exitWaitingToBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.exitWaitingToBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.exitWaitingToBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getGameState">
+<span class="sig-name descname"><span class="pre">getGameState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.getGameState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getGameState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getName" title="Permalink to this definition"></a></dt>
+<dd><p>C++ Interface:
+get_name(NodePath self)</p>
+<dl>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the name of the referenced node.</p></li>
+</ul>
+<p><a href="#id7"><span class="problematic" id="id8">*</span></a>/</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getPosHpr">
+<span class="sig-name descname"><span class="pre">getPosHpr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.getPosHpr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getPosHpr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getState" title="Permalink to this definition"></a></dt>
+<dd><p>C++ Interface:
+get_state(NodePath self)
+get_state(NodePath self, const NodePath other, Thread current_thread)
+get_state(NodePath self, Thread current_thread)</p>
+<p>// Aggregate transform and state information.</p>
+<dl>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the complete state object set on this node.</p></li>
+</ul>
+<p><a href="#id9"><span class="problematic" id="id10">*</span></a>/</p>
+</dd>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the state changes that must be made to transition to the render</p></li>
+<li><p>state of this node from the render state of the other node.</p></li>
+</ul>
+<p><a href="#id11"><span class="problematic" id="id12">*</span></a>/</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTableDoId">
+<span class="sig-name descname"><span class="pre">getTableDoId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.getTableDoId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTableDoId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTimer">
+<span class="sig-name descname"><span class="pre">getTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.getTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTurnTimer">
+<span class="sig-name descname"><span class="pre">getTurnTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.getTurnTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.getTurnTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.handleEmptyGame">
+<span class="sig-name descname"><span class="pre">handleEmptyGame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.handleEmptyGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.handleEmptyGame" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.handlePlayerExit">
+<span class="sig-name descname"><span class="pre">handlePlayerExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.handlePlayerExit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.handlePlayerExit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.informGameOfPlayer">
+<span class="sig-name descname"><span class="pre">informGameOfPlayer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.informGameOfPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.informGameOfPlayer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.informGameOfPlayerLeave">
+<span class="sig-name descname"><span class="pre">informGameOfPlayerLeave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.informGameOfPlayerLeave"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.informGameOfPlayerLeave" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.makeMove">
+<span class="sig-name descname"><span class="pre">makeMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.makeMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.makeMove" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestBegin">
+<span class="sig-name descname"><span class="pre">requestBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.requestBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestMove">
+<span class="sig-name descname"><span class="pre">requestMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.requestMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestMove" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestSeatPositions">
+<span class="sig-name descname"><span class="pre">requestSeatPositions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.requestSeatPositions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestSeatPositions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestTimer">
+<span class="sig-name descname"><span class="pre">requestTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.requestTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestWin">
+<span class="sig-name descname"><span class="pre">requestWin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.requestWin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.requestWin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.sendGameState">
+<span class="sig-name descname"><span class="pre">sendGameState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveList</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.sendGameState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.sendGameState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.setGameCountdownTime">
+<span class="sig-name descname"><span class="pre">setGameCountdownTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.setGameCountdownTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.setGameCountdownTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.setTurnCountdownTime">
+<span class="sig-name descname"><span class="pre">setTurnCountdownTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.setTurnCountdownTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.setTurnCountdownTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.testWin">
+<span class="sig-name descname"><span class="pre">testWin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedChineseCheckersAI.html#DistributedChineseCheckersAI.testWin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedChineseCheckersAI.DistributedChineseCheckersAI.testWin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="safezone-distributedddtreasure-module">
+<h2>safezone.DistributedDDTreasure module<a class="headerlink" href="#safezone-distributedddtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedddtreasureai-module">
+<h2>safezone.DistributedDDTreasureAI module<a class="headerlink" href="#safezone-distributedddtreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributeddgflower-module">
+<h2>safezone.DistributedDGFlower module<a class="headerlink" href="#safezone-distributeddgflower-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributeddgflowerai-module">
+<h2>safezone.DistributedDGFlowerAI module<a class="headerlink" href="#safezone-distributeddgflowerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributeddgtreasure-module">
+<h2>safezone.DistributedDGTreasure module<a class="headerlink" href="#safezone-distributeddgtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributeddgtreasureai-module">
+<h2>safezone.DistributedDGTreasureAI module<a class="headerlink" href="#safezone-distributeddgtreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributeddltreasure-module">
+<h2>safezone.DistributedDLTreasure module<a class="headerlink" href="#safezone-distributeddltreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributeddltreasureai-module">
+<h2>safezone.DistributedDLTreasureAI module<a class="headerlink" href="#safezone-distributeddltreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedeflyingtreasure-module">
+<h2>safezone.DistributedEFlyingTreasure module<a class="headerlink" href="#safezone-distributedeflyingtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedeflyingtreasureai-module">
+<h2>safezone.DistributedEFlyingTreasureAI module<a class="headerlink" href="#safezone-distributedeflyingtreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedetreasure-module">
+<h2>safezone.DistributedETreasure module<a class="headerlink" href="#safezone-distributedetreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedetreasureai-module">
+<h2>safezone.DistributedETreasureAI module<a class="headerlink" href="#safezone-distributedetreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedfindfour-module">
+<h2>safezone.DistributedFindFour module<a class="headerlink" href="#safezone-distributedfindfour-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone.DistributedFindFourAI">
+<span id="safezone-distributedfindfourai-module"></span><h2>safezone.DistributedFindFourAI module<a class="headerlink" href="#module-safezone.DistributedFindFourAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.DistributedFindFourAI.</span></span><span class="sig-name descname"><span class="pre">DistributedFindFourAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedNodeAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.advancePlayerTurn">
+<span class="sig-name descname"><span class="pre">advancePlayerTurn</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.advancePlayerTurn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.advancePlayerTurn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.announceGenerate">
+<span class="sig-name descname"><span class="pre">announceGenerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.announceGenerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.announceGenerate" title="Permalink to this definition"></a></dt>
+<dd><p>Called after the object has been generated and all
+of its required fields filled in. Overwrite when needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.checkDiagonal">
+<span class="sig-name descname"><span class="pre">checkDiagonal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playerNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.checkDiagonal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.checkDiagonal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.checkForTie">
+<span class="sig-name descname"><span class="pre">checkForTie</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.checkForTie"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.checkForTie" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.checkHorizontal">
+<span class="sig-name descname"><span class="pre">checkHorizontal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playerNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.checkHorizontal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.checkHorizontal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.checkVertical">
+<span class="sig-name descname"><span class="pre">checkVertical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playerNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.checkVertical"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.checkVertical" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.checkWin">
+<span class="sig-name descname"><span class="pre">checkWin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cVal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playerNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.checkWin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.checkWin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.clearBoard">
+<span class="sig-name descname"><span class="pre">clearBoard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.clearBoard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.clearBoard" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.d_gameStart">
+<span class="sig-name descname"><span class="pre">d_gameStart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.d_gameStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.d_gameStart" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.d_sendTurn">
+<span class="sig-name descname"><span class="pre">d_sendTurn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">playersTurn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.d_sendTurn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.d_sendTurn" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectAI more than once.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.distributeLaffPoints">
+<span class="sig-name descname"><span class="pre">distributeLaffPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.distributeLaffPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.distributeLaffPoints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.enterGameOver">
+<span class="sig-name descname"><span class="pre">enterGameOver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.enterGameOver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.enterGameOver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.enterPlaying">
+<span class="sig-name descname"><span class="pre">enterPlaying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.enterPlaying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.enterPlaying" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.enterWaitingToBegin">
+<span class="sig-name descname"><span class="pre">enterWaitingToBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.enterWaitingToBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.enterWaitingToBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.exitGameOver">
+<span class="sig-name descname"><span class="pre">exitGameOver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.exitGameOver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.exitGameOver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.exitPlaying">
+<span class="sig-name descname"><span class="pre">exitPlaying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.exitPlaying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.exitPlaying" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.exitWaitingToBegin">
+<span class="sig-name descname"><span class="pre">exitWaitingToBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.exitWaitingToBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.exitWaitingToBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.getGameState">
+<span class="sig-name descname"><span class="pre">getGameState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.getGameState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.getGameState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.getName" title="Permalink to this definition"></a></dt>
+<dd><p>C++ Interface:
+get_name(NodePath self)</p>
+<dl>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the name of the referenced node.</p></li>
+</ul>
+<p><a href="#id13"><span class="problematic" id="id14">*</span></a>/</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.getPosHpr">
+<span class="sig-name descname"><span class="pre">getPosHpr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.getPosHpr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.getPosHpr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.getState">
+<span class="sig-name descname"><span class="pre">getState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.getState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.getState" title="Permalink to this definition"></a></dt>
+<dd><p>C++ Interface:
+get_state(NodePath self)
+get_state(NodePath self, const NodePath other, Thread current_thread)
+get_state(NodePath self, Thread current_thread)</p>
+<p>// Aggregate transform and state information.</p>
+<dl>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the complete state object set on this node.</p></li>
+</ul>
+<p><a href="#id15"><span class="problematic" id="id16">*</span></a>/</p>
+</dd>
+<dt>/**</dt><dd><ul class="simple">
+<li><p>Returns the state changes that must be made to transition to the render</p></li>
+<li><p>state of this node from the render state of the other node.</p></li>
+</ul>
+<p><a href="#id17"><span class="problematic" id="id18">*</span></a>/</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.getTableDoId">
+<span class="sig-name descname"><span class="pre">getTableDoId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.getTableDoId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.getTableDoId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.getTimer">
+<span class="sig-name descname"><span class="pre">getTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.getTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.getTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.getTurnTimer">
+<span class="sig-name descname"><span class="pre">getTurnTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.getTurnTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.getTurnTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.handleEmptyGame">
+<span class="sig-name descname"><span class="pre">handleEmptyGame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.handleEmptyGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.handleEmptyGame" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.handlePlayerExit">
+<span class="sig-name descname"><span class="pre">handlePlayerExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.handlePlayerExit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.handlePlayerExit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.informGameOfPlayer">
+<span class="sig-name descname"><span class="pre">informGameOfPlayer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.informGameOfPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.informGameOfPlayer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.informGameOfPlayerLeave">
+<span class="sig-name descname"><span class="pre">informGameOfPlayerLeave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.informGameOfPlayerLeave"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.informGameOfPlayerLeave" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.requestBegin">
+<span class="sig-name descname"><span class="pre">requestBegin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.requestBegin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.requestBegin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.requestMove">
+<span class="sig-name descname"><span class="pre">requestMove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">moveColumn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.requestMove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.requestMove" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.requestTimer">
+<span class="sig-name descname"><span class="pre">requestTimer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.requestTimer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.requestTimer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.requestWin">
+<span class="sig-name descname"><span class="pre">requestWin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pieceNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.requestWin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.requestWin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.setGameCountdownTime">
+<span class="sig-name descname"><span class="pre">setGameCountdownTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.setGameCountdownTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.setGameCountdownTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.setTurnCountdownTime">
+<span class="sig-name descname"><span class="pre">setTurnCountdownTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.setTurnCountdownTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.setTurnCountdownTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedFindFourAI.DistributedFindFourAI.tempSetBoardState">
+<span class="sig-name descname"><span class="pre">tempSetBoardState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedFindFourAI.html#DistributedFindFourAI.tempSetBoardState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedFindFourAI.DistributedFindFourAI.tempSetBoardState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="safezone-distributedfishingspot-module">
+<h2>safezone.DistributedFishingSpot module<a class="headerlink" href="#safezone-distributedfishingspot-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedfishingspotai-module">
+<h2>safezone.DistributedFishingSpotAI module<a class="headerlink" href="#safezone-distributedfishingspotai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedgolfkart-module">
+<h2>safezone.DistributedGolfKart module<a class="headerlink" href="#safezone-distributedgolfkart-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedgolfkartai-module">
+<h2>safezone.DistributedGolfKartAI module<a class="headerlink" href="#safezone-distributedgolfkartai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedmmpiano-module">
+<h2>safezone.DistributedMMPiano module<a class="headerlink" href="#safezone-distributedmmpiano-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedmmpianoai-module">
+<h2>safezone.DistributedMMPianoAI module<a class="headerlink" href="#safezone-distributedmmpianoai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedmmtreasure-module">
+<h2>safezone.DistributedMMTreasure module<a class="headerlink" href="#safezone-distributedmmtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedmmtreasureai-module">
+<h2>safezone.DistributedMMTreasureAI module<a class="headerlink" href="#safezone-distributedmmtreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedoztreasure-module">
+<h2>safezone.DistributedOZTreasure module<a class="headerlink" href="#safezone-distributedoztreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedoztreasureai-module">
+<h2>safezone.DistributedOZTreasureAI module<a class="headerlink" href="#safezone-distributedoztreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedpartygate-module">
+<h2>safezone.DistributedPartyGate module<a class="headerlink" href="#safezone-distributedpartygate-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedpartygateai-module">
+<h2>safezone.DistributedPartyGateAI module<a class="headerlink" href="#safezone-distributedpartygateai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedpicnicbasket-module">
+<h2>safezone.DistributedPicnicBasket module<a class="headerlink" href="#safezone-distributedpicnicbasket-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedpicnicbasketai-module">
+<h2>safezone.DistributedPicnicBasketAI module<a class="headerlink" href="#safezone-distributedpicnicbasketai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedpicnictable-module">
+<h2>safezone.DistributedPicnicTable module<a class="headerlink" href="#safezone-distributedpicnictable-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone.DistributedPicnicTableAI">
+<span id="safezone-distributedpicnictableai-module"></span><h2>safezone.DistributedPicnicTableAI module<a class="headerlink" href="#module-safezone.DistributedPicnicTableAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.DistributedPicnicTableAI.</span></span><span class="sig-name descname"><span class="pre">DistributedPicnicTableAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedNodeAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.acceptBoarder">
+<span class="sig-name descname"><span class="pre">acceptBoarder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seatIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.acceptBoarder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.acceptBoarder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.acceptExiter">
+<span class="sig-name descname"><span class="pre">acceptExiter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.acceptExiter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.acceptExiter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.announceGenerate">
+<span class="sig-name descname"><span class="pre">announceGenerate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.announceGenerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.announceGenerate" title="Permalink to this definition"></a></dt>
+<dd><p>Called after the object has been generated and all
+of its required fields filled in. Overwrite when needed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.announceWinner">
+<span class="sig-name descname"><span class="pre">announceWinner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.announceWinner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.announceWinner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.countFullSeats">
+<span class="sig-name descname"><span class="pre">countFullSeats</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.countFullSeats"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.countFullSeats" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectAI more than once.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.findAvailableSeat">
+<span class="sig-name descname"><span class="pre">findAvailableSeat</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.findAvailableSeat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.findAvailableSeat" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.findAvatar">
+<span class="sig-name descname"><span class="pre">findAvatar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.findAvatar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.findAvatar" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.getTableState">
+<span class="sig-name descname"><span class="pre">getTableState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.getTableState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.getTableState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.handleGameOver">
+<span class="sig-name descname"><span class="pre">handleGameOver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.handleGameOver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.handleGameOver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.handleObserverExit">
+<span class="sig-name descname"><span class="pre">handleObserverExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.handleObserverExit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.handleObserverExit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.informGameOfPlayerExit">
+<span class="sig-name descname"><span class="pre">informGameOfPlayerExit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.informGameOfPlayerExit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.informGameOfPlayerExit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.leaveObserve">
+<span class="sig-name descname"><span class="pre">leaveObserve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.leaveObserve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.leaveObserve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.pickGame">
+<span class="sig-name descname"><span class="pre">pickGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.pickGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.pickGame" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestExit">
+<span class="sig-name descname"><span class="pre">requestExit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.requestExit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestExit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestGameZone">
+<span class="sig-name descname"><span class="pre">requestGameZone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.requestGameZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestGameZone" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestJoin">
+<span class="sig-name descname"><span class="pre">requestJoin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">si</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.requestJoin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestJoin" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestPickedGame">
+<span class="sig-name descname"><span class="pre">requestPickedGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameNum</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.requestPickedGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestPickedGame" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestTableState">
+<span class="sig-name descname"><span class="pre">requestTableState</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.requestTableState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestTableState" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestZone">
+<span class="sig-name descname"><span class="pre">requestZone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.requestZone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.requestZone" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.sendIsPlaying">
+<span class="sig-name descname"><span class="pre">sendIsPlaying</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.sendIsPlaying"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.sendIsPlaying" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.setCheckersZoneId">
+<span class="sig-name descname"><span class="pre">setCheckersZoneId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.setCheckersZoneId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.setCheckersZoneId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.setGameDoId">
+<span class="sig-name descname"><span class="pre">setGameDoId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/DistributedPicnicTableAI.html#DistributedPicnicTableAI.setGameDoId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.DistributedPicnicTableAI.DistributedPicnicTableAI.setGameDoId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="safezone-distributedsztreasure-module">
+<h2>safezone.DistributedSZTreasure module<a class="headerlink" href="#safezone-distributedsztreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedsztreasureai-module">
+<h2>safezone.DistributedSZTreasureAI module<a class="headerlink" href="#safezone-distributedsztreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedtttreasure-module">
+<h2>safezone.DistributedTTTreasure module<a class="headerlink" href="#safezone-distributedtttreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedtttreasureai-module">
+<h2>safezone.DistributedTTTreasureAI module<a class="headerlink" href="#safezone-distributedtttreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedtreasure-module">
+<h2>safezone.DistributedTreasure module<a class="headerlink" href="#safezone-distributedtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedtreasureai-module">
+<h2>safezone.DistributedTreasureAI module<a class="headerlink" href="#safezone-distributedtreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedtrolley-module">
+<h2>safezone.DistributedTrolley module<a class="headerlink" href="#safezone-distributedtrolley-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-distributedtrolleyai-module">
+<h2>safezone.DistributedTrolleyAI module<a class="headerlink" href="#safezone-distributedtrolleyai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-eflyingtreasureplannerai-module">
+<h2>safezone.EFlyingTreasurePlannerAI module<a class="headerlink" href="#safezone-eflyingtreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-etreasureplannerai-module">
+<h2>safezone.ETreasurePlannerAI module<a class="headerlink" href="#safezone-etreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-gsplayground-module">
+<h2>safezone.GSPlayground module<a class="headerlink" href="#safezone-gsplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-gssafezoneloader-module">
+<h2>safezone.GSSafeZoneLoader module<a class="headerlink" href="#safezone-gssafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-gzplayground-module">
+<h2>safezone.GZPlayground module<a class="headerlink" href="#safezone-gzplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-gzsafezoneloader-module">
+<h2>safezone.GZSafeZoneLoader module<a class="headerlink" href="#safezone-gzsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-gamemenu-module">
+<h2>safezone.GameMenu module<a class="headerlink" href="#safezone-gamemenu-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-gametutorials-module">
+<h2>safezone.GameTutorials module<a class="headerlink" href="#safezone-gametutorials-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-golfkart-module">
+<h2>safezone.GolfKart module<a class="headerlink" href="#safezone-golfkart-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-mmplayground-module">
+<h2>safezone.MMPlayground module<a class="headerlink" href="#safezone-mmplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-mmsafezoneloader-module">
+<h2>safezone.MMSafeZoneLoader module<a class="headerlink" href="#safezone-mmsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-mmtreasureplannerai-module">
+<h2>safezone.MMTreasurePlannerAI module<a class="headerlink" href="#safezone-mmtreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-ozplayground-module">
+<h2>safezone.OZPlayground module<a class="headerlink" href="#safezone-ozplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-ozsafezoneloader-module">
+<h2>safezone.OZSafeZoneLoader module<a class="headerlink" href="#safezone-ozsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-oztreasureplannerai-module">
+<h2>safezone.OZTreasurePlannerAI module<a class="headerlink" href="#safezone-oztreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-picnicbasket-module">
+<h2>safezone.PicnicBasket module<a class="headerlink" href="#safezone-picnicbasket-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-playground-module">
+<h2>safezone.Playground module<a class="headerlink" href="#safezone-playground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-publicwalk-module">
+<h2>safezone.PublicWalk module<a class="headerlink" href="#safezone-publicwalk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone.RegenTreasurePlannerAI">
+<span id="safezone-regentreasureplannerai-module"></span><h2>safezone.RegenTreasurePlannerAI module<a class="headerlink" href="#module-safezone.RegenTreasurePlannerAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.RegenTreasurePlannerAI.</span></span><span class="sig-name descname"><span class="pre">RegenTreasurePlannerAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treasureConstructor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spawnInterval</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxTreasures</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#safezone.TreasurePlannerAI.TreasurePlannerAI" title="safezone.TreasurePlannerAI.TreasurePlannerAI"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreasurePlannerAI</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.placeRandomTreasure">
+<span class="sig-name descname"><span class="pre">placeRandomTreasure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI.placeRandomTreasure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.placeRandomTreasure" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.preSpawnTreasures">
+<span class="sig-name descname"><span class="pre">preSpawnTreasures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI.preSpawnTreasures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.preSpawnTreasures" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.start" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.startSpawning">
+<span class="sig-name descname"><span class="pre">startSpawning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI.startSpawning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.startSpawning" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.stop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.stopSpawning">
+<span class="sig-name descname"><span class="pre">stopSpawning</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI.stopSpawning"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.stopSpawning" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.upkeepTreasurePopulation">
+<span class="sig-name descname"><span class="pre">upkeepTreasurePopulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/RegenTreasurePlannerAI.html#RegenTreasurePlannerAI.upkeepTreasurePopulation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.RegenTreasurePlannerAI.RegenTreasurePlannerAI.upkeepTreasurePopulation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="safezone-safezoneloader-module">
+<h2>safezone.SafeZoneLoader module<a class="headerlink" href="#safezone-safezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-safezonemanager-module">
+<h2>safezone.SafeZoneManager module<a class="headerlink" href="#safezone-safezonemanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-safezonemanagerai-module">
+<h2>safezone.SafeZoneManagerAI module<a class="headerlink" href="#safezone-safezonemanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-ttplayground-module">
+<h2>safezone.TTPlayground module<a class="headerlink" href="#safezone-ttplayground-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-ttsafezoneloader-module">
+<h2>safezone.TTSafeZoneLoader module<a class="headerlink" href="#safezone-ttsafezoneloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-tttreasureplannerai-module">
+<h2>safezone.TTTreasurePlannerAI module<a class="headerlink" href="#safezone-tttreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-train-module">
+<h2>safezone.Train module<a class="headerlink" href="#safezone-train-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone.TreasurePlannerAI">
+<span id="safezone-treasureplannerai-module"></span><h2>safezone.TreasurePlannerAI module<a class="headerlink" href="#module-safezone.TreasurePlannerAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">safezone.TreasurePlannerAI.</span></span><span class="sig-name descname"><span class="pre">TreasurePlannerAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treasureConstructor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DirectObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.countEmptySpawnPoints">
+<span class="sig-name descname"><span class="pre">countEmptySpawnPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.countEmptySpawnPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.countEmptySpawnPoints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.deleteAllTreasuresNow">
+<span class="sig-name descname"><span class="pre">deleteAllTreasuresNow</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.deleteAllTreasuresNow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.deleteAllTreasuresNow" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.deleteTreasureSoon">
+<span class="sig-name descname"><span class="pre">deleteTreasureSoon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treasure</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.deleteTreasureSoon"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.deleteTreasureSoon" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.findIndexOfTreasureId">
+<span class="sig-name descname"><span class="pre">findIndexOfTreasureId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treasureId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.findIndexOfTreasureId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.findIndexOfTreasureId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.grabAttempt">
+<span class="sig-name descname"><span class="pre">grabAttempt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">treasureId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.grabAttempt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.grabAttempt" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.initSpawnPoints">
+<span class="sig-name descname"><span class="pre">initSpawnPoints</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.initSpawnPoints"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.initSpawnPoints" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.nthEmptyIndex">
+<span class="sig-name descname"><span class="pre">nthEmptyIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.nthEmptyIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.nthEmptyIndex" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.numTreasures">
+<span class="sig-name descname"><span class="pre">numTreasures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.numTreasures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.numTreasures" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.placeAllTreasures">
+<span class="sig-name descname"><span class="pre">placeAllTreasures</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.placeAllTreasures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.placeAllTreasures" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="safezone.TreasurePlannerAI.TreasurePlannerAI.placeTreasure">
+<span class="sig-name descname"><span class="pre">placeTreasure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/safezone/TreasurePlannerAI.html#TreasurePlannerAI.placeTreasure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#safezone.TreasurePlannerAI.TreasurePlannerAI.placeTreasure" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-safezone.TrolleyConstants">
+<span id="safezone-trolleyconstants-module"></span><h2>safezone.TrolleyConstants module<a class="headerlink" href="#module-safezone.TrolleyConstants" title="Permalink to this heading"></a></h2>
+</section>
+<section id="safezone-walk-module">
+<h2>safezone.Walk module<a class="headerlink" href="#safezone-walk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-safezone">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-safezone" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rpc.html" class="btn btn-neutral float-left" title="rpc package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scavengerhunt.html" class="btn btn-neutral float-right" title="scavengerhunt package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

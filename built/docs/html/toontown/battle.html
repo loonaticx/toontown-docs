@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>battle package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="building package" href="building.html" />
+    <link rel="prev" title="ai package" href="ai.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">battle package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battlebase-module">battle.BattleBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battlecalculatorai-module">battle.BattleCalculatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battleexperience-module">battle.BattleExperience module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battleexperienceai-module">battle.BattleExperienceAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battlemanagerai-module">battle.BattleManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battleparticles-module">battle.BattleParticles module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battleplace-module">battle.BattlePlace module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battleprops-module">battle.BattleProps module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-battlesounds-module">battle.BattleSounds module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattle-module">battle.DistributedBattle module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattleai-module">battle.DistributedBattleAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlebase-module">battle.DistributedBattleBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlebaseai-module">battle.DistributedBattleBaseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlebldg-module">battle.DistributedBattleBldg module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlebldgai-module">battle.DistributedBattleBldgAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlediners-module">battle.DistributedBattleDiners module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattledinersai-module">battle.DistributedBattleDinersAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlefinal-module">battle.DistributedBattleFinal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlefinalai-module">battle.DistributedBattleFinalAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlewaiters-module">battle.DistributedBattleWaiters module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-distributedbattlewaitersai-module">battle.DistributedBattleWaitersAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-fanfare-module">battle.Fanfare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-firecogpanel-module">battle.FireCogPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-healjokes-module">battle.HealJokes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-movie-module">battle.Movie module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviecamera-module">battle.MovieCamera module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviedrop-module">battle.MovieDrop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviefire-module">battle.MovieFire module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-movieheal-module">battle.MovieHeal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-movielure-module">battle.MovieLure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-movienpcsos-module">battle.MovieNPCSOS module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviepetsos-module">battle.MoviePetSOS module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviesos-module">battle.MovieSOS module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviesound-module">battle.MovieSound module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviesquirt-module">battle.MovieSquirt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviesuitattacks-module">battle.MovieSuitAttacks module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-moviethrow-module">battle.MovieThrow module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-movietoonvictory-module">battle.MovieToonVictory module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-movietrap-module">battle.MovieTrap module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-movieutil-module">battle.MovieUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-playbyplaypanel-module">battle.PlayByPlayPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-playbyplaytext-module">battle.PlayByPlayText module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-rewardpanel-module">battle.RewardPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#battle-suitbattleglobals-module">battle.SuitBattleGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-battle">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">battle package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/battle.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="battle-package">
+<h1>battle package<a class="headerlink" href="#battle-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battlebase-module">
+<h2>battle.BattleBase module<a class="headerlink" href="#battle-battlebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battlecalculatorai-module">
+<h2>battle.BattleCalculatorAI module<a class="headerlink" href="#battle-battlecalculatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battleexperience-module">
+<h2>battle.BattleExperience module<a class="headerlink" href="#battle-battleexperience-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battleexperienceai-module">
+<h2>battle.BattleExperienceAI module<a class="headerlink" href="#battle-battleexperienceai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battlemanagerai-module">
+<h2>battle.BattleManagerAI module<a class="headerlink" href="#battle-battlemanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battleparticles-module">
+<h2>battle.BattleParticles module<a class="headerlink" href="#battle-battleparticles-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battleplace-module">
+<h2>battle.BattlePlace module<a class="headerlink" href="#battle-battleplace-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battleprops-module">
+<h2>battle.BattleProps module<a class="headerlink" href="#battle-battleprops-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-battlesounds-module">
+<h2>battle.BattleSounds module<a class="headerlink" href="#battle-battlesounds-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattle-module">
+<h2>battle.DistributedBattle module<a class="headerlink" href="#battle-distributedbattle-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattleai-module">
+<h2>battle.DistributedBattleAI module<a class="headerlink" href="#battle-distributedbattleai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlebase-module">
+<h2>battle.DistributedBattleBase module<a class="headerlink" href="#battle-distributedbattlebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlebaseai-module">
+<h2>battle.DistributedBattleBaseAI module<a class="headerlink" href="#battle-distributedbattlebaseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlebldg-module">
+<h2>battle.DistributedBattleBldg module<a class="headerlink" href="#battle-distributedbattlebldg-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlebldgai-module">
+<h2>battle.DistributedBattleBldgAI module<a class="headerlink" href="#battle-distributedbattlebldgai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlediners-module">
+<h2>battle.DistributedBattleDiners module<a class="headerlink" href="#battle-distributedbattlediners-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattledinersai-module">
+<h2>battle.DistributedBattleDinersAI module<a class="headerlink" href="#battle-distributedbattledinersai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlefinal-module">
+<h2>battle.DistributedBattleFinal module<a class="headerlink" href="#battle-distributedbattlefinal-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlefinalai-module">
+<h2>battle.DistributedBattleFinalAI module<a class="headerlink" href="#battle-distributedbattlefinalai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlewaiters-module">
+<h2>battle.DistributedBattleWaiters module<a class="headerlink" href="#battle-distributedbattlewaiters-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-distributedbattlewaitersai-module">
+<h2>battle.DistributedBattleWaitersAI module<a class="headerlink" href="#battle-distributedbattlewaitersai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-fanfare-module">
+<h2>battle.Fanfare module<a class="headerlink" href="#battle-fanfare-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-firecogpanel-module">
+<h2>battle.FireCogPanel module<a class="headerlink" href="#battle-firecogpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-healjokes-module">
+<h2>battle.HealJokes module<a class="headerlink" href="#battle-healjokes-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-movie-module">
+<h2>battle.Movie module<a class="headerlink" href="#battle-movie-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviecamera-module">
+<h2>battle.MovieCamera module<a class="headerlink" href="#battle-moviecamera-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviedrop-module">
+<h2>battle.MovieDrop module<a class="headerlink" href="#battle-moviedrop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviefire-module">
+<h2>battle.MovieFire module<a class="headerlink" href="#battle-moviefire-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-movieheal-module">
+<h2>battle.MovieHeal module<a class="headerlink" href="#battle-movieheal-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-movielure-module">
+<h2>battle.MovieLure module<a class="headerlink" href="#battle-movielure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-movienpcsos-module">
+<h2>battle.MovieNPCSOS module<a class="headerlink" href="#battle-movienpcsos-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviepetsos-module">
+<h2>battle.MoviePetSOS module<a class="headerlink" href="#battle-moviepetsos-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviesos-module">
+<h2>battle.MovieSOS module<a class="headerlink" href="#battle-moviesos-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviesound-module">
+<h2>battle.MovieSound module<a class="headerlink" href="#battle-moviesound-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviesquirt-module">
+<h2>battle.MovieSquirt module<a class="headerlink" href="#battle-moviesquirt-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviesuitattacks-module">
+<h2>battle.MovieSuitAttacks module<a class="headerlink" href="#battle-moviesuitattacks-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-moviethrow-module">
+<h2>battle.MovieThrow module<a class="headerlink" href="#battle-moviethrow-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-movietoonvictory-module">
+<h2>battle.MovieToonVictory module<a class="headerlink" href="#battle-movietoonvictory-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-movietrap-module">
+<h2>battle.MovieTrap module<a class="headerlink" href="#battle-movietrap-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-movieutil-module">
+<h2>battle.MovieUtil module<a class="headerlink" href="#battle-movieutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-playbyplaypanel-module">
+<h2>battle.PlayByPlayPanel module<a class="headerlink" href="#battle-playbyplaypanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-playbyplaytext-module">
+<h2>battle.PlayByPlayText module<a class="headerlink" href="#battle-playbyplaytext-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-rewardpanel-module">
+<h2>battle.RewardPanel module<a class="headerlink" href="#battle-rewardpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="battle-suitbattleglobals-module">
+<h2>battle.SuitBattleGlobals module<a class="headerlink" href="#battle-suitbattleglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-battle">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-battle" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ai.html" class="btn btn-neutral float-left" title="ai package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="building.html" class="btn btn-neutral float-right" title="building package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

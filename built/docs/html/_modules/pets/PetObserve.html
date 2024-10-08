@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pets.PetObserve &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pets.PetObserve</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pets.PetObserve</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">direct.directnotify</span> <span class="kn">import</span> <span class="n">DirectNotifyGlobal</span>
+<span class="kn">from</span> <span class="nn">direct.showbase.PythonUtil</span> <span class="kn">import</span> <span class="n">list2dict</span><span class="p">,</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">toontown.pets</span> <span class="kn">import</span> <span class="n">PetTricks</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<span class="n">notify</span> <span class="o">=</span> <span class="n">DirectNotifyGlobal</span><span class="o">.</span><span class="n">directNotify</span><span class="o">.</span><span class="n">newCategory</span><span class="p">(</span><span class="s1">&#39;PetObserve&#39;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PetObserve</span>
+<span class="sd">A PetObserve is something that pets should be able to observe. Examples</span>
+<span class="sd">are things that avatars say, the fact that an avatar or pet is paying</span>
+<span class="sd">attention to the pet, sounds, etc. PetObserves serve the function of the</span>
+<span class="sd">senses, the eyes, ears, etc. of the pets.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># PetObserves are broadcast to all pets in a zone, or listening to that</span>
+<span class="c1"># zone&#39;s event</span>
+<div class="viewcode-block" id="getEventName"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.getEventName">[docs]</a><span class="k">def</span> <span class="nf">getEventName</span><span class="p">(</span><span class="n">zoneId</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;PetObserve-</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">zoneId</span></div>
+
+<div class="viewcode-block" id="send"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.send">[docs]</a><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">zoneIds</span><span class="p">,</span> <span class="n">petObserve</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">petObserve</span><span class="o">.</span><span class="n">isValid</span><span class="p">():</span>
+        <span class="c1">#notify.debug(&#39;sending pet observe %s to %s&#39; % (petObserve, zoneIds))</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">zoneIds</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">zoneIds</span> <span class="o">=</span> <span class="p">[</span><span class="n">zoneIds</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">zoneId</span> <span class="ow">in</span> <span class="n">zoneIds</span><span class="p">:</span>
+            <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">getEventName</span><span class="p">(</span><span class="n">zoneId</span><span class="p">),</span> <span class="p">[</span><span class="n">petObserve</span><span class="p">])</span></div>
+
+<span class="c1"># spoken messages that pets understand; speedchat phrases map to one of these</span>
+<span class="n">Phrases</span> <span class="o">=</span> <span class="n">Enum</span><span class="p">(</span><span class="s1">&#39;HI, BYE, YES, NO, SOOTHE, PRAISE, CRITICISM, HAPPY,&#39;</span>
+               <span class="s1">&#39;SAD, ANGRY, HURRY, QUESTION, FRIENDLY, LETS_PLAY,&#39;</span>
+               <span class="s1">&#39;COME, FOLLOW_ME, STAY, NEED_LAFF, NEED_GAGS, NEED_JB,&#39;</span>
+               <span class="s1">&#39;GO_AWAY, DO_TRICK,&#39;</span>
+               <span class="p">)</span>
+<span class="c1"># actions of other avatars that the pet can observe</span>
+<span class="n">Actions</span> <span class="o">=</span> <span class="n">Enum</span><span class="p">(</span><span class="s1">&#39;FEED, SCRATCH,&#39;</span>
+               <span class="s1">&#39;ATTENDED_START, ATTENDED_STOP,&#39;</span>
+               <span class="s1">&#39;ATTENDING_START, ATTENDING_STOP,&#39;</span>
+               <span class="s1">&#39;CHANGE_ZONE, LOGOUT,&#39;</span>
+               <span class="s1">&#39;GARDEN&#39;</span>
+               <span class="p">)</span>
+
+<div class="viewcode-block" id="PetObserve"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetObserve">[docs]</a><span class="k">class</span> <span class="nc">PetObserve</span><span class="p">:</span>
+    <span class="c1"># base class for all pet observes</span>
+<div class="viewcode-block" id="PetObserve.isValid"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetObserve.isValid">[docs]</a>    <span class="k">def</span> <span class="nf">isValid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># override this and return zero to prevent observe from being</span>
+        <span class="c1"># sent to pets</span>
+        <span class="k">return</span> <span class="mi">1</span></div>
+<div class="viewcode-block" id="PetObserve.isForgettable"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetObserve.isForgettable">[docs]</a>    <span class="k">def</span> <span class="nf">isForgettable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># override this and return non-zero to enable Pets to forget</span>
+        <span class="c1"># this observation</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+    <span class="k">def</span> <span class="nf">_influence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">petBrain</span><span class="p">):</span>
+        <span class="c1"># override this and call the appropriate observe handler on the</span>
+        <span class="c1"># pet brain. This is here to avoid a fugly type-switch in the brain.</span>
+        <span class="n">petBrain</span><span class="o">.</span><span class="n">_handleGenericObserve</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">()&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span></div>
+
+<div class="viewcode-block" id="PetActionObserve"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetActionObserve">[docs]</a><span class="k">class</span> <span class="nc">PetActionObserve</span><span class="p">(</span><span class="n">PetObserve</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An avatar or pet has done something that pets should take note of.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">=</span> <span class="n">action</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avId</span> <span class="o">=</span> <span class="n">avId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+<div class="viewcode-block" id="PetActionObserve.getAction"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetActionObserve.getAction">[docs]</a>    <span class="k">def</span> <span class="nf">getAction</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span></div>
+<div class="viewcode-block" id="PetActionObserve.getAvId"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetActionObserve.getAvId">[docs]</a>    <span class="k">def</span> <span class="nf">getAvId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">avId</span></div>
+<div class="viewcode-block" id="PetActionObserve.getData"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetActionObserve.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span></div>
+    
+    <span class="k">def</span> <span class="nf">_influence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">petBrain</span><span class="p">):</span>
+        <span class="n">petBrain</span><span class="o">.</span><span class="n">_handleActionObserve</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">Actions</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">action</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">avId</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PetPhraseObserve"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetPhraseObserve">[docs]</a><span class="k">class</span> <span class="nc">PetPhraseObserve</span><span class="p">(</span><span class="n">PetObserve</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;An avatar is &#39;communicating&#39; in a way that can be expressed with a</span>
+<span class="sd">    PetPhrase. This could be pressing a button on a pet panel, or saying</span>
+<span class="sd">    something in SpeedChat, etc.&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">petPhrase</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">petPhrase</span> <span class="o">=</span> <span class="n">petPhrase</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avId</span> <span class="o">=</span> <span class="n">avId</span>
+<div class="viewcode-block" id="PetPhraseObserve.getPetPhrase"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetPhraseObserve.getPetPhrase">[docs]</a>    <span class="k">def</span> <span class="nf">getPetPhrase</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">petPhrase</span></div>
+<div class="viewcode-block" id="PetPhraseObserve.getAvId"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetPhraseObserve.getAvId">[docs]</a>    <span class="k">def</span> <span class="nf">getAvId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">avId</span></div>
+<div class="viewcode-block" id="PetPhraseObserve.isForgettable"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.PetPhraseObserve.isForgettable">[docs]</a>    <span class="k">def</span> <span class="nf">isForgettable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span></div>
+
+    <span class="k">def</span> <span class="nf">_influence</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">petBrain</span><span class="p">):</span>
+        <span class="n">petBrain</span><span class="o">.</span><span class="n">_handlePhraseObserve</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">Phrases</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">petPhrase</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">avId</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SCObserve"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.SCObserve">[docs]</a><span class="k">class</span> <span class="nc">SCObserve</span><span class="p">(</span><span class="n">PetPhraseObserve</span><span class="p">):</span>
+    <span class="c1"># avatar said something in SpeedChat</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msgId</span><span class="p">,</span> <span class="n">petPhrase</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msgId</span> <span class="o">=</span> <span class="n">msgId</span>
+        <span class="n">PetPhraseObserve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">petPhrase</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+<div class="viewcode-block" id="SCObserve.isValid"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.SCObserve.isValid">[docs]</a>    <span class="k">def</span> <span class="nf">isValid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">petPhrase</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span></div></div>
+
+<div class="viewcode-block" id="TrickRequestObserve"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.TrickRequestObserve">[docs]</a><span class="k">class</span> <span class="nc">TrickRequestObserve</span><span class="p">(</span><span class="n">PetPhraseObserve</span><span class="p">):</span>
+    <span class="c1"># avatar requested that we do a trick</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">trickId</span><span class="p">,</span> <span class="n">avId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">trickId</span> <span class="o">=</span> <span class="n">trickId</span>
+        <span class="n">PetPhraseObserve</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Phrases</span><span class="o">.</span><span class="n">DO_TRICK</span><span class="p">,</span> <span class="n">avId</span><span class="p">)</span>
+<div class="viewcode-block" id="TrickRequestObserve.isForgettable"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.TrickRequestObserve.isForgettable">[docs]</a>    <span class="k">def</span> <span class="nf">isForgettable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># this would just be annoying</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+<div class="viewcode-block" id="TrickRequestObserve.getTrickId"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.TrickRequestObserve.getTrickId">[docs]</a>    <span class="k">def</span> <span class="nf">getTrickId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">trickId</span></div></div>
+
+<span class="n">OP</span> <span class="o">=</span> <span class="n">Phrases</span>
+<span class="n">_scPhrase2petPhrase</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">YES</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NO</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SOOTHE</span><span class="p">,</span>
+    <span class="mi">100</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">101</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">102</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">103</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">104</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">105</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">107</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">108</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HI</span><span class="p">,</span>
+    <span class="mi">200</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">201</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">202</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">203</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">204</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">205</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">206</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">207</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">BYE</span><span class="p">,</span>
+    <span class="mi">300</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">301</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">302</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">303</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">304</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">305</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">306</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">307</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">308</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">309</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">310</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">311</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">312</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">313</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">314</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">315</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">400</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SAD</span><span class="p">,</span>
+    <span class="mi">401</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SAD</span><span class="p">,</span>
+    <span class="mi">402</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SAD</span><span class="p">,</span>
+    <span class="mi">403</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SAD</span><span class="p">,</span>
+    <span class="mi">404</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SAD</span><span class="p">,</span>
+    <span class="mi">405</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SAD</span><span class="p">,</span>
+    <span class="mi">406</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">SAD</span><span class="p">,</span>
+    <span class="mi">407</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NO</span><span class="p">,</span>
+    <span class="mi">410</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NEED_LAFF</span><span class="p">,</span>
+    <span class="mi">500</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">FRIENDLY</span><span class="p">,</span>
+    <span class="mi">505</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">506</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HAPPY</span><span class="p">,</span>
+    <span class="mi">507</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">FRIENDLY</span><span class="p">,</span>
+    <span class="mi">508</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">FRIENDLY</span><span class="p">,</span>
+    <span class="mi">509</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">FRIENDLY</span><span class="p">,</span>
+    <span class="mi">510</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">QUESTION</span><span class="p">,</span>
+    <span class="mi">511</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">QUESTION</span><span class="p">,</span>
+    <span class="mi">513</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">QUESTION</span><span class="p">,</span>
+    <span class="mi">514</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NEED_LAFF</span><span class="p">,</span>
+    <span class="mi">600</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">601</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">602</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">603</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">700</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">701</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">900</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">CRITICISM</span><span class="p">,</span>
+    <span class="mi">901</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">CRITICISM</span><span class="p">,</span>
+    <span class="mi">902</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">CRITICISM</span><span class="p">,</span>
+    <span class="mi">903</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">CRITICISM</span><span class="p">,</span>
+    <span class="mi">904</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">CRITICISM</span><span class="p">,</span>
+    <span class="mi">905</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">CRITICISM</span><span class="p">,</span>
+    <span class="mi">1006</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">FOLLOW_ME</span><span class="p">,</span>
+    <span class="mi">1007</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">STAY</span><span class="p">,</span>
+    <span class="mi">1010</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">STAY</span><span class="p">,</span>
+    <span class="mi">1015</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">STAY</span><span class="p">,</span>
+    <span class="mi">1201</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">CRITICISM</span><span class="p">,</span>
+    <span class="mi">1300</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NEED_LAFF</span><span class="p">,</span>
+    <span class="mi">1400</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HURRY</span><span class="p">,</span>
+    <span class="mi">1404</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">1405</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">1413</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NEED_GAGS</span><span class="p">,</span>
+    <span class="mi">1414</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NEED_LAFF</span><span class="p">,</span>
+    <span class="mi">1601</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">NEED_JB</span><span class="p">,</span>
+    <span class="mi">1603</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">HURRY</span><span class="p">,</span>
+    <span class="mi">1605</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">LETS_PLAY</span><span class="p">,</span>
+    <span class="mi">1606</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">LETS_PLAY</span><span class="p">,</span>
+    <span class="mi">21000</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">COME</span><span class="p">,</span>
+    <span class="mi">21001</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">COME</span><span class="p">,</span>
+    <span class="mi">21002</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">STAY</span><span class="p">,</span>
+    <span class="mi">21003</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">21004</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="mi">21005</span><span class="p">:</span> <span class="n">OP</span><span class="o">.</span><span class="n">PRAISE</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="c1"># add the trick phrases</span>
+<span class="k">for</span> <span class="n">scId</span> <span class="ow">in</span> <span class="n">PetTricks</span><span class="o">.</span><span class="n">ScId2trickId</span><span class="p">:</span>
+    <span class="n">_scPhrase2petPhrase</span><span class="p">[</span><span class="n">scId</span><span class="p">]</span> <span class="o">=</span> <span class="n">OP</span><span class="o">.</span><span class="n">DO_TRICK</span>
+<span class="k">del</span> <span class="n">OP</span>
+
+<div class="viewcode-block" id="getSCObserve"><a class="viewcode-back" href="../../toontown/pets.html#pets.PetObserve.getSCObserve">[docs]</a><span class="k">def</span> <span class="nf">getSCObserve</span><span class="p">(</span><span class="n">msgId</span><span class="p">,</span> <span class="n">speakerDoId</span><span class="p">):</span>
+    <span class="c1"># given a speedchat msgId, returns the appropriate Observe object</span>
+
+    <span class="c1"># If the speedchat phrase doesn&#39;t have any PetPhrase equivalent,</span>
+    <span class="c1"># this will return None for the phrase.</span>
+    <span class="n">phrase</span> <span class="o">=</span> <span class="n">_scPhrase2petPhrase</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msgId</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">phrase</span> <span class="o">==</span> <span class="n">Phrases</span><span class="o">.</span><span class="n">DO_TRICK</span><span class="p">:</span>
+        <span class="n">trickId</span> <span class="o">=</span> <span class="n">PetTricks</span><span class="o">.</span><span class="n">ScId2trickId</span><span class="p">[</span><span class="n">msgId</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">TrickRequestObserve</span><span class="p">(</span><span class="n">trickId</span><span class="p">,</span> <span class="n">speakerDoId</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SCObserve</span><span class="p">(</span><span class="n">msgId</span><span class="p">,</span> <span class="n">phrase</span><span class="p">,</span> <span class="n">speakerDoId</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

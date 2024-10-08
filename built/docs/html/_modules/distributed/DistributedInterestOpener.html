@@ -1,0 +1,148 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>distributed.DistributedInterestOpener &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">distributed.DistributedInterestOpener</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for distributed.DistributedInterestOpener</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">direct.distributed.DistributedObject</span> <span class="kn">import</span> <span class="n">DistributedObject</span>
+
+<div class="viewcode-block" id="DistributedInterestOpener"><a class="viewcode-back" href="../../otp/distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener">[docs]</a><span class="k">class</span> <span class="nc">DistributedInterestOpener</span><span class="p">(</span><span class="n">DistributedObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Delays opening of an interest set underneath this object until a</span>
+<span class="sd">    specific set of doIds is present on the client.</span>
+<span class="sd">    See also DistributedInterestOpenerAI.py</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
+        <span class="n">DistributedObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DistributedInterestOpener.generate"><a class="viewcode-back" href="../../otp/distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.generate">[docs]</a>    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">DistributedObject</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DistributedInterestOpener.generate&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributedInterestOpener.disable"><a class="viewcode-back" href="../../otp/distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.disable">[docs]</a>    <span class="k">def</span> <span class="nf">disable</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_removeInterest</span><span class="p">()</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span>
+        <span class="n">DistributedObject</span><span class="o">.</span><span class="n">disable</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DistributedInterestOpener.setChildZones"><a class="viewcode-back" href="../../otp/distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.setChildZones">[docs]</a>    <span class="k">def</span> <span class="nf">setChildZones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">childZones</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">childZones</span> <span class="o">=</span> <span class="n">childZones</span></div>
+
+<div class="viewcode-block" id="DistributedInterestOpener.setRequiredDoIds"><a class="viewcode-back" href="../../otp/distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.setRequiredDoIds">[docs]</a>    <span class="k">def</span> <span class="nf">setRequiredDoIds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">requiredDoIds</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requiredDoIds</span> <span class="o">=</span> <span class="n">requiredDoIds</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DistributedInterestOpener.setRequiredDoIds&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">requiredDoIds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_openInterest</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># we&#39;ve already got an interest open; change it</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getObject</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">requiredDoIds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alterInterest</span><span class="p">)</span></div>
+            
+    <span class="k">def</span> <span class="nf">_openInterest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DistributedInterestOpener._openInterest: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDoId</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">addInterest</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getDoId</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">childZones</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">uniqueName</span><span class="p">(</span><span class="s1">&#39;interestOpener&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_alterInterest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DistributedInterestOpener._alterInterest&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">alterInterest</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">getDoId</span><span class="p">(),</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">childZones</span><span class="p">,</span>
+                              <span class="bp">self</span><span class="o">.</span><span class="n">uniqueName</span><span class="p">(</span><span class="s1">&#39;interestOpenerAlter&#39;</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_removeInterest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DistributedInterestOpener._removeInterest&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">getRepository</span><span class="p">()</span><span class="o">.</span><span class="n">removeInterest</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">childInterest</span> <span class="o">=</span> <span class="kc">None</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

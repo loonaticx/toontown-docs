@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rpc package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="safezone package" href="safezone.html" />
+    <link rel="prev" title="racing package" href="racing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rpc package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rpc.AwardManager">rpc.AwardManager module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rpc.AwardManager.AwardManager"><code class="docutils literal notranslate"><span class="pre">AwardManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rpc.AwardManagerConsts">rpc.AwardManagerConsts module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc-awardmanagerud-module">rpc.AwardManagerUD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rpc.AwardResponses">rpc.AwardResponses module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rpc.RATManager">rpc.RATManager module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rpc.RATManager.RATManager"><code class="docutils literal notranslate"><span class="pre">RATManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc-ratmanagerud-module">rpc.RATManagerUD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc-ratrequests-module">rpc.RATRequests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rpc.RATResponses">rpc.RATResponses module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc-rpcrequests-module">rpc.RPCRequests module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc-rpcserver-module">rpc.RPCServer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rpc-testclient-module">rpc.testclient module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-rpc">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">rpc package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/rpc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rpc-package">
+<h1>rpc package<a class="headerlink" href="#rpc-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-rpc.AwardManager">
+<span id="rpc-awardmanager-module"></span><h2>rpc.AwardManager module<a class="headerlink" href="#module-rpc.AwardManager" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rpc.AwardManager.AwardManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rpc.AwardManager.</span></span><span class="sig-name descname"><span class="pre">AwardManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rpc/AwardManager.html#AwardManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rpc.AwardManager.AwardManager" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectGlobal</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-rpc.AwardManagerConsts">
+<span id="rpc-awardmanagerconsts-module"></span><h2>rpc.AwardManagerConsts module<a class="headerlink" href="#module-rpc.AwardManagerConsts" title="Permalink to this heading"></a></h2>
+</section>
+<section id="rpc-awardmanagerud-module">
+<h2>rpc.AwardManagerUD module<a class="headerlink" href="#rpc-awardmanagerud-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-rpc.AwardResponses">
+<span id="rpc-awardresponses-module"></span><h2>rpc.AwardResponses module<a class="headerlink" href="#module-rpc.AwardResponses" title="Permalink to this heading"></a></h2>
+<p>Constants file that contains XML and misc. codes for award responses</p>
+</section>
+<section id="module-rpc.RATManager">
+<span id="rpc-ratmanager-module"></span><h2>rpc.RATManager module<a class="headerlink" href="#module-rpc.RATManager" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rpc.RATManager.RATManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rpc.RATManager.</span></span><span class="sig-name descname"><span class="pre">RATManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rpc/RATManager.html#RATManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#rpc.RATManager.RATManager" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectGlobal</span></code></p>
+</dd></dl>
+
+</section>
+<section id="rpc-ratmanagerud-module">
+<h2>rpc.RATManagerUD module<a class="headerlink" href="#rpc-ratmanagerud-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="rpc-ratrequests-module">
+<h2>rpc.RATRequests module<a class="headerlink" href="#rpc-ratrequests-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-rpc.RATResponses">
+<span id="rpc-ratresponses-module"></span><h2>rpc.RATResponses module<a class="headerlink" href="#module-rpc.RATResponses" title="Permalink to this heading"></a></h2>
+<p>Constants file that contains XML and misc. codes for RAT responses</p>
+</section>
+<section id="rpc-rpcrequests-module">
+<h2>rpc.RPCRequests module<a class="headerlink" href="#rpc-rpcrequests-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="rpc-rpcserver-module">
+<h2>rpc.RPCServer module<a class="headerlink" href="#rpc-rpcserver-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="rpc-testclient-module">
+<h2>rpc.testclient module<a class="headerlink" href="#rpc-testclient-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-rpc">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-rpc" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="racing.html" class="btn btn-neutral float-left" title="racing package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="safezone.html" class="btn btn-neutral float-right" title="safezone package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

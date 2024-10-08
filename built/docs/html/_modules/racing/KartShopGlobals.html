@@ -1,0 +1,139 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>racing.KartShopGlobals &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">racing.KartShopGlobals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for racing.KartShopGlobals</h1><div class="highlight"><pre>
+<span></span><span class="c1">##########################################################################</span>
+<span class="c1"># Module: KartShopGlobals.py</span>
+<span class="c1">#   Store some needed stuff</span>
+<span class="c1"># Date: 4/24/05</span>
+<span class="c1"># Author: shaskell</span>
+<span class="c1">##########################################################################</span>
+
+<span class="kn">from</span> <span class="nn">direct.showbase</span> <span class="kn">import</span> <span class="n">PythonUtil</span>
+
+<div class="viewcode-block" id="KartShopGlobals"><a class="viewcode-back" href="../../toontown/racing.html#racing.KartShopGlobals.KartShopGlobals">[docs]</a><span class="k">class</span> <span class="nc">KartShopGlobals</span><span class="p">:</span>  
+        <span class="n">EVENTDICT</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;guiDone&#39;</span> <span class="p">:</span> <span class="s1">&#39;guiDone&#39;</span><span class="p">,</span> 
+                      <span class="s1">&#39;returnKart&#39;</span> <span class="p">:</span> <span class="s1">&#39;returnKart&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;buyKart&#39;</span> <span class="p">:</span> <span class="s1">&#39;buyAKart&#39;</span><span class="p">,</span>
+                      <span class="s1">&#39;buyAccessory&#39;</span> <span class="p">:</span> <span class="s1">&#39;buyAccessory&#39;</span>
+                     <span class="p">}</span>
+        <span class="n">KARTCLERK_TIMER</span> <span class="o">=</span> <span class="mi">180</span>
+        <span class="n">MAX_KART_ACC</span> <span class="o">=</span> <span class="mi">16</span></div>
+
+
+<span class="c1"># NOT KARTSHOP SPECIFIC BUT A GENERAL KART GLOBALS CLASS</span>
+<div class="viewcode-block" id="KartGlobals"><a class="viewcode-back" href="../../toontown/racing.html#racing.KartShopGlobals.KartGlobals">[docs]</a><span class="k">class</span> <span class="nc">KartGlobals</span><span class="p">:</span>
+        <span class="n">ENTER_MOVIE</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">EXIT_MOVIE</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">COUNTDOWN_TIME</span> <span class="o">=</span> <span class="mi">30</span>
+        <span class="n">BOARDING_TIME</span> <span class="o">=</span> <span class="mf">10.0</span>
+        <span class="n">ENTER_RACE_TIME</span> <span class="o">=</span> <span class="mf">6.0</span>
+
+        <span class="n">ERROR_CODE</span> <span class="o">=</span> <span class="n">PythonUtil</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span> <span class="s1">&#39;success, eGeneric, eTickets, eBoardOver, eNoKart, eOccupied, eTrackClosed, eTooLate, eUnpaid&#39;</span> <span class="p">)</span>
+
+        <span class="c1"># Kart Pad Locations</span>
+        <span class="n">FRONT_LEFT_SPOT</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">FRONT_RIGHT_SPOT</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">REAR_LEFT_SPOT</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">REAR_RIGHT_SPOT</span> <span class="o">=</span> <span class="mi">3</span>
+
+        <span class="n">PAD_GROUP_NUM</span> <span class="o">=</span> <span class="mi">4</span>
+
+<div class="viewcode-block" id="KartGlobals.getPadLocation"><a class="viewcode-back" href="../../toontown/racing.html#racing.KartShopGlobals.KartGlobals.getPadLocation">[docs]</a>        <span class="k">def</span> <span class="nf">getPadLocation</span><span class="p">(</span> <span class="n">padId</span> <span class="p">):</span>
+                <span class="k">return</span> <span class="p">(</span> <span class="n">padId</span> <span class="o">%</span> <span class="n">KartGlobals</span><span class="o">.</span><span class="n">PAD_GROUP_NUM</span> <span class="p">)</span></div>
+
+        <span class="n">getPadLocation</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span> <span class="n">getPadLocation</span> <span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

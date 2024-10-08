@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>otpbase package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="otpbase.french package" href="otpbase.french.html" />
+    <link rel="prev" title="navigation package" href="navigation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">otp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html">level package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">navigation package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">otpbase package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.french.html">otpbase.french package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.japanese.html">otpbase.japanese package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otpbase-module">otpbase.OTPBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPExceptionVarDump">otpbase.OTPExceptionVarDump module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#otpbase.OTPExceptionVarDump.install"><code class="docutils literal notranslate"><span class="pre">install()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otpglobals-module">otpbase.OTPGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPLauncherGlobals">otpbase.OTPLauncherGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otplocalizer-module">otpbase.OTPLocalizer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otplocalizerenglish-module">otpbase.OTPLocalizerEnglish module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPLocalizerEnglishProperty">otpbase.OTPLocalizerEnglishProperty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otplocalizer-castillian-module">otpbase.OTPLocalizer_castillian module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPLocalizer_castillian_Property">otpbase.OTPLocalizer_castillian_Property module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otplocalizer-french-module">otpbase.OTPLocalizer_french module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPLocalizer_french_Property">otpbase.OTPLocalizer_french_Property module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otplocalizer-german-module">otpbase.OTPLocalizer_german module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPLocalizer_german_Property">otpbase.OTPLocalizer_german_Property module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otplocalizer-japanese-module">otpbase.OTPLocalizer_japanese module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPLocalizer_japanese_Property">otpbase.OTPLocalizer_japanese_Property module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otplocalizer-portuguese-module">otpbase.OTPLocalizer_portuguese module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.OTPLocalizer_portuguese_Property">otpbase.OTPLocalizer_portuguese_Property module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otpmodules-module">otpbase.OTPModules module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otprender-module">otpbase.OTPRender module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-otptimer-module">otpbase.OTPTimer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.SuperSecretStringDecoder">otpbase.SuperSecretStringDecoder module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#otpbase.SuperSecretStringDecoder.decode"><code class="docutils literal notranslate"><span class="pre">decode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#otpbase-extractspeedchatstrings-module">otpbase.extractSpeedChatStrings module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase.fpsAnalyzer">otpbase.fpsAnalyzer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#otpbase.fpsAnalyzer.Analyzer"><code class="docutils literal notranslate"><span class="pre">Analyzer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#otpbase.fpsAnalyzer.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#otpbase.fpsAnalyzer.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#otpbase.fpsAnalyzer.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-otpbase">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">otp</a></li>
+      <li class="breadcrumb-item active">otpbase package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/otpbase.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="otpbase-package">
+<h1>otpbase package<a class="headerlink" href="#otpbase-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="otpbase.french.html">otpbase.french package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.french.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.french.html#otpbase-french-otplocalizer-module">otpbase.french.OTPLocalizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.french.html#module-otpbase.french.OTPLocalizer_Property">otpbase.french.OTPLocalizer_Property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.french.html#module-otpbase.french">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="otpbase.japanese.html">otpbase.japanese package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.japanese.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.japanese.html#otpbase-japanese-otplocalizer-module">otpbase.japanese.OTPLocalizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.japanese.html#module-otpbase.japanese.OTPLocalizer_Property">otpbase.japanese.OTPLocalizer_Property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.japanese.html#module-otpbase.japanese">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otpbase-module">
+<h2>otpbase.OTPBase module<a class="headerlink" href="#otpbase-otpbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPExceptionVarDump">
+<span id="otpbase-otpexceptionvardump-module"></span><h2>otpbase.OTPExceptionVarDump module<a class="headerlink" href="#module-otpbase.OTPExceptionVarDump" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="otpbase.OTPExceptionVarDump.install">
+<span class="sig-prename descclassname"><span class="pre">otpbase.OTPExceptionVarDump.</span></span><span class="sig-name descname"><span class="pre">install</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/OTPExceptionVarDump.html#install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.OTPExceptionVarDump.install" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="otpbase-otpglobals-module">
+<h2>otpbase.OTPGlobals module<a class="headerlink" href="#otpbase-otpglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPLauncherGlobals">
+<span id="otpbase-otplauncherglobals-module"></span><h2>otpbase.OTPLauncherGlobals module<a class="headerlink" href="#module-otpbase.OTPLauncherGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otplocalizer-module">
+<h2>otpbase.OTPLocalizer module<a class="headerlink" href="#otpbase-otplocalizer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otplocalizerenglish-module">
+<h2>otpbase.OTPLocalizerEnglish module<a class="headerlink" href="#otpbase-otplocalizerenglish-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPLocalizerEnglishProperty">
+<span id="otpbase-otplocalizerenglishproperty-module"></span><h2>otpbase.OTPLocalizerEnglishProperty module<a class="headerlink" href="#module-otpbase.OTPLocalizerEnglishProperty" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otplocalizer-castillian-module">
+<h2>otpbase.OTPLocalizer_castillian module<a class="headerlink" href="#otpbase-otplocalizer-castillian-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPLocalizer_castillian_Property">
+<span id="otpbase-otplocalizer-castillian-property-module"></span><h2>otpbase.OTPLocalizer_castillian_Property module<a class="headerlink" href="#module-otpbase.OTPLocalizer_castillian_Property" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otplocalizer-french-module">
+<h2>otpbase.OTPLocalizer_french module<a class="headerlink" href="#otpbase-otplocalizer-french-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPLocalizer_french_Property">
+<span id="otpbase-otplocalizer-french-property-module"></span><h2>otpbase.OTPLocalizer_french_Property module<a class="headerlink" href="#module-otpbase.OTPLocalizer_french_Property" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otplocalizer-german-module">
+<h2>otpbase.OTPLocalizer_german module<a class="headerlink" href="#otpbase-otplocalizer-german-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPLocalizer_german_Property">
+<span id="otpbase-otplocalizer-german-property-module"></span><h2>otpbase.OTPLocalizer_german_Property module<a class="headerlink" href="#module-otpbase.OTPLocalizer_german_Property" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otplocalizer-japanese-module">
+<h2>otpbase.OTPLocalizer_japanese module<a class="headerlink" href="#otpbase-otplocalizer-japanese-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPLocalizer_japanese_Property">
+<span id="otpbase-otplocalizer-japanese-property-module"></span><h2>otpbase.OTPLocalizer_japanese_Property module<a class="headerlink" href="#module-otpbase.OTPLocalizer_japanese_Property" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otplocalizer-portuguese-module">
+<h2>otpbase.OTPLocalizer_portuguese module<a class="headerlink" href="#otpbase-otplocalizer-portuguese-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.OTPLocalizer_portuguese_Property">
+<span id="otpbase-otplocalizer-portuguese-property-module"></span><h2>otpbase.OTPLocalizer_portuguese_Property module<a class="headerlink" href="#module-otpbase.OTPLocalizer_portuguese_Property" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otpmodules-module">
+<h2>otpbase.OTPModules module<a class="headerlink" href="#otpbase-otpmodules-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otprender-module">
+<h2>otpbase.OTPRender module<a class="headerlink" href="#otpbase-otprender-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="otpbase-otptimer-module">
+<h2>otpbase.OTPTimer module<a class="headerlink" href="#otpbase-otptimer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.SuperSecretStringDecoder">
+<span id="otpbase-supersecretstringdecoder-module"></span><h2>otpbase.SuperSecretStringDecoder module<a class="headerlink" href="#module-otpbase.SuperSecretStringDecoder" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="otpbase.SuperSecretStringDecoder.decode">
+<span class="sig-prename descclassname"><span class="pre">otpbase.SuperSecretStringDecoder.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/SuperSecretStringDecoder.html#decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.SuperSecretStringDecoder.decode" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="otpbase-extractspeedchatstrings-module">
+<h2>otpbase.extractSpeedChatStrings module<a class="headerlink" href="#otpbase-extractspeedchatstrings-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-otpbase.fpsAnalyzer">
+<span id="otpbase-fpsanalyzer-module"></span><h2>otpbase.fpsAnalyzer module<a class="headerlink" href="#module-otpbase.fpsAnalyzer" title="Permalink to this heading"></a></h2>
+<p>This is a standalone module used for analyzing the client-fps
+lines written to the server logs by the TimeManager.  It crunches some
+numbers together and writes a handful of .csv files, suitable for
+importing into Excel.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otpbase.fpsAnalyzer.</span></span><span class="sig-name descname"><span class="pre">Analyzer</span></span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.addExtraDevices">
+<span class="sig-name descname"><span class="pre">addExtraDevices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.addExtraDevices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.addExtraDevices" title="Permalink to this definition"></a></dt>
+<dd><p>Adds extra device names that we know explicitly from some
+external source.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.analyze">
+<span class="sig-name descname"><span class="pre">analyze</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.analyze"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.analyze" title="Permalink to this definition"></a></dt>
+<dd><p>Does the work of analyzing all of the data read in the
+previous call to readText().  This is the meat of the
+analyzer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.collectPlayers">
+<span class="sig-name descname"><span class="pre">collectPlayers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.collectPlayers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.collectPlayers" title="Permalink to this definition"></a></dt>
+<dd><p>Internal method to group individual sessions by player.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.enquote">
+<span class="sig-name descname"><span class="pre">enquote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.enquote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.enquote" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.makeSessions">
+<span class="sig-name descname"><span class="pre">makeSessions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.makeSessions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.makeSessions" title="Permalink to this definition"></a></dt>
+<dd><p>Internal method to collect individual client-fps samples
+into related sessions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.quickAnalyzeCards">
+<span class="sig-name descname"><span class="pre">quickAnalyzeCards</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.quickAnalyzeCards"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.quickAnalyzeCards" title="Permalink to this definition"></a></dt>
+<dd><p>Reads the client-fps lines from the indicated logfile, and
+writes card_performance.csv, without building up large tables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.readPCIList">
+<span class="sig-name descname"><span class="pre">readPCIList</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.readPCIList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.readPCIList" title="Permalink to this definition"></a></dt>
+<dd><p>Reads PCIList, which contains a list of the known PCI
+devices by vendor ID/device ID.  See
+<a class="reference external" href="http://www.pcidatabase.com/">http://www.pcidatabase.com/</a> .  Specifically, this file was
+downloaded from the URL
+<a class="reference external" href="http://www.pcidatabase.com/reports.php?type=tab-delimeted">http://www.pcidatabase.com/reports.php?type=tab-delimeted</a> .</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.readPickle">
+<span class="sig-name descname"><span class="pre">readPickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.readPickle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.readPickle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.readText">
+<span class="sig-name descname"><span class="pre">readText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstLine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lastLine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.readText"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.readText" title="Permalink to this definition"></a></dt>
+<dd><p>Reads the client-fps lines from the indicated logfile into
+the Analyzer.  This is the main interface to read raw data
+from the server.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.reportData">
+<span class="sig-name descname"><span class="pre">reportData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formatKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calcValue</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.reportData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.reportData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.writeLowPlayers">
+<span class="sig-name descname"><span class="pre">writeLowPlayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.writeLowPlayers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.writeLowPlayers" title="Permalink to this definition"></a></dt>
+<dd><p>Write the samples for all players with less than 10 fps
+average frame rate to the indicated text file.  This generates
+a new log file that may be analyzed independently.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Analyzer.writePickle">
+<span class="sig-name descname"><span class="pre">writePickle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Analyzer.writePickle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Analyzer.writePickle" title="Permalink to this definition"></a></dt>
+<dd><p>Writes the entire analyzer to a pickle file, for saving it
+across sessions.  Not terribly useful, since you can always
+just read the text file again.  This is a little bit faster,
+though.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Player">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otpbase.fpsAnalyzer.</span></span><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Player" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Player.addSession">
+<span class="sig-name descname"><span class="pre">addSession</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Player.addSession"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Player.addSession" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Player.calcFrameRate">
+<span class="sig-name descname"><span class="pre">calcFrameRate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Player.calcFrameRate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Player.calcFrameRate" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the average FPS for this player, over all of
+the player’s different sessions.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Sample">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otpbase.fpsAnalyzer.</span></span><span class="sig-name descname"><span class="pre">Sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Sample" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Sample.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Sample.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Sample.write" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Session">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otpbase.fpsAnalyzer.</span></span><span class="sig-name descname"><span class="pre">Session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Session" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Session.addSample">
+<span class="sig-name descname"><span class="pre">addSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Session.addSample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Session.addSample" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Session.calcFrameRate">
+<span class="sig-name descname"><span class="pre">calcFrameRate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Session.calcFrameRate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Session.calcFrameRate" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Session.getHardware">
+<span class="sig-name descname"><span class="pre">getHardware</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Session.getHardware"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Session.getHardware" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a tuple representing the hardware specs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otpbase.fpsAnalyzer.Session.sameHardware">
+<span class="sig-name descname"><span class="pre">sameHardware</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/otpbase/fpsAnalyzer.html#Session.sameHardware"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#otpbase.fpsAnalyzer.Session.sameHardware" title="Permalink to this definition"></a></dt>
+<dd><p>Returns true if the other session or sample has the same
+hardware specs as this one, false otherwise.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-otpbase">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-otpbase" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="navigation.html" class="btn btn-neutral float-left" title="navigation package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="otpbase.french.html" class="btn btn-neutral float-right" title="otpbase.french package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

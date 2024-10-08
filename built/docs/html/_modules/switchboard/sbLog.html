@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>switchboard.sbLog &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">switchboard.sbLog</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for switchboard.sbLog</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">queue</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">sbConfig</span>
+
+<div class="viewcode-block" id="sbLog"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog">[docs]</a><span class="k">class</span> <span class="nc">sbLog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">clHost</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">clPort</span><span class="o">=</span><span class="mi">6060</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clHost</span> <span class="o">=</span> <span class="n">clHost</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clPort</span> <span class="o">=</span> <span class="n">clPort</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">inMemLog</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">clHost</span><span class="p">:</span>
+            <span class="c1"># init UDP stuff</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+
+<div class="viewcode-block" id="sbLog.timeString"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.timeString">[docs]</a>    <span class="k">def</span> <span class="nf">timeString</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">tup</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2">-</span><span class="si">%02d</span><span class="s2"> </span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">:</span><span class="si">%02d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tup</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">tup</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">tup</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">tup</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">tup</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">tup</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="sbLog.output"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.output">[docs]</a>    <span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">level</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+        <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timeString</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">level</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memLog</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sbLog.chatoutput"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.chatoutput">[docs]</a>    <span class="k">def</span> <span class="nf">chatoutput</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+        <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">(chat): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">timeString</span><span class="p">(),</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">memLog</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sbLog.memLog"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.memLog">[docs]</a>    <span class="k">def</span> <span class="nf">memLog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inMemLog</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">inMemLog</span><span class="o">.</span><span class="n">qsize</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logMaxLinesInMemory</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inMemLog</span><span class="o">.</span><span class="n">get</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sbLog.getMemLog"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.getMemLog">[docs]</a>    <span class="k">def</span> <span class="nf">getMemLog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inMemLog</span><span class="o">.</span><span class="n">qsize</span><span class="p">()):</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inMemLog</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">inMemLog</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="sbLog.remoteLog"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.remoteLog">[docs]</a>    <span class="k">def</span> <span class="nf">remoteLog</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                  <span class="n">eventName</span><span class="p">,</span>
+                  <span class="n">sourceSys</span><span class="p">,</span>
+                  <span class="n">sourceAcctId</span><span class="p">,</span>
+                  <span class="n">sourceAvId</span><span class="p">,</span>
+                  <span class="n">destSys</span><span class="p">,</span>
+                  <span class="n">destAcctId</span><span class="p">,</span>
+                  <span class="n">destAvId</span><span class="p">,</span>
+                  <span class="n">chatType</span><span class="p">,</span>
+                  <span class="n">filtered</span><span class="p">,</span>
+                  <span class="n">chatText</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">clHost</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="n">outstr</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">|</span><span class="si">%s</span><span class="s2">|</span><span class="si">%d</span><span class="s2">|</span><span class="si">%d</span><span class="s2">|</span><span class="si">%s</span><span class="s2">|</span><span class="si">%d</span><span class="s2">|</span><span class="si">%d</span><span class="s2">|</span><span class="si">%s</span><span class="s2">|</span><span class="si">%s</span><span class="s2">|</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">eventName</span><span class="p">,</span><span class="n">sourceSys</span><span class="p">,</span><span class="n">sourceAcctId</span><span class="p">,</span><span class="n">sourceAvId</span><span class="p">,</span>
+                                                    <span class="n">destSys</span><span class="p">,</span><span class="n">destAcctId</span><span class="p">,</span><span class="n">destAvId</span><span class="p">,</span><span class="n">chatType</span><span class="p">,</span><span class="n">filtered</span><span class="p">,</span>
+                                                    <span class="n">chatText</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Remote log entry sent: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">outstr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">outstr</span><span class="p">,(</span><span class="bp">self</span><span class="o">.</span><span class="n">clHost</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">clPort</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="sbLog.fatal"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.fatal">[docs]</a>    <span class="k">def</span> <span class="nf">fatal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logFatal</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;FATAL&quot;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.error"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.error">[docs]</a>    <span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;ERROR&quot;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.security"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.security">[docs]</a>    <span class="k">def</span> <span class="nf">security</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logSecurity</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;SECURITY&quot;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.warning"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.warning">[docs]</a>    <span class="k">def</span> <span class="nf">warning</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logWarning</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;warning&quot;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.log"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.log">[docs]</a>    <span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logLog</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.info"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.info">[docs]</a>    <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logInfo</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;info&quot;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.debug"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.debug">[docs]</a>    <span class="k">def</span> <span class="nf">debug</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">message</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logDebug</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">(</span><span class="s2">&quot;debug&quot;</span><span class="p">,</span><span class="n">message</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.chat"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.chat">[docs]</a>    <span class="k">def</span> <span class="nf">chat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logChat</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chatoutput</span><span class="p">(</span><span class="s2">&quot;WHISPER </span><span class="si">%d</span><span class="s2">-&gt;</span><span class="si">%d</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">msg</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clHost</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">remoteLog</span><span class="p">(</span><span class="s2">&quot;Client Chat&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;PEER&quot;</span><span class="p">,</span><span class="s2">&quot;N&quot;</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.mail"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.mail">[docs]</a>    <span class="k">def</span> <span class="nf">mail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logChat</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chatoutput</span><span class="p">(</span><span class="s2">&quot;MAIL </span><span class="si">%d</span><span class="s2">-&gt;</span><span class="si">%d</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">msg</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clHost</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">remoteLog</span><span class="p">(</span><span class="s2">&quot;Client Chat&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;MAIL&quot;</span><span class="p">,</span><span class="s2">&quot;N&quot;</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="sbLog.badChat"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.badChat">[docs]</a>    <span class="k">def</span> <span class="nf">badChat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logChat</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chatoutput</span><span class="p">(</span><span class="s2">&quot;DIRTYCHAT </span><span class="si">%d</span><span class="s2">-&gt;</span><span class="si">%d</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">msg</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clHost</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">remoteLog</span><span class="p">(</span><span class="s2">&quot;Client Chat&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;PEER&quot;</span><span class="p">,</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sbLog.badMail"><a class="viewcode-back" href="../../otp/switchboard.html#switchboard.sbLog.sbLog.badMail">[docs]</a>    <span class="k">def</span> <span class="nf">badMail</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="n">msg</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">sbConfig</span><span class="o">.</span><span class="n">logChat</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">chatoutput</span><span class="p">(</span><span class="s2">&quot;DIRTYMAIL </span><span class="si">%d</span><span class="s2">-&gt;</span><span class="si">%d</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">msg</span><span class="p">))</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">clHost</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">remoteLog</span><span class="p">(</span><span class="s2">&quot;Client Chat&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">sender</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;MAIL&quot;</span><span class="p">,</span><span class="s2">&quot;Y&quot;</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

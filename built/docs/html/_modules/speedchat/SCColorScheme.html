@@ -1,0 +1,215 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>speedchat.SCColorScheme &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">speedchat.SCColorScheme</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for speedchat.SCColorScheme</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;SCColorScheme.py: contains the SCColorScheme class&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">.ColorSpace</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="SCColorScheme"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme">[docs]</a><span class="k">class</span> <span class="nc">SCColorScheme</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; SCColorScheme is a class that holds all the information</span>
+<span class="sd">    that a SpeedChat tree needs to display itself with a particular</span>
+<span class="sd">    color scheme.</span>
+
+<span class="sd">    This object is intentionally immutable; if you want to change the</span>
+<span class="sd">    color scheme of a SpeedChat tree, create a new SCColorScheme object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                 <span class="n">arrowColor</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                 <span class="n">rolloverColor</span><span class="o">=</span><span class="p">(</span><span class="mf">.53</span><span class="p">,</span><span class="mf">.9</span><span class="p">,</span><span class="mf">.53</span><span class="p">),</span>
+                 <span class="c1"># derived from arrowColor</span>
+                 <span class="n">frameColor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="c1"># derived from rolloverColor</span>
+                 <span class="n">pressedColor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">menuHolderActiveColor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">emoteIconColor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">textColor</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+                 <span class="n">emoteIconDisabledColor</span><span class="o">=</span><span class="p">(</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">,</span><span class="mf">.5</span><span class="p">),</span>
+                 <span class="n">textDisabledColor</span><span class="o">=</span><span class="p">(</span><span class="mf">.4</span><span class="p">,</span><span class="mf">.4</span><span class="p">,</span><span class="mf">.4</span><span class="p">),</span>
+                 <span class="n">alpha</span><span class="o">=</span><span class="mf">.95</span><span class="p">,</span>
+                 <span class="p">):</span>
+        <span class="k">def</span> <span class="nf">scaleColor</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+            <span class="n">y</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="o">=</span> <span class="n">rgb2yuv</span><span class="p">(</span><span class="o">*</span><span class="n">color</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">yuv2rgb</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">scaleIfNone</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">srcColor</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">color</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">scaleColor</span><span class="p">(</span><span class="n">srcColor</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">__arrowColor</span> <span class="o">=</span> <span class="n">arrowColor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__rolloverColor</span> <span class="o">=</span> <span class="n">rolloverColor</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__frameColor</span> <span class="o">=</span> <span class="n">frameColor</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frameColor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># the frame color should be a whited-out version of the</span>
+            <span class="c1"># arrow color; reduce the saturation</span>
+            <span class="n">h</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">v</span> <span class="o">=</span> <span class="n">rgb2hsv</span><span class="p">(</span><span class="o">*</span><span class="n">arrowColor</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__frameColor</span> <span class="o">=</span> <span class="n">hsv2rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mf">.2</span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="c1"># TEMP</span>
+        <span class="c1"># there seems to be a change to the Panda/DirectGui (alpha?)</span>
+        <span class="c1"># behavior, where the speedchat frame is darker than it used to</span>
+        <span class="c1"># be. This is problem because the rollover color no longer</span>
+        <span class="c1"># contrasts; see &#39;blue&#39; as an example.</span>
+        <span class="c1"># Brighten up the frame color so that it&#39;s close to what it used to</span>
+        <span class="c1"># be.</span>
+        <span class="n">h</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">v</span> <span class="o">=</span> <span class="n">rgb2hsv</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">__frameColor</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__frameColor</span> <span class="o">=</span> <span class="n">hsv2rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mf">.5</span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="c1"># pressed and menuHolderActive are rollover with slightly</span>
+        <span class="c1"># (and progressively) lower luminance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__pressedColor</span> <span class="o">=</span> <span class="n">scaleIfNone</span><span class="p">(</span><span class="n">pressedColor</span><span class="p">,</span>
+                                          <span class="bp">self</span><span class="o">.</span><span class="n">__rolloverColor</span><span class="p">,</span> <span class="mf">.92</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__menuHolderActiveColor</span> <span class="o">=</span> <span class="n">scaleIfNone</span><span class="p">(</span><span class="n">menuHolderActiveColor</span><span class="p">,</span>
+                                                   <span class="bp">self</span><span class="o">.</span><span class="n">__rolloverColor</span><span class="p">,</span> <span class="mf">.84</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__emoteIconColor</span> <span class="o">=</span> <span class="n">emoteIconColor</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__emoteIconColor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># base the emote icon color off of the rollover color</span>
+            <span class="c1"># max out the saturation to get a deep color</span>
+            <span class="c1"># bring the value down slightly</span>
+            <span class="n">h</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">v</span> <span class="o">=</span> <span class="n">rgb2hsv</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">__rolloverColor</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__emoteIconColor</span> <span class="o">=</span> <span class="n">hsv2rgb</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">.8</span><span class="o">*</span><span class="n">v</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__emoteIconDisabledColor</span> <span class="o">=</span> <span class="n">emoteIconDisabledColor</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__textColor</span> <span class="o">=</span> <span class="n">textColor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__textDisabledColor</span> <span class="o">=</span> <span class="n">textDisabledColor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+
+<div class="viewcode-block" id="SCColorScheme.getArrowColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getArrowColor">[docs]</a>    <span class="k">def</span> <span class="nf">getArrowColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__arrowColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getRolloverColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getRolloverColor">[docs]</a>    <span class="k">def</span> <span class="nf">getRolloverColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__rolloverColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getFrameColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getFrameColor">[docs]</a>    <span class="k">def</span> <span class="nf">getFrameColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__frameColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getPressedColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getPressedColor">[docs]</a>    <span class="k">def</span> <span class="nf">getPressedColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pressedColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getMenuHolderActiveColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getMenuHolderActiveColor">[docs]</a>    <span class="k">def</span> <span class="nf">getMenuHolderActiveColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__menuHolderActiveColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getEmoteIconColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getEmoteIconColor">[docs]</a>    <span class="k">def</span> <span class="nf">getEmoteIconColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__emoteIconColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getTextColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getTextColor">[docs]</a>    <span class="k">def</span> <span class="nf">getTextColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__textColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getEmoteIconDisabledColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getEmoteIconDisabledColor">[docs]</a>    <span class="k">def</span> <span class="nf">getEmoteIconDisabledColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__emoteIconDisabledColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getTextDisabledColor"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getTextDisabledColor">[docs]</a>    <span class="k">def</span> <span class="nf">getTextDisabledColor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__textDisabledColor</span></div>
+<div class="viewcode-block" id="SCColorScheme.getAlpha"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCColorScheme.SCColorScheme.getAlpha">[docs]</a>    <span class="k">def</span> <span class="nf">getAlpha</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__alpha</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">members</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;arrowColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;rolloverColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;frameColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;pressedColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;menuHolderActiveColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;emoteIconColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;textColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;emoteIconDisabledColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;textDisabledColor&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">members</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> = </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span>
+                <span class="s1">&#39;_</span><span class="si">%s</span><span class="s1">__</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">member</span><span class="p">)])</span>
+            <span class="k">if</span> <span class="n">member</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">members</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

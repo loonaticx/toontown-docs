@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>estate package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fishing package" href="fishing.html" />
+    <link rel="prev" title="effects package" href="effects.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">estate package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-bankgui-module">estate.BankGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.BankGlobals">estate.BankGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-beanrecipegui-module">estate.BeanRecipeGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.CannonGlobals">estate.CannonGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-closetgui-module">estate.ClosetGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.ClosetGlobals">estate.ClosetGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedanimatedstatuary-module">estate.DistributedAnimatedStatuary module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedanimatedstatuaryai-module">estate.DistributedAnimatedStatuaryAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedbank-module">estate.DistributedBank module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedbankai-module">estate.DistributedBankAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedbankmgr-module">estate.DistributedBankMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.DistributedBankMgrAI">estate.DistributedBankMgrAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#estate.DistributedBankMgrAI.DistributedBankMgrAI"><code class="docutils literal notranslate"><span class="pre">DistributedBankMgrAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedcannon-module">estate.DistributedCannon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedcannonai-module">estate.DistributedCannonAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedchangingstatuary-module">estate.DistributedChangingStatuary module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedchangingstatuaryai-module">estate.DistributedChangingStatuaryAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedcloset-module">estate.DistributedCloset module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedclosetai-module">estate.DistributedClosetAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedestate-module">estate.DistributedEstate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedestateai-module">estate.DistributedEstateAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedfireworkscannon-module">estate.DistributedFireworksCannon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedfireworkscannonai-module">estate.DistributedFireworksCannonAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedflower-module">estate.DistributedFlower module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedflowerai-module">estate.DistributedFlowerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedfurnitureitem-module">estate.DistributedFurnitureItem module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedfurnitureitemai-module">estate.DistributedFurnitureItemAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedfurnituremanager-module">estate.DistributedFurnitureManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedfurnituremanagerai-module">estate.DistributedFurnitureManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgagtree-module">estate.DistributedGagTree module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgagtreeai-module">estate.DistributedGagTreeAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgarden-module">estate.DistributedGarden module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgardenai-module">estate.DistributedGardenAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgardenbox-module">estate.DistributedGardenBox module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgardenboxai-module">estate.DistributedGardenBoxAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgardenplot-module">estate.DistributedGardenPlot module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedgardenplotai-module">estate.DistributedGardenPlotAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhouse-module">estate.DistributedHouse module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhouseai-module">estate.DistributedHouseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhousedoor-module">estate.DistributedHouseDoor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhousedoorai-module">estate.DistributedHouseDoorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhouseinterior-module">estate.DistributedHouseInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhouseinteriorai-module">estate.DistributedHouseInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhouseitem-module">estate.DistributedHouseItem module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedhouseitemai-module">estate.DistributedHouseItemAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedlawndecor-module">estate.DistributedLawnDecor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedlawndecorai-module">estate.DistributedLawnDecorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedmailbox-module">estate.DistributedMailbox module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedmailboxai-module">estate.DistributedMailboxAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedphone-module">estate.DistributedPhone module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedphoneai-module">estate.DistributedPhoneAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedplantbase-module">estate.DistributedPlantBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedplantbaseai-module">estate.DistributedPlantBaseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedstatuary-module">estate.DistributedStatuary module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedstatuaryai-module">estate.DistributedStatuaryAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedtarget-module">estate.DistributedTarget module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedtargetai-module">estate.DistributedTargetAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedtoonstatuary-module">estate.DistributedToonStatuary module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedtoonstatuaryai-module">estate.DistributedToonStatuaryAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedtrunk-module">estate.DistributedTrunk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-distributedtrunkai-module">estate.DistributedTrunkAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-estate-module">estate.Estate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-estateloader-module">estate.EstateLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-estatemanager-module">estate.EstateManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-estatemanagerai-module">estate.EstateManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-fireworkitempanel-module">estate.FireworkItemPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-fireworksgui-module">estate.FireworksGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowerbase-module">estate.FlowerBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowerbasket-module">estate.FlowerBasket module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowerbrowser-module">estate.FlowerBrowser module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowercollection-module">estate.FlowerCollection module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowerpanel-module">estate.FlowerPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowerphoto-module">estate.FlowerPhoto module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowerpicker-module">estate.FlowerPicker module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowersellgui-module">estate.FlowerSellGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-flowerspeciespanel-module">estate.FlowerSpeciesPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.GameSprite">estate.GameSprite module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#estate.GameSprite.GameSprite"><code class="docutils literal notranslate"><span class="pre">GameSprite</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-gardendropgame-module">estate.GardenDropGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-gardenglobals-module">estate.GardenGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-gardenprogressmeter-module">estate.GardenProgressMeter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-gardentestgame-module">estate.GardenTestGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-gardentutorial-module">estate.GardenTutorial module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-house-module">estate.House module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.HouseGlobals">estate.HouseGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.MailboxGlobals">estate.MailboxGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate.PhoneGlobals">estate.PhoneGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-planttreegui-module">estate.PlantTreeGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-plantinggui-module">estate.PlantingGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-specialsphoto-module">estate.SpecialsPhoto module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-toonstatueselectiongui-module">estate.ToonStatueSelectionGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-trunkgui-module">estate.TrunkGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-wallpaperdesignpanel-module">estate.WallpaperDesignPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#estate-housedesign-module">estate.houseDesign module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-estate">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">estate package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/estate.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="estate-package">
+<h1>estate package<a class="headerlink" href="#estate-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-bankgui-module">
+<h2>estate.BankGUI module<a class="headerlink" href="#estate-bankgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.BankGlobals">
+<span id="estate-bankglobals-module"></span><h2>estate.BankGlobals module<a class="headerlink" href="#module-estate.BankGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-beanrecipegui-module">
+<h2>estate.BeanRecipeGui module<a class="headerlink" href="#estate-beanrecipegui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.CannonGlobals">
+<span id="estate-cannonglobals-module"></span><h2>estate.CannonGlobals module<a class="headerlink" href="#module-estate.CannonGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-closetgui-module">
+<h2>estate.ClosetGUI module<a class="headerlink" href="#estate-closetgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.ClosetGlobals">
+<span id="estate-closetglobals-module"></span><h2>estate.ClosetGlobals module<a class="headerlink" href="#module-estate.ClosetGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedanimatedstatuary-module">
+<h2>estate.DistributedAnimatedStatuary module<a class="headerlink" href="#estate-distributedanimatedstatuary-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedanimatedstatuaryai-module">
+<h2>estate.DistributedAnimatedStatuaryAI module<a class="headerlink" href="#estate-distributedanimatedstatuaryai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedbank-module">
+<h2>estate.DistributedBank module<a class="headerlink" href="#estate-distributedbank-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedbankai-module">
+<h2>estate.DistributedBankAI module<a class="headerlink" href="#estate-distributedbankai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedbankmgr-module">
+<h2>estate.DistributedBankMgr module<a class="headerlink" href="#estate-distributedbankmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.DistributedBankMgrAI">
+<span id="estate-distributedbankmgrai-module"></span><h2>estate.DistributedBankMgrAI module<a class="headerlink" href="#module-estate.DistributedBankMgrAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="estate.DistributedBankMgrAI.DistributedBankMgrAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">estate.DistributedBankMgrAI.</span></span><span class="sig-name descname"><span class="pre">DistributedBankMgrAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/DistributedBankMgrAI.html#DistributedBankMgrAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.DistributedBankMgrAI.DistributedBankMgrAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.DistributedBankMgrAI.DistributedBankMgrAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#estate.DistributedBankMgrAI.DistributedBankMgrAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.DistributedBankMgrAI.DistributedBankMgrAI.transferMoney">
+<span class="sig-name descname"><span class="pre">transferMoney</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/DistributedBankMgrAI.html#DistributedBankMgrAI.transferMoney"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.DistributedBankMgrAI.DistributedBankMgrAI.transferMoney" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.DistributedBankMgrAI.DistributedBankMgrAI.transferMoneyForAv">
+<span class="sig-name descname"><span class="pre">transferMoneyForAv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">av</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/DistributedBankMgrAI.html#DistributedBankMgrAI.transferMoneyForAv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.DistributedBankMgrAI.DistributedBankMgrAI.transferMoneyForAv" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="estate-distributedcannon-module">
+<h2>estate.DistributedCannon module<a class="headerlink" href="#estate-distributedcannon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedcannonai-module">
+<h2>estate.DistributedCannonAI module<a class="headerlink" href="#estate-distributedcannonai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedchangingstatuary-module">
+<h2>estate.DistributedChangingStatuary module<a class="headerlink" href="#estate-distributedchangingstatuary-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedchangingstatuaryai-module">
+<h2>estate.DistributedChangingStatuaryAI module<a class="headerlink" href="#estate-distributedchangingstatuaryai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedcloset-module">
+<h2>estate.DistributedCloset module<a class="headerlink" href="#estate-distributedcloset-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedclosetai-module">
+<h2>estate.DistributedClosetAI module<a class="headerlink" href="#estate-distributedclosetai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedestate-module">
+<h2>estate.DistributedEstate module<a class="headerlink" href="#estate-distributedestate-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedestateai-module">
+<h2>estate.DistributedEstateAI module<a class="headerlink" href="#estate-distributedestateai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedfireworkscannon-module">
+<h2>estate.DistributedFireworksCannon module<a class="headerlink" href="#estate-distributedfireworkscannon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedfireworkscannonai-module">
+<h2>estate.DistributedFireworksCannonAI module<a class="headerlink" href="#estate-distributedfireworkscannonai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedflower-module">
+<h2>estate.DistributedFlower module<a class="headerlink" href="#estate-distributedflower-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedflowerai-module">
+<h2>estate.DistributedFlowerAI module<a class="headerlink" href="#estate-distributedflowerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedfurnitureitem-module">
+<h2>estate.DistributedFurnitureItem module<a class="headerlink" href="#estate-distributedfurnitureitem-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedfurnitureitemai-module">
+<h2>estate.DistributedFurnitureItemAI module<a class="headerlink" href="#estate-distributedfurnitureitemai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedfurnituremanager-module">
+<h2>estate.DistributedFurnitureManager module<a class="headerlink" href="#estate-distributedfurnituremanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedfurnituremanagerai-module">
+<h2>estate.DistributedFurnitureManagerAI module<a class="headerlink" href="#estate-distributedfurnituremanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgagtree-module">
+<h2>estate.DistributedGagTree module<a class="headerlink" href="#estate-distributedgagtree-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgagtreeai-module">
+<h2>estate.DistributedGagTreeAI module<a class="headerlink" href="#estate-distributedgagtreeai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgarden-module">
+<h2>estate.DistributedGarden module<a class="headerlink" href="#estate-distributedgarden-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgardenai-module">
+<h2>estate.DistributedGardenAI module<a class="headerlink" href="#estate-distributedgardenai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgardenbox-module">
+<h2>estate.DistributedGardenBox module<a class="headerlink" href="#estate-distributedgardenbox-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgardenboxai-module">
+<h2>estate.DistributedGardenBoxAI module<a class="headerlink" href="#estate-distributedgardenboxai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgardenplot-module">
+<h2>estate.DistributedGardenPlot module<a class="headerlink" href="#estate-distributedgardenplot-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedgardenplotai-module">
+<h2>estate.DistributedGardenPlotAI module<a class="headerlink" href="#estate-distributedgardenplotai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhouse-module">
+<h2>estate.DistributedHouse module<a class="headerlink" href="#estate-distributedhouse-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhouseai-module">
+<h2>estate.DistributedHouseAI module<a class="headerlink" href="#estate-distributedhouseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhousedoor-module">
+<h2>estate.DistributedHouseDoor module<a class="headerlink" href="#estate-distributedhousedoor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhousedoorai-module">
+<h2>estate.DistributedHouseDoorAI module<a class="headerlink" href="#estate-distributedhousedoorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhouseinterior-module">
+<h2>estate.DistributedHouseInterior module<a class="headerlink" href="#estate-distributedhouseinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhouseinteriorai-module">
+<h2>estate.DistributedHouseInteriorAI module<a class="headerlink" href="#estate-distributedhouseinteriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhouseitem-module">
+<h2>estate.DistributedHouseItem module<a class="headerlink" href="#estate-distributedhouseitem-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedhouseitemai-module">
+<h2>estate.DistributedHouseItemAI module<a class="headerlink" href="#estate-distributedhouseitemai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedlawndecor-module">
+<h2>estate.DistributedLawnDecor module<a class="headerlink" href="#estate-distributedlawndecor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedlawndecorai-module">
+<h2>estate.DistributedLawnDecorAI module<a class="headerlink" href="#estate-distributedlawndecorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedmailbox-module">
+<h2>estate.DistributedMailbox module<a class="headerlink" href="#estate-distributedmailbox-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedmailboxai-module">
+<h2>estate.DistributedMailboxAI module<a class="headerlink" href="#estate-distributedmailboxai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedphone-module">
+<h2>estate.DistributedPhone module<a class="headerlink" href="#estate-distributedphone-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedphoneai-module">
+<h2>estate.DistributedPhoneAI module<a class="headerlink" href="#estate-distributedphoneai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedplantbase-module">
+<h2>estate.DistributedPlantBase module<a class="headerlink" href="#estate-distributedplantbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedplantbaseai-module">
+<h2>estate.DistributedPlantBaseAI module<a class="headerlink" href="#estate-distributedplantbaseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedstatuary-module">
+<h2>estate.DistributedStatuary module<a class="headerlink" href="#estate-distributedstatuary-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedstatuaryai-module">
+<h2>estate.DistributedStatuaryAI module<a class="headerlink" href="#estate-distributedstatuaryai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedtarget-module">
+<h2>estate.DistributedTarget module<a class="headerlink" href="#estate-distributedtarget-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedtargetai-module">
+<h2>estate.DistributedTargetAI module<a class="headerlink" href="#estate-distributedtargetai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedtoonstatuary-module">
+<h2>estate.DistributedToonStatuary module<a class="headerlink" href="#estate-distributedtoonstatuary-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedtoonstatuaryai-module">
+<h2>estate.DistributedToonStatuaryAI module<a class="headerlink" href="#estate-distributedtoonstatuaryai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedtrunk-module">
+<h2>estate.DistributedTrunk module<a class="headerlink" href="#estate-distributedtrunk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-distributedtrunkai-module">
+<h2>estate.DistributedTrunkAI module<a class="headerlink" href="#estate-distributedtrunkai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-estate-module">
+<h2>estate.Estate module<a class="headerlink" href="#estate-estate-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-estateloader-module">
+<h2>estate.EstateLoader module<a class="headerlink" href="#estate-estateloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-estatemanager-module">
+<h2>estate.EstateManager module<a class="headerlink" href="#estate-estatemanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-estatemanagerai-module">
+<h2>estate.EstateManagerAI module<a class="headerlink" href="#estate-estatemanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-fireworkitempanel-module">
+<h2>estate.FireworkItemPanel module<a class="headerlink" href="#estate-fireworkitempanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-fireworksgui-module">
+<h2>estate.FireworksGui module<a class="headerlink" href="#estate-fireworksgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowerbase-module">
+<h2>estate.FlowerBase module<a class="headerlink" href="#estate-flowerbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowerbasket-module">
+<h2>estate.FlowerBasket module<a class="headerlink" href="#estate-flowerbasket-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowerbrowser-module">
+<h2>estate.FlowerBrowser module<a class="headerlink" href="#estate-flowerbrowser-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowercollection-module">
+<h2>estate.FlowerCollection module<a class="headerlink" href="#estate-flowercollection-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowerpanel-module">
+<h2>estate.FlowerPanel module<a class="headerlink" href="#estate-flowerpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowerphoto-module">
+<h2>estate.FlowerPhoto module<a class="headerlink" href="#estate-flowerphoto-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowerpicker-module">
+<h2>estate.FlowerPicker module<a class="headerlink" href="#estate-flowerpicker-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowersellgui-module">
+<h2>estate.FlowerSellGUI module<a class="headerlink" href="#estate-flowersellgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-flowerspeciespanel-module">
+<h2>estate.FlowerSpeciesPanel module<a class="headerlink" href="#estate-flowerspeciespanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.GameSprite">
+<span id="estate-gamesprite-module"></span><h2>estate.GameSprite module<a class="headerlink" href="#module-estate.GameSprite" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">estate.GameSprite.</span></span><span class="sig-name descname"><span class="pre">GameSprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodeObj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorType</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">foundation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.addForce">
+<span class="sig-name descname"><span class="pre">addForce</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.addForce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.addForce" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.collide">
+<span class="sig-name descname"><span class="pre">collide</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.collide"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.collide" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorBlack">
+<span class="sig-name descname"><span class="pre">colorBlack</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1.0)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorBlack" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorBlue">
+<span class="sig-name descname"><span class="pre">colorBlue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">1)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorBlue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorGhostBlue">
+<span class="sig-name descname"><span class="pre">colorGhostBlue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">0.5)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorGhostBlue" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorGhostGreen">
+<span class="sig-name descname"><span class="pre">colorGhostGreen</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">0.5)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorGhostGreen" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorGhostRed">
+<span class="sig-name descname"><span class="pre">colorGhostRed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0.5)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorGhostRed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorGreen">
+<span class="sig-name descname"><span class="pre">colorGreen</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">0,</span> <span class="pre">1)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorGreen" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorRed">
+<span class="sig-name descname"><span class="pre">colorRed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">1)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorRed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorShadow">
+<span class="sig-name descname"><span class="pre">colorShadow</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0.5)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorShadow" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.colorWhite">
+<span class="sig-name descname"><span class="pre">colorWhite</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">1)</span></em><a class="headerlink" href="#estate.GameSprite.GameSprite.colorWhite" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.getX">
+<span class="sig-name descname"><span class="pre">getX</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.getX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.getX" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.getZ">
+<span class="sig-name descname"><span class="pre">getZ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.getZ"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.getZ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeDelta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.setActive">
+<span class="sig-name descname"><span class="pre">setActive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">active</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.setActive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.setActive" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.setColor">
+<span class="sig-name descname"><span class="pre">setColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trip</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.setColor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.setColor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.setX">
+<span class="sig-name descname"><span class="pre">setX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.setX"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.setX" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="estate.GameSprite.GameSprite.setZ">
+<span class="sig-name descname"><span class="pre">setZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/estate/GameSprite.html#GameSprite.setZ"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#estate.GameSprite.GameSprite.setZ" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="estate-gardendropgame-module">
+<h2>estate.GardenDropGame module<a class="headerlink" href="#estate-gardendropgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-gardenglobals-module">
+<h2>estate.GardenGlobals module<a class="headerlink" href="#estate-gardenglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-gardenprogressmeter-module">
+<h2>estate.GardenProgressMeter module<a class="headerlink" href="#estate-gardenprogressmeter-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-gardentestgame-module">
+<h2>estate.GardenTestGame module<a class="headerlink" href="#estate-gardentestgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-gardentutorial-module">
+<h2>estate.GardenTutorial module<a class="headerlink" href="#estate-gardentutorial-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-house-module">
+<h2>estate.House module<a class="headerlink" href="#estate-house-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.HouseGlobals">
+<span id="estate-houseglobals-module"></span><h2>estate.HouseGlobals module<a class="headerlink" href="#module-estate.HouseGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.MailboxGlobals">
+<span id="estate-mailboxglobals-module"></span><h2>estate.MailboxGlobals module<a class="headerlink" href="#module-estate.MailboxGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate.PhoneGlobals">
+<span id="estate-phoneglobals-module"></span><h2>estate.PhoneGlobals module<a class="headerlink" href="#module-estate.PhoneGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-planttreegui-module">
+<h2>estate.PlantTreeGUI module<a class="headerlink" href="#estate-planttreegui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-plantinggui-module">
+<h2>estate.PlantingGUI module<a class="headerlink" href="#estate-plantinggui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-specialsphoto-module">
+<h2>estate.SpecialsPhoto module<a class="headerlink" href="#estate-specialsphoto-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-toonstatueselectiongui-module">
+<h2>estate.ToonStatueSelectionGUI module<a class="headerlink" href="#estate-toonstatueselectiongui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-trunkgui-module">
+<h2>estate.TrunkGUI module<a class="headerlink" href="#estate-trunkgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-wallpaperdesignpanel-module">
+<h2>estate.WallpaperDesignPanel module<a class="headerlink" href="#estate-wallpaperdesignpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="estate-housedesign-module">
+<h2>estate.houseDesign module<a class="headerlink" href="#estate-housedesign-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-estate">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-estate" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="effects.html" class="btn btn-neutral float-left" title="effects package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fishing.html" class="btn btn-neutral float-right" title="fishing package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

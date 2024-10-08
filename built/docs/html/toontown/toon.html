@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>toon package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="toonbase package" href="toonbase.html" />
+    <link rel="prev" title="testenv package" href="testenv.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">toon package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-toon.AccessoryGlobals">toon.AccessoryGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-avatarpanelbase-module">toon.AvatarPanelBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-boardinggroupinviterpanels-module">toon.BoardingGroupInviterPanels module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-deathforceacknowledge-module">toon.DeathForceAcknowledge module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcblocker-module">toon.DistributedNPCBlocker module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcblockerai-module">toon.DistributedNPCBlockerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcclerk-module">toon.DistributedNPCClerk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcclerkai-module">toon.DistributedNPCClerkAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcfisherman-module">toon.DistributedNPCFisherman module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcfishermanai-module">toon.DistributedNPCFishermanAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcflippyintoonhall-module">toon.DistributedNPCFlippyInToonHall module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcflippyintoonhallai-module">toon.DistributedNPCFlippyInToonHallAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpckartclerk-module">toon.DistributedNPCKartClerk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpckartclerkai-module">toon.DistributedNPCKartClerkAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcpartyperson-module">toon.DistributedNPCPartyPerson module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcpartypersonai-module">toon.DistributedNPCPartyPersonAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcpetclerk-module">toon.DistributedNPCPetclerk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcpetclerkai-module">toon.DistributedNPCPetclerkAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcscientist-module">toon.DistributedNPCScientist module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcscientistai-module">toon.DistributedNPCScientistAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcspecialquestgiver-module">toon.DistributedNPCSpecialQuestGiver module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpcspecialquestgiverai-module">toon.DistributedNPCSpecialQuestGiverAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpctailor-module">toon.DistributedNPCTailor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpctailorai-module">toon.DistributedNPCTailorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpctoon-module">toon.DistributedNPCToon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpctoonai-module">toon.DistributedNPCToonAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpctoonbase-module">toon.DistributedNPCToonBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributednpctoonbaseai-module">toon.DistributedNPCToonBaseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributedtoon-module">toon.DistributedToon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributedtoonai-module">toon.DistributedToonAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-distributedtoonud-module">toon.DistributedToonUD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-elevatornotifier-module">toon.ElevatorNotifier module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-experience-module">toon.Experience module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-gmutils-module">toon.GMUtils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-groupinvitee-module">toon.GroupInvitee module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-grouppanel-module">toon.GroupPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-healthforceacknowledge-module">toon.HealthForceAcknowledge module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-inventorybase-module">toon.InventoryBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-inventorynew-module">toon.InventoryNew module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-laffmeter-module">toon.LaffMeter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-localtoon-module">toon.LocalToon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-modulelistai-module">toon.ModuleListAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-motion-module">toon.Motion module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-npcdialogue-module">toon.NPCDialogue module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-npcdialoguemanagerai-module">toon.NPCDialogueManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-npcforceacknowledge-module">toon.NPCForceAcknowledge module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-npcfriendpanel-module">toon.NPCFriendPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-toon.NPCToonDNACopy">toon.NPCToonDNACopy module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#toon.NPCToonDNACopy.loadDNA"><code class="docutils literal notranslate"><span class="pre">loadDNA()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#toon.NPCToonDNACopy.parseAndCopyDNA"><code class="docutils literal notranslate"><span class="pre">parseAndCopyDNA()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-npctoons-module">toon.NPCToons module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-playerdetailpanel-module">toon.PlayerDetailPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-playerinfopanel-module">toon.PlayerInfoPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-robottoon-module">toon.RobotToon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-robottoonmanager-module">toon.RobotToonManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-ttemote-module">toon.TTEmote module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-tailorclothesgui-module">toon.TailorClothesGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toon-module">toon.Toon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toonavatardetailpanel-module">toon.ToonAvatarDetailPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toonavatarpanel-module">toon.ToonAvatarPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toondna-module">toon.ToonDNA module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toondetail-module">toon.ToonDetail module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toonhead-module">toon.ToonHead module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toonheadframe-module">toon.ToonHeadFrame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toonteleportpanel-module">toon.ToonTeleportPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toon-toptoonpics-module">toon.TopToonPics module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-toon">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">toon package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/toon.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="toon-package">
+<h1>toon package<a class="headerlink" href="#toon-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-toon.AccessoryGlobals">
+<span id="toon-accessoryglobals-module"></span><h2>toon.AccessoryGlobals module<a class="headerlink" href="#module-toon.AccessoryGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-avatarpanelbase-module">
+<h2>toon.AvatarPanelBase module<a class="headerlink" href="#toon-avatarpanelbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-boardinggroupinviterpanels-module">
+<h2>toon.BoardingGroupInviterPanels module<a class="headerlink" href="#toon-boardinggroupinviterpanels-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-deathforceacknowledge-module">
+<h2>toon.DeathForceAcknowledge module<a class="headerlink" href="#toon-deathforceacknowledge-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcblocker-module">
+<h2>toon.DistributedNPCBlocker module<a class="headerlink" href="#toon-distributednpcblocker-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcblockerai-module">
+<h2>toon.DistributedNPCBlockerAI module<a class="headerlink" href="#toon-distributednpcblockerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcclerk-module">
+<h2>toon.DistributedNPCClerk module<a class="headerlink" href="#toon-distributednpcclerk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcclerkai-module">
+<h2>toon.DistributedNPCClerkAI module<a class="headerlink" href="#toon-distributednpcclerkai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcfisherman-module">
+<h2>toon.DistributedNPCFisherman module<a class="headerlink" href="#toon-distributednpcfisherman-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcfishermanai-module">
+<h2>toon.DistributedNPCFishermanAI module<a class="headerlink" href="#toon-distributednpcfishermanai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcflippyintoonhall-module">
+<h2>toon.DistributedNPCFlippyInToonHall module<a class="headerlink" href="#toon-distributednpcflippyintoonhall-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcflippyintoonhallai-module">
+<h2>toon.DistributedNPCFlippyInToonHallAI module<a class="headerlink" href="#toon-distributednpcflippyintoonhallai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpckartclerk-module">
+<h2>toon.DistributedNPCKartClerk module<a class="headerlink" href="#toon-distributednpckartclerk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpckartclerkai-module">
+<h2>toon.DistributedNPCKartClerkAI module<a class="headerlink" href="#toon-distributednpckartclerkai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcpartyperson-module">
+<h2>toon.DistributedNPCPartyPerson module<a class="headerlink" href="#toon-distributednpcpartyperson-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcpartypersonai-module">
+<h2>toon.DistributedNPCPartyPersonAI module<a class="headerlink" href="#toon-distributednpcpartypersonai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcpetclerk-module">
+<h2>toon.DistributedNPCPetclerk module<a class="headerlink" href="#toon-distributednpcpetclerk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcpetclerkai-module">
+<h2>toon.DistributedNPCPetclerkAI module<a class="headerlink" href="#toon-distributednpcpetclerkai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcscientist-module">
+<h2>toon.DistributedNPCScientist module<a class="headerlink" href="#toon-distributednpcscientist-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcscientistai-module">
+<h2>toon.DistributedNPCScientistAI module<a class="headerlink" href="#toon-distributednpcscientistai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcspecialquestgiver-module">
+<h2>toon.DistributedNPCSpecialQuestGiver module<a class="headerlink" href="#toon-distributednpcspecialquestgiver-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpcspecialquestgiverai-module">
+<h2>toon.DistributedNPCSpecialQuestGiverAI module<a class="headerlink" href="#toon-distributednpcspecialquestgiverai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpctailor-module">
+<h2>toon.DistributedNPCTailor module<a class="headerlink" href="#toon-distributednpctailor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpctailorai-module">
+<h2>toon.DistributedNPCTailorAI module<a class="headerlink" href="#toon-distributednpctailorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpctoon-module">
+<h2>toon.DistributedNPCToon module<a class="headerlink" href="#toon-distributednpctoon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpctoonai-module">
+<h2>toon.DistributedNPCToonAI module<a class="headerlink" href="#toon-distributednpctoonai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpctoonbase-module">
+<h2>toon.DistributedNPCToonBase module<a class="headerlink" href="#toon-distributednpctoonbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributednpctoonbaseai-module">
+<h2>toon.DistributedNPCToonBaseAI module<a class="headerlink" href="#toon-distributednpctoonbaseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributedtoon-module">
+<h2>toon.DistributedToon module<a class="headerlink" href="#toon-distributedtoon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributedtoonai-module">
+<h2>toon.DistributedToonAI module<a class="headerlink" href="#toon-distributedtoonai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-distributedtoonud-module">
+<h2>toon.DistributedToonUD module<a class="headerlink" href="#toon-distributedtoonud-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-elevatornotifier-module">
+<h2>toon.ElevatorNotifier module<a class="headerlink" href="#toon-elevatornotifier-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-experience-module">
+<h2>toon.Experience module<a class="headerlink" href="#toon-experience-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-gmutils-module">
+<h2>toon.GMUtils module<a class="headerlink" href="#toon-gmutils-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-groupinvitee-module">
+<h2>toon.GroupInvitee module<a class="headerlink" href="#toon-groupinvitee-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-grouppanel-module">
+<h2>toon.GroupPanel module<a class="headerlink" href="#toon-grouppanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-healthforceacknowledge-module">
+<h2>toon.HealthForceAcknowledge module<a class="headerlink" href="#toon-healthforceacknowledge-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-inventorybase-module">
+<h2>toon.InventoryBase module<a class="headerlink" href="#toon-inventorybase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-inventorynew-module">
+<h2>toon.InventoryNew module<a class="headerlink" href="#toon-inventorynew-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-laffmeter-module">
+<h2>toon.LaffMeter module<a class="headerlink" href="#toon-laffmeter-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-localtoon-module">
+<h2>toon.LocalToon module<a class="headerlink" href="#toon-localtoon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-modulelistai-module">
+<h2>toon.ModuleListAI module<a class="headerlink" href="#toon-modulelistai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-motion-module">
+<h2>toon.Motion module<a class="headerlink" href="#toon-motion-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-npcdialogue-module">
+<h2>toon.NPCDialogue module<a class="headerlink" href="#toon-npcdialogue-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-npcdialoguemanagerai-module">
+<h2>toon.NPCDialogueManagerAI module<a class="headerlink" href="#toon-npcdialoguemanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-npcforceacknowledge-module">
+<h2>toon.NPCForceAcknowledge module<a class="headerlink" href="#toon-npcforceacknowledge-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-npcfriendpanel-module">
+<h2>toon.NPCFriendPanel module<a class="headerlink" href="#toon-npcfriendpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-toon.NPCToonDNACopy">
+<span id="toon-npctoondnacopy-module"></span><h2>toon.NPCToonDNACopy module<a class="headerlink" href="#module-toon.NPCToonDNACopy" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="toon.NPCToonDNACopy.loadDNA">
+<span class="sig-prename descclassname"><span class="pre">toon.NPCToonDNACopy.</span></span><span class="sig-name descname"><span class="pre">loadDNA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toon/NPCToonDNACopy.html#loadDNA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#toon.NPCToonDNACopy.loadDNA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="toon.NPCToonDNACopy.parseAndCopyDNA">
+<span class="sig-prename descclassname"><span class="pre">toon.NPCToonDNACopy.</span></span><span class="sig-name descname"><span class="pre">parseAndCopyDNA</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/toon/NPCToonDNACopy.html#parseAndCopyDNA"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#toon.NPCToonDNACopy.parseAndCopyDNA" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="toon-npctoons-module">
+<h2>toon.NPCToons module<a class="headerlink" href="#toon-npctoons-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-playerdetailpanel-module">
+<h2>toon.PlayerDetailPanel module<a class="headerlink" href="#toon-playerdetailpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-playerinfopanel-module">
+<h2>toon.PlayerInfoPanel module<a class="headerlink" href="#toon-playerinfopanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-robottoon-module">
+<h2>toon.RobotToon module<a class="headerlink" href="#toon-robottoon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-robottoonmanager-module">
+<h2>toon.RobotToonManager module<a class="headerlink" href="#toon-robottoonmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-ttemote-module">
+<h2>toon.TTEmote module<a class="headerlink" href="#toon-ttemote-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-tailorclothesgui-module">
+<h2>toon.TailorClothesGUI module<a class="headerlink" href="#toon-tailorclothesgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toon-module">
+<h2>toon.Toon module<a class="headerlink" href="#toon-toon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toonavatardetailpanel-module">
+<h2>toon.ToonAvatarDetailPanel module<a class="headerlink" href="#toon-toonavatardetailpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toonavatarpanel-module">
+<h2>toon.ToonAvatarPanel module<a class="headerlink" href="#toon-toonavatarpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toondna-module">
+<h2>toon.ToonDNA module<a class="headerlink" href="#toon-toondna-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toondetail-module">
+<h2>toon.ToonDetail module<a class="headerlink" href="#toon-toondetail-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toonhead-module">
+<h2>toon.ToonHead module<a class="headerlink" href="#toon-toonhead-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toonheadframe-module">
+<h2>toon.ToonHeadFrame module<a class="headerlink" href="#toon-toonheadframe-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toonteleportpanel-module">
+<h2>toon.ToonTeleportPanel module<a class="headerlink" href="#toon-toonteleportpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="toon-toptoonpics-module">
+<h2>toon.TopToonPics module<a class="headerlink" href="#toon-toptoonpics-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-toon">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-toon" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="testenv.html" class="btn btn-neutral float-left" title="testenv package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="toonbase.html" class="btn btn-neutral float-right" title="toonbase package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>navigation package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="otpbase package" href="otpbase.html" />
+    <link rel="prev" title="namepanel package" href="namepanel.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">otp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html">level package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">navigation package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-apspslave-module">navigation.APSPSlave module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-areamapper-module">navigation.AreaMapper module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-navmesh-module">navigation.NavMesh module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-navigation.NavUtil">navigation.NavUtil module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#navigation.NavUtil.FIFOCache"><code class="docutils literal notranslate"><span class="pre">FIFOCache</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigation.NavUtil.PriQueue"><code class="docutils literal notranslate"><span class="pre">PriQueue</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigation.NavUtil.QuadTree"><code class="docutils literal notranslate"><span class="pre">QuadTree</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#navigation-navigationmanager-module">navigation.NavigationManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-navigation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html">otpbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">otp</a></li>
+      <li class="breadcrumb-item active">navigation package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/navigation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="navigation-package">
+<h1>navigation package<a class="headerlink" href="#navigation-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="navigation-apspslave-module">
+<h2>navigation.APSPSlave module<a class="headerlink" href="#navigation-apspslave-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="navigation-areamapper-module">
+<h2>navigation.AreaMapper module<a class="headerlink" href="#navigation-areamapper-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="navigation-navmesh-module">
+<h2>navigation.NavMesh module<a class="headerlink" href="#navigation-navmesh-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-navigation.NavUtil">
+<span id="navigation-navutil-module"></span><h2>navigation.NavUtil module<a class="headerlink" href="#module-navigation.NavUtil" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="navigation.NavUtil.FIFOCache">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navigation.NavUtil.</span></span><span class="sig-name descname"><span class="pre">FIFOCache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">maxSize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#FIFOCache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.FIFOCache" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="navigation.NavUtil.FIFOCache.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#FIFOCache.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.FIFOCache.get" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navigation.NavUtil.FIFOCache.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#FIFOCache.insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.FIFOCache.insert" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navigation.NavUtil.PriQueue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navigation.NavUtil.</span></span><span class="sig-name descname"><span class="pre">PriQueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#PriQueue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.PriQueue" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="navigation.NavUtil.PriQueue.push">
+<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#PriQueue.push"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.PriQueue.push" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navigation.NavUtil.PriQueue.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#PriQueue.remove"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.PriQueue.remove" title="Permalink to this definition"></a></dt>
+<dd><p>Remove first occurrence of value.</p>
+<p>Raises ValueError if the value is not present.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="navigation.NavUtil.QuadTree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">navigation.NavUtil.</span></span><span class="sig-name descname"><span class="pre">QuadTree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#QuadTree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.QuadTree" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Used for subdivision of a uniform free-space grid into squares of varying size.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="navigation.NavUtil.QuadTree.fill">
+<span class="sig-name descname"><span class="pre">fill</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#QuadTree.fill"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.QuadTree.fill" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="navigation.NavUtil.QuadTree.squarify">
+<span class="sig-name descname"><span class="pre">squarify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/navigation/NavUtil.html#QuadTree.squarify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#navigation.NavUtil.QuadTree.squarify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="navigation-navigationmanager-module">
+<h2>navigation.NavigationManager module<a class="headerlink" href="#navigation-navigationmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-navigation">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-navigation" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namepanel.html" class="btn btn-neutral float-left" title="namepanel package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="otpbase.html" class="btn btn-neutral float-right" title="otpbase package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

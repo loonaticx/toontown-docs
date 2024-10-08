@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>speedchat package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="status package" href="status.html" />
+    <link rel="prev" title="snapshot package" href="snapshot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">otp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html">level package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">navigation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html">otpbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">speedchat package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.ColorSpace">speedchat.ColorSpace module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCColorPanel">speedchat.SCColorPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCColorScheme">speedchat.SCColorScheme module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCConstants">speedchat.SCConstants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCCustomMenu">speedchat.SCCustomMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCCustomTerminal">speedchat.SCCustomTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCDecoders">speedchat.SCDecoders module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCElement">speedchat.SCElement module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCEmoteMenu">speedchat.SCEmoteMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCEmoteTerminal">speedchat.SCEmoteTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCGMTextTerminal">speedchat.SCGMTextTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCMenu">speedchat.SCMenu module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCMenuHolder">speedchat.SCMenuHolder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCObject">speedchat.SCObject module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCSettings">speedchat.SCSettings module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCStaticTextTerminal">speedchat.SCStaticTextTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SCTerminal">speedchat.SCTerminal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SpeedChat">speedchat.SpeedChat module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SpeedChatGMHandler">speedchat.SpeedChatGMHandler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SpeedChatGlobals">speedchat.SpeedChatGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat.SpeedChatTypes">speedchat.SpeedChatTypes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-speedchat">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">otp</a></li>
+      <li class="breadcrumb-item active">speedchat package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/speedchat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="speedchat-package">
+<h1>speedchat package<a class="headerlink" href="#speedchat-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.ColorSpace">
+<span id="speedchat-colorspace-module"></span><h2>speedchat.ColorSpace module<a class="headerlink" href="#module-speedchat.ColorSpace" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCColorPanel">
+<span id="speedchat-sccolorpanel-module"></span><h2>speedchat.SCColorPanel module<a class="headerlink" href="#module-speedchat.SCColorPanel" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCColorScheme">
+<span id="speedchat-sccolorscheme-module"></span><h2>speedchat.SCColorScheme module<a class="headerlink" href="#module-speedchat.SCColorScheme" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCConstants">
+<span id="speedchat-scconstants-module"></span><h2>speedchat.SCConstants module<a class="headerlink" href="#module-speedchat.SCConstants" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCCustomMenu">
+<span id="speedchat-sccustommenu-module"></span><h2>speedchat.SCCustomMenu module<a class="headerlink" href="#module-speedchat.SCCustomMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCCustomTerminal">
+<span id="speedchat-sccustomterminal-module"></span><h2>speedchat.SCCustomTerminal module<a class="headerlink" href="#module-speedchat.SCCustomTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCDecoders">
+<span id="speedchat-scdecoders-module"></span><h2>speedchat.SCDecoders module<a class="headerlink" href="#module-speedchat.SCDecoders" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCElement">
+<span id="speedchat-scelement-module"></span><h2>speedchat.SCElement module<a class="headerlink" href="#module-speedchat.SCElement" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCEmoteMenu">
+<span id="speedchat-scemotemenu-module"></span><h2>speedchat.SCEmoteMenu module<a class="headerlink" href="#module-speedchat.SCEmoteMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCEmoteTerminal">
+<span id="speedchat-scemoteterminal-module"></span><h2>speedchat.SCEmoteTerminal module<a class="headerlink" href="#module-speedchat.SCEmoteTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCGMTextTerminal">
+<span id="speedchat-scgmtextterminal-module"></span><h2>speedchat.SCGMTextTerminal module<a class="headerlink" href="#module-speedchat.SCGMTextTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCMenu">
+<span id="speedchat-scmenu-module"></span><h2>speedchat.SCMenu module<a class="headerlink" href="#module-speedchat.SCMenu" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCMenuHolder">
+<span id="speedchat-scmenuholder-module"></span><h2>speedchat.SCMenuHolder module<a class="headerlink" href="#module-speedchat.SCMenuHolder" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCObject">
+<span id="speedchat-scobject-module"></span><h2>speedchat.SCObject module<a class="headerlink" href="#module-speedchat.SCObject" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCSettings">
+<span id="speedchat-scsettings-module"></span><h2>speedchat.SCSettings module<a class="headerlink" href="#module-speedchat.SCSettings" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCStaticTextTerminal">
+<span id="speedchat-scstatictextterminal-module"></span><h2>speedchat.SCStaticTextTerminal module<a class="headerlink" href="#module-speedchat.SCStaticTextTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SCTerminal">
+<span id="speedchat-scterminal-module"></span><h2>speedchat.SCTerminal module<a class="headerlink" href="#module-speedchat.SCTerminal" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SpeedChat">
+<span id="speedchat-speedchat-module"></span><h2>speedchat.SpeedChat module<a class="headerlink" href="#module-speedchat.SpeedChat" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SpeedChatGMHandler">
+<span id="speedchat-speedchatgmhandler-module"></span><h2>speedchat.SpeedChatGMHandler module<a class="headerlink" href="#module-speedchat.SpeedChatGMHandler" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SpeedChatGlobals">
+<span id="speedchat-speedchatglobals-module"></span><h2>speedchat.SpeedChatGlobals module<a class="headerlink" href="#module-speedchat.SpeedChatGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat.SpeedChatTypes">
+<span id="speedchat-speedchattypes-module"></span><h2>speedchat.SpeedChatTypes module<a class="headerlink" href="#module-speedchat.SpeedChatTypes" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-speedchat">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-speedchat" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="snapshot.html" class="btn btn-neutral float-left" title="snapshot package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="status.html" class="btn btn-neutral float-right" title="status package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

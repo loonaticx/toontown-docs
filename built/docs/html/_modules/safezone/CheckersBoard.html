@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>safezone.CheckersBoard &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">safezone.CheckersBoard</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for safezone.CheckersBoard</h1><div class="highlight"><pre>
+<span></span>
+<span class="c1">#Checkers (americanStyle)</span>
+<span class="c1">#</span>
+<span class="c1"># 28 *  29 *  30 *  31 *</span>
+<span class="c1"># *  24 *  25 *  26 *  27</span>
+<span class="c1"># 20 *  21 *  22 *  23 *</span>
+<span class="c1"># *  16 *  17 *  18 *  19</span>
+<span class="c1"># 12 *  13 *  14 *  15 *</span>
+<span class="c1"># *  8  *  9  *  10 *  11</span>
+<span class="c1"># 4  *  5  *  6  *  7  *</span>
+<span class="c1"># *  0  *  1  *  2  *  3</span>
+<span class="c1">#</span>
+<span class="c1">#Adjacency list</span>
+<span class="c1">#1 * 2</span>
+<span class="c1">#* X *</span>
+<span class="c1">#0 * 3</span>
+
+<div class="viewcode-block" id="CheckersBoard"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard">[docs]</a><span class="k">class</span> <span class="nc">CheckersBoard</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">CheckersTile</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">18</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">13</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">14</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">14</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">17</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">17</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">18</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">22</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">18</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">19</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">23</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">19</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">24</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">21</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">21</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">22</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">23</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">24</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">25</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">29</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">26</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">30</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">26</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">27</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span><span class="o">.</span><span class="n">setAdjacent</span><span class="p">([</span><span class="mi">27</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">14</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">17</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">18</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span><span class="mi">13</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">21</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">14</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">22</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">13</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">23</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">14</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">24</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">17</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">25</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">18</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">26</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">17</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">19</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">18</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">28</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">21</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">29</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">22</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">30</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">21</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">23</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="mi">31</span><span class="p">]</span><span class="o">.</span><span class="n">setJumps</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+
+<div class="viewcode-block" id="CheckersBoard.delete"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">:</span>
+            <span class="n">x</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span></div>
+
+<div class="viewcode-block" id="CheckersBoard.getSquare"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.getSquare">[docs]</a>    <span class="k">def</span> <span class="nf">getSquare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arrayLoc</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">arrayLoc</span><span class="p">]</span></div>
+<div class="viewcode-block" id="CheckersBoard.getState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.getState">[docs]</a>    <span class="k">def</span> <span class="nf">getState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">squareNum</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">squareNum</span><span class="p">]</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span></div>
+<div class="viewcode-block" id="CheckersBoard.setState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.setState">[docs]</a>    <span class="k">def</span> <span class="nf">setState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">squareNum</span><span class="p">,</span> <span class="n">newState</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">squareNum</span><span class="p">]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">newState</span><span class="p">)</span></div>
+<div class="viewcode-block" id="CheckersBoard.getAdjacent"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.getAdjacent">[docs]</a>    <span class="k">def</span> <span class="nf">getAdjacent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">squareNum</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">squareNum</span><span class="p">]</span><span class="o">.</span><span class="n">adjacent</span></div>
+<div class="viewcode-block" id="CheckersBoard.getStates"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.getStates">[docs]</a>    <span class="k">def</span> <span class="nf">getStates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">retList</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+            <span class="n">retList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">getState</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">retList</span></div>
+<div class="viewcode-block" id="CheckersBoard.setStates"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.setStates">[docs]</a>    <span class="k">def</span> <span class="nf">setStates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">squares</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">setState</span><span class="p">(</span><span class="n">squares</span><span class="p">[</span><span class="n">x</span><span class="p">])</span></div>
+<div class="viewcode-block" id="CheckersBoard.getJumps"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersBoard.getJumps">[docs]</a>    <span class="k">def</span> <span class="nf">getJumps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">squareNum</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareList</span><span class="p">[</span><span class="n">squareNum</span><span class="p">]</span><span class="o">.</span><span class="n">jumps</span></div></div>
+
+
+
+<span class="c1">#STATES ==</span>
+<span class="c1"># 0 == unnocupied</span>
+<span class="c1"># 1 == Player 1 - normal peice</span>
+<span class="c1"># 2 == player 2 -normal peice</span>
+<span class="c1"># 3 == player 1 - KING</span>
+<span class="c1"># 4 == player 2 - KING</span>
+<div class="viewcode-block" id="CheckersTile"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile">[docs]</a><span class="k">class</span> <span class="nc">CheckersTile</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tileNum</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tileNum</span> <span class="o">=</span> <span class="n">tileNum</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjacent</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jumps</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="viewcode-block" id="CheckersTile.delete"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">tileNum</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacent</span></div>
+<div class="viewcode-block" id="CheckersTile.setJumps"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.setJumps">[docs]</a>    <span class="k">def</span> <span class="nf">setJumps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jumpList</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">jumpList</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">jumps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+<div class="viewcode-block" id="CheckersTile.getJumps"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.getJumps">[docs]</a>    <span class="k">def</span> <span class="nf">getJumps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">jumps</span></div>
+<div class="viewcode-block" id="CheckersTile.setAdjacent"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.setAdjacent">[docs]</a>    <span class="k">def</span> <span class="nf">setAdjacent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adjList</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">adjList</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">adjacent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+<div class="viewcode-block" id="CheckersTile.getAdjacent"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.getAdjacent">[docs]</a>    <span class="k">def</span> <span class="nf">getAdjacent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjacent</span></div>
+<div class="viewcode-block" id="CheckersTile.setState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.setState">[docs]</a>    <span class="k">def</span> <span class="nf">setState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newState</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">newState</span></div>
+<div class="viewcode-block" id="CheckersTile.getState"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.getState">[docs]</a>    <span class="k">def</span> <span class="nf">getState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span></div>
+<div class="viewcode-block" id="CheckersTile.getNum"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.CheckersBoard.CheckersTile.getNum">[docs]</a>    <span class="k">def</span> <span class="nf">getNum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tileNum</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

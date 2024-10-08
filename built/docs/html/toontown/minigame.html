@@ -1,0 +1,969 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>minigame package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="parties package" href="parties.html" />
+    <link rel="prev" title="makeatoon package" href="makeatoon.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">minigame package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-arrowkeys-module">minigame.ArrowKeys module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-buildmazedata-module">minigame.BuildMazeData module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.CannonGameGlobals">minigame.CannonGameGlobals module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.CannonGameGlobals.calcScore"><code class="docutils literal notranslate"><span class="pre">calcScore()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-catchgameglobals-module">minigame.CatchGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-catchgametoonsd-module">minigame.CatchGameToonSD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-clerkpurchase-module">minigame.ClerkPurchase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-cogthief-module">minigame.CogThief module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-cogthiefgameglobals-module">minigame.CogThiefGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-cogthiefgametoonsd-module">minigame.CogThiefGameToonSD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-cogthiefwalk-module">minigame.CogThiefWalk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedcannongame-module">minigame.DistributedCannonGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedcannongameai-module">minigame.DistributedCannonGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedcatchgame-module">minigame.DistributedCatchGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedcatchgameai-module">minigame.DistributedCatchGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedcogthiefgame-module">minigame.DistributedCogThiefGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedcogthiefgameai-module">minigame.DistributedCogThiefGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributeddivinggame-module">minigame.DistributedDivingGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributeddivinggameai-module">minigame.DistributedDivingGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedicegame-module">minigame.DistributedIceGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedicegameai-module">minigame.DistributedIceGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributediceworld-module">minigame.DistributedIceWorld module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedmazegame-module">minigame.DistributedMazeGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedmazegameai-module">minigame.DistributedMazeGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedminigame-module">minigame.DistributedMinigame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedminigameai-module">minigame.DistributedMinigameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedminigamephysicsworld-module">minigame.DistributedMinigamePhysicsWorld module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedminigametemplate-module">minigame.DistributedMinigameTemplate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedminigametemplateai-module">minigame.DistributedMinigameTemplateAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedpairinggame-module">minigame.DistributedPairingGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedpairinggameai-module">minigame.DistributedPairingGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedpatterngame-module">minigame.DistributedPatternGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedpatterngameai-module">minigame.DistributedPatternGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedphotogame-module">minigame.DistributedPhotoGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedphotogameai-module">minigame.DistributedPhotoGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedracegame-module">minigame.DistributedRaceGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedracegameai-module">minigame.DistributedRaceGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedringgame-module">minigame.DistributedRingGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedringgameai-module">minigame.DistributedRingGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtaggame-module">minigame.DistributedTagGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtaggameai-module">minigame.DistributedTagGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtagtreasure-module">minigame.DistributedTagTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtagtreasureai-module">minigame.DistributedTagTreasureAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtargetgame-module">minigame.DistributedTargetGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtargetgameai-module">minigame.DistributedTargetGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtravelgame-module">minigame.DistributedTravelGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtravelgameai-module">minigame.DistributedTravelGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtugofwargame-module">minigame.DistributedTugOfWarGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtugofwargameai-module">minigame.DistributedTugOfWarGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtwodgame-module">minigame.DistributedTwoDGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedtwodgameai-module">minigame.DistributedTwoDGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedvinegame-module">minigame.DistributedVineGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-distributedvinegameai-module">minigame.DistributedVineGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-divingfishspawn-module">minigame.DivingFishSpawn module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-divinggameglobals-module">minigame.DivingGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-divinggametoonsd-module">minigame.DivingGameToonSD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-divingtreasure-module">minigame.DivingTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-dropplacer-module">minigame.DropPlacer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.DropScheduler">minigame.DropScheduler module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.DropScheduler.DropScheduler"><code class="docutils literal notranslate"><span class="pre">DropScheduler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.DropScheduler.ThreePhaseDropScheduler"><code class="docutils literal notranslate"><span class="pre">ThreePhaseDropScheduler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-fogoverlay-module">minigame.FogOverlay module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-icegameglobals-module">minigame.IceGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-icetreasure-module">minigame.IceTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-maze-module">minigame.Maze module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-mazebase-module">minigame.MazeBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.MazeData">minigame.MazeData module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-mazegameglobals-module">minigame.MazeGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-mazemapgui-module">minigame.MazeMapGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-mazesuit-module">minigame.MazeSuit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-mazetreasure-module">minigame.MazeTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigameavatarscorepanel-module">minigame.MinigameAvatarScorePanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigamecreatorai-module">minigame.MinigameCreatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigamedebug-module">minigame.MinigameDebug module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigamedebugai-module">minigame.MinigameDebugAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigameglobals-module">minigame.MinigameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigamephysicsworldbase-module">minigame.MinigamePhysicsWorldBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigamepowermeter-module">minigame.MinigamePowerMeter module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-minigamerulespanel-module">minigame.MinigameRulesPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-movingblock-module">minigame.MovingBlock module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-orthodrive-module">minigame.OrthoDrive module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-orthowalk-module">minigame.OrthoWalk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-pairinggamecard-module">minigame.PairingGameCard module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-pairinggameglobals-module">minigame.PairingGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-patterngameglobals-module">minigame.PatternGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-patternpad-module">minigame.PatternPad module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-photogamebase-module">minigame.PhotoGameBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-photogameglobals-module">minigame.PhotoGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-playingcard-module">minigame.PlayingCard module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-playingcarddeck-module">minigame.PlayingCardDeck module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-playingcardglobals-module">minigame.PlayingCardGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-purchase-module">minigame.Purchase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-purchasebase-module">minigame.PurchaseBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-racegameglobals-module">minigame.RaceGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-ring-module">minigame.Ring module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.RingAction">minigame.RingAction module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingAction.RingAction"><code class="docutils literal notranslate"><span class="pre">RingAction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingAction.RingActionFunction"><code class="docutils literal notranslate"><span class="pre">RingActionFunction</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingAction.RingActionRingTrack"><code class="docutils literal notranslate"><span class="pre">RingActionRingTrack</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingAction.RingActionStaticPos"><code class="docutils literal notranslate"><span class="pre">RingActionStaticPos</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-ringgameglobals-module">minigame.RingGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-ringgroup-module">minigame.RingGroup module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.RingTrack">minigame.RingTrack module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTrack.RingTrack"><code class="docutils literal notranslate"><span class="pre">RingTrack</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.RingTrackGroup">minigame.RingTrackGroup module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTrackGroup.RingTrackGroup"><code class="docutils literal notranslate"><span class="pre">RingTrackGroup</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-ringtrackgroups-module">minigame.RingTrackGroups module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.RingTracks">minigame.RingTracks module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getCircleRingActions"><code class="docutils literal notranslate"><span class="pre">getCircleRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getHalfDomeRingActions"><code class="docutils literal notranslate"><span class="pre">getHalfDomeRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getHorizontalInfinityRingActions"><code class="docutils literal notranslate"><span class="pre">getHorizontalInfinityRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getHorizontalSlotActions"><code class="docutils literal notranslate"><span class="pre">getHorizontalSlotActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getPlusDownRingActions"><code class="docutils literal notranslate"><span class="pre">getPlusDownRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getPlusLeftRingActions"><code class="docutils literal notranslate"><span class="pre">getPlusLeftRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getPlusRightRingActions"><code class="docutils literal notranslate"><span class="pre">getPlusRightRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getPlusUpRingActions"><code class="docutils literal notranslate"><span class="pre">getPlusUpRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getSquareRingActions"><code class="docutils literal notranslate"><span class="pre">getSquareRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getVerticalInfinityRingActions"><code class="docutils literal notranslate"><span class="pre">getVerticalInfinityRingActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.getVerticalSlotActions"><code class="docutils literal notranslate"><span class="pre">getVerticalSlotActions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.ringClerp"><code class="docutils literal notranslate"><span class="pre">ringClerp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#minigame.RingTracks.ringLerp"><code class="docutils literal notranslate"><span class="pre">ringLerp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-rubberband-module">minigame.RubberBand module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-swingvine-module">minigame.SwingVine module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.TagGameGlobals">minigame.TagGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-tagtreasureplannerai-module">minigame.TagTreasurePlannerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-targetgameglobals-module">minigame.TargetGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-tempminigameai-module">minigame.TempMinigameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-toonblitzassetmgr-module">minigame.ToonBlitzAssetMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-toonblitzglobals-module">minigame.ToonBlitzGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-trajectory-module">minigame.Trajectory module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.TravelGameGlobals">minigame.TravelGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-treasurescorepanel-module">minigame.TreasureScorePanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-trolleyholidaymgrai-module">minigame.TrolleyHolidayMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-trolleyweekendmgrai-module">minigame.TrolleyWeekendMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame.TugOfWarGameGlobals">minigame.TugOfWarGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodbattlemgr-module">minigame.TwoDBattleMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodblock-module">minigame.TwoDBlock module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodcamera-module">minigame.TwoDCamera module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twoddrive-module">minigame.TwoDDrive module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodenemy-module">minigame.TwoDEnemy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodenemymgr-module">minigame.TwoDEnemyMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodgametoonsd-module">minigame.TwoDGameToonSD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodsection-module">minigame.TwoDSection module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodsectionmgr-module">minigame.TwoDSectionMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodspawnpointmgr-module">minigame.TwoDSpawnPointMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodstomper-module">minigame.TwoDStomper module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodstompermgr-module">minigame.TwoDStomperMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodtreasure-module">minigame.TwoDTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodtreasuremgr-module">minigame.TwoDTreasureMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-twodwalk-module">minigame.TwoDWalk module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-vinebat-module">minigame.VineBat module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-vinegameglobals-module">minigame.VineGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-vineheadframe-module">minigame.VineHeadFrame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-vinespider-module">minigame.VineSpider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-vinetreasure-module">minigame.VineTreasure module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-voteresultspanel-module">minigame.VoteResultsPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-voteresultstrolleypanel-module">minigame.VoteResultsTrolleyPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#minigame-skyholder-module">minigame.skyHolder module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-minigame">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">minigame package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/minigame.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="minigame-package">
+<h1>minigame package<a class="headerlink" href="#minigame-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-arrowkeys-module">
+<h2>minigame.ArrowKeys module<a class="headerlink" href="#minigame-arrowkeys-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-buildmazedata-module">
+<h2>minigame.BuildMazeData module<a class="headerlink" href="#minigame-buildmazedata-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.CannonGameGlobals">
+<span id="minigame-cannongameglobals-module"></span><h2>minigame.CannonGameGlobals module<a class="headerlink" href="#module-minigame.CannonGameGlobals" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.CannonGameGlobals.calcScore">
+<span class="sig-prename descclassname"><span class="pre">minigame.CannonGameGlobals.</span></span><span class="sig-name descname"><span class="pre">calcScore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/CannonGameGlobals.html#calcScore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.CannonGameGlobals.calcScore" title="Permalink to this definition"></a></dt>
+<dd><p>t: time in seconds since game start</p>
+</dd></dl>
+
+</section>
+<section id="minigame-catchgameglobals-module">
+<h2>minigame.CatchGameGlobals module<a class="headerlink" href="#minigame-catchgameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-catchgametoonsd-module">
+<h2>minigame.CatchGameToonSD module<a class="headerlink" href="#minigame-catchgametoonsd-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-clerkpurchase-module">
+<h2>minigame.ClerkPurchase module<a class="headerlink" href="#minigame-clerkpurchase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-cogthief-module">
+<h2>minigame.CogThief module<a class="headerlink" href="#minigame-cogthief-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-cogthiefgameglobals-module">
+<h2>minigame.CogThiefGameGlobals module<a class="headerlink" href="#minigame-cogthiefgameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-cogthiefgametoonsd-module">
+<h2>minigame.CogThiefGameToonSD module<a class="headerlink" href="#minigame-cogthiefgametoonsd-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-cogthiefwalk-module">
+<h2>minigame.CogThiefWalk module<a class="headerlink" href="#minigame-cogthiefwalk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedcannongame-module">
+<h2>minigame.DistributedCannonGame module<a class="headerlink" href="#minigame-distributedcannongame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedcannongameai-module">
+<h2>minigame.DistributedCannonGameAI module<a class="headerlink" href="#minigame-distributedcannongameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedcatchgame-module">
+<h2>minigame.DistributedCatchGame module<a class="headerlink" href="#minigame-distributedcatchgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedcatchgameai-module">
+<h2>minigame.DistributedCatchGameAI module<a class="headerlink" href="#minigame-distributedcatchgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedcogthiefgame-module">
+<h2>minigame.DistributedCogThiefGame module<a class="headerlink" href="#minigame-distributedcogthiefgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedcogthiefgameai-module">
+<h2>minigame.DistributedCogThiefGameAI module<a class="headerlink" href="#minigame-distributedcogthiefgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributeddivinggame-module">
+<h2>minigame.DistributedDivingGame module<a class="headerlink" href="#minigame-distributeddivinggame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributeddivinggameai-module">
+<h2>minigame.DistributedDivingGameAI module<a class="headerlink" href="#minigame-distributeddivinggameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedicegame-module">
+<h2>minigame.DistributedIceGame module<a class="headerlink" href="#minigame-distributedicegame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedicegameai-module">
+<h2>minigame.DistributedIceGameAI module<a class="headerlink" href="#minigame-distributedicegameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributediceworld-module">
+<h2>minigame.DistributedIceWorld module<a class="headerlink" href="#minigame-distributediceworld-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedmazegame-module">
+<h2>minigame.DistributedMazeGame module<a class="headerlink" href="#minigame-distributedmazegame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedmazegameai-module">
+<h2>minigame.DistributedMazeGameAI module<a class="headerlink" href="#minigame-distributedmazegameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedminigame-module">
+<h2>minigame.DistributedMinigame module<a class="headerlink" href="#minigame-distributedminigame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedminigameai-module">
+<h2>minigame.DistributedMinigameAI module<a class="headerlink" href="#minigame-distributedminigameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedminigamephysicsworld-module">
+<h2>minigame.DistributedMinigamePhysicsWorld module<a class="headerlink" href="#minigame-distributedminigamephysicsworld-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedminigametemplate-module">
+<h2>minigame.DistributedMinigameTemplate module<a class="headerlink" href="#minigame-distributedminigametemplate-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedminigametemplateai-module">
+<h2>minigame.DistributedMinigameTemplateAI module<a class="headerlink" href="#minigame-distributedminigametemplateai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedpairinggame-module">
+<h2>minigame.DistributedPairingGame module<a class="headerlink" href="#minigame-distributedpairinggame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedpairinggameai-module">
+<h2>minigame.DistributedPairingGameAI module<a class="headerlink" href="#minigame-distributedpairinggameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedpatterngame-module">
+<h2>minigame.DistributedPatternGame module<a class="headerlink" href="#minigame-distributedpatterngame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedpatterngameai-module">
+<h2>minigame.DistributedPatternGameAI module<a class="headerlink" href="#minigame-distributedpatterngameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedphotogame-module">
+<h2>minigame.DistributedPhotoGame module<a class="headerlink" href="#minigame-distributedphotogame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedphotogameai-module">
+<h2>minigame.DistributedPhotoGameAI module<a class="headerlink" href="#minigame-distributedphotogameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedracegame-module">
+<h2>minigame.DistributedRaceGame module<a class="headerlink" href="#minigame-distributedracegame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedracegameai-module">
+<h2>minigame.DistributedRaceGameAI module<a class="headerlink" href="#minigame-distributedracegameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedringgame-module">
+<h2>minigame.DistributedRingGame module<a class="headerlink" href="#minigame-distributedringgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedringgameai-module">
+<h2>minigame.DistributedRingGameAI module<a class="headerlink" href="#minigame-distributedringgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtaggame-module">
+<h2>minigame.DistributedTagGame module<a class="headerlink" href="#minigame-distributedtaggame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtaggameai-module">
+<h2>minigame.DistributedTagGameAI module<a class="headerlink" href="#minigame-distributedtaggameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtagtreasure-module">
+<h2>minigame.DistributedTagTreasure module<a class="headerlink" href="#minigame-distributedtagtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtagtreasureai-module">
+<h2>minigame.DistributedTagTreasureAI module<a class="headerlink" href="#minigame-distributedtagtreasureai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtargetgame-module">
+<h2>minigame.DistributedTargetGame module<a class="headerlink" href="#minigame-distributedtargetgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtargetgameai-module">
+<h2>minigame.DistributedTargetGameAI module<a class="headerlink" href="#minigame-distributedtargetgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtravelgame-module">
+<h2>minigame.DistributedTravelGame module<a class="headerlink" href="#minigame-distributedtravelgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtravelgameai-module">
+<h2>minigame.DistributedTravelGameAI module<a class="headerlink" href="#minigame-distributedtravelgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtugofwargame-module">
+<h2>minigame.DistributedTugOfWarGame module<a class="headerlink" href="#minigame-distributedtugofwargame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtugofwargameai-module">
+<h2>minigame.DistributedTugOfWarGameAI module<a class="headerlink" href="#minigame-distributedtugofwargameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtwodgame-module">
+<h2>minigame.DistributedTwoDGame module<a class="headerlink" href="#minigame-distributedtwodgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedtwodgameai-module">
+<h2>minigame.DistributedTwoDGameAI module<a class="headerlink" href="#minigame-distributedtwodgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedvinegame-module">
+<h2>minigame.DistributedVineGame module<a class="headerlink" href="#minigame-distributedvinegame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-distributedvinegameai-module">
+<h2>minigame.DistributedVineGameAI module<a class="headerlink" href="#minigame-distributedvinegameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-divingfishspawn-module">
+<h2>minigame.DivingFishSpawn module<a class="headerlink" href="#minigame-divingfishspawn-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-divinggameglobals-module">
+<h2>minigame.DivingGameGlobals module<a class="headerlink" href="#minigame-divinggameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-divinggametoonsd-module">
+<h2>minigame.DivingGameToonSD module<a class="headerlink" href="#minigame-divinggametoonsd-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-divingtreasure-module">
+<h2>minigame.DivingTreasure module<a class="headerlink" href="#minigame-divingtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-dropplacer-module">
+<h2>minigame.DropPlacer module<a class="headerlink" href="#minigame-dropplacer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.DropScheduler">
+<span id="minigame-dropscheduler-module"></span><h2>minigame.DropScheduler module<a class="headerlink" href="#module-minigame.DropScheduler" title="Permalink to this heading"></a></h2>
+<p>DropScheduler.py: contains the DropScheduler class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.DropScheduler.DropScheduler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.DropScheduler.</span></span><span class="sig-name descname"><span class="pre">DropScheduler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameDuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstDropDelay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropPeriod</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxDropDuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasterDropDelay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasterDropPeriodMult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#DropScheduler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.DropScheduler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>this class handles the timing aspect of the drops.
+this functionality is isolated to allow the AI server to calculate
+the number of fruits on its own</p>
+<p>gameDuration is the length of the game in seconds
+firstDropDelay is # of seconds before first obj is dropped
+dropPeriod is # of seconds between drops
+maxDropDuration is length of entire drop for slowest-dropping item
+fasterDropDelay is # of seconds before game starts dropping faster
+fasterDropPeriodMult is multiplier of dropPeriod after fasterDropDelay</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.DropScheduler.DropScheduler.doneDropping">
+<span class="sig-name descname"><span class="pre">doneDropping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continuous</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#DropScheduler.doneDropping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.DropScheduler.doneDropping" title="Permalink to this definition"></a></dt>
+<dd><p>returns true if an object would land too late if it were dropped
+right now</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.DropScheduler.DropScheduler.getDropPeriod">
+<span class="sig-name descname"><span class="pre">getDropPeriod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#DropScheduler.getDropPeriod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.DropScheduler.getDropPeriod" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.DropScheduler.DropScheduler.getDuration">
+<span class="sig-name descname"><span class="pre">getDuration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#DropScheduler.getDuration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.DropScheduler.getDuration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.DropScheduler.DropScheduler.getT">
+<span class="sig-name descname"><span class="pre">getT</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#DropScheduler.getT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.DropScheduler.getT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.DropScheduler.DropScheduler.skipPercent">
+<span class="sig-name descname"><span class="pre">skipPercent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#DropScheduler.skipPercent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.DropScheduler.skipPercent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.DropScheduler.DropScheduler.stepT">
+<span class="sig-name descname"><span class="pre">stepT</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#DropScheduler.stepT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.DropScheduler.stepT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.DropScheduler.ThreePhaseDropScheduler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.DropScheduler.</span></span><span class="sig-name descname"><span class="pre">ThreePhaseDropScheduler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gameDuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firstDropDelay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropPeriod</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxDropDuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slowerDropPeriodMult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalDropDelay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasterDropDelay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fasterDropPeriodMult</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">startTime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#ThreePhaseDropScheduler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.ThreePhaseDropScheduler" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minigame.DropScheduler.DropScheduler" title="minigame.DropScheduler.DropScheduler"><code class="xref py py-class docutils literal notranslate"><span class="pre">DropScheduler</span></code></a></p>
+<p>scheduler that supports slow, normal, and fast periods</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.DropScheduler.ThreePhaseDropScheduler.getDropPeriod">
+<span class="sig-name descname"><span class="pre">getDropPeriod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/DropScheduler.html#ThreePhaseDropScheduler.getDropPeriod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.DropScheduler.ThreePhaseDropScheduler.getDropPeriod" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="minigame-fogoverlay-module">
+<h2>minigame.FogOverlay module<a class="headerlink" href="#minigame-fogoverlay-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-icegameglobals-module">
+<h2>minigame.IceGameGlobals module<a class="headerlink" href="#minigame-icegameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-icetreasure-module">
+<h2>minigame.IceTreasure module<a class="headerlink" href="#minigame-icetreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-maze-module">
+<h2>minigame.Maze module<a class="headerlink" href="#minigame-maze-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-mazebase-module">
+<h2>minigame.MazeBase module<a class="headerlink" href="#minigame-mazebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.MazeData">
+<span id="minigame-mazedata-module"></span><h2>minigame.MazeData module<a class="headerlink" href="#module-minigame.MazeData" title="Permalink to this heading"></a></h2>
+<p>MazeData.py: GENERATED FILE, DO NOT EDIT</p>
+</section>
+<section id="minigame-mazegameglobals-module">
+<h2>minigame.MazeGameGlobals module<a class="headerlink" href="#minigame-mazegameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-mazemapgui-module">
+<h2>minigame.MazeMapGui module<a class="headerlink" href="#minigame-mazemapgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-mazesuit-module">
+<h2>minigame.MazeSuit module<a class="headerlink" href="#minigame-mazesuit-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-mazetreasure-module">
+<h2>minigame.MazeTreasure module<a class="headerlink" href="#minigame-mazetreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigameavatarscorepanel-module">
+<h2>minigame.MinigameAvatarScorePanel module<a class="headerlink" href="#minigame-minigameavatarscorepanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigamecreatorai-module">
+<h2>minigame.MinigameCreatorAI module<a class="headerlink" href="#minigame-minigamecreatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigamedebug-module">
+<h2>minigame.MinigameDebug module<a class="headerlink" href="#minigame-minigamedebug-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigamedebugai-module">
+<h2>minigame.MinigameDebugAI module<a class="headerlink" href="#minigame-minigamedebugai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigameglobals-module">
+<h2>minigame.MinigameGlobals module<a class="headerlink" href="#minigame-minigameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigamephysicsworldbase-module">
+<h2>minigame.MinigamePhysicsWorldBase module<a class="headerlink" href="#minigame-minigamephysicsworldbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigamepowermeter-module">
+<h2>minigame.MinigamePowerMeter module<a class="headerlink" href="#minigame-minigamepowermeter-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-minigamerulespanel-module">
+<h2>minigame.MinigameRulesPanel module<a class="headerlink" href="#minigame-minigamerulespanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-movingblock-module">
+<h2>minigame.MovingBlock module<a class="headerlink" href="#minigame-movingblock-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-orthodrive-module">
+<h2>minigame.OrthoDrive module<a class="headerlink" href="#minigame-orthodrive-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-orthowalk-module">
+<h2>minigame.OrthoWalk module<a class="headerlink" href="#minigame-orthowalk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-pairinggamecard-module">
+<h2>minigame.PairingGameCard module<a class="headerlink" href="#minigame-pairinggamecard-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-pairinggameglobals-module">
+<h2>minigame.PairingGameGlobals module<a class="headerlink" href="#minigame-pairinggameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-patterngameglobals-module">
+<h2>minigame.PatternGameGlobals module<a class="headerlink" href="#minigame-patterngameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-patternpad-module">
+<h2>minigame.PatternPad module<a class="headerlink" href="#minigame-patternpad-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-photogamebase-module">
+<h2>minigame.PhotoGameBase module<a class="headerlink" href="#minigame-photogamebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-photogameglobals-module">
+<h2>minigame.PhotoGameGlobals module<a class="headerlink" href="#minigame-photogameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-playingcard-module">
+<h2>minigame.PlayingCard module<a class="headerlink" href="#minigame-playingcard-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-playingcarddeck-module">
+<h2>minigame.PlayingCardDeck module<a class="headerlink" href="#minigame-playingcarddeck-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-playingcardglobals-module">
+<h2>minigame.PlayingCardGlobals module<a class="headerlink" href="#minigame-playingcardglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-purchase-module">
+<h2>minigame.Purchase module<a class="headerlink" href="#minigame-purchase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-purchasebase-module">
+<h2>minigame.PurchaseBase module<a class="headerlink" href="#minigame-purchasebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-racegameglobals-module">
+<h2>minigame.RaceGameGlobals module<a class="headerlink" href="#minigame-racegameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-ring-module">
+<h2>minigame.Ring module<a class="headerlink" href="#minigame-ring-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.RingAction">
+<span id="minigame-ringaction-module"></span><h2>minigame.RingAction module<a class="headerlink" href="#module-minigame.RingAction" title="Permalink to this heading"></a></h2>
+<p>RingAction.py: contains the RingAction class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.RingAction.RingAction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.RingAction.</span></span><span class="sig-name descname"><span class="pre">RingAction</span></span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingAction" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>RingAction abstract base class; should not be used directly</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.RingAction.RingAction.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">float:[0..1]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingAction.eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingAction.eval" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates a ringAction at a normalized (0..1) time t
+returns a normalized (x,y) pair</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minigame.RingAction.RingAction.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#minigame.RingAction.RingAction.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.RingAction.RingActionFunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.RingAction.</span></span><span class="sig-name descname"><span class="pre">RingActionFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingActionFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingActionFunction" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minigame.RingAction.RingAction" title="minigame.RingAction.RingAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">RingAction</span></code></a></p>
+<p>RingActionFunction: specify ring’s motion with a function</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.RingAction.RingActionFunction.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">float:[0..1]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingActionFunction.eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingActionFunction.eval" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates a ringAction at a normalized (0..1) time t
+returns a normalized (x,y) pair</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.RingAction.RingActionRingTrack">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.RingAction.</span></span><span class="sig-name descname"><span class="pre">RingActionRingTrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ringTrack</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingActionRingTrack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingActionRingTrack" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minigame.RingAction.RingAction" title="minigame.RingAction.RingAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">RingAction</span></code></a></p>
+<p>RingActionRingTrack: use a ring track to specify ring’s motion;
+embed a ring track within another ring track</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.RingAction.RingActionRingTrack.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">float:[0..1]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingActionRingTrack.eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingActionRingTrack.eval" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates a ringAction at a normalized (0..1) time t
+returns a normalized (x,y) pair</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.RingAction.RingActionStaticPos">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.RingAction.</span></span><span class="sig-name descname"><span class="pre">RingActionStaticPos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingActionStaticPos"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingActionStaticPos" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#minigame.RingAction.RingAction" title="minigame.RingAction.RingAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">RingAction</span></code></a></p>
+<p>RingActionStaticPos: use for a ring that doesn’t move</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.RingAction.RingActionStaticPos.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">float:[0..1]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingAction.html#RingActionStaticPos.eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingAction.RingActionStaticPos.eval" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates a ringAction at a normalized (0..1) time t
+returns a normalized (x,y) pair</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="minigame-ringgameglobals-module">
+<h2>minigame.RingGameGlobals module<a class="headerlink" href="#minigame-ringgameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-ringgroup-module">
+<h2>minigame.RingGroup module<a class="headerlink" href="#minigame-ringgroup-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.RingTrack">
+<span id="minigame-ringtrack-module"></span><h2>minigame.RingTrack module<a class="headerlink" href="#module-minigame.RingTrack" title="Permalink to this heading"></a></h2>
+<p>RingTrack module: contains the RingTrack class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.RingTrack.RingTrack">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.RingTrack.</span></span><span class="sig-name descname"><span class="pre">RingTrack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actionDurations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseFlag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTrack.html#RingTrack"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTrack.RingTrack" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="minigame.RingTrack.RingTrack.eval">
+<span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self,</span> <span class="pre">float:[0..1]</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTrack.html#RingTrack.eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTrack.RingTrack.eval" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates a ringTrack at a normalized (0..1) time t
+returns a normalized (x,y) pair</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="minigame.RingTrack.RingTrack.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#minigame.RingTrack.RingTrack.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-minigame.RingTrackGroup">
+<span id="minigame-ringtrackgroup-module"></span><h2>minigame.RingTrackGroup module<a class="headerlink" href="#module-minigame.RingTrackGroup" title="Permalink to this heading"></a></h2>
+<p>RingTrackGroup.py: contains RingTrackGroup functions</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="minigame.RingTrackGroup.RingTrackGroup">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">minigame.RingTrackGroup.</span></span><span class="sig-name descname"><span class="pre">RingTrackGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tracks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trackTOffsets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverseFlag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tOffset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTrackGroup.html#RingTrackGroup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTrackGroup.RingTrackGroup" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>RingTrackGroups are groupings of ring tracks to be used with
+RingGroup objects.</p>
+</dd></dl>
+
+</section>
+<section id="minigame-ringtrackgroups-module">
+<h2>minigame.RingTrackGroups module<a class="headerlink" href="#minigame-ringtrackgroups-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.RingTracks">
+<span id="minigame-ringtracks-module"></span><h2>minigame.RingTracks module<a class="headerlink" href="#module-minigame.RingTracks" title="Permalink to this heading"></a></h2>
+<p>RingTracks.py: contains various Ring Game ring tracks</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getCircleRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getCircleRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getCircleRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getCircleRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getHalfDomeRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getHalfDomeRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getHalfDomeRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getHalfDomeRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getHorizontalInfinityRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getHorizontalInfinityRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getHorizontalInfinityRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getHorizontalInfinityRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getHorizontalSlotActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getHorizontalSlotActions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getHorizontalSlotActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getHorizontalSlotActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getPlusDownRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getPlusDownRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getPlusDownRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getPlusDownRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getPlusLeftRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getPlusLeftRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getPlusLeftRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getPlusLeftRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getPlusRightRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getPlusRightRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getPlusRightRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getPlusRightRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getPlusUpRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getPlusUpRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getPlusUpRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getPlusUpRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getSquareRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getSquareRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getSquareRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getSquareRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getVerticalInfinityRingActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getVerticalInfinityRingActions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getVerticalInfinityRingActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getVerticalInfinityRingActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.getVerticalSlotActions">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">getVerticalSlotActions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#getVerticalSlotActions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.getVerticalSlotActions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.ringClerp">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">ringClerp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#ringClerp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.ringClerp" title="Permalink to this definition"></a></dt>
+<dd><p>cubically lerps between two 2d points; a,b are pairs: (x,y)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="minigame.RingTracks.ringLerp">
+<span class="sig-prename descclassname"><span class="pre">minigame.RingTracks.</span></span><span class="sig-name descname"><span class="pre">ringLerp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/minigame/RingTracks.html#ringLerp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#minigame.RingTracks.ringLerp" title="Permalink to this definition"></a></dt>
+<dd><p>lerps between two 2d points; a,b are pairs: (x,y)</p>
+</dd></dl>
+
+</section>
+<section id="minigame-rubberband-module">
+<h2>minigame.RubberBand module<a class="headerlink" href="#minigame-rubberband-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-swingvine-module">
+<h2>minigame.SwingVine module<a class="headerlink" href="#minigame-swingvine-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.TagGameGlobals">
+<span id="minigame-taggameglobals-module"></span><h2>minigame.TagGameGlobals module<a class="headerlink" href="#module-minigame.TagGameGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-tagtreasureplannerai-module">
+<h2>minigame.TagTreasurePlannerAI module<a class="headerlink" href="#minigame-tagtreasureplannerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-targetgameglobals-module">
+<h2>minigame.TargetGameGlobals module<a class="headerlink" href="#minigame-targetgameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-tempminigameai-module">
+<h2>minigame.TempMinigameAI module<a class="headerlink" href="#minigame-tempminigameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-toonblitzassetmgr-module">
+<h2>minigame.ToonBlitzAssetMgr module<a class="headerlink" href="#minigame-toonblitzassetmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-toonblitzglobals-module">
+<h2>minigame.ToonBlitzGlobals module<a class="headerlink" href="#minigame-toonblitzglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-trajectory-module">
+<h2>minigame.Trajectory module<a class="headerlink" href="#minigame-trajectory-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.TravelGameGlobals">
+<span id="minigame-travelgameglobals-module"></span><h2>minigame.TravelGameGlobals module<a class="headerlink" href="#module-minigame.TravelGameGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-treasurescorepanel-module">
+<h2>minigame.TreasureScorePanel module<a class="headerlink" href="#minigame-treasurescorepanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-trolleyholidaymgrai-module">
+<h2>minigame.TrolleyHolidayMgrAI module<a class="headerlink" href="#minigame-trolleyholidaymgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-trolleyweekendmgrai-module">
+<h2>minigame.TrolleyWeekendMgrAI module<a class="headerlink" href="#minigame-trolleyweekendmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame.TugOfWarGameGlobals">
+<span id="minigame-tugofwargameglobals-module"></span><h2>minigame.TugOfWarGameGlobals module<a class="headerlink" href="#module-minigame.TugOfWarGameGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodbattlemgr-module">
+<h2>minigame.TwoDBattleMgr module<a class="headerlink" href="#minigame-twodbattlemgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodblock-module">
+<h2>minigame.TwoDBlock module<a class="headerlink" href="#minigame-twodblock-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodcamera-module">
+<h2>minigame.TwoDCamera module<a class="headerlink" href="#minigame-twodcamera-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twoddrive-module">
+<h2>minigame.TwoDDrive module<a class="headerlink" href="#minigame-twoddrive-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodenemy-module">
+<h2>minigame.TwoDEnemy module<a class="headerlink" href="#minigame-twodenemy-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodenemymgr-module">
+<h2>minigame.TwoDEnemyMgr module<a class="headerlink" href="#minigame-twodenemymgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodgametoonsd-module">
+<h2>minigame.TwoDGameToonSD module<a class="headerlink" href="#minigame-twodgametoonsd-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodsection-module">
+<h2>minigame.TwoDSection module<a class="headerlink" href="#minigame-twodsection-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodsectionmgr-module">
+<h2>minigame.TwoDSectionMgr module<a class="headerlink" href="#minigame-twodsectionmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodspawnpointmgr-module">
+<h2>minigame.TwoDSpawnPointMgr module<a class="headerlink" href="#minigame-twodspawnpointmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodstomper-module">
+<h2>minigame.TwoDStomper module<a class="headerlink" href="#minigame-twodstomper-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodstompermgr-module">
+<h2>minigame.TwoDStomperMgr module<a class="headerlink" href="#minigame-twodstompermgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodtreasure-module">
+<h2>minigame.TwoDTreasure module<a class="headerlink" href="#minigame-twodtreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodtreasuremgr-module">
+<h2>minigame.TwoDTreasureMgr module<a class="headerlink" href="#minigame-twodtreasuremgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-twodwalk-module">
+<h2>minigame.TwoDWalk module<a class="headerlink" href="#minigame-twodwalk-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-vinebat-module">
+<h2>minigame.VineBat module<a class="headerlink" href="#minigame-vinebat-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-vinegameglobals-module">
+<h2>minigame.VineGameGlobals module<a class="headerlink" href="#minigame-vinegameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-vineheadframe-module">
+<h2>minigame.VineHeadFrame module<a class="headerlink" href="#minigame-vineheadframe-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-vinespider-module">
+<h2>minigame.VineSpider module<a class="headerlink" href="#minigame-vinespider-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-vinetreasure-module">
+<h2>minigame.VineTreasure module<a class="headerlink" href="#minigame-vinetreasure-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-voteresultspanel-module">
+<h2>minigame.VoteResultsPanel module<a class="headerlink" href="#minigame-voteresultspanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-voteresultstrolleypanel-module">
+<h2>minigame.VoteResultsTrolleyPanel module<a class="headerlink" href="#minigame-voteresultstrolleypanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="minigame-skyholder-module">
+<h2>minigame.skyHolder module<a class="headerlink" href="#minigame-skyholder-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-minigame">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-minigame" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="makeatoon.html" class="btn btn-neutral float-left" title="makeatoon package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parties.html" class="btn btn-neutral float-right" title="parties package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

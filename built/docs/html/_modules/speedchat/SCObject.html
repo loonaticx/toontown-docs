@@ -1,0 +1,189 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>speedchat.SCObject &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">speedchat.SCObject</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for speedchat.SCObject</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;SCObject.py: contains the SCObject class&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">direct.directnotify</span> <span class="kn">import</span> <span class="n">DirectNotifyGlobal</span>
+<span class="kn">from</span> <span class="nn">direct.showbase.DirectObject</span> <span class="kn">import</span> <span class="n">DirectObject</span>
+
+<div class="viewcode-block" id="SCObject"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject">[docs]</a><span class="k">class</span> <span class="nc">SCObject</span><span class="p">(</span><span class="n">DirectObject</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; SCObject is the base class for all entities that make up a</span>
+<span class="sd">    SpeedChat tree. &quot;&quot;&quot;</span>
+
+    <span class="n">notify</span> <span class="o">=</span> <span class="n">DirectNotifyGlobal</span><span class="o">.</span><span class="n">directNotify</span><span class="o">.</span><span class="n">newCategory</span><span class="p">(</span><span class="s1">&#39;SpeedChat&#39;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__visible</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dirty</span> <span class="o">=</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="SCObject.destroy"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.destroy">[docs]</a>    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ignoreAll</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isVisible</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exitVisible</span><span class="p">()</span></div>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; The owner of this SCObject should call enter/exitVisible when</span>
+<span class="sd">    this object appears on screen and no longer appears on the screen,</span>
+<span class="sd">    respectively. Derived classes can override these functions and</span>
+<span class="sd">    perform the appropriate actions &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="SCObject.enterVisible"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.enterVisible">[docs]</a>    <span class="k">def</span> <span class="nf">enterVisible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#print(&#39;enterVisible: %s&#39; % self)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__visible</span> <span class="o">=</span> <span class="mi">1</span></div>
+<div class="viewcode-block" id="SCObject.exitVisible"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.exitVisible">[docs]</a>    <span class="k">def</span> <span class="nf">exitVisible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#print(&#39;exitVisible: %s&#39; % self)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__visible</span> <span class="o">=</span> <span class="mi">0</span></div>
+<div class="viewcode-block" id="SCObject.isVisible"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.isVisible">[docs]</a>    <span class="k">def</span> <span class="nf">isVisible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__visible</span></div>
+
+    <span class="c1"># call &#39;invalidate&#39; to indicate that the appearance of this object</span>
+    <span class="c1"># has changed, such that it needs to rebuild itself before being shown</span>
+<div class="viewcode-block" id="SCObject.invalidate"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.invalidate">[docs]</a>    <span class="k">def</span> <span class="nf">invalidate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dirty</span> <span class="o">=</span> <span class="mi">1</span></div>
+<div class="viewcode-block" id="SCObject.isDirty"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.isDirty">[docs]</a>    <span class="k">def</span> <span class="nf">isDirty</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dirty</span></div>
+<div class="viewcode-block" id="SCObject.validate"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.validate">[docs]</a>    <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__dirty</span> <span class="o">=</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="SCObject.finalize"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.finalize">[docs]</a>    <span class="k">def</span> <span class="nf">finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; subclasses should override this function and perform whatever</span>
+<span class="sd">        processing is necessary to &#39;finalize&#39; the appearance of this</span>
+<span class="sd">        object so that it&#39;s ready to be displayed &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="SCObject.getEventName"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.getEventName">[docs]</a>    <span class="k">def</span> <span class="nf">getEventName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; the names of all events that pertain to a specific SpeedChat</span>
+<span class="sd">        object should come from this function &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span><span class="o">.</span><span class="n">eventPrefix</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SCObject.getColorScheme"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.getColorScheme">[docs]</a>    <span class="k">def</span> <span class="nf">getColorScheme</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span><span class="o">.</span><span class="n">colorScheme</span></div>
+
+<div class="viewcode-block" id="SCObject.isWhispering"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.isWhispering">[docs]</a>    <span class="k">def</span> <span class="nf">isWhispering</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span><span class="o">.</span><span class="n">whisperMode</span></div>
+
+<div class="viewcode-block" id="SCObject.getSubmenuOverlap"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.getSubmenuOverlap">[docs]</a>    <span class="k">def</span> <span class="nf">getSubmenuOverlap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span><span class="o">.</span><span class="n">submenuOverlap</span></div>
+
+<div class="viewcode-block" id="SCObject.getTopLevelOverlap"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.getTopLevelOverlap">[docs]</a>    <span class="k">def</span> <span class="nf">getTopLevelOverlap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span><span class="o">.</span><span class="n">topLevelOverlap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">getSubmenuOverlap</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span><span class="o">.</span><span class="n">topLevelOverlap</span></div>
+
+<div class="viewcode-block" id="SCObject.privSetSettingsRef"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.privSetSettingsRef">[docs]</a>    <span class="k">def</span> <span class="nf">privSetSettingsRef</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">settingsRef</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Subclasses that contain nested SCObjects are responsible for</span>
+<span class="sd">        overriding this function, calling it for all of their children,</span>
+<span class="sd">        and calling this function. This propogates the reference through</span>
+<span class="sd">        the entire tree. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span> <span class="o">=</span> <span class="n">settingsRef</span></div>
+
+<div class="viewcode-block" id="SCObject.privAdoptSCObject"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.privAdoptSCObject">[docs]</a>    <span class="k">def</span> <span class="nf">privAdoptSCObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scObj</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Subclasses that contain nested SCObjects must call this</span>
+<span class="sd">        function whenever they gain a new child, with a reference to</span>
+<span class="sd">        the new child. &quot;&quot;&quot;</span>
+        <span class="n">scObj</span><span class="o">.</span><span class="n">privSetSettingsRef</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">settingsRef</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SCObject.invalidateAll"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.invalidateAll">[docs]</a>    <span class="k">def</span> <span class="nf">invalidateAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; inheritors should call down to this function, and also call</span>
+<span class="sd">        invalidateAll for all of their child objects &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">invalidate</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="SCObject.finalizeAll"><a class="viewcode-back" href="../../otp/speedchat.html#speedchat.SCObject.SCObject.finalizeAll">[docs]</a>    <span class="k">def</span> <span class="nf">finalizeAll</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; inheritors should call down to this function, and also call</span>
+<span class="sd">        finalizeAll for all of their child objects &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">finalize</span><span class="p">()</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

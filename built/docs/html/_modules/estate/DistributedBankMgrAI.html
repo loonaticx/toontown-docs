@@ -1,0 +1,187 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>estate.DistributedBankMgrAI &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">estate.DistributedBankMgrAI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for estate.DistributedBankMgrAI</h1><div class="highlight"><pre>
+<span></span>
+<span class="kn">from</span> <span class="nn">direct.distributed</span> <span class="kn">import</span> <span class="n">DistributedObjectAI</span>
+<span class="kn">from</span> <span class="nn">direct.directnotify</span> <span class="kn">import</span> <span class="n">DirectNotifyGlobal</span>
+
+<div class="viewcode-block" id="DistributedBankMgrAI"><a class="viewcode-back" href="../../toontown/estate.html#estate.DistributedBankMgrAI.DistributedBankMgrAI">[docs]</a><span class="k">class</span> <span class="nc">DistributedBankMgrAI</span><span class="p">(</span><span class="n">DistributedObjectAI</span><span class="o">.</span><span class="n">DistributedObjectAI</span><span class="p">):</span>
+
+    <span class="n">notify</span> <span class="o">=</span> <span class="n">DirectNotifyGlobal</span><span class="o">.</span><span class="n">directNotify</span><span class="o">.</span><span class="n">newCategory</span><span class="p">(</span><span class="s1">&#39;DistributedBankMgrAI&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">air</span><span class="p">):</span>
+        <span class="n">DistributedObjectAI</span><span class="o">.</span><span class="n">DistributedObjectAI</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">air</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DistributedBankMgrAI.transferMoneyForAv"><a class="viewcode-back" href="../../toontown/estate.html#estate.DistributedBankMgrAI.DistributedBankMgrAI.transferMoneyForAv">[docs]</a>    <span class="k">def</span> <span class="nf">transferMoneyForAv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">av</span><span class="p">):</span>
+        <span class="c1"># This is meant to be called by the AI on the avatar&#39;s behalf</span>
+        <span class="c1"># See transferMoney for a message the client is allowed to send</span>
+
+        <span class="c1"># TODO: we should check the zone the avatar is in here. We may want to</span>
+        <span class="c1"># limit where clients can send this message from, for instance only in</span>
+        <span class="c1"># their house or at the bank, especially in the case of the withdraw</span>
+
+        <span class="n">avId</span> <span class="o">=</span> <span class="n">av</span><span class="o">.</span><span class="n">getDoId</span><span class="p">()</span>
+
+        <span class="c1"># See what this avatar has now</span>
+        <span class="n">walletBalance</span> <span class="o">=</span> <span class="n">av</span><span class="o">.</span><span class="n">getMoney</span><span class="p">()</span>
+        <span class="n">maxWalletBalance</span> <span class="o">=</span> <span class="n">av</span><span class="o">.</span><span class="n">getMaxMoney</span><span class="p">()</span>
+        <span class="n">bankBalance</span> <span class="o">=</span> <span class="n">av</span><span class="o">.</span><span class="n">getBankMoney</span><span class="p">()</span>
+        <span class="n">maxBankBalance</span> <span class="o">=</span> <span class="n">av</span><span class="o">.</span><span class="n">getMaxBankMoney</span><span class="p">()</span>
+
+        <span class="c1"># Deposit</span>
+        <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">amount</span> <span class="o">&gt;</span> <span class="n">walletBalance</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;DistributedBankMgr.transferMoneyForAv deposit more than wallet&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;av </span><span class="si">%s</span><span class="s2"> tried to deposit more than he was holding&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">amount</span> <span class="o">+</span> <span class="n">bankBalance</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">maxBankBalance</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;DistributedBankMgr.transferMoneyForAv deposit more than bank limit&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;av </span><span class="si">%s</span><span class="s2"> tried to deposit more than his bank can hold&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Everything checked out, actually do the transaction</span>
+                <span class="c1"># Would be nice if this was atomic, but they are two separate</span>
+                <span class="c1"># database fields. Just update them both now</span>
+                <span class="n">av</span><span class="o">.</span><span class="n">b_setMoney</span><span class="p">(</span><span class="n">walletBalance</span> <span class="o">-</span> <span class="n">amount</span><span class="p">)</span>
+                <span class="n">av</span><span class="o">.</span><span class="n">b_setBankMoney</span><span class="p">(</span><span class="n">bankBalance</span> <span class="o">+</span> <span class="n">amount</span><span class="p">)</span>
+                <span class="c1"># Debug the new values</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;av </span><span class="si">%s</span><span class="s2"> completed transfer: </span><span class="si">%s</span><span class="s2">, oldWallet: </span><span class="si">%s</span><span class="s2">, newWallet: </span><span class="si">%s</span><span class="s2">, maxWallet: </span><span class="si">%s</span><span class="s2"> -- oldBank: </span><span class="si">%s</span><span class="s2">, newBank: </span><span class="si">%s</span><span class="s2">, maxBank: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                                  <span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span>
+                                   <span class="n">walletBalance</span><span class="p">,</span> <span class="n">av</span><span class="o">.</span><span class="n">getMoney</span><span class="p">(),</span> <span class="n">maxWalletBalance</span><span class="p">,</span>
+                                   <span class="n">bankBalance</span><span class="p">,</span> <span class="n">av</span><span class="o">.</span><span class="n">getBankMoney</span><span class="p">(),</span> <span class="n">maxBankBalance</span><span class="p">))</span>
+                <span class="k">return</span> <span class="mi">1</span>
+
+        <span class="c1"># Withdraw</span>
+        <span class="k">elif</span> <span class="n">amount</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">bankBalance</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;DistributedBankMgr.transferMoneyForAv withdraw more than bank&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;av </span><span class="si">%s</span><span class="s2"> tried to withdraw more than was in bank&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">+</span> <span class="n">walletBalance</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">maxWalletBalance</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;DistributedBankMgr.transferMoneyForAv withdraw more than limit&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;av </span><span class="si">%s</span><span class="s2"> tried to withdraw more than he can hold&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+                <span class="k">return</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Everything checked out, actually do the transaction</span>
+                <span class="c1"># Would be nice if this was atomic, but they are two separate</span>
+                <span class="c1"># database fields. Just update them both now</span>
+                <span class="n">av</span><span class="o">.</span><span class="n">b_setMoney</span><span class="p">(</span><span class="n">walletBalance</span> <span class="o">-</span> <span class="n">amount</span><span class="p">)</span>
+                <span class="n">av</span><span class="o">.</span><span class="n">b_setBankMoney</span><span class="p">(</span><span class="n">bankBalance</span> <span class="o">+</span> <span class="n">amount</span><span class="p">)</span>
+                <span class="c1"># Debug the new values</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;av </span><span class="si">%s</span><span class="s2"> completed transfer: </span><span class="si">%s</span><span class="s2">, oldWallet: </span><span class="si">%s</span><span class="s2">, newWallet: </span><span class="si">%s</span><span class="s2">, maxWallet: </span><span class="si">%s</span><span class="s2"> -- oldBank: </span><span class="si">%s</span><span class="s2">, newBank: </span><span class="si">%s</span><span class="s2">, maxBank: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+                                  <span class="p">(</span><span class="n">avId</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span>
+                                   <span class="n">walletBalance</span><span class="p">,</span> <span class="n">av</span><span class="o">.</span><span class="n">getMoney</span><span class="p">(),</span> <span class="n">maxWalletBalance</span><span class="p">,</span>
+                                   <span class="n">bankBalance</span><span class="p">,</span> <span class="n">av</span><span class="o">.</span><span class="n">getBankMoney</span><span class="p">(),</span> <span class="n">maxBankBalance</span><span class="p">))</span>
+                <span class="k">return</span> <span class="mi">1</span>
+                
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># amount was 0, nothing to do here</span>
+            <span class="k">return</span> <span class="mi">1</span>        </div>
+
+<div class="viewcode-block" id="DistributedBankMgrAI.transferMoney"><a class="viewcode-back" href="../../toontown/estate.html#estate.DistributedBankMgrAI.DistributedBankMgrAI.transferMoney">[docs]</a>    <span class="k">def</span> <span class="nf">transferMoney</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="c1"># A client would like to transfer money to or from his bank</span>
+        <span class="c1"># A positive amount is a deposit to the bank, a negative</span>
+        <span class="c1"># amount represents a withdrawal</span>
+        <span class="c1"># This is called as a distributed message from the client</span>
+        <span class="n">avId</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">getAvatarIdFromSender</span><span class="p">()</span>
+        <span class="n">av</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">doId2do</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">av</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;DistributedBankMgr.transferMoney unknown avatar&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;av </span><span class="si">%s</span><span class="s2"> not in doId2do tried to transfer money&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">avId</span><span class="p">))</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transferMoneyForAv</span><span class="p">(</span><span class="n">amount</span><span class="p">,</span> <span class="n">av</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

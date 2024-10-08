@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>golf package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="hood package" href="hood.html" />
+    <link rel="prev" title="friends package" href="friends.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">golf package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-buildgeometry-module">golf.BuildGeometry module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedgolfcourse-module">golf.DistributedGolfCourse module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedgolfcourseai-module">golf.DistributedGolfCourseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedgolfentrance-module">golf.DistributedGolfEntrance module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedgolfentranceai-module">golf.DistributedGolfEntranceAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedgolfhole-module">golf.DistributedGolfHole module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedgolfholeai-module">golf.DistributedGolfHoleAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedphysicsworld-module">golf.DistributedPhysicsWorld module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedphysicsworldai-module">golf.DistributedPhysicsWorldAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-distributedphysicsworldbase-module">golf.DistributedPhysicsWorldBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-golf.GolfGlobals">golf.GolfGlobals module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#golf.GolfGlobals.calcCupListFromHistory"><code class="docutils literal notranslate"><span class="pre">calcCupListFromHistory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#golf.GolfGlobals.calcTrophyListFromHistory"><code class="docutils literal notranslate"><span class="pre">calcTrophyListFromHistory()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#golf.GolfGlobals.getCourseName"><code class="docutils literal notranslate"><span class="pre">getCourseName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#golf.GolfGlobals.getHistoryIndexForTrophy"><code class="docutils literal notranslate"><span class="pre">getHistoryIndexForTrophy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#golf.GolfGlobals.getHoleName"><code class="docutils literal notranslate"><span class="pre">getHoleName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#golf.GolfGlobals.packGolfHoleBest"><code class="docutils literal notranslate"><span class="pre">packGolfHoleBest()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#golf.GolfGlobals.unpackGolfHoleBest"><code class="docutils literal notranslate"><span class="pre">unpackGolfHoleBest()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-golfholebase-module">golf.GolfHoleBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-golfmanagerai-module">golf.GolfManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-golfrewarddialog-module">golf.GolfRewardDialog module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-golfscoreboard-module">golf.GolfScoreBoard module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#golf-physicsworldbase-module">golf.PhysicsWorldBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-golf">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">golf package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/golf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="golf-package">
+<h1>golf package<a class="headerlink" href="#golf-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-buildgeometry-module">
+<h2>golf.BuildGeometry module<a class="headerlink" href="#golf-buildgeometry-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedgolfcourse-module">
+<h2>golf.DistributedGolfCourse module<a class="headerlink" href="#golf-distributedgolfcourse-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedgolfcourseai-module">
+<h2>golf.DistributedGolfCourseAI module<a class="headerlink" href="#golf-distributedgolfcourseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedgolfentrance-module">
+<h2>golf.DistributedGolfEntrance module<a class="headerlink" href="#golf-distributedgolfentrance-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedgolfentranceai-module">
+<h2>golf.DistributedGolfEntranceAI module<a class="headerlink" href="#golf-distributedgolfentranceai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedgolfhole-module">
+<h2>golf.DistributedGolfHole module<a class="headerlink" href="#golf-distributedgolfhole-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedgolfholeai-module">
+<h2>golf.DistributedGolfHoleAI module<a class="headerlink" href="#golf-distributedgolfholeai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedphysicsworld-module">
+<h2>golf.DistributedPhysicsWorld module<a class="headerlink" href="#golf-distributedphysicsworld-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedphysicsworldai-module">
+<h2>golf.DistributedPhysicsWorldAI module<a class="headerlink" href="#golf-distributedphysicsworldai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-distributedphysicsworldbase-module">
+<h2>golf.DistributedPhysicsWorldBase module<a class="headerlink" href="#golf-distributedphysicsworldbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-golf.GolfGlobals">
+<span id="golf-golfglobals-module"></span><h2>golf.GolfGlobals module<a class="headerlink" href="#module-golf.GolfGlobals" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="golf.GolfGlobals.calcCupListFromHistory">
+<span class="sig-prename descclassname"><span class="pre">golf.GolfGlobals.</span></span><span class="sig-name descname"><span class="pre">calcCupListFromHistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/golf/GolfGlobals.html#calcCupListFromHistory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#golf.GolfGlobals.calcCupListFromHistory" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of booleans, with True meaning he has the cup.</p>
+<p>The first item (index 0)is for 10 trophies won. next is 20 trophies won.
+Last item is for 30 trophies won.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="golf.GolfGlobals.calcTrophyListFromHistory">
+<span class="sig-prename descclassname"><span class="pre">golf.GolfGlobals.</span></span><span class="sig-name descname"><span class="pre">calcTrophyListFromHistory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/golf/GolfGlobals.html#calcTrophyListFromHistory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#golf.GolfGlobals.calcTrophyListFromHistory" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of booleans, with True meaning he has trophy.</p>
+<p>The first item (index 0) is for 4 courses completed.
+Last item is for 100 course two wins.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="golf.GolfGlobals.getCourseName">
+<span class="sig-prename descclassname"><span class="pre">golf.GolfGlobals.</span></span><span class="sig-name descname"><span class="pre">getCourseName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">courseId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/golf/GolfGlobals.html#getCourseName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#golf.GolfGlobals.getCourseName" title="Permalink to this definition"></a></dt>
+<dd><p>Return the name of the course.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="golf.GolfGlobals.getHistoryIndexForTrophy">
+<span class="sig-prename descclassname"><span class="pre">golf.GolfGlobals.</span></span><span class="sig-name descname"><span class="pre">getHistoryIndexForTrophy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trophyIndex</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/golf/GolfGlobals.html#getHistoryIndexForTrophy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#golf.GolfGlobals.getHistoryIndexForTrophy" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the corresponding history the trophy is based on. -1 on error.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="golf.GolfGlobals.getHoleName">
+<span class="sig-prename descclassname"><span class="pre">golf.GolfGlobals.</span></span><span class="sig-name descname"><span class="pre">getHoleName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">holeId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/golf/GolfGlobals.html#getHoleName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#golf.GolfGlobals.getHoleName" title="Permalink to this definition"></a></dt>
+<dd><p>Return the name of the hole.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="golf.GolfGlobals.packGolfHoleBest">
+<span class="sig-prename descclassname"><span class="pre">golf.GolfGlobals.</span></span><span class="sig-name descname"><span class="pre">packGolfHoleBest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">holeBest</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/golf/GolfGlobals.html#packGolfHoleBest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#golf.GolfGlobals.packGolfHoleBest" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a packed version of the holeBest uint8 list.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="golf.GolfGlobals.unpackGolfHoleBest">
+<span class="sig-prename descclassname"><span class="pre">golf.GolfGlobals.</span></span><span class="sig-name descname"><span class="pre">unpackGolfHoleBest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packedHoleBest</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/golf/GolfGlobals.html#unpackGolfHoleBest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#golf.GolfGlobals.unpackGolfHoleBest" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an unpacked version of the holeBest uint8 list.</p>
+</dd></dl>
+
+</section>
+<section id="golf-golfholebase-module">
+<h2>golf.GolfHoleBase module<a class="headerlink" href="#golf-golfholebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-golfmanagerai-module">
+<h2>golf.GolfManagerAI module<a class="headerlink" href="#golf-golfmanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-golfrewarddialog-module">
+<h2>golf.GolfRewardDialog module<a class="headerlink" href="#golf-golfrewarddialog-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-golfscoreboard-module">
+<h2>golf.GolfScoreBoard module<a class="headerlink" href="#golf-golfscoreboard-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="golf-physicsworldbase-module">
+<h2>golf.PhysicsWorldBase module<a class="headerlink" href="#golf-physicsworldbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-golf">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-golf" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="friends.html" class="btn btn-neutral float-left" title="friends package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="hood.html" class="btn btn-neutral float-right" title="hood package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

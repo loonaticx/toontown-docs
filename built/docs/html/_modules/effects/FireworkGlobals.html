@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>effects.FireworkGlobals &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">effects.FireworkGlobals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for effects.FireworkGlobals</h1><div class="highlight"><pre>
+<span></span>
+<span class="c1"># Indicies into show desciptors</span>
+<span class="n">FW_T</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">FW_STYLE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FW_COLOR1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">FW_COLOR2</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">FW_AMP</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">FW_POS_X</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">FW_POS_Y</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">FW_POS_Z</span> <span class="o">=</span> <span class="mi">7</span>
+
+
+<span class="c1"># Firework styles</span>
+<span class="n">CIRCLE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ROCKET</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">RING</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">CIRCLELARGE</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">CIRCLESMALL</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">POP</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">CIRCLESPRITE</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="c1"># For the editor to print out a show</span>
+<span class="n">styleNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CIRCLE&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;ROCKET&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;RING&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;CIRCLELARGE&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;CIRCLESMALL&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;POP&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;CIRCLESPRITE&#39;</span><span class="p">]</span>
+
+<span class="n">styleNamesShort</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CIR&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;RKT&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;RNG&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;CLG&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;CSM&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;POP&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;SPR&#39;</span><span class="p">]</span>
+
+<span class="c1"># Firework descriptions, for the gui labels</span>
+<span class="n">Names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pow&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;Rocket&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;Ring&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;Large</span><span class="se">\n</span><span class="s2">Pow&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;Small</span><span class="se">\n</span><span class="s2">Pow&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;Pop&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;Widow</span><span class="se">\n</span><span class="s2">Maker&quot;</span><span class="p">,</span>
+         <span class="p">]</span>
+         
+<span class="c1"># Firework colors</span>
+<span class="n">WHITE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">RED</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">BLUE</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">YELLOW</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">GREEN</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">PINK</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">PURPLE</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">CYAN</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">PEACH</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="n">ColorNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;White&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Red&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Blue&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Yellow&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Green&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Pink&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Purple&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Cyan&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Peach&#39;</span><span class="p">]</span>
+
+<span class="c1"># Firework sprite models (textures)</span>
+<span class="n">SNOWFLAKE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">MUSICNOTE</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">FLOWER</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ICECREAM</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">STARFISH</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">ZZZ</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">skyTransitionDuration</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="c1"># duration (in seconds) of sky color</span>
+                            <span class="c1"># transition from light to dark or</span>
+                            <span class="c1"># vice versa</span>
+<span class="n">preShowPauseDuration</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="c1"># duration of pause between sky</span>
+                           <span class="c1"># darkening and when the actual show</span>
+                           <span class="c1"># starts (in seconds)</span>
+<span class="n">postShowPauseDuration</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="c1"># duration of pause between when show</span>
+                            <span class="c1"># ends and when sky returns to normal</span>
+                            <span class="c1"># daylight color</span>
+<span class="n">preNormalMusicPauseDuration</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># wait this long (in seconds) </span>
+                                  <span class="c1"># after sky has returned to</span>
+                                  <span class="c1"># normal to play the default</span>
+                                  <span class="c1"># music </span>
+
+<div class="viewcode-block" id="FireworkTrailType"><a class="viewcode-back" href="../../toontown/effects.html#effects.FireworkGlobals.FireworkTrailType">[docs]</a><span class="k">class</span> <span class="nc">FireworkTrailType</span><span class="p">:</span>
+    <span class="n">Default</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Polygonal</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">Glow</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">Sparkle</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">GlowSparkle</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">LongSparkle</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">LongGlowSparkle</span> <span class="o">=</span> <span class="mi">6</span></div>
+
+<div class="viewcode-block" id="FireworkBurstType"><a class="viewcode-back" href="../../toontown/effects.html#effects.FireworkGlobals.FireworkBurstType">[docs]</a><span class="k">class</span> <span class="nc">FireworkBurstType</span><span class="p">:</span>
+    <span class="n">Sparkles</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">PeonyShell</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">PeonyParticleShell</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">PeonyDiademShell</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">ChrysanthemumShell</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">ChrysanthemumDiademShell</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">RingShell</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">SaturnShell</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">BeeShell</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">SkullBlast</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">TrailExplosion</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">IceCream</span> <span class="o">=</span> <span class="mi">11</span></div>
+
+<div class="viewcode-block" id="FireworkType"><a class="viewcode-back" href="../../toontown/effects.html#effects.FireworkGlobals.FireworkType">[docs]</a><span class="k">class</span> <span class="nc">FireworkType</span><span class="p">:</span>
+    <span class="n">BasicPeony</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">AdvancedPeony</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">DiademPeony</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">Chrysanthemum</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">DiademChrysanthemum</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">Ring</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">Saturn</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">Bees</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">TrailBurst</span> <span class="o">=</span> <span class="mi">8</span>
+    <span class="n">GlowFlare</span> <span class="o">=</span> <span class="mi">9</span>
+    <span class="n">PalmTree</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">Mickey</span> <span class="o">=</span> <span class="mi">11</span>
+    <span class="n">PirateSkull</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="n">AmericanFlag</span> <span class="o">=</span> <span class="mi">13</span>
+    <span class="n">IceCream</span> <span class="o">=</span> <span class="mi">14</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

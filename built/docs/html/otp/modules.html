@@ -1,0 +1,1097 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>otp &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ai package" href="ai.html" />
+    <link rel="prev" title="uberdog package" href="../toontown/uberdog.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">otp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html">level package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">navigation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html">otpbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">otp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="otp">
+<h1>otp<a class="headerlink" href="#otp" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ai.html">ai package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-aibase-module">ai.AIBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-aibaseglobal-module">ai.AIBaseGlobal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-aidistrict-module">ai.AIDistrict module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#module-ai.AIInterestHandles">ai.AIInterestHandles module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-aimsgtypes-module">ai.AIMsgTypes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-airepository-module">ai.AIRepository module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-aizonedata-module">ai.AIZoneData module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-banmanagerai-module">ai.BanManagerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-barrier-module">ai.Barrier module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#module-ai.GarbageLeakServerEventAggregator">ai.GarbageLeakServerEventAggregator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ai.html#ai.GarbageLeakServerEventAggregator.GarbageLeakServerEventAggregator"><code class="docutils literal notranslate"><span class="pre">GarbageLeakServerEventAggregator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ai.html#ai.GarbageLeakServerEventAggregator.GarbageLeakServerEventAggregator.destroy"><code class="docutils literal notranslate"><span class="pre">GarbageLeakServerEventAggregator.destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-garbageleakservereventaggregatorai-module">ai.GarbageLeakServerEventAggregatorAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-globaldistributedclassai-module">ai.GlobalDistributedClassAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-magicwordmanager-module">ai.MagicWordManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-magicwordmanagerai-module">ai.MagicWordManagerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-showbaseai-module">ai.ShowBaseAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-timemanager-module">ai.TimeManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#ai-timemanagerai-module">ai.TimeManagerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ai.html#module-ai">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="avatar.html">avatar package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-avatar-module">avatar.Avatar module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-avatardna-module">avatar.AvatarDNA module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-avatardetail-module">avatar.AvatarDetail module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#module-avatar.AvatarHandle">avatar.AvatarHandle module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="avatar.html#avatar.AvatarHandle.AvatarHandle"><code class="docutils literal notranslate"><span class="pre">AvatarHandle</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.AvatarHandle.AvatarHandle.dclassName"><code class="docutils literal notranslate"><span class="pre">AvatarHandle.dclassName</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.AvatarHandle.AvatarHandle.getName"><code class="docutils literal notranslate"><span class="pre">AvatarHandle.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.AvatarHandle.AvatarHandle.isOnline"><code class="docutils literal notranslate"><span class="pre">AvatarHandle.isOnline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.AvatarHandle.AvatarHandle.isUnderstandable"><code class="docutils literal notranslate"><span class="pre">AvatarHandle.isUnderstandable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.AvatarHandle.AvatarHandle.setTalkWhisper"><code class="docutils literal notranslate"><span class="pre">AvatarHandle.setTalkWhisper()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-avatarpanel-module">avatar.AvatarPanel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-distributedavatar-module">avatar.DistributedAvatar module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-distributedavatarai-module">avatar.DistributedAvatarAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-distributedavatarud-module">avatar.DistributedAvatarUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-distributedplayer-module">avatar.DistributedPlayer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-distributedplayerai-module">avatar.DistributedPlayerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-emote-module">avatar.Emote module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-localavatar-module">avatar.LocalAvatar module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#module-avatar.PlayerBase">avatar.PlayerBase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="avatar.html#avatar.PlayerBase.PlayerBase"><code class="docutils literal notranslate"><span class="pre">PlayerBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.PlayerBase.PlayerBase.atLocation"><code class="docutils literal notranslate"><span class="pre">PlayerBase.atLocation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.PlayerBase.PlayerBase.getLocation"><code class="docutils literal notranslate"><span class="pre">PlayerBase.getLocation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.PlayerBase.PlayerBase.isGM"><code class="docutils literal notranslate"><span class="pre">PlayerBase.isGM()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="avatar.html#avatar.PlayerBase.PlayerBase.setAsGM"><code class="docutils literal notranslate"><span class="pre">PlayerBase.setAsGM()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-positionexaminer-module">avatar.PositionExaminer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-shadowcaster-module">avatar.ShadowCaster module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#avatar-speedmonitor-module">avatar.SpeedMonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html#module-avatar">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chat.html">chat package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-chatgarbler-module">chat.ChatGarbler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#module-chat.ChatGlobals">chat.ChatGlobals module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chat.html#chat.ChatGlobals.isThought"><code class="docutils literal notranslate"><span class="pre">isThought()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="chat.html#chat.ChatGlobals.removeThoughtPrefix"><code class="docutils literal notranslate"><span class="pre">removeThoughtPrefix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-chatinputnormal-module">chat.ChatInputNormal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-chatinputtyped-module">chat.ChatInputTyped module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-chatinputwhitelist-module">chat.ChatInputWhiteList module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-chatinputwhitelistframe-module">chat.ChatInputWhiteListFrame module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-chatmanager-module">chat.ChatManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-chatmanagerv2-module">chat.ChatManagerV2 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#module-chat.ChatMessage">chat.ChatMessage module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage"><code class="docutils literal notranslate"><span class="pre">ChatMessage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getBody"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getBody()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getFlags"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getFlags()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getId"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getIsPlayer"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getIsPlayer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getName"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getSentRatherThanReceived"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getSentRatherThanReceived()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getTimeStamp"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getTimeStamp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getType"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.getWhisper"><code class="docutils literal notranslate"><span class="pre">ChatMessage.getWhisper()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setBody"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setBody()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setFlags"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setFlags()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setId"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setIsPlayer"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setIsPlayer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setName"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setSentRatherThanReceived"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setSentRatherThanReceived()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setTimeStamp"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setTimeStamp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setType"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.ChatMessage.ChatMessage.setWhisper"><code class="docutils literal notranslate"><span class="pre">ChatMessage.setWhisper()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-talkassistant-module">chat.TalkAssistant module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#module-chat.TalkGlobals">chat.TalkGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#chat-talkhandle-module">chat.TalkHandle module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#module-chat.TalkMessage">chat.TalkMessage module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage"><code class="docutils literal notranslate"><span class="pre">TalkMessage</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getBody"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getBody()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getExtraInfo"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getExtraInfo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getMessageId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getMessageId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getReceiverAccountId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getReceiverAccountId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getReceiverAccountName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getReceiverAccountName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getReceiverAvatarId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getReceiverAvatarId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getReceiverAvatarName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getReceiverAvatarName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getSenderAccountId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getSenderAccountId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getSenderAccountName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getSenderAccountName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getSenderAvatarId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getSenderAvatarId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getSenderAvatarName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getSenderAvatarName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getTalkType"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getTalkType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.getTimeStamp"><code class="docutils literal notranslate"><span class="pre">TalkMessage.getTimeStamp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setBody"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setBody()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setExtraInfo"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setExtraInfo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setMessageId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setMessageId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setReceiverAccountId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setReceiverAccountId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setReceiverAccountName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setReceiverAccountName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setReceiverAvatarId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setReceiverAvatarId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setReceiverAvatarName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setReceiverAvatarName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setSenderAccountId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setSenderAccountId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setSenderAccountName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setSenderAccountName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setSenderAvatarId"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setSenderAvatarId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setSenderAvatarName"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setSenderAvatarName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setTalkType"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setTalkType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.TalkMessage.TalkMessage.setTimeStamp"><code class="docutils literal notranslate"><span class="pre">TalkMessage.setTimeStamp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#module-chat.WhiteList">chat.WhiteList module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chat.html#chat.WhiteList.WhiteList"><code class="docutils literal notranslate"><span class="pre">WhiteList</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.WhiteList.WhiteList.cleanText"><code class="docutils literal notranslate"><span class="pre">WhiteList.cleanText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.WhiteList.WhiteList.isPrefix"><code class="docutils literal notranslate"><span class="pre">WhiteList.isPrefix()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.WhiteList.WhiteList.isWord"><code class="docutils literal notranslate"><span class="pre">WhiteList.isWord()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.WhiteList.WhiteList.prefixCount"><code class="docutils literal notranslate"><span class="pre">WhiteList.prefixCount()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="chat.html#chat.WhiteList.WhiteList.prefixList"><code class="docutils literal notranslate"><span class="pre">WhiteList.prefixList()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html#module-chat">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">debug package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debug.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html#debug-graphicsdebuginfo-module">debug.GraphicsDebugInfo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html#module-debug">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distributed.html">distributed package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.Account">distributed.Account module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.Account.Account"><code class="docutils literal notranslate"><span class="pre">Account</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.AccountAI">distributed.AccountAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.AccountAI.AccountAI"><code class="docutils literal notranslate"><span class="pre">AccountAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountAI.AccountAI.getPirate"><code class="docutils literal notranslate"><span class="pre">AccountAI.getPirate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountAI.AccountAI.getSlotLimit"><code class="docutils literal notranslate"><span class="pre">AccountAI.getSlotLimit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountAI.AccountAI.may"><code class="docutils literal notranslate"><span class="pre">AccountAI.may()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountAI.AccountAI.pirateAvatars"><code class="docutils literal notranslate"><span class="pre">AccountAI.pirateAvatars</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountAI.AccountAI.setPirate"><code class="docutils literal notranslate"><span class="pre">AccountAI.setPirate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.AccountUD">distributed.AccountUD module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.AccountUD.AccountUD"><code class="docutils literal notranslate"><span class="pre">AccountUD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountUD.AccountUD.getPirate"><code class="docutils literal notranslate"><span class="pre">AccountUD.getPirate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountUD.AccountUD.getSlotLimit"><code class="docutils literal notranslate"><span class="pre">AccountUD.getSlotLimit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountUD.AccountUD.may"><code class="docutils literal notranslate"><span class="pre">AccountUD.may()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountUD.AccountUD.notify"><code class="docutils literal notranslate"><span class="pre">AccountUD.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.AccountUD.AccountUD.setPirate"><code class="docutils literal notranslate"><span class="pre">AccountUD.setPirate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.CentralLogger">distributed.CentralLogger module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.CentralLogger.CentralLogger"><code class="docutils literal notranslate"><span class="pre">CentralLogger</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.CentralLogger.CentralLogger.PlayersReportedThisSession"><code class="docutils literal notranslate"><span class="pre">CentralLogger.PlayersReportedThisSession</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.CentralLogger.CentralLogger.hasReportedPlayer"><code class="docutils literal notranslate"><span class="pre">CentralLogger.hasReportedPlayer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.CentralLogger.CentralLogger.reportPlayer"><code class="docutils literal notranslate"><span class="pre">CentralLogger.reportPlayer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.CentralLogger.CentralLogger.writeClientEvent"><code class="docutils literal notranslate"><span class="pre">CentralLogger.writeClientEvent()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.CentralLoggerAI">distributed.CentralLoggerAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.CentralLoggerAI.CentralLoggerAI"><code class="docutils literal notranslate"><span class="pre">CentralLoggerAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.CentralLoggerUD">distributed.CentralLoggerUD module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.CentralLoggerUD.CentralLoggerUD"><code class="docutils literal notranslate"><span class="pre">CentralLoggerUD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedDirectory">distributed.DistributedDirectory module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedDirectory.DistributedDirectory"><code class="docutils literal notranslate"><span class="pre">DistributedDirectory</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedDirectoryAI">distributed.DistributedDirectoryAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedDirectoryAI.DistributedDirectoryAI"><code class="docutils literal notranslate"><span class="pre">DistributedDirectoryAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedDistrict">distributed.DistributedDistrict module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedDistrict.DistributedDistrict"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrict.DistributedDistrict.announceGenerate"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict.announceGenerate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrict.DistributedDistrict.delete"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrict.DistributedDistrict.neverDisable"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict.neverDisable</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrict.DistributedDistrict.notify"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrict.DistributedDistrict.setAvailable"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict.setAvailable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrict.DistributedDistrict.setName"><code class="docutils literal notranslate"><span class="pre">DistributedDistrict.setName()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedDistrictAI">distributed.DistributedDistrictAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.b_setAvailable"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.b_setAvailable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.b_setName"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.b_setName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.d_setAvailable"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.d_setAvailable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.d_setName"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.d_setName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.delete"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.getAvailable"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.getAvailable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.getName"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.notify"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.setAvailable"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.setAvailable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictAI.DistributedDistrictAI.setName"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictAI.setName()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedDistrictUD">distributed.DistributedDistrictUD module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedDistrictUD.DistributedDistrictUD"><code class="docutils literal notranslate"><span class="pre">DistributedDistrictUD</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedInterestOpener">distributed.DistributedInterestOpener module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpener</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.disable"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpener.disable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.generate"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpener.generate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.setChildZones"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpener.setChildZones()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpener.DistributedInterestOpener.setRequiredDoIds"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpener.setRequiredDoIds()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedInterestOpenerAI">distributed.DistributedInterestOpenerAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpenerAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.announceGenerate"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpenerAI.announceGenerate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.getChildZones"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpenerAI.getChildZones()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.getRequiredDoIds"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpenerAI.getRequiredDoIds()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedInterestOpenerAI.DistributedInterestOpenerAI.setRequiredDoIds"><code class="docutils literal notranslate"><span class="pre">DistributedInterestOpenerAI.setRequiredDoIds()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedPuppeteer">distributed.DistributedPuppeteer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedPuppeteer.DistributedPuppeteer"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedPuppeteer.DistributedPuppeteer.acceptPuppet"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer.acceptPuppet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedPuppeteer.DistributedPuppeteer.notify"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedPuppeteer.DistributedPuppeteer.rejectPuppet"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer.rejectPuppet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedPuppeteer.DistributedPuppeteer.requestPuppet"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer.requestPuppet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedPuppeteer.DistributedPuppeteer.startPuppet"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer.startPuppet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedPuppeteer.DistributedPuppeteer.stopPuppet"><code class="docutils literal notranslate"><span class="pre">DistributedPuppeteer.stopPuppet()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedTestObject">distributed.DistributedTestObject module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.gotNonReqThatWasntSet"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.gotNonReqThatWasntSet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setB"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setB()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setBA"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setBA()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setBO"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setBO()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setBR"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setBR()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setBRA"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setBRA()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setBRO"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setBRO()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setBROA"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setBROA()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObject.DistributedTestObject.setRequiredField"><code class="docutils literal notranslate"><span class="pre">DistributedTestObject.setRequiredField()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.DistributedTestObjectAI">distributed.DistributedTestObjectAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.DistributedTestObjectAI.DistributedTestObjectAI"><code class="docutils literal notranslate"><span class="pre">DistributedTestObjectAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.DistributedTestObjectAI.DistributedTestObjectAI.getRequiredField"><code class="docutils literal notranslate"><span class="pre">DistributedTestObjectAI.getRequiredField()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.GameServerTestSuite">distributed.GameServerTestSuite module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.GameServerTestSuite.GameServerTestSuite"><code class="docutils literal notranslate"><span class="pre">GameServerTestSuite</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.GameServerTestSuite.GameServerTestSuite.notify"><code class="docutils literal notranslate"><span class="pre">GameServerTestSuite.notify</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#distributed-otpclientrepository-module">distributed.OTPClientRepository module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.ObjectServer">distributed.ObjectServer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.ObjectServer.ObjectServer"><code class="docutils literal notranslate"><span class="pre">ObjectServer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServer.ObjectServer.notify"><code class="docutils literal notranslate"><span class="pre">ObjectServer.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServer.ObjectServer.setName"><code class="docutils literal notranslate"><span class="pre">ObjectServer.setName()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.ObjectServerAI">distributed.ObjectServerAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.ObjectServerAI.ObjectServerAI"><code class="docutils literal notranslate"><span class="pre">ObjectServerAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerAI.ObjectServerAI.delete"><code class="docutils literal notranslate"><span class="pre">ObjectServerAI.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerAI.ObjectServerAI.notify"><code class="docutils literal notranslate"><span class="pre">ObjectServerAI.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerAI.ObjectServerAI.setDcHash"><code class="docutils literal notranslate"><span class="pre">ObjectServerAI.setDcHash()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerAI.ObjectServerAI.setName"><code class="docutils literal notranslate"><span class="pre">ObjectServerAI.setName()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.ObjectServerUD">distributed.ObjectServerUD module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.ObjectServerUD.ObjectServerUD"><code class="docutils literal notranslate"><span class="pre">ObjectServerUD</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerUD.ObjectServerUD.delete"><code class="docutils literal notranslate"><span class="pre">ObjectServerUD.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerUD.ObjectServerUD.notify"><code class="docutils literal notranslate"><span class="pre">ObjectServerUD.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerUD.ObjectServerUD.setDcHash"><code class="docutils literal notranslate"><span class="pre">ObjectServerUD.setDcHash()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.ObjectServerUD.ObjectServerUD.setName"><code class="docutils literal notranslate"><span class="pre">ObjectServerUD.setName()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.OtpDoGlobals">distributed.OtpDoGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.PotentialAvatar">distributed.PotentialAvatar module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.PotentialAvatar.PotentialAvatar"><code class="docutils literal notranslate"><span class="pre">PotentialAvatar</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.PotentialShard">distributed.PotentialShard module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.PotentialShard.PotentialShard"><code class="docutils literal notranslate"><span class="pre">PotentialShard</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.Puppeteer">distributed.Puppeteer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.Puppeteer.Puppeteer"><code class="docutils literal notranslate"><span class="pre">Puppeteer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.Puppeteer.Puppeteer.notify"><code class="docutils literal notranslate"><span class="pre">Puppeteer.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.Puppeteer.Puppeteer.startPuppet"><code class="docutils literal notranslate"><span class="pre">Puppeteer.startPuppet()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.Puppeteer.Puppeteer.stopPuppet"><code class="docutils literal notranslate"><span class="pre">Puppeteer.stopPuppet()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed.TelemetryLimited">distributed.TelemetryLimited module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="distributed.html#distributed.TelemetryLimited.TelemetryLimited"><code class="docutils literal notranslate"><span class="pre">TelemetryLimited</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.TelemetryLimited.TelemetryLimited.Sng"><code class="docutils literal notranslate"><span class="pre">TelemetryLimited.Sng</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.TelemetryLimited.TelemetryLimited.addTelemetryLimit"><code class="docutils literal notranslate"><span class="pre">TelemetryLimited.addTelemetryLimit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.TelemetryLimited.TelemetryLimited.enforceTelemetryLimits"><code class="docutils literal notranslate"><span class="pre">TelemetryLimited.enforceTelemetryLimits()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.TelemetryLimited.TelemetryLimited.getTelemetryLimiterId"><code class="docutils literal notranslate"><span class="pre">TelemetryLimited.getTelemetryLimiterId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="distributed.html#distributed.TelemetryLimited.TelemetryLimited.removeTelemetryLimit"><code class="docutils literal notranslate"><span class="pre">TelemetryLimited.removeTelemetryLimit()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#distributed-telemetrylimiter-module">distributed.TelemetryLimiter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html#module-distributed">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="friends.html">friends package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-avatarfriendinfo-module">friends.AvatarFriendInfo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-avatarfriendsdb-module">friends.AvatarFriendsDB module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-avatarfriendsmanager-module">friends.AvatarFriendsManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-avatarfriendsmanagerud-module">friends.AvatarFriendsManagerUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-emailinvite-module">friends.EmailInvite module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-friendinfo-module">friends.FriendInfo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-friendmanager-module">friends.FriendManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-friendmanagerai-module">friends.FriendManagerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#module-friends.FriendResponseCodes">friends.FriendResponseCodes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-friendsecret-module">friends.FriendSecret module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-guilddb-module">friends.GuildDB module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-guildmanager-module">friends.GuildManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#module-friends.GuildManagerAI">friends.GuildManagerAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="friends.html#friends.GuildManagerAI.GuildManagerAI"><code class="docutils literal notranslate"><span class="pre">GuildManagerAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="friends.html#friends.GuildManagerAI.GuildManagerAI.avatarOffline"><code class="docutils literal notranslate"><span class="pre">GuildManagerAI.avatarOffline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="friends.html#friends.GuildManagerAI.GuildManagerAI.avatarOnline"><code class="docutils literal notranslate"><span class="pre">GuildManagerAI.avatarOnline()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="friends.html#friends.GuildManagerAI.GuildManagerAI.d_sendAvatarBandId"><code class="docutils literal notranslate"><span class="pre">GuildManagerAI.d_sendAvatarBandId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="friends.html#friends.GuildManagerAI.GuildManagerAI.notify"><code class="docutils literal notranslate"><span class="pre">GuildManagerAI.notify</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-guildmanagerud-module">friends.GuildManagerUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-playerfriendsmanager-module">friends.PlayerFriendsManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#friends-playerfriendsmanagerud-module">friends.PlayerFriendsManagerUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html#module-friends">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guild.html">guild package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuild">guild.DistributedGuild module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildAI">guild.DistributedGuildAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildBase">guild.DistributedGuildBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildManager">guild.DistributedGuildManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildManagerAI">guild.DistributedGuildManagerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildMember">guild.DistributedGuildMember module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildMemberAI">guild.DistributedGuildMemberAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildMembership">guild.DistributedGuildMembership module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild.DistributedGuildMembershipAI">guild.DistributedGuildMembershipAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html#module-guild">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inventory.html">inventory package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html#module-inventory">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launcher.html">launcher package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#launcher-downloadwatcher-module">launcher.DownloadWatcher module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#launcher-dummylauncherbase-module">launcher.DummyLauncherBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#launcher-launcherbase-module">launcher.LauncherBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#launcher-weblauncherbase-module">launcher.WebLauncherBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#launcher-procapi-module">launcher.procapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html#module-launcher">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="level.html">level package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="level.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-ambientsound-module">level.AmbientSound module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.AttribDesc">level.AttribDesc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.AttribDesc.AttribDesc"><code class="docutils literal notranslate"><span class="pre">AttribDesc</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.AttribDesc.AttribDesc.getDatatype"><code class="docutils literal notranslate"><span class="pre">AttribDesc.getDatatype()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.AttribDesc.AttribDesc.getDefaultValue"><code class="docutils literal notranslate"><span class="pre">AttribDesc.getDefaultValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.AttribDesc.AttribDesc.getName"><code class="docutils literal notranslate"><span class="pre">AttribDesc.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.AttribDesc.AttribDesc.getParams"><code class="docutils literal notranslate"><span class="pre">AttribDesc.getParams()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-basicentities-module">level.BasicEntities module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-collisionsolidentity-module">level.CollisionSolidEntity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-cutscene-module">level.CutScene module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-distributedentity-module">level.DistributedEntity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-distributedentityai-module">level.DistributedEntityAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-distributedinteractiveentity-module">level.DistributedInteractiveEntity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-distributedinteractiveentityai-module">level.DistributedInteractiveEntityAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-distributedlevel-module">level.DistributedLevel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-distributedlevelai-module">level.DistributedLevelAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-editmgr-module">level.EditMgr module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-editmgrai-module">level.EditMgrAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-editmgrbase-module">level.EditMgrBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-editorglobals-module">level.EditorGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-entity-module">level.Entity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-entitycreator-module">level.EntityCreator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-entitycreatorai-module">level.EntityCreatorAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.EntityCreatorBase">level.EntityCreatorBase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.EntityCreatorBase.EntityCreatorBase"><code class="docutils literal notranslate"><span class="pre">EntityCreatorBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityCreatorBase.EntityCreatorBase.createEntity"><code class="docutils literal notranslate"><span class="pre">EntityCreatorBase.createEntity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityCreatorBase.EntityCreatorBase.getEntityTypes"><code class="docutils literal notranslate"><span class="pre">EntityCreatorBase.getEntityTypes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityCreatorBase.EntityCreatorBase.notify"><code class="docutils literal notranslate"><span class="pre">EntityCreatorBase.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityCreatorBase.EntityCreatorBase.privRegisterType"><code class="docutils literal notranslate"><span class="pre">EntityCreatorBase.privRegisterType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityCreatorBase.EntityCreatorBase.privRegisterTypes"><code class="docutils literal notranslate"><span class="pre">EntityCreatorBase.privRegisterTypes()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-entitystatevarset-module">level.EntityStateVarSet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.EntityTypeDesc">level.EntityTypeDesc module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.getAttribDescDict"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.getAttribDescDict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.getAttribNames"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.getAttribNames()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.getAttribsOfType"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.getAttribsOfType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.getOutputType"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.getOutputType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.isConcrete"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.isConcrete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.isPermanent"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.isPermanent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.notify"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.output"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.output</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.EntityTypeDesc.EntityTypeDesc.privCompileAttribDescs"><code class="docutils literal notranslate"><span class="pre">EntityTypeDesc.privCompileAttribDescs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-entitytyperegistry-module">level.EntityTypeRegistry module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-entitytypes-module">level.EntityTypes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-entrancepoint-module">level.EntrancePoint module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-level-module">level.Level module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.LevelConstants">level.LevelConstants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-levelmgr-module">level.LevelMgr module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-levelmgrai-module">level.LevelMgrAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-levelmgrbase-module">level.LevelMgrBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-levelspec-module">level.LevelSpec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.LevelUtil">level.LevelUtil module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.LevelUtil.getZoneNum2Node"><code class="docutils literal notranslate"><span class="pre">getZoneNum2Node()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-locatorentity-module">level.LocatorEntity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-logicgate-module">level.LogicGate module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-modelentity-module">level.ModelEntity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-pathentity-module">level.PathEntity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-propspinner-module">level.PropSpinner module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-specutil-module">level.SpecUtil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.VisibilityBlocker">level.VisibilityBlocker module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.VisibilityBlocker.VisibilityBlocker"><code class="docutils literal notranslate"><span class="pre">VisibilityBlocker</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityBlocker.VisibilityBlocker.cancelUnblockVis"><code class="docutils literal notranslate"><span class="pre">VisibilityBlocker.cancelUnblockVis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityBlocker.VisibilityBlocker.destroy"><code class="docutils literal notranslate"><span class="pre">VisibilityBlocker.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityBlocker.VisibilityBlocker.isWaitingForUnblockVis"><code class="docutils literal notranslate"><span class="pre">VisibilityBlocker.isWaitingForUnblockVis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityBlocker.VisibilityBlocker.okToUnblockVis"><code class="docutils literal notranslate"><span class="pre">VisibilityBlocker.okToUnblockVis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityBlocker.VisibilityBlocker.requestUnblockVis"><code class="docutils literal notranslate"><span class="pre">VisibilityBlocker.requestUnblockVis()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.VisibilityExtender">level.VisibilityExtender module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.attribChanged"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.attribChanged()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.destroy"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.destroyVisExt"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.destroyVisExt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.extend"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.extend()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.handleEvent"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.handleEvent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.initVisExt"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.initVisExt()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.retract"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.retract()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.VisibilityExtender.VisibilityExtender.setNewZones"><code class="docutils literal notranslate"><span class="pre">VisibilityExtender.setNewZones()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#level-zoneentity-module">level.ZoneEntity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.ZoneEntityAI">level.ZoneEntityAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.ZoneEntityAI.ZoneEntityAI"><code class="docutils literal notranslate"><span class="pre">ZoneEntityAI</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.ZoneEntityAI.ZoneEntityAI.destroy"><code class="docutils literal notranslate"><span class="pre">ZoneEntityAI.destroy()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level.ZoneEntityBase">level.ZoneEntityBase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="level.html#level.ZoneEntityBase.ZoneEntityBase"><code class="docutils literal notranslate"><span class="pre">ZoneEntityBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.ZoneEntityBase.ZoneEntityBase.destroy"><code class="docutils literal notranslate"><span class="pre">ZoneEntityBase.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.ZoneEntityBase.ZoneEntityBase.getZoneId"><code class="docutils literal notranslate"><span class="pre">ZoneEntityBase.getZoneId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.ZoneEntityBase.ZoneEntityBase.getZoneNum"><code class="docutils literal notranslate"><span class="pre">ZoneEntityBase.getZoneNum()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.ZoneEntityBase.ZoneEntityBase.isUberZone"><code class="docutils literal notranslate"><span class="pre">ZoneEntityBase.isUberZone()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="level.html#level.ZoneEntityBase.ZoneEntityBase.setZoneId"><code class="docutils literal notranslate"><span class="pre">ZoneEntityBase.setZoneId()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="level.html#module-level">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="leveleditor.html">leveleditor package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#leveleditor-leveleditor-module">leveleditor.LevelEditor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#leveleditor-leveleditorstart-module">leveleditor.LevelEditorStart module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#leveleditor-leveleditorui-module">leveleditor.LevelEditorUI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#module-leveleditor.ObjectHandler">leveleditor.ObjectHandler module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler"><code class="docutils literal notranslate"><span class="pre">ObjectHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.createDoubleSmiley"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.createDoubleSmiley()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.createGrass"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.createGrass()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.createPanda"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.createPanda()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.createStreetlightTT"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.createStreetlightTT()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.createToontownTree"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.createToontownTree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.createTortuga"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.createTortuga()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.updateDoubleSmiley"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.updateDoubleSmiley()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.updateSmiley"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.updateSmiley()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.updateStreetlightTT"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.updateStreetlightTT()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.ObjectHandler.updateToontownTree"><code class="docutils literal notranslate"><span class="pre">ObjectHandler.updateToontownTree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectHandler.PandaActor"><code class="docutils literal notranslate"><span class="pre">PandaActor</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#module-leveleditor.ObjectPalette">leveleditor.ObjectPalette module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectPalette.ObjectDoubleSmileys"><code class="docutils literal notranslate"><span class="pre">ObjectDoubleSmileys</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectPalette.ObjectPalette"><code class="docutils literal notranslate"><span class="pre">ObjectPalette</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectPalette.ObjectPalette.populate"><code class="docutils literal notranslate"><span class="pre">ObjectPalette.populate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectPalette.ObjectProp"><code class="docutils literal notranslate"><span class="pre">ObjectProp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="leveleditor.html#leveleditor.ObjectPalette.ObjectSmiley"><code class="docutils literal notranslate"><span class="pre">ObjectSmiley</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#module-leveleditor.ProtoPalette">leveleditor.ProtoPalette module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="leveleditor.html#leveleditor.ProtoPalette.ProtoPalette"><code class="docutils literal notranslate"><span class="pre">ProtoPalette</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html#module-leveleditor">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="login.html">login package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="login.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-accountserverconstants-module">login.AccountServerConstants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-createaccountscreen-module">login.CreateAccountScreen module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-guiscreen-module">login.GuiScreen module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-httputil-module">login.HTTPUtil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-leavetopaydialog-module">login.LeaveToPayDialog module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#module-login.LoginBase">login.LoginBase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="login.html#login.LoginBase.LoginBase"><code class="docutils literal notranslate"><span class="pre">LoginBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginBase.LoginBase.freeTimeExpires"><code class="docutils literal notranslate"><span class="pre">LoginBase.freeTimeExpires</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginBase.LoginBase.getErrorCode"><code class="docutils literal notranslate"><span class="pre">LoginBase.getErrorCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginBase.LoginBase.needToSetParentPassword"><code class="docutils literal notranslate"><span class="pre">LoginBase.needToSetParentPassword()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginBase.LoginBase.sendLoginMsg"><code class="docutils literal notranslate"><span class="pre">LoginBase.sendLoginMsg()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#module-login.LoginDISLTokenAccount">login.LoginDISLTokenAccount module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="login.html#login.LoginDISLTokenAccount.LoginDISLTokenAccount"><code class="docutils literal notranslate"><span class="pre">LoginDISLTokenAccount</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginDISLTokenAccount.LoginDISLTokenAccount.authorize"><code class="docutils literal notranslate"><span class="pre">LoginDISLTokenAccount.authorize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginDISLTokenAccount.LoginDISLTokenAccount.sendLoginMsg"><code class="docutils literal notranslate"><span class="pre">LoginDISLTokenAccount.sendLoginMsg()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsAuthenticateDelete"><code class="docutils literal notranslate"><span class="pre">LoginDISLTokenAccount.supportsAuthenticateDelete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsParentPassword"><code class="docutils literal notranslate"><span class="pre">LoginDISLTokenAccount.supportsParentPassword()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="login.html#login.LoginDISLTokenAccount.LoginDISLTokenAccount.supportsRelogin"><code class="docutils literal notranslate"><span class="pre">LoginDISLTokenAccount.supportsRelogin()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-logingsaccount-module">login.LoginGSAccount module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-logingoaccount-module">login.LoginGoAccount module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-loginscreen-module">login.LoginScreen module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-loginttaccount-module">login.LoginTTAccount module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-loginttspecificdevaccount-module">login.LoginTTSpecificDevAccount module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-loginwebplaytokenaccount-module">login.LoginWebPlayTokenAccount module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-multipagetextframe-module">login.MultiPageTextFrame module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-privacypolicypanel-module">login.PrivacyPolicyPanel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-remotevalueset-module">login.RemoteValueSet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-secretfriendsinfopanel-module">login.SecretFriendsInfoPanel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#login-ttaccount-module">login.TTAccount module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html#module-login">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="movement.html">movement package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#movement-impfriction-module">movement.ImpFriction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#movement-impulse-module">movement.Impulse module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#movement-mover-module">movement.Mover module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#movement-movergroup-module">movement.MoverGroup module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#movement-profvec-module">movement.ProfVec module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#movement-pyvec3-module">movement.PyVec3 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html#module-movement">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="namepanel.html">namepanel package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html#namepanel-namecheck-module">namepanel.NameCheck module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html#namepanel-namepanel-module">namepanel.NamePanel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html#namepanel-nametumbler-module">namepanel.NameTumbler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html#module-namepanel.PickANamePattern">namepanel.PickANamePattern module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="namepanel.html#namepanel.PickANamePattern.PickANamePattern"><code class="docutils literal notranslate"><span class="pre">PickANamePattern</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namepanel.html#namepanel.PickANamePattern.PickANamePattern.getNamePartString"><code class="docutils literal notranslate"><span class="pre">PickANamePattern.getNamePartString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="namepanel.html#namepanel.PickANamePattern.PickANamePattern.getNamePattern"><code class="docutils literal notranslate"><span class="pre">PickANamePattern.getNamePattern()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="namepanel.html#namepanel.PickANamePattern.PickANamePattern.getNameString"><code class="docutils literal notranslate"><span class="pre">PickANamePattern.getNameString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="namepanel.html#namepanel.PickANamePattern.PickANamePattern.hasNamePattern"><code class="docutils literal notranslate"><span class="pre">PickANamePattern.hasNamePattern()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="namepanel.html#namepanel.PickANamePattern.PickANamePatternTwoPartLastName"><code class="docutils literal notranslate"><span class="pre">PickANamePatternTwoPartLastName</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namepanel.html#namepanel.PickANamePattern.PickANamePatternTwoPartLastName.getNameString"><code class="docutils literal notranslate"><span class="pre">PickANamePatternTwoPartLastName.getNameString()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html#module-namepanel">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="navigation.html">navigation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#navigation-apspslave-module">navigation.APSPSlave module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#navigation-areamapper-module">navigation.AreaMapper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#navigation-navmesh-module">navigation.NavMesh module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#module-navigation.NavUtil">navigation.NavUtil module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="navigation.html#navigation.NavUtil.FIFOCache"><code class="docutils literal notranslate"><span class="pre">FIFOCache</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="navigation.html#navigation.NavUtil.FIFOCache.get"><code class="docutils literal notranslate"><span class="pre">FIFOCache.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigation.html#navigation.NavUtil.FIFOCache.insert"><code class="docutils literal notranslate"><span class="pre">FIFOCache.insert()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="navigation.html#navigation.NavUtil.PriQueue"><code class="docutils literal notranslate"><span class="pre">PriQueue</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="navigation.html#navigation.NavUtil.PriQueue.push"><code class="docutils literal notranslate"><span class="pre">PriQueue.push()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigation.html#navigation.NavUtil.PriQueue.remove"><code class="docutils literal notranslate"><span class="pre">PriQueue.remove()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="navigation.html#navigation.NavUtil.QuadTree"><code class="docutils literal notranslate"><span class="pre">QuadTree</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="navigation.html#navigation.NavUtil.QuadTree.fill"><code class="docutils literal notranslate"><span class="pre">QuadTree.fill()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigation.html#navigation.NavUtil.QuadTree.squarify"><code class="docutils literal notranslate"><span class="pre">QuadTree.squarify()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#navigation-navigationmanager-module">navigation.NavigationManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html#module-navigation">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="otpbase.html">otpbase package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.french.html">otpbase.french package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.french.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.french.html#otpbase-french-otplocalizer-module">otpbase.french.OTPLocalizer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.french.html#module-otpbase.french.OTPLocalizer_Property">otpbase.french.OTPLocalizer_Property module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.french.html#module-otpbase.french">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.japanese.html">otpbase.japanese package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.japanese.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.japanese.html#otpbase-japanese-otplocalizer-module">otpbase.japanese.OTPLocalizer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.japanese.html#module-otpbase.japanese.OTPLocalizer_Property">otpbase.japanese.OTPLocalizer_Property module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.japanese.html#module-otpbase.japanese">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otpbase-module">otpbase.OTPBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPExceptionVarDump">otpbase.OTPExceptionVarDump module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.html#otpbase.OTPExceptionVarDump.install"><code class="docutils literal notranslate"><span class="pre">install()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otpglobals-module">otpbase.OTPGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPLauncherGlobals">otpbase.OTPLauncherGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otplocalizer-module">otpbase.OTPLocalizer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otplocalizerenglish-module">otpbase.OTPLocalizerEnglish module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPLocalizerEnglishProperty">otpbase.OTPLocalizerEnglishProperty module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otplocalizer-castillian-module">otpbase.OTPLocalizer_castillian module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPLocalizer_castillian_Property">otpbase.OTPLocalizer_castillian_Property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otplocalizer-french-module">otpbase.OTPLocalizer_french module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPLocalizer_french_Property">otpbase.OTPLocalizer_french_Property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otplocalizer-german-module">otpbase.OTPLocalizer_german module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPLocalizer_german_Property">otpbase.OTPLocalizer_german_Property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otplocalizer-japanese-module">otpbase.OTPLocalizer_japanese module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPLocalizer_japanese_Property">otpbase.OTPLocalizer_japanese_Property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otplocalizer-portuguese-module">otpbase.OTPLocalizer_portuguese module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.OTPLocalizer_portuguese_Property">otpbase.OTPLocalizer_portuguese_Property module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otpmodules-module">otpbase.OTPModules module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otprender-module">otpbase.OTPRender module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-otptimer-module">otpbase.OTPTimer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.SuperSecretStringDecoder">otpbase.SuperSecretStringDecoder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.html#otpbase.SuperSecretStringDecoder.decode"><code class="docutils literal notranslate"><span class="pre">decode()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#otpbase-extractspeedchatstrings-module">otpbase.extractSpeedChatStrings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase.fpsAnalyzer">otpbase.fpsAnalyzer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer"><code class="docutils literal notranslate"><span class="pre">Analyzer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.addExtraDevices"><code class="docutils literal notranslate"><span class="pre">Analyzer.addExtraDevices()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.analyze"><code class="docutils literal notranslate"><span class="pre">Analyzer.analyze()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.collectPlayers"><code class="docutils literal notranslate"><span class="pre">Analyzer.collectPlayers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.enquote"><code class="docutils literal notranslate"><span class="pre">Analyzer.enquote()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.makeSessions"><code class="docutils literal notranslate"><span class="pre">Analyzer.makeSessions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.quickAnalyzeCards"><code class="docutils literal notranslate"><span class="pre">Analyzer.quickAnalyzeCards()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.readPCIList"><code class="docutils literal notranslate"><span class="pre">Analyzer.readPCIList()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.readPickle"><code class="docutils literal notranslate"><span class="pre">Analyzer.readPickle()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.readText"><code class="docutils literal notranslate"><span class="pre">Analyzer.readText()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.reportData"><code class="docutils literal notranslate"><span class="pre">Analyzer.reportData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.writeLowPlayers"><code class="docutils literal notranslate"><span class="pre">Analyzer.writeLowPlayers()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Analyzer.writePickle"><code class="docutils literal notranslate"><span class="pre">Analyzer.writePickle()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Player"><code class="docutils literal notranslate"><span class="pre">Player</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Player.addSession"><code class="docutils literal notranslate"><span class="pre">Player.addSession()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Player.calcFrameRate"><code class="docutils literal notranslate"><span class="pre">Player.calcFrameRate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Sample"><code class="docutils literal notranslate"><span class="pre">Sample</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Sample.write"><code class="docutils literal notranslate"><span class="pre">Sample.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Session"><code class="docutils literal notranslate"><span class="pre">Session</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Session.addSample"><code class="docutils literal notranslate"><span class="pre">Session.addSample()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Session.calcFrameRate"><code class="docutils literal notranslate"><span class="pre">Session.calcFrameRate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Session.getHardware"><code class="docutils literal notranslate"><span class="pre">Session.getHardware()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="otpbase.html#otpbase.fpsAnalyzer.Session.sameHardware"><code class="docutils literal notranslate"><span class="pre">Session.sameHardware()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html#module-otpbase">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="otpgui.html">otpgui package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html#otpgui-otpdialog-module">otpgui.OTPDialog module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html#module-otpgui">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publish.html">publish package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#publish-freezetool-module">publish.FreezeTool module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html#module-publish">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snapshot.html">snapshot package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#snapshot-batchrequests-module">snapshot.BatchRequests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#snapshot-simplerenderbuffer-module">snapshot.SimpleRenderBuffer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#module-snapshot.SnapshotDispatcher">snapshot.SnapshotDispatcher module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="snapshot.html#snapshot.SnapshotDispatcher.SnapshotDispatcher"><code class="docutils literal notranslate"><span class="pre">SnapshotDispatcher</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#module-snapshot.SnapshotDispatcherAI">snapshot.SnapshotDispatcherAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="snapshot.html#snapshot.SnapshotDispatcherAI.SnapshotDispatcherAI"><code class="docutils literal notranslate"><span class="pre">SnapshotDispatcherAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#snapshot-snapshotdispatcherud-module">snapshot.SnapshotDispatcherUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#module-snapshot.SnapshotRenderer">snapshot.SnapshotRenderer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="snapshot.html#snapshot.SnapshotRenderer.SnapshotRenderer"><code class="docutils literal notranslate"><span class="pre">SnapshotRenderer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#module-snapshot.SnapshotRendererAI">snapshot.SnapshotRendererAI module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="snapshot.html#snapshot.SnapshotRendererAI.SnapshotRendererAI"><code class="docutils literal notranslate"><span class="pre">SnapshotRendererAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#snapshot-snapshotrendererud-module">snapshot.SnapshotRendererUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#snapshot-snapshotwebserver-module">snapshot.SnapshotWebServer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html#module-snapshot">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="speedchat.html">speedchat package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.ColorSpace">speedchat.ColorSpace module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCColorPanel">speedchat.SCColorPanel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCColorScheme">speedchat.SCColorScheme module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCConstants">speedchat.SCConstants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCCustomMenu">speedchat.SCCustomMenu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCCustomTerminal">speedchat.SCCustomTerminal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCDecoders">speedchat.SCDecoders module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCElement">speedchat.SCElement module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCEmoteMenu">speedchat.SCEmoteMenu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCEmoteTerminal">speedchat.SCEmoteTerminal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCGMTextTerminal">speedchat.SCGMTextTerminal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCMenu">speedchat.SCMenu module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCMenuHolder">speedchat.SCMenuHolder module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCObject">speedchat.SCObject module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCSettings">speedchat.SCSettings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCStaticTextTerminal">speedchat.SCStaticTextTerminal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SCTerminal">speedchat.SCTerminal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SpeedChat">speedchat.SpeedChat module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SpeedChatGMHandler">speedchat.SpeedChatGMHandler module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SpeedChatGlobals">speedchat.SpeedChatGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat.SpeedChatTypes">speedchat.SpeedChatTypes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html#module-speedchat">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status.html">status package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="status.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html#status-statusdatabase-module">status.StatusDatabase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html#status-statusdatabaseud-module">status.StatusDatabaseUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html#module-status">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="switchboard.html">switchboard package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-friendmanagerservice-services-module">switchboard.FriendManagerService_services module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-friendmanagerservice-services-types-module">switchboard.FriendManagerService_services_types module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-lastseendb-module">switchboard.LastSeenDB module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-playerfriendsdb-module">switchboard.PlayerFriendsDB module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-bench-module">switchboard.bench module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-dummywedge-module">switchboard.dummyWedge module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#module-switchboard.sbConfig">switchboard.sbConfig module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#module-switchboard.sbGlobals">switchboard.sbGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#module-switchboard.sbLog">switchboard.sbLog module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog"><code class="docutils literal notranslate"><span class="pre">sbLog</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.badChat"><code class="docutils literal notranslate"><span class="pre">sbLog.badChat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.badMail"><code class="docutils literal notranslate"><span class="pre">sbLog.badMail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.chat"><code class="docutils literal notranslate"><span class="pre">sbLog.chat()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.chatoutput"><code class="docutils literal notranslate"><span class="pre">sbLog.chatoutput()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.debug"><code class="docutils literal notranslate"><span class="pre">sbLog.debug()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.error"><code class="docutils literal notranslate"><span class="pre">sbLog.error()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.fatal"><code class="docutils literal notranslate"><span class="pre">sbLog.fatal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.getMemLog"><code class="docutils literal notranslate"><span class="pre">sbLog.getMemLog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.info"><code class="docutils literal notranslate"><span class="pre">sbLog.info()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.log"><code class="docutils literal notranslate"><span class="pre">sbLog.log()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.mail"><code class="docutils literal notranslate"><span class="pre">sbLog.mail()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.memLog"><code class="docutils literal notranslate"><span class="pre">sbLog.memLog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.output"><code class="docutils literal notranslate"><span class="pre">sbLog.output()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.remoteLog"><code class="docutils literal notranslate"><span class="pre">sbLog.remoteLog()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.security"><code class="docutils literal notranslate"><span class="pre">sbLog.security()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.timeString"><code class="docutils literal notranslate"><span class="pre">sbLog.timeString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="switchboard.html#switchboard.sbLog.sbLog.warning"><code class="docutils literal notranslate"><span class="pre">sbLog.warning()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-sbmaildb-module">switchboard.sbMaildb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-sbmonitor-module">switchboard.sbMonitor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-sbnode-module">switchboard.sbNode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-sbplayer-module">switchboard.sbPlayer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#module-switchboard.sbSQL">switchboard.sbSQL module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-sbwedge-module">switchboard.sbWedge module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-sbdebug-module">switchboard.sbdebug module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-startdummy-module">switchboard.startDummy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-startdummyhold-module">switchboard.startDummyHold module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-startnode-module">switchboard.startNode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#switchboard-startwedge-module">switchboard.startWedge module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html#module-switchboard">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">tutorial package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#module-tutorial.DTutorialObject">tutorial.DTutorialObject module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#module-tutorial.DTutorialObjectAI">tutorial.DTutorialObjectAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#module-tutorial.DTutorialObjectBase">tutorial.DTutorialObjectBase module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#module-tutorial">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="uberdog.html">uberdog package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.AccountDetailRecord">uberdog.AccountDetailRecord module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.DBInterface">uberdog.DBInterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.DBKeepAlive">uberdog.DBKeepAlive module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.DistributedChatManager">uberdog.DistributedChatManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.DistributedChatManagerAI">uberdog.DistributedChatManagerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.DistributedChatManagerUD">uberdog.DistributedChatManagerUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.MySQLAccountAvatarsDB">uberdog.MySQLAccountAvatarsDB module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.OtpAvatarManager">uberdog.OtpAvatarManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.OtpAvatarManagerAI">uberdog.OtpAvatarManagerAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.OtpAvatarManagerUD">uberdog.OtpAvatarManagerUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.RejectCode">uberdog.RejectCode module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.SpeedchatRelay">uberdog.SpeedchatRelay module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.SpeedchatRelayGlobals">uberdog.SpeedchatRelayGlobals module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.SpeedchatRelayUD">uberdog.SpeedchatRelayUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.Start">uberdog.Start module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.UberDog">uberdog.UberDog module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.UberDogGlobal">uberdog.UberDogGlobal module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.UberDogServer">uberdog.UberDogServer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.UberDogUtil">uberdog.UberDogUtil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog.WipeDBs">uberdog.WipeDBs module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html#module-uberdog">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">web package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="web.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#module-web.Setting">web.Setting module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web.html#web.Setting.Setting"><code class="docutils literal notranslate"><span class="pre">Setting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.Setting.Setting.getName"><code class="docutils literal notranslate"><span class="pre">Setting.getName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.Setting.Setting.getValue"><code class="docutils literal notranslate"><span class="pre">Setting.getValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.Setting.Setting.setValue"><code class="docutils literal notranslate"><span class="pre">Setting.setValue()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="web.html#web.Setting.StateVarSetting"><code class="docutils literal notranslate"><span class="pre">StateVarSetting</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.Setting.StateVarSetting.getValue"><code class="docutils literal notranslate"><span class="pre">StateVarSetting.getValue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.Setting.StateVarSetting.setValue"><code class="docutils literal notranslate"><span class="pre">StateVarSetting.setValue()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#web-settingsmgr-module">web.SettingsMgr module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#web-settingsmgrai-module">web.SettingsMgrAI module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#module-web.SettingsMgrBase">web.SettingsMgrBase module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="web.html#web.SettingsMgrBase.SettingsMgrBase"><code class="docutils literal notranslate"><span class="pre">SettingsMgrBase</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.SettingsMgrBase.SettingsMgrBase.announceGenerate"><code class="docutils literal notranslate"><span class="pre">SettingsMgrBase.announceGenerate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.SettingsMgrBase.SettingsMgrBase.delete"><code class="docutils literal notranslate"><span class="pre">SettingsMgrBase.delete()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="web.html#web.SettingsMgrBase.SettingsMgrBase.notify"><code class="docutils literal notranslate"><span class="pre">SettingsMgrBase.notify</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#web-settingsmgrud-module">web.SettingsMgrUD module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html#module-web">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../toontown/uberdog.html" class="btn btn-neutral float-left" title="uberdog package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ai.html" class="btn btn-neutral float-right" title="ai package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

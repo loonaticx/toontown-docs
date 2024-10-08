@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fishing package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="friends package" href="friends.html" />
+    <link rel="prev" title="estate package" href="estate.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">fishing package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-bingocardbase-module">fishing.BingoCardBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-bingocardcell-module">fishing.BingoCardCell module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-bingocardgui-module">fishing.BingoCardGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-bingoglobals-module">fishing.BingoGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-bingomanagerai-module">fishing.BingoManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-bingonightholidayai-module">fishing.BingoNightHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-blockoutbingo-module">fishing.BlockoutBingo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-diagonalbingo-module">fishing.DiagonalBingo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-distributedfishingpond-module">fishing.DistributedFishingPond module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-distributedfishingpondai-module">fishing.DistributedFishingPondAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-distributedfishingtarget-module">fishing.DistributedFishingTarget module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-distributedfishingtargetai-module">fishing.DistributedFishingTargetAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-distributedpondbingomanager-module">fishing.DistributedPondBingoManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-distributedpondbingomanagerai-module">fishing.DistributedPondBingoManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishbase-module">fishing.FishBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishbrowser-module">fishing.FishBrowser module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishcollection-module">fishing.FishCollection module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishglobals-module">fishing.FishGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishmanagerai-module">fishing.FishManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishpanel-module">fishing.FishPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishphoto-module">fishing.FishPhoto module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishpicker-module">fishing.FishPicker module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishpokerbase-module">fishing.FishPokerBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishpokergui-module">fishing.FishPokerGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishsellgui-module">fishing.FishSellGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishtank-module">fishing.FishTank module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishingtargetglobals-module">fishing.FishingTargetGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fourcornerbingo-module">fishing.FourCornerBingo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-genuspanel-module">fishing.GenusPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-normalbingo-module">fishing.NormalBingo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-threewaybingo-module">fishing.ThreewayBingo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fishing-fishingsim-module">fishing.fishingSim module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-fishing">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">fishing package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/fishing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fishing-package">
+<h1>fishing package<a class="headerlink" href="#fishing-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-bingocardbase-module">
+<h2>fishing.BingoCardBase module<a class="headerlink" href="#fishing-bingocardbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-bingocardcell-module">
+<h2>fishing.BingoCardCell module<a class="headerlink" href="#fishing-bingocardcell-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-bingocardgui-module">
+<h2>fishing.BingoCardGui module<a class="headerlink" href="#fishing-bingocardgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-bingoglobals-module">
+<h2>fishing.BingoGlobals module<a class="headerlink" href="#fishing-bingoglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-bingomanagerai-module">
+<h2>fishing.BingoManagerAI module<a class="headerlink" href="#fishing-bingomanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-bingonightholidayai-module">
+<h2>fishing.BingoNightHolidayAI module<a class="headerlink" href="#fishing-bingonightholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-blockoutbingo-module">
+<h2>fishing.BlockoutBingo module<a class="headerlink" href="#fishing-blockoutbingo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-diagonalbingo-module">
+<h2>fishing.DiagonalBingo module<a class="headerlink" href="#fishing-diagonalbingo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-distributedfishingpond-module">
+<h2>fishing.DistributedFishingPond module<a class="headerlink" href="#fishing-distributedfishingpond-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-distributedfishingpondai-module">
+<h2>fishing.DistributedFishingPondAI module<a class="headerlink" href="#fishing-distributedfishingpondai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-distributedfishingtarget-module">
+<h2>fishing.DistributedFishingTarget module<a class="headerlink" href="#fishing-distributedfishingtarget-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-distributedfishingtargetai-module">
+<h2>fishing.DistributedFishingTargetAI module<a class="headerlink" href="#fishing-distributedfishingtargetai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-distributedpondbingomanager-module">
+<h2>fishing.DistributedPondBingoManager module<a class="headerlink" href="#fishing-distributedpondbingomanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-distributedpondbingomanagerai-module">
+<h2>fishing.DistributedPondBingoManagerAI module<a class="headerlink" href="#fishing-distributedpondbingomanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishbase-module">
+<h2>fishing.FishBase module<a class="headerlink" href="#fishing-fishbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishbrowser-module">
+<h2>fishing.FishBrowser module<a class="headerlink" href="#fishing-fishbrowser-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishcollection-module">
+<h2>fishing.FishCollection module<a class="headerlink" href="#fishing-fishcollection-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishglobals-module">
+<h2>fishing.FishGlobals module<a class="headerlink" href="#fishing-fishglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishmanagerai-module">
+<h2>fishing.FishManagerAI module<a class="headerlink" href="#fishing-fishmanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishpanel-module">
+<h2>fishing.FishPanel module<a class="headerlink" href="#fishing-fishpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishphoto-module">
+<h2>fishing.FishPhoto module<a class="headerlink" href="#fishing-fishphoto-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishpicker-module">
+<h2>fishing.FishPicker module<a class="headerlink" href="#fishing-fishpicker-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishpokerbase-module">
+<h2>fishing.FishPokerBase module<a class="headerlink" href="#fishing-fishpokerbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishpokergui-module">
+<h2>fishing.FishPokerGui module<a class="headerlink" href="#fishing-fishpokergui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishsellgui-module">
+<h2>fishing.FishSellGUI module<a class="headerlink" href="#fishing-fishsellgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishtank-module">
+<h2>fishing.FishTank module<a class="headerlink" href="#fishing-fishtank-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishingtargetglobals-module">
+<h2>fishing.FishingTargetGlobals module<a class="headerlink" href="#fishing-fishingtargetglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fourcornerbingo-module">
+<h2>fishing.FourCornerBingo module<a class="headerlink" href="#fishing-fourcornerbingo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-genuspanel-module">
+<h2>fishing.GenusPanel module<a class="headerlink" href="#fishing-genuspanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-normalbingo-module">
+<h2>fishing.NormalBingo module<a class="headerlink" href="#fishing-normalbingo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-threewaybingo-module">
+<h2>fishing.ThreewayBingo module<a class="headerlink" href="#fishing-threewaybingo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="fishing-fishingsim-module">
+<h2>fishing.fishingSim module<a class="headerlink" href="#fishing-fishingsim-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-fishing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-fishing" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="estate.html" class="btn btn-neutral float-left" title="estate package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="friends.html" class="btn btn-neutral float-right" title="friends package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>coghq.MoleFieldBase &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">coghq.MoleFieldBase</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for coghq.MoleFieldBase</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">HILL_MOLE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">HILL_BOMB</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">HILL_WHACKED</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">HILL_COGWHACKED</span> <span class="o">=</span> <span class="mi">3</span>
+
+<div class="viewcode-block" id="MoleFieldBase"><a class="viewcode-back" href="../../toontown/coghq.html#coghq.MoleFieldBase.MoleFieldBase">[docs]</a><span class="k">class</span> <span class="nc">MoleFieldBase</span><span class="p">:</span>
+    <span class="n">WHACKED</span> <span class="o">=</span> <span class="mi">1</span>
+    
+
+   
+    <span class="n">MoveUpTimeMax</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">MoveUpTimeMultiplier</span> <span class="o">=</span> <span class="mf">0.95</span>
+    <span class="n">MoveUpTimeMin</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+    <span class="n">StayUpTimeMax</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">StayUpTimeMultiplier</span> <span class="o">=</span> <span class="mf">0.95</span>
+    <span class="n">StayUpTimeMin</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="n">MoveDownTimeMax</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">MoveDownTimeMultiplier</span> <span class="o">=</span> <span class="mf">0.95</span>
+    <span class="n">MoveDownTimeMin</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+    <span class="n">TimeBetweenPopupMax</span> <span class="o">=</span> <span class="mf">1.5</span>
+    <span class="n">TimeBetweenPopupMultiplier</span> <span class="o">=</span> <span class="mf">0.95</span>
+    <span class="n">TimeBetweenPopupMin</span> <span class="o">=</span> <span class="mf">0.25</span>    
+
+    <span class="c1">#GameDuration = 180</span>
+    <span class="c1">#GameDuration = 60</span>
+    <span class="c1">#MolesWhackedTarget = 100</span>
+    <span class="c1">#MolesWhackedTarget = 7</span>
+
+    <span class="n">DamageOnFailure</span> <span class="o">=</span> <span class="mi">20</span>
+    
+    <span class="c1"># use this random generator whenever you calculate a random value for</span>
+    <span class="c1"># the barrel that must be independently the same on the client and AI.</span>
+    <span class="c1"># Use for one calculation and then discard.</span>
+<div class="viewcode-block" id="MoleFieldBase.getRng"><a class="viewcode-back" href="../../toontown/coghq.html#coghq.MoleFieldBase.MoleFieldBase.getRng">[docs]</a>    <span class="k">def</span> <span class="nf">getRng</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entId</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="o">.</span><span class="n">doId</span><span class="p">)</span></div>
+
+        
+<div class="viewcode-block" id="MoleFieldBase.scheduleMoles"><a class="viewcode-back" href="../../toontown/coghq.html#coghq.MoleFieldBase.MoleFieldBase.scheduleMoles">[docs]</a>    <span class="k">def</span> <span class="nf">scheduleMoles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Schedule the moles going up and down.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">totalTime</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">curMoveUpTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MoveUpTimeMax</span> <span class="c1"># number of seconds it takes for the mole to move up</span>
+        <span class="n">curMoveDownTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MoveDownTimeMax</span> <span class="c1"># number of seconds it takes for the mole to move down</span>
+        <span class="n">curTimeBetweenPopup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TimeBetweenPopupMax</span> <span class="c1"># how long before another mole pops up</span>
+        <span class="n">curStayUpTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">StayUpTimeMax</span>  <span class="c1"># how long does the mole stay up</span>
+        <span class="n">curTime</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">eligibleMoles</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numMoles</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">getRng</span><span class="p">()</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">eligibleMoles</span><span class="p">)</span>
+        <span class="n">usedMoles</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;eligibleMoles=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">eligibleMoles</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endingTime</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">randOb</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entId</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="o">.</span><span class="n">doId</span><span class="p">)</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">endingTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">GameDuration</span><span class="p">:</span>
+            <span class="c1"># choose a mole</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">eligibleMoles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">eligibleMoles</span> <span class="o">=</span> <span class="n">usedMoles</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">getRng</span><span class="p">()</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">usedMoles</span><span class="p">)</span>
+                <span class="n">usedMoles</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;eligibleMoles=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">eligibleMoles</span><span class="p">)</span>
+            <span class="n">moleIndex</span> <span class="o">=</span> <span class="n">eligibleMoles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">eligibleMoles</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">moleIndex</span><span class="p">)</span>
+            <span class="n">usedMoles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">moleIndex</span><span class="p">)</span>
+            <span class="n">moleType</span> <span class="o">=</span> <span class="n">randOb</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="n">HILL_MOLE</span><span class="p">,</span> <span class="n">HILL_MOLE</span><span class="p">,</span> <span class="n">HILL_MOLE</span><span class="p">,</span> <span class="n">HILL_BOMB</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">curTime</span><span class="p">,</span> <span class="n">moleIndex</span><span class="p">,</span> <span class="n">curMoveUpTime</span><span class="p">,</span> <span class="n">curStayUpTime</span><span class="p">,</span> <span class="n">curMoveDownTime</span><span class="p">,</span> <span class="n">moleType</span><span class="p">))</span>
+            <span class="n">curTime</span> <span class="o">+=</span> <span class="n">curTimeBetweenPopup</span>
+            
+            <span class="n">curMoveUpTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcNextMoveUpTime</span><span class="p">(</span><span class="n">curTime</span><span class="p">,</span> <span class="n">curMoveUpTime</span><span class="p">)</span>
+            <span class="n">curStayUpTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcNextStayUpTime</span><span class="p">(</span><span class="n">curTime</span><span class="p">,</span> <span class="n">curStayUpTime</span><span class="p">)</span>
+            <span class="n">curMoveDownTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcNextMoveDownTime</span><span class="p">(</span><span class="n">curTime</span><span class="p">,</span> <span class="n">curMoveDownTime</span><span class="p">)</span>
+            <span class="n">curTimeBetweenPopup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calcNextTimeBetweenPopup</span><span class="p">(</span><span class="n">curTime</span><span class="p">,</span> <span class="n">curTimeBetweenPopup</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">endingTime</span> <span class="o">=</span> <span class="n">curTime</span> <span class="o">+</span> <span class="n">curMoveUpTime</span> <span class="o">+</span> <span class="n">curStayUpTime</span> <span class="o">+</span> <span class="n">curMoveDownTime</span>
+
+        <span class="c1"># remove the last entry in the schedule, since it goes over the game duration</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endingTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> \
+                          <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">4</span><span class="p">]</span>
+        
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;schedule length = </span><span class="si">%d</span><span class="s1">, endingTime=</span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">schedule</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">endingTime</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="MoleFieldBase.calcNextMoveUpTime"><a class="viewcode-back" href="../../toontown/coghq.html#coghq.MoleFieldBase.MoleFieldBase.calcNextMoveUpTime">[docs]</a>    <span class="k">def</span> <span class="nf">calcNextMoveUpTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curTime</span><span class="p">,</span> <span class="n">curMoveUpTime</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate how long it takes for the next mole to move up.&quot;&quot;&quot;</span>
+        <span class="c1"># we pass curTime in case we want it fairly flat at the start,</span>
+        <span class="c1"># then quickly ramp up</span>
+        <span class="n">newMoveUpTime</span> <span class="o">=</span> <span class="n">curMoveUpTime</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">MoveUpTimeMultiplier</span>
+        <span class="k">if</span> <span class="n">newMoveUpTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">MoveDownTimeMin</span><span class="p">:</span>
+            <span class="n">newMoveUpTime</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">MoveDownTimeMin</span>
+        <span class="k">return</span> <span class="n">newMoveUpTime</span></div>
+
+<div class="viewcode-block" id="MoleFieldBase.calcNextStayUpTime"><a class="viewcode-back" href="../../toontown/coghq.html#coghq.MoleFieldBase.MoleFieldBase.calcNextStayUpTime">[docs]</a>    <span class="k">def</span> <span class="nf">calcNextStayUpTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curTime</span><span class="p">,</span> <span class="n">curStayUpTime</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate how long it takes for the next mole to stay up.&quot;&quot;&quot;</span>
+        <span class="c1"># we pass curTime in case we want it fairly flat at the start,</span>
+        <span class="c1"># then quickly ramp up</span>
+        <span class="n">newStayUpTime</span> <span class="o">=</span> <span class="n">curStayUpTime</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">StayUpTimeMultiplier</span>
+        <span class="k">if</span> <span class="n">newStayUpTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">StayUpTimeMin</span><span class="p">:</span>
+            <span class="n">newStayUpTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">StayUpTimeMin</span>
+        <span class="k">return</span> <span class="n">newStayUpTime</span></div>
+
+<div class="viewcode-block" id="MoleFieldBase.calcNextMoveDownTime"><a class="viewcode-back" href="../../toontown/coghq.html#coghq.MoleFieldBase.MoleFieldBase.calcNextMoveDownTime">[docs]</a>    <span class="k">def</span> <span class="nf">calcNextMoveDownTime</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curTime</span><span class="p">,</span> <span class="n">curMoveDownTime</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate how long it takes for the next mole to move down.&quot;&quot;&quot;</span>
+        <span class="c1"># we pass curTime in case we want it fairly flat at the start,</span>
+        <span class="c1"># then quickly ramp up</span>
+        <span class="n">newMoveDownTime</span> <span class="o">=</span> <span class="n">curMoveDownTime</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">MoveDownTimeMultiplier</span>
+        <span class="k">if</span> <span class="n">newMoveDownTime</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">MoveDownTimeMin</span><span class="p">:</span>
+            <span class="n">newMoveDownTime</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">MoveDownTimeMin</span>
+        <span class="k">return</span> <span class="n">newMoveDownTime</span></div>
+
+<div class="viewcode-block" id="MoleFieldBase.calcNextTimeBetweenPopup"><a class="viewcode-back" href="../../toontown/coghq.html#coghq.MoleFieldBase.MoleFieldBase.calcNextTimeBetweenPopup">[docs]</a>    <span class="k">def</span> <span class="nf">calcNextTimeBetweenPopup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">curTime</span><span class="p">,</span> <span class="n">curTimeBetweenPopup</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate how long it takes for the next mole to pop up.&quot;&quot;&quot;</span>
+        <span class="c1"># we pass curTime in case we want it fairly flat at the start,</span>
+        <span class="c1"># then quickly ramp up</span>
+        <span class="n">newTimeBetweenPopup</span> <span class="o">=</span> <span class="n">curTimeBetweenPopup</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">TimeBetweenPopupMultiplier</span>
+        <span class="k">if</span> <span class="n">newTimeBetweenPopup</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">TimeBetweenPopupMin</span><span class="p">:</span>
+            <span class="n">newTimeBetweenPopup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">TimeBetweenPopupMin</span>
+        <span class="k">return</span> <span class="n">newTimeBetweenPopup</span></div></div>
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>building package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="catalog package" href="catalog.html" />
+    <link rel="prev" title="battle package" href="battle.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">building package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-boardinggroupshow-module">building.BoardingGroupShow module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-boardingpartybase-module">building.BoardingPartyBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedanimbuilding-module">building.DistributedAnimBuilding module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedanimbuildingai-module">building.DistributedAnimBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedanimdoor-module">building.DistributedAnimDoor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedanimdoorai-module">building.DistributedAnimDoorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedanimatedprop-module">building.DistributedAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedanimatedpropai-module">building.DistributedAnimatedPropAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedbbelevator-module">building.DistributedBBElevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedbbelevatorai-module">building.DistributedBBElevatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedboardingparty-module">building.DistributedBoardingParty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedboardingpartyai-module">building.DistributedBoardingPartyAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedbosselevator-module">building.DistributedBossElevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedbosselevatorai-module">building.DistributedBossElevatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedbuilding-module">building.DistributedBuilding module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedbuildingai-module">building.DistributedBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedbuildingmgrai-module">building.DistributedBuildingMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedcfoelevator-module">building.DistributedCFOElevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedcfoelevatorai-module">building.DistributedCFOElevatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedcjelevator-module">building.DistributedCJElevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedcjelevatorai-module">building.DistributedCJElevatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedclubelevator-module">building.DistributedClubElevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedclubelevatorai-module">building.DistributedClubElevatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributeddoor-module">building.DistributedDoor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributeddoorai-module">building.DistributedDoorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevator-module">building.DistributedElevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorai-module">building.DistributedElevatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorext-module">building.DistributedElevatorExt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorextai-module">building.DistributedElevatorExtAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorfsm-module">building.DistributedElevatorFSM module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorfsmai-module">building.DistributedElevatorFSMAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorfloor-module">building.DistributedElevatorFloor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorfloorai-module">building.DistributedElevatorFloorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorint-module">building.DistributedElevatorInt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedelevatorintai-module">building.DistributedElevatorIntAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedgagshopinterior-module">building.DistributedGagshopInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-building.DistributedGagshopInteriorAI">building.DistributedGagshopInteriorAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#building.DistributedGagshopInteriorAI.DistributedGagshopInteriorAI"><code class="docutils literal notranslate"><span class="pre">DistributedGagshopInteriorAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedhqinterior-module">building.DistributedHQInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-building.DistributedHQInteriorAI">building.DistributedHQInteriorAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI"><code class="docutils literal notranslate"><span class="pre">DistributedHQInteriorAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedkartshopinterior-module">building.DistributedKartShopInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-building.DistributedKartShopInteriorAI">building.DistributedKartShopInteriorAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI"><code class="docutils literal notranslate"><span class="pre">DistributedKartShopInteriorAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedknockknockdoor-module">building.DistributedKnockKnockDoor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedknockknockdoorai-module">building.DistributedKnockKnockDoorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedpetshopinterior-module">building.DistributedPetshopInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-building.DistributedPetshopInteriorAI">building.DistributedPetshopInteriorAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI"><code class="docutils literal notranslate"><span class="pre">DistributedPetshopInteriorAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedsuitinterior-module">building.DistributedSuitInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedsuitinteriorai-module">building.DistributedSuitInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtoonhallinterior-module">building.DistributedToonHallInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtoonhallinteriorai-module">building.DistributedToonHallInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtooninterior-module">building.DistributedToonInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtooninteriorai-module">building.DistributedToonInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtrophymgr-module">building.DistributedTrophyMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtrophymgrai-module">building.DistributedTrophyMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtutorialinterior-module">building.DistributedTutorialInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedtutorialinteriorai-module">building.DistributedTutorialInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedvpelevator-module">building.DistributedVPElevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-distributedvpelevatorai-module">building.DistributedVPElevatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-building.DoorTypes">building.DoorTypes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-elevator-module">building.Elevator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-elevatorconstants-module">building.ElevatorConstants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-elevatorutils-module">building.ElevatorUtils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-fadoorcodes-module">building.FADoorCodes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-gagshopbuildingai-module">building.GagshopBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-hqbuildingai-module">building.HQBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-kartshopbuildingai-module">building.KartShopBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-knockknockjokes-module">building.KnockKnockJokes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-petshopbuildingai-module">building.PetshopBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-suitbuildingglobals-module">building.SuitBuildingGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-suitinterior-module">building.SuitInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-suitplannerinteriorai-module">building.SuitPlannerInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-tooninterior-module">building.ToonInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-tooninteriorcolors-module">building.ToonInteriorColors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-tutorialbuildingai-module">building.TutorialBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-tutorialhqbuildingai-module">building.TutorialHQBuildingAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-building">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">building package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/building.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="building-package">
+<h1>building package<a class="headerlink" href="#building-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-boardinggroupshow-module">
+<h2>building.BoardingGroupShow module<a class="headerlink" href="#building-boardinggroupshow-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-boardingpartybase-module">
+<h2>building.BoardingPartyBase module<a class="headerlink" href="#building-boardingpartybase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedanimbuilding-module">
+<h2>building.DistributedAnimBuilding module<a class="headerlink" href="#building-distributedanimbuilding-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedanimbuildingai-module">
+<h2>building.DistributedAnimBuildingAI module<a class="headerlink" href="#building-distributedanimbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedanimdoor-module">
+<h2>building.DistributedAnimDoor module<a class="headerlink" href="#building-distributedanimdoor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedanimdoorai-module">
+<h2>building.DistributedAnimDoorAI module<a class="headerlink" href="#building-distributedanimdoorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedanimatedprop-module">
+<h2>building.DistributedAnimatedProp module<a class="headerlink" href="#building-distributedanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedanimatedpropai-module">
+<h2>building.DistributedAnimatedPropAI module<a class="headerlink" href="#building-distributedanimatedpropai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedbbelevator-module">
+<h2>building.DistributedBBElevator module<a class="headerlink" href="#building-distributedbbelevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedbbelevatorai-module">
+<h2>building.DistributedBBElevatorAI module<a class="headerlink" href="#building-distributedbbelevatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedboardingparty-module">
+<h2>building.DistributedBoardingParty module<a class="headerlink" href="#building-distributedboardingparty-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedboardingpartyai-module">
+<h2>building.DistributedBoardingPartyAI module<a class="headerlink" href="#building-distributedboardingpartyai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedbosselevator-module">
+<h2>building.DistributedBossElevator module<a class="headerlink" href="#building-distributedbosselevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedbosselevatorai-module">
+<h2>building.DistributedBossElevatorAI module<a class="headerlink" href="#building-distributedbosselevatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedbuilding-module">
+<h2>building.DistributedBuilding module<a class="headerlink" href="#building-distributedbuilding-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedbuildingai-module">
+<h2>building.DistributedBuildingAI module<a class="headerlink" href="#building-distributedbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedbuildingmgrai-module">
+<h2>building.DistributedBuildingMgrAI module<a class="headerlink" href="#building-distributedbuildingmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedcfoelevator-module">
+<h2>building.DistributedCFOElevator module<a class="headerlink" href="#building-distributedcfoelevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedcfoelevatorai-module">
+<h2>building.DistributedCFOElevatorAI module<a class="headerlink" href="#building-distributedcfoelevatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedcjelevator-module">
+<h2>building.DistributedCJElevator module<a class="headerlink" href="#building-distributedcjelevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedcjelevatorai-module">
+<h2>building.DistributedCJElevatorAI module<a class="headerlink" href="#building-distributedcjelevatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedclubelevator-module">
+<h2>building.DistributedClubElevator module<a class="headerlink" href="#building-distributedclubelevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedclubelevatorai-module">
+<h2>building.DistributedClubElevatorAI module<a class="headerlink" href="#building-distributedclubelevatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributeddoor-module">
+<h2>building.DistributedDoor module<a class="headerlink" href="#building-distributeddoor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributeddoorai-module">
+<h2>building.DistributedDoorAI module<a class="headerlink" href="#building-distributeddoorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevator-module">
+<h2>building.DistributedElevator module<a class="headerlink" href="#building-distributedelevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorai-module">
+<h2>building.DistributedElevatorAI module<a class="headerlink" href="#building-distributedelevatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorext-module">
+<h2>building.DistributedElevatorExt module<a class="headerlink" href="#building-distributedelevatorext-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorextai-module">
+<h2>building.DistributedElevatorExtAI module<a class="headerlink" href="#building-distributedelevatorextai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorfsm-module">
+<h2>building.DistributedElevatorFSM module<a class="headerlink" href="#building-distributedelevatorfsm-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorfsmai-module">
+<h2>building.DistributedElevatorFSMAI module<a class="headerlink" href="#building-distributedelevatorfsmai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorfloor-module">
+<h2>building.DistributedElevatorFloor module<a class="headerlink" href="#building-distributedelevatorfloor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorfloorai-module">
+<h2>building.DistributedElevatorFloorAI module<a class="headerlink" href="#building-distributedelevatorfloorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorint-module">
+<h2>building.DistributedElevatorInt module<a class="headerlink" href="#building-distributedelevatorint-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedelevatorintai-module">
+<h2>building.DistributedElevatorIntAI module<a class="headerlink" href="#building-distributedelevatorintai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedgagshopinterior-module">
+<h2>building.DistributedGagshopInterior module<a class="headerlink" href="#building-distributedgagshopinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-building.DistributedGagshopInteriorAI">
+<span id="building-distributedgagshopinteriorai-module"></span><h2>building.DistributedGagshopInteriorAI module<a class="headerlink" href="#module-building.DistributedGagshopInteriorAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="building.DistributedGagshopInteriorAI.DistributedGagshopInteriorAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">building.DistributedGagshopInteriorAI.</span></span><span class="sig-name descname"><span class="pre">DistributedGagshopInteriorAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedGagshopInteriorAI.html#DistributedGagshopInteriorAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedGagshopInteriorAI.DistributedGagshopInteriorAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedGagshopInteriorAI.DistributedGagshopInteriorAI.getZoneIdAndBlock">
+<span class="sig-name descname"><span class="pre">getZoneIdAndBlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedGagshopInteriorAI.html#DistributedGagshopInteriorAI.getZoneIdAndBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedGagshopInteriorAI.DistributedGagshopInteriorAI.getZoneIdAndBlock" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="building.DistributedGagshopInteriorAI.DistributedGagshopInteriorAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#building.DistributedGagshopInteriorAI.DistributedGagshopInteriorAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="building-distributedhqinterior-module">
+<h2>building.DistributedHQInterior module<a class="headerlink" href="#building-distributedhqinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-building.DistributedHQInteriorAI">
+<span id="building-distributedhqinteriorai-module"></span><h2>building.DistributedHQInteriorAI module<a class="headerlink" href="#module-building.DistributedHQInteriorAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">building.DistributedHQInteriorAI.</span></span><span class="sig-name descname"><span class="pre">DistributedHQInteriorAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should redefine this to take appropriate action on delete
+Note that this may be called multiple times if a class inherits
+from DistributedObjectAI more than once.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.getLeaderBoard">
+<span class="sig-name descname"><span class="pre">getLeaderBoard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.getLeaderBoard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.getLeaderBoard" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.getTutorial">
+<span class="sig-name descname"><span class="pre">getTutorial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.getTutorial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.getTutorial" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.getZoneIdAndBlock">
+<span class="sig-name descname"><span class="pre">getZoneIdAndBlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.getZoneIdAndBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.getZoneIdAndBlock" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.leaderboardChanged">
+<span class="sig-name descname"><span class="pre">leaderboardChanged</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.leaderboardChanged"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.leaderboardChanged" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.leaderboardFlush">
+<span class="sig-name descname"><span class="pre">leaderboardFlush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.leaderboardFlush"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.leaderboardFlush" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.sendNewLeaderBoard">
+<span class="sig-name descname"><span class="pre">sendNewLeaderBoard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.sendNewLeaderBoard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.sendNewLeaderBoard" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedHQInteriorAI.DistributedHQInteriorAI.setTutorial">
+<span class="sig-name descname"><span class="pre">setTutorial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flag</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedHQInteriorAI.html#DistributedHQInteriorAI.setTutorial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedHQInteriorAI.DistributedHQInteriorAI.setTutorial" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="building-distributedkartshopinterior-module">
+<h2>building.DistributedKartShopInterior module<a class="headerlink" href="#building-distributedkartshopinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-building.DistributedKartShopInteriorAI">
+<span id="building-distributedkartshopinteriorai-module"></span><h2>building.DistributedKartShopInteriorAI module<a class="headerlink" href="#module-building.DistributedKartShopInteriorAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">building.DistributedKartShopInteriorAI.</span></span><span class="sig-name descname"><span class="pre">DistributedKartShopInteriorAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedKartShopInteriorAI.html#DistributedKartShopInteriorAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<p>Purpose: The DistributedKartShopInteriorAI class represents the
+interior of the KartShop on the AI server side.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedKartShopInteriorAI.html#DistributedKartShopInteriorAI.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI.generate" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: The generate Method performs the necessary object
+setup.</p>
+<p>Params: None
+Return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI.getZoneIdAndBlock">
+<span class="sig-name descname"><span class="pre">getZoneIdAndBlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedKartShopInteriorAI.html#DistributedKartShopInteriorAI.getZoneIdAndBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI.getZoneIdAndBlock" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: The getZoneIdAndBlock Method returns the zoneId and
+the block of the KartShopInterior.</p>
+<p>Params: None
+Return: [] - containing the zoneId and block.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#building.DistributedKartShopInteriorAI.DistributedKartShopInteriorAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="building-distributedknockknockdoor-module">
+<h2>building.DistributedKnockKnockDoor module<a class="headerlink" href="#building-distributedknockknockdoor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedknockknockdoorai-module">
+<h2>building.DistributedKnockKnockDoorAI module<a class="headerlink" href="#building-distributedknockknockdoorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedpetshopinterior-module">
+<h2>building.DistributedPetshopInterior module<a class="headerlink" href="#building-distributedpetshopinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-building.DistributedPetshopInteriorAI">
+<span id="building-distributedpetshopinteriorai-module"></span><h2>building.DistributedPetshopInteriorAI module<a class="headerlink" href="#module-building.DistributedPetshopInteriorAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">building.DistributedPetshopInteriorAI.</span></span><span class="sig-name descname"><span class="pre">DistributedPetshopInteriorAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedPetshopInteriorAI.html#DistributedPetshopInteriorAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI.generate">
+<span class="sig-name descname"><span class="pre">generate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedPetshopInteriorAI.html#DistributedPetshopInteriorAI.generate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI.generate" title="Permalink to this definition"></a></dt>
+<dd><p>Inheritors should put functions that require self.zoneId or
+other networked info in this function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI.getZoneIdAndBlock">
+<span class="sig-name descname"><span class="pre">getZoneIdAndBlock</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/building/DistributedPetshopInteriorAI.html#DistributedPetshopInteriorAI.getZoneIdAndBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI.getZoneIdAndBlock" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#building.DistributedPetshopInteriorAI.DistributedPetshopInteriorAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="building-distributedsuitinterior-module">
+<h2>building.DistributedSuitInterior module<a class="headerlink" href="#building-distributedsuitinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedsuitinteriorai-module">
+<h2>building.DistributedSuitInteriorAI module<a class="headerlink" href="#building-distributedsuitinteriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtoonhallinterior-module">
+<h2>building.DistributedToonHallInterior module<a class="headerlink" href="#building-distributedtoonhallinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtoonhallinteriorai-module">
+<h2>building.DistributedToonHallInteriorAI module<a class="headerlink" href="#building-distributedtoonhallinteriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtooninterior-module">
+<h2>building.DistributedToonInterior module<a class="headerlink" href="#building-distributedtooninterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtooninteriorai-module">
+<h2>building.DistributedToonInteriorAI module<a class="headerlink" href="#building-distributedtooninteriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtrophymgr-module">
+<h2>building.DistributedTrophyMgr module<a class="headerlink" href="#building-distributedtrophymgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtrophymgrai-module">
+<h2>building.DistributedTrophyMgrAI module<a class="headerlink" href="#building-distributedtrophymgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtutorialinterior-module">
+<h2>building.DistributedTutorialInterior module<a class="headerlink" href="#building-distributedtutorialinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedtutorialinteriorai-module">
+<h2>building.DistributedTutorialInteriorAI module<a class="headerlink" href="#building-distributedtutorialinteriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedvpelevator-module">
+<h2>building.DistributedVPElevator module<a class="headerlink" href="#building-distributedvpelevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-distributedvpelevatorai-module">
+<h2>building.DistributedVPElevatorAI module<a class="headerlink" href="#building-distributedvpelevatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-building.DoorTypes">
+<span id="building-doortypes-module"></span><h2>building.DoorTypes module<a class="headerlink" href="#module-building.DoorTypes" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-elevator-module">
+<h2>building.Elevator module<a class="headerlink" href="#building-elevator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-elevatorconstants-module">
+<h2>building.ElevatorConstants module<a class="headerlink" href="#building-elevatorconstants-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-elevatorutils-module">
+<h2>building.ElevatorUtils module<a class="headerlink" href="#building-elevatorutils-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-fadoorcodes-module">
+<h2>building.FADoorCodes module<a class="headerlink" href="#building-fadoorcodes-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-gagshopbuildingai-module">
+<h2>building.GagshopBuildingAI module<a class="headerlink" href="#building-gagshopbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-hqbuildingai-module">
+<h2>building.HQBuildingAI module<a class="headerlink" href="#building-hqbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-kartshopbuildingai-module">
+<h2>building.KartShopBuildingAI module<a class="headerlink" href="#building-kartshopbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-knockknockjokes-module">
+<h2>building.KnockKnockJokes module<a class="headerlink" href="#building-knockknockjokes-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-petshopbuildingai-module">
+<h2>building.PetshopBuildingAI module<a class="headerlink" href="#building-petshopbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-suitbuildingglobals-module">
+<h2>building.SuitBuildingGlobals module<a class="headerlink" href="#building-suitbuildingglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-suitinterior-module">
+<h2>building.SuitInterior module<a class="headerlink" href="#building-suitinterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-suitplannerinteriorai-module">
+<h2>building.SuitPlannerInteriorAI module<a class="headerlink" href="#building-suitplannerinteriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-tooninterior-module">
+<h2>building.ToonInterior module<a class="headerlink" href="#building-tooninterior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-tooninteriorcolors-module">
+<h2>building.ToonInteriorColors module<a class="headerlink" href="#building-tooninteriorcolors-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-tutorialbuildingai-module">
+<h2>building.TutorialBuildingAI module<a class="headerlink" href="#building-tutorialbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="building-tutorialhqbuildingai-module">
+<h2>building.TutorialHQBuildingAI module<a class="headerlink" href="#building-tutorialhqbuildingai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-building">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-building" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="battle.html" class="btn btn-neutral float-left" title="battle package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="catalog.html" class="btn btn-neutral float-right" title="catalog package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

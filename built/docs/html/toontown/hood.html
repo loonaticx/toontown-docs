@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hood package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="launcher package" href="launcher.html" />
+    <link rel="prev" title="golf package" href="golf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">hood package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hood.AnimatedProp">hood.AnimatedProp module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hood.AnimatedProp.AnimatedProp"><code class="docutils literal notranslate"><span class="pre">AnimatedProp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-brhood-module">hood.BRHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-brhooddataai-module">hood.BRHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-bossbothq-module">hood.BossbotHQ module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-bossbothqdataai-module">hood.BossbotHQDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-cshooddataai-module">hood.CSHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-cashbothq-module">hood.CashbotHQ module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-cashbothqdataai-module">hood.CashbotHQDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-coghood-module">hood.CogHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-ddhood-module">hood.DDHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-ddhooddataai-module">hood.DDHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-dghood-module">hood.DGHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-dghooddataai-module">hood.DGHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-dlhood-module">hood.DLHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-dlhooddataai-module">hood.DLHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-estatehood-module">hood.EstateHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-fishanimatedprop-module">hood.FishAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-gshood-module">hood.GSHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-gshooddataai-module">hood.GSHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-gzhood-module">hood.GZHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-gzhooddataai-module">hood.GZHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-genericanimatedbuilding-module">hood.GenericAnimatedBuilding module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-genericanimatedprop-module">hood.GenericAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hood.HQPeriscopeAnimatedProp">hood.HQPeriscopeAnimatedProp module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp"><code class="docutils literal notranslate"><span class="pre">HQPeriscopeAnimatedProp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hood.HQTelescopeAnimatedProp">hood.HQTelescopeAnimatedProp module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp"><code class="docutils literal notranslate"><span class="pre">HQTelescopeAnimatedProp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-hood-module">hood.Hood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-hooddataai-module">hood.HoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-hoodutil-module">hood.HoodUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-hydrantinteractiveprop-module">hood.HydrantInteractiveProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-hydrantoneanimatedprop-module">hood.HydrantOneAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-hydranttwoanimatedprop-module">hood.HydrantTwoAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-hydrantzeroanimatedprop-module">hood.HydrantZeroAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-interactiveanimatedprop-module">hood.InteractiveAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-lawbothq-module">hood.LawbotHQ module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-lawbothqdataai-module">hood.LawbotHQDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-mmhood-module">hood.MMHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-mmhooddataai-module">hood.MMHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-mailboxinteractiveprop-module">hood.MailboxInteractiveProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-mailboxoneanimatedprop-module">hood.MailboxOneAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-mailboxtwoanimatedprop-module">hood.MailboxTwoAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-mailboxzeroanimatedprop-module">hood.MailboxZeroAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-ozhood-module">hood.OZHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-ozhooddataai-module">hood.OZHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-partyhood-module">hood.PartyHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hood.PetShopFishAnimatedProp">hood.PetShopFishAnimatedProp module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp"><code class="docutils literal notranslate"><span class="pre">PetShopFishAnimatedProp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-place-module">hood.Place module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-quietzonestate-module">hood.QuietZoneState module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-sellbothq-module">hood.SellbotHQ module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-skyutil-module">hood.SkyUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hood.SleepingHydrantAnimatedProp">hood.SleepingHydrantAnimatedProp module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp"><code class="docutils literal notranslate"><span class="pre">SleepingHydrantAnimatedProp</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-streetsign-module">hood.StreetSign module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-tthood-module">hood.TTHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-tthooddataai-module">hood.TTHoodDataAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-toonhood-module">hood.ToonHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-trashcaninteractiveprop-module">hood.TrashcanInteractiveProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-trashcanoneanimatedprop-module">hood.TrashcanOneAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-trashcantwoanimatedprop-module">hood.TrashcanTwoAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-trashcanzeroanimatedprop-module">hood.TrashcanZeroAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-trialerforceacknowledge-module">hood.TrialerForceAcknowledge module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-tutorialhood-module">hood.TutorialHood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-zeroanimatedprop-module">hood.ZeroAnimatedProp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hood-zoneutil-module">hood.ZoneUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hood">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">hood package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/hood.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hood-package">
+<h1>hood package<a class="headerlink" href="#hood-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-hood.AnimatedProp">
+<span id="hood-animatedprop-module"></span><h2>hood.AnimatedProp module<a class="headerlink" href="#module-hood.AnimatedProp" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hood.AnimatedProp.AnimatedProp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hood.AnimatedProp.</span></span><span class="sig-name descname"><span class="pre">AnimatedProp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/AnimatedProp.html#AnimatedProp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.AnimatedProp.AnimatedProp" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DirectObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.AnimatedProp.AnimatedProp.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/AnimatedProp.html#AnimatedProp.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.AnimatedProp.AnimatedProp.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.AnimatedProp.AnimatedProp.enter">
+<span class="sig-name descname"><span class="pre">enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/AnimatedProp.html#AnimatedProp.enter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.AnimatedProp.AnimatedProp.enter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.AnimatedProp.AnimatedProp.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/AnimatedProp.html#AnimatedProp.exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.AnimatedProp.AnimatedProp.exit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="hood.AnimatedProp.AnimatedProp.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#hood.AnimatedProp.AnimatedProp.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.AnimatedProp.AnimatedProp.uniqueName">
+<span class="sig-name descname"><span class="pre">uniqueName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/AnimatedProp.html#AnimatedProp.uniqueName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.AnimatedProp.AnimatedProp.uniqueName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="hood-brhood-module">
+<h2>hood.BRHood module<a class="headerlink" href="#hood-brhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-brhooddataai-module">
+<h2>hood.BRHoodDataAI module<a class="headerlink" href="#hood-brhooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-bossbothq-module">
+<h2>hood.BossbotHQ module<a class="headerlink" href="#hood-bossbothq-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-bossbothqdataai-module">
+<h2>hood.BossbotHQDataAI module<a class="headerlink" href="#hood-bossbothqdataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-cshooddataai-module">
+<h2>hood.CSHoodDataAI module<a class="headerlink" href="#hood-cshooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-cashbothq-module">
+<h2>hood.CashbotHQ module<a class="headerlink" href="#hood-cashbothq-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-cashbothqdataai-module">
+<h2>hood.CashbotHQDataAI module<a class="headerlink" href="#hood-cashbothqdataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-coghood-module">
+<h2>hood.CogHood module<a class="headerlink" href="#hood-coghood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-ddhood-module">
+<h2>hood.DDHood module<a class="headerlink" href="#hood-ddhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-ddhooddataai-module">
+<h2>hood.DDHoodDataAI module<a class="headerlink" href="#hood-ddhooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-dghood-module">
+<h2>hood.DGHood module<a class="headerlink" href="#hood-dghood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-dghooddataai-module">
+<h2>hood.DGHoodDataAI module<a class="headerlink" href="#hood-dghooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-dlhood-module">
+<h2>hood.DLHood module<a class="headerlink" href="#hood-dlhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-dlhooddataai-module">
+<h2>hood.DLHoodDataAI module<a class="headerlink" href="#hood-dlhooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-estatehood-module">
+<h2>hood.EstateHood module<a class="headerlink" href="#hood-estatehood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-fishanimatedprop-module">
+<h2>hood.FishAnimatedProp module<a class="headerlink" href="#hood-fishanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-gshood-module">
+<h2>hood.GSHood module<a class="headerlink" href="#hood-gshood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-gshooddataai-module">
+<h2>hood.GSHoodDataAI module<a class="headerlink" href="#hood-gshooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-gzhood-module">
+<h2>hood.GZHood module<a class="headerlink" href="#hood-gzhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-gzhooddataai-module">
+<h2>hood.GZHoodDataAI module<a class="headerlink" href="#hood-gzhooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-genericanimatedbuilding-module">
+<h2>hood.GenericAnimatedBuilding module<a class="headerlink" href="#hood-genericanimatedbuilding-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-genericanimatedprop-module">
+<h2>hood.GenericAnimatedProp module<a class="headerlink" href="#hood-genericanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-hood.HQPeriscopeAnimatedProp">
+<span id="hood-hqperiscopeanimatedprop-module"></span><h2>hood.HQPeriscopeAnimatedProp module<a class="headerlink" href="#module-hood.HQPeriscopeAnimatedProp" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hood.HQPeriscopeAnimatedProp.</span></span><span class="sig-name descname"><span class="pre">HQPeriscopeAnimatedProp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQPeriscopeAnimatedProp.html#HQPeriscopeAnimatedProp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hood.AnimatedProp.AnimatedProp" title="hood.AnimatedProp.AnimatedProp"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnimatedProp</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQPeriscopeAnimatedProp.html#HQPeriscopeAnimatedProp.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp.enter">
+<span class="sig-name descname"><span class="pre">enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQPeriscopeAnimatedProp.html#HQPeriscopeAnimatedProp.enter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp.enter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQPeriscopeAnimatedProp.html#HQPeriscopeAnimatedProp.exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQPeriscopeAnimatedProp.HQPeriscopeAnimatedProp.exit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-hood.HQTelescopeAnimatedProp">
+<span id="hood-hqtelescopeanimatedprop-module"></span><h2>hood.HQTelescopeAnimatedProp module<a class="headerlink" href="#module-hood.HQTelescopeAnimatedProp" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hood.HQTelescopeAnimatedProp.</span></span><span class="sig-name descname"><span class="pre">HQTelescopeAnimatedProp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQTelescopeAnimatedProp.html#HQTelescopeAnimatedProp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hood.AnimatedProp.AnimatedProp" title="hood.AnimatedProp.AnimatedProp"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnimatedProp</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQTelescopeAnimatedProp.html#HQTelescopeAnimatedProp.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.enter">
+<span class="sig-name descname"><span class="pre">enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQTelescopeAnimatedProp.html#HQTelescopeAnimatedProp.enter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.enter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/HQTelescopeAnimatedProp.html#HQTelescopeAnimatedProp.exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.exit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="hood-hood-module">
+<h2>hood.Hood module<a class="headerlink" href="#hood-hood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-hooddataai-module">
+<h2>hood.HoodDataAI module<a class="headerlink" href="#hood-hooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-hoodutil-module">
+<h2>hood.HoodUtil module<a class="headerlink" href="#hood-hoodutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-hydrantinteractiveprop-module">
+<h2>hood.HydrantInteractiveProp module<a class="headerlink" href="#hood-hydrantinteractiveprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-hydrantoneanimatedprop-module">
+<h2>hood.HydrantOneAnimatedProp module<a class="headerlink" href="#hood-hydrantoneanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-hydranttwoanimatedprop-module">
+<h2>hood.HydrantTwoAnimatedProp module<a class="headerlink" href="#hood-hydranttwoanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-hydrantzeroanimatedprop-module">
+<h2>hood.HydrantZeroAnimatedProp module<a class="headerlink" href="#hood-hydrantzeroanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-interactiveanimatedprop-module">
+<h2>hood.InteractiveAnimatedProp module<a class="headerlink" href="#hood-interactiveanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-lawbothq-module">
+<h2>hood.LawbotHQ module<a class="headerlink" href="#hood-lawbothq-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-lawbothqdataai-module">
+<h2>hood.LawbotHQDataAI module<a class="headerlink" href="#hood-lawbothqdataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-mmhood-module">
+<h2>hood.MMHood module<a class="headerlink" href="#hood-mmhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-mmhooddataai-module">
+<h2>hood.MMHoodDataAI module<a class="headerlink" href="#hood-mmhooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-mailboxinteractiveprop-module">
+<h2>hood.MailboxInteractiveProp module<a class="headerlink" href="#hood-mailboxinteractiveprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-mailboxoneanimatedprop-module">
+<h2>hood.MailboxOneAnimatedProp module<a class="headerlink" href="#hood-mailboxoneanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-mailboxtwoanimatedprop-module">
+<h2>hood.MailboxTwoAnimatedProp module<a class="headerlink" href="#hood-mailboxtwoanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-mailboxzeroanimatedprop-module">
+<h2>hood.MailboxZeroAnimatedProp module<a class="headerlink" href="#hood-mailboxzeroanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-ozhood-module">
+<h2>hood.OZHood module<a class="headerlink" href="#hood-ozhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-ozhooddataai-module">
+<h2>hood.OZHoodDataAI module<a class="headerlink" href="#hood-ozhooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-partyhood-module">
+<h2>hood.PartyHood module<a class="headerlink" href="#hood-partyhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-hood.PetShopFishAnimatedProp">
+<span id="hood-petshopfishanimatedprop-module"></span><h2>hood.PetShopFishAnimatedProp module<a class="headerlink" href="#module-hood.PetShopFishAnimatedProp" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hood.PetShopFishAnimatedProp.</span></span><span class="sig-name descname"><span class="pre">PetShopFishAnimatedProp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/PetShopFishAnimatedProp.html#PetShopFishAnimatedProp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hood.AnimatedProp.AnimatedProp" title="hood.AnimatedProp.AnimatedProp"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnimatedProp</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/PetShopFishAnimatedProp.html#PetShopFishAnimatedProp.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp.delete" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp.enter">
+<span class="sig-name descname"><span class="pre">enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/PetShopFishAnimatedProp.html#PetShopFishAnimatedProp.enter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp.enter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/PetShopFishAnimatedProp.html#PetShopFishAnimatedProp.exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.PetShopFishAnimatedProp.PetShopFishAnimatedProp.exit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="hood-place-module">
+<h2>hood.Place module<a class="headerlink" href="#hood-place-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-quietzonestate-module">
+<h2>hood.QuietZoneState module<a class="headerlink" href="#hood-quietzonestate-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-sellbothq-module">
+<h2>hood.SellbotHQ module<a class="headerlink" href="#hood-sellbothq-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-skyutil-module">
+<h2>hood.SkyUtil module<a class="headerlink" href="#hood-skyutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-hood.SleepingHydrantAnimatedProp">
+<span id="hood-sleepinghydrantanimatedprop-module"></span><h2>hood.SleepingHydrantAnimatedProp module<a class="headerlink" href="#module-hood.SleepingHydrantAnimatedProp" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hood.SleepingHydrantAnimatedProp.</span></span><span class="sig-name descname"><span class="pre">SleepingHydrantAnimatedProp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/SleepingHydrantAnimatedProp.html#SleepingHydrantAnimatedProp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hood.AnimatedProp.AnimatedProp" title="hood.AnimatedProp.AnimatedProp"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnimatedProp</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp.bobTask">
+<span class="sig-name descname"><span class="pre">bobTask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/SleepingHydrantAnimatedProp.html#SleepingHydrantAnimatedProp.bobTask"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp.bobTask" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp.enter">
+<span class="sig-name descname"><span class="pre">enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/SleepingHydrantAnimatedProp.html#SleepingHydrantAnimatedProp.enter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp.enter" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp.exit">
+<span class="sig-name descname"><span class="pre">exit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hood/SleepingHydrantAnimatedProp.html#SleepingHydrantAnimatedProp.exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#hood.SleepingHydrantAnimatedProp.SleepingHydrantAnimatedProp.exit" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="hood-streetsign-module">
+<h2>hood.StreetSign module<a class="headerlink" href="#hood-streetsign-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-tthood-module">
+<h2>hood.TTHood module<a class="headerlink" href="#hood-tthood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-tthooddataai-module">
+<h2>hood.TTHoodDataAI module<a class="headerlink" href="#hood-tthooddataai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-toonhood-module">
+<h2>hood.ToonHood module<a class="headerlink" href="#hood-toonhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-trashcaninteractiveprop-module">
+<h2>hood.TrashcanInteractiveProp module<a class="headerlink" href="#hood-trashcaninteractiveprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-trashcanoneanimatedprop-module">
+<h2>hood.TrashcanOneAnimatedProp module<a class="headerlink" href="#hood-trashcanoneanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-trashcantwoanimatedprop-module">
+<h2>hood.TrashcanTwoAnimatedProp module<a class="headerlink" href="#hood-trashcantwoanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-trashcanzeroanimatedprop-module">
+<h2>hood.TrashcanZeroAnimatedProp module<a class="headerlink" href="#hood-trashcanzeroanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-trialerforceacknowledge-module">
+<h2>hood.TrialerForceAcknowledge module<a class="headerlink" href="#hood-trialerforceacknowledge-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-tutorialhood-module">
+<h2>hood.TutorialHood module<a class="headerlink" href="#hood-tutorialhood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-zeroanimatedprop-module">
+<h2>hood.ZeroAnimatedProp module<a class="headerlink" href="#hood-zeroanimatedprop-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="hood-zoneutil-module">
+<h2>hood.ZoneUtil module<a class="headerlink" href="#hood-zoneutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-hood">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hood" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="golf.html" class="btn btn-neutral float-left" title="golf package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="launcher.html" class="btn btn-neutral float-right" title="launcher package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

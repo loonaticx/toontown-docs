@@ -1,0 +1,626 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>golf.GolfGlobals &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">golf.GolfGlobals</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for golf.GolfGlobals</h1><div class="highlight"><pre>
+<span></span><span class="c1">#from toontown.toonbase import TTLocalizer</span>
+<span class="kn">from</span> <span class="nn">direct.directnotify</span> <span class="kn">import</span> <span class="n">DirectNotifyGlobal</span>
+<span class="c1">#from toontown.toonbase.ToontownModules import Vec4</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">MAX_PLAYERS_PER_HOLE</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">GOLF_BALL_RADIUS</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="c1"># the radius in feet of our golf ball</span>
+<span class="n">GOLF_BALL_VOLUME</span> <span class="o">=</span> <span class="mf">4.0</span> <span class="o">/</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="mf">3.14159</span> <span class="o">*</span> <span class="p">(</span><span class="n">GOLF_BALL_RADIUS</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="c1"># in cubic feet</span>
+<span class="n">GOLF_BALL_MASS</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># in pounds</span>
+<span class="n">GOLF_BALL_DENSITY</span> <span class="o">=</span> <span class="n">GOLF_BALL_MASS</span> <span class="o">/</span> <span class="n">GOLF_BALL_VOLUME</span>
+
+<span class="c1"># surface type constants</span>
+<span class="n">GRASS_SURFACE</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># the default if you don&#39;t specify anyting</span>
+<span class="n">BALL_SURFACE</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># the golf ball</span>
+<span class="n">HARD_SURFACE</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># the barriers and blockers</span>
+<span class="n">HOLE_SURFACE</span> <span class="o">=</span> <span class="mi">3</span> <span class="c1"># the hole</span>
+<span class="n">SLICK_SURFACE</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># low friction</span>
+
+<span class="c1"># collide id constants</span>
+<span class="n">OOB_RAY_COLLIDE_ID</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="c1"># out of bounds ray</span>
+<span class="n">GRASS_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">HARD_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">TOON_RAY_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">MOVER_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">WINDMILL_BASE_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">CAMERA_RAY_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">BALL_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">HOLE_CUP_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">SKY_RAY_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">78</span>
+<span class="n">SLICK_COLLIDE_ID</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="c1">#animations constants</span>
+<span class="n">BALL_CONTACT_FRAME</span> <span class="o">=</span> <span class="mi">9</span> <span class="c1"># what frame does the swing anim hit the ball</span>
+<span class="n">BALL_CONTACT_TIME</span> <span class="o">=</span> <span class="p">(</span><span class="n">BALL_CONTACT_FRAME</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">24.0</span> <span class="c1"># in seconds</span>
+
+<span class="c1"># timing constants</span>
+<span class="n">AIM_DURATION</span> <span class="o">=</span> <span class="mi">60</span> <span class="c1"># in seconds, amount of time for them to aim</span>
+<span class="n">TEE_DURATION</span> <span class="o">=</span> <span class="mi">15</span> <span class="c1"># in seconds, amount of time for them to choose their tee spot</span>
+
+<span class="n">RANDOM_HOLES</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># disconnect constants</span>
+<span class="n">KICKOUT_SWINGS</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># if reaches this number of swings without pressing control, kick him out</span>
+
+<span class="n">TIME_TIE_BREAKER</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># if true, total aim time is used to break ties</span>
+
+
+<span class="c1"># This describes each course,</span>
+<span class="c1"># name = a toony name to describe the course</span>
+<span class="c1"># holeIds = which holes are valid for this course if its just an int</span>
+<span class="c1">#   then it&#39;s assumed to have a weight of 1.  If it&#39;s a tuple</span>
+<span class="c1">#   the first number is the holeId, the second number will be the weight of choosing</span>
+<span class="c1">#   that holeId</span>
+<span class="c1"># if len(holeIds) &lt; numHoles, we recycle starting at the first holeId, if not randomized</span>
+<span class="c1"># if len(holeIds) &gt; numHoles, we don&#39;t use all of the holes</span>
+<span class="n">CourseInfo</span> <span class="o">=</span> <span class="p">{</span>
+         <span class="c1"># no volcano, no windmills, little if any blockers/movers</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">#TTLocalizer.GolfCourseNames[0],</span>
+         <span class="s1">&#39;numHoles&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;holeIds&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">#TTLocalizer.GolfCourseNames[1],</span>
+         <span class="s1">&#39;numHoles&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;holeIds&#39;</span> <span class="p">:</span> <span class="p">(</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+                      <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">15</span><span class="p">,</span>  <span class="mi">16</span><span class="p">,</span>
+                      <span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+                      <span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">33</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+                      <span class="p">),</span>
+       <span class="p">},</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">#TTLocalizer.GolfCourseNames[2],</span>
+         <span class="s1">&#39;numHoles&#39;</span> <span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+         <span class="s1">&#39;holeIds&#39;</span> <span class="p">:(</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">15</span><span class="p">,</span>
+                     <span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">21</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+                     <span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">20</span><span class="p">),(</span><span class="mi">26</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">27</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">29</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+                     <span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">33</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">35</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+                     <span class="p">),</span>
+         <span class="c1"># don&#39;t delete to quickly test all the holes</span>
+         <span class="c1"># &#39;holeIds&#39; : (0,1,2,3,4,5,6,7,8),</span>
+         <span class="c1"># &#39;holeIds&#39; : (9,10,11,12,13,14,15,16,17),</span>
+       <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># This describes each hole</span>
+<span class="c1"># name = a toony name to describe the hole</span>
+<span class="c1"># par = what is the par for this hole</span>
+<span class="c1"># maxSwing = if he can&#39;t sink the ball after enough tries, give him this score</span>
+<span class="c1"># holePos = xyz position of the actual hole, may be more than 1, WARNING no longer used</span>
+<span class="c1"># terrainModel = model to load and reparent to render, includes background scenery</span>
+<span class="c1"># physicsData = actual node used under terrainModel used for physics</span>
+<span class="c1"># blockers = which blockers to enable, 1 based</span>
+<span class="c1"># optionalMovers = which optionalMovers to enable, 1 based</span>
+<span class="c1"># add 18 to the holeId and you get the more difficult version of that hole</span>
+<span class="n">HoleInfo</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">0</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole18.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen18&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">()</span>
+         <span class="p">},</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole1.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen1&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole2.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen2&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole3.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen3&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole4.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen4&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span>  <span class="s1">&#39;phase_6/models/golf/hole5.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen2&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span><span class="s1">&#39;phase_6/models/golf/hole6.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen6&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+     <span class="mi">7</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole7.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen7&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">8</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole8.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen8&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">9</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span>  <span class="s1">&#39;phase_6/models/golf/hole9.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen9&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">10</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span>  <span class="s1">&#39;phase_6/models/golf/hole10.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen10&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">11</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole11.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen11&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">12</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole12.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen12&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">13</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole13.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen13&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">14</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1"># this has a windmill</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole14.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen14&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">15</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole15.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen15&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">16</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole16.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen16&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">17</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole17.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen17&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="p">},</span>
+    <span class="mi">18</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole18.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen18&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+         <span class="p">},</span>
+    <span class="mi">19</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole1.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen1&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">20</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole2.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen2&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">21</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole3.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen3&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">22</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole4.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen4&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">23</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole5.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen5&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+          <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">24</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole6.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen6&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+          <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">25</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole7.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen7&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+          <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">26</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole8.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen8&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+          <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">27</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole9.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen9&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">28</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole10.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen10&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">29</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole11.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen11&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">30</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole12.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen12&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,),</span>
+         <span class="p">},</span>
+    <span class="mi">31</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole13.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen13&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">32</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole14.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen14&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">33</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole15.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen15&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">34</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole16.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen16&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>
+         <span class="s1">&#39;optionalMovers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+         <span class="p">},</span>
+    <span class="mi">35</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;name&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;par&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+         <span class="s1">&#39;maxSwing&#39;</span> <span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+         <span class="s1">&#39;terrainModel&#39;</span> <span class="p">:</span> <span class="s1">&#39;phase_6/models/golf/hole17.bam&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;physicsData&#39;</span> <span class="p">:</span> <span class="s1">&#39;golfGreen17&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;blockers&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+         <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># fixup blockers, optionalMovers, make sure they are tuple</span>
+<span class="k">for</span> <span class="n">holeId</span> <span class="ow">in</span> <span class="n">HoleInfo</span><span class="p">:</span>
+   <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;blockers&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+      <span class="n">blockerNum</span> <span class="o">=</span> <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;blockers&#39;</span><span class="p">]</span>
+      <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;blockers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">blockerNum</span><span class="p">,)</span>
+   <span class="k">if</span> <span class="s1">&#39;optionalMovers&#39;</span> <span class="ow">in</span> <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">]:</span>
+      <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;optionalMovers&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="mi">0</span><span class="p">):</span>
+         <span class="n">blockerNum</span> <span class="o">=</span> <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;optionalMovers&#39;</span><span class="p">]</span>
+         <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;optionalMovers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">blockerNum</span><span class="p">,)</span>
+
+
+
+<span class="c1"># TODO once we have real hole geometry this can be reduced from 5</span>
+<span class="n">DistanceToBeInHole</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="c1"># how many feet from the hole bottom center to be considered inside the hole</span>
+
+<span class="c1"># Golf History  indices   # amount needed to get a new trophy</span>
+<span class="n">CoursesCompleted</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">CoursesUnderPar</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">HoleInOneShots</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">EagleOrBetterShots</span><span class="o">=</span> <span class="mi">3</span>
+<span class="n">BirdieOrBetterShots</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">ParOrBetterShots</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">MultiPlayerCoursesCompleted</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">CourseZeroWins</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">CourseOneWins</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">CourseTwoWins</span> <span class="o">=</span> <span class="mi">9</span>
+
+<span class="n">TwoPlayerWins</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">ThreePlayerWins</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">FourPlayerWins</span> <span class="o">=</span> <span class="mi">12</span>
+
+<span class="n">MaxHistoryIndex</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">NumHistory</span> <span class="o">=</span> <span class="n">MaxHistoryIndex</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Display other people&#39;s hole and course bests when achieved</span>
+<span class="n">CalcOtherHoleBest</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">CalcOtherCourseBest</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Trophies can be computed from the history, so no need to store it in the db</span>
+
+<span class="n">TrophyRequirements</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">CoursesCompleted</span> <span class="p">:</span>   <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span>
+    <span class="n">CoursesUnderPar</span> <span class="p">:</span>    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">HoleInOneShots</span> <span class="p">:</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">EagleOrBetterShots</span> <span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+    <span class="n">BirdieOrBetterShots</span> <span class="p">:(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+    <span class="n">ParOrBetterShots</span> <span class="p">:</span>   <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span>
+    <span class="n">MultiPlayerCoursesCompleted</span> <span class="p">:</span>    <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">600</span><span class="p">),</span>
+    <span class="n">CourseZeroWins</span> <span class="p">:</span>     <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">CourseOneWins</span> <span class="p">:</span>      <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">CourseTwoWins</span> <span class="p">:</span>      <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="c1">#TwoPlayerWins :    (1, 10, 100),</span>
+    <span class="c1">#ThreePlayerWins :    (1, 10, 100),</span>
+    <span class="c1">#FourPlayerWins :     (1, 10, 100),</span>
+
+<span class="p">}</span>
+
+<span class="c1"># Colors taken from the avatar choice panel</span>
+<span class="c1"># Affects toon panel and golf ball color</span>
+<span class="n">PlayerColors</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">(</span><span class="mf">0.925</span><span class="p">,</span> <span class="mf">0.168</span><span class="p">,</span> <span class="mf">0.168</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+   <span class="p">(</span><span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+   <span class="p">(</span><span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.809</span><span class="p">,</span> <span class="mf">0.129</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+   <span class="p">(</span><span class="mf">0.598</span><span class="p">,</span> <span class="mf">0.402</span><span class="p">,</span> <span class="mf">0.875</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+   <span class="p">]</span>
+
+<span class="c1"># Kart colors stored in r,g,b (the horizontal array) for easy, medium, and hard courses (the vertical array)</span>
+<span class="n">KartColors</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">[</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span> <span class="p">],</span>
+   <span class="p">[</span> <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">120</span><span class="p">]</span> <span class="p">],</span>
+   <span class="p">[</span> <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">110</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">110</span><span class="p">]</span> <span class="p">],</span>
+   <span class="p">]</span>
+
+<span class="n">NumTrophies</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">TrophyRequirements</span><span class="p">:</span>
+   <span class="n">NumTrophies</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">TrophyRequirements</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="n">NumCups</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">TrophiesPerCup</span> <span class="o">=</span> <span class="n">NumTrophies</span> <span class="o">/</span> <span class="n">NumCups</span>
+
+<div class="viewcode-block" id="calcTrophyListFromHistory"><a class="viewcode-back" href="../../toontown/golf.html#golf.GolfGlobals.calcTrophyListFromHistory">[docs]</a><span class="k">def</span> <span class="nf">calcTrophyListFromHistory</span><span class="p">(</span> <span class="n">history</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Return a list of booleans, with True meaning he has trophy.</span>
+
+<span class="sd">   The first item (index 0) is for 4 courses completed.</span>
+<span class="sd">   Last item is for 100 course two wins.&quot;&quot;&quot;</span>
+   <span class="n">retval</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="n">historyIndex</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="k">for</span> <span class="n">trophyIndex</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NumHistory</span><span class="p">):</span>
+       <span class="n">requirements</span> <span class="o">=</span> <span class="n">TrophyRequirements</span><span class="p">[</span><span class="n">trophyIndex</span><span class="p">]</span>
+       <span class="k">for</span> <span class="n">amountNeeded</span> <span class="ow">in</span> <span class="n">requirements</span><span class="p">:</span>
+           <span class="k">if</span> <span class="n">history</span><span class="p">[</span><span class="n">historyIndex</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">amountNeeded</span><span class="p">:</span>
+               <span class="n">retval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+           <span class="k">else</span><span class="p">:</span>
+               <span class="n">retval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+       <span class="n">historyIndex</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="k">return</span> <span class="n">retval</span></div>
+
+
+<div class="viewcode-block" id="calcCupListFromHistory"><a class="viewcode-back" href="../../toontown/golf.html#golf.GolfGlobals.calcCupListFromHistory">[docs]</a><span class="k">def</span> <span class="nf">calcCupListFromHistory</span><span class="p">(</span> <span class="n">history</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Return a list of booleans, with True meaning he has the cup.</span>
+
+<span class="sd">   The first item (index 0)is for 10 trophies won. next is 20 trophies won.</span>
+<span class="sd">   Last item is for 30 trophies won.&quot;&quot;&quot;</span>
+   <span class="n">retval</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">NumCups</span>
+   <span class="n">trophyList</span> <span class="o">=</span> <span class="n">calcTrophyListFromHistory</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+   <span class="n">numTrophiesWon</span> <span class="o">=</span> <span class="mi">0</span>
+   <span class="k">for</span> <span class="n">gotTrophy</span> <span class="ow">in</span> <span class="n">trophyList</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">gotTrophy</span><span class="p">:</span>
+         <span class="n">numTrophiesWon</span> <span class="o">+=</span> <span class="mi">1</span>
+   <span class="k">for</span> <span class="n">cupIndex</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">retval</span><span class="p">)):</span>
+      <span class="n">threshold</span> <span class="o">=</span> <span class="p">(</span><span class="n">cupIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">TrophiesPerCup</span>
+      <span class="k">if</span> <span class="n">threshold</span> <span class="o">&lt;=</span> <span class="n">numTrophiesWon</span><span class="p">:</span>
+         <span class="n">retval</span><span class="p">[</span><span class="n">cupIndex</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+   <span class="k">return</span> <span class="n">retval</span></div>
+
+<div class="viewcode-block" id="getCourseName"><a class="viewcode-back" href="../../toontown/golf.html#golf.GolfGlobals.getCourseName">[docs]</a><span class="k">def</span> <span class="nf">getCourseName</span><span class="p">(</span><span class="n">courseId</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Return the name of the course.&quot;&quot;&quot;</span>
+   <span class="kn">from</span> <span class="nn">toontown.toonbase</span> <span class="kn">import</span> <span class="n">TTLocalizer</span>
+   <span class="k">if</span> <span class="n">courseId</span> <span class="ow">in</span> <span class="n">CourseInfo</span><span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">CourseInfo</span><span class="p">[</span><span class="n">courseId</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]:</span>
+         <span class="n">CourseInfo</span><span class="p">[</span><span class="n">courseId</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TTLocalizer</span><span class="o">.</span><span class="n">GolfCourseNames</span><span class="p">[</span><span class="n">courseId</span><span class="p">]</span>
+      <span class="k">return</span> <span class="n">CourseInfo</span><span class="p">[</span><span class="n">courseId</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
+
+
+<div class="viewcode-block" id="getHoleName"><a class="viewcode-back" href="../../toontown/golf.html#golf.GolfGlobals.getHoleName">[docs]</a><span class="k">def</span> <span class="nf">getHoleName</span><span class="p">(</span><span class="n">holeId</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Return the name of the hole.&quot;&quot;&quot;</span>
+   <span class="kn">from</span> <span class="nn">toontown.toonbase</span> <span class="kn">import</span> <span class="n">TTLocalizer</span>
+   <span class="k">if</span> <span class="n">holeId</span> <span class="ow">in</span> <span class="n">HoleInfo</span> <span class="p">:</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]:</span>
+         <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TTLocalizer</span><span class="o">.</span><span class="n">GolfHoleNames</span><span class="p">[</span><span class="n">holeId</span><span class="p">]</span>
+      <span class="k">return</span> <span class="n">HoleInfo</span><span class="p">[</span><span class="n">holeId</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+   <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
+
+<div class="viewcode-block" id="getHistoryIndexForTrophy"><a class="viewcode-back" href="../../toontown/golf.html#golf.GolfGlobals.getHistoryIndexForTrophy">[docs]</a><span class="k">def</span> <span class="nf">getHistoryIndexForTrophy</span><span class="p">(</span><span class="n">trophyIndex</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Returns the corresponding history the trophy is based on. -1 on error.&quot;&quot;&quot;</span>
+   <span class="n">retval</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+   <span class="c1"># this shortcut will work since each trophy requirement has a 3 tuple</span>
+   <span class="c1"># definitely change this if we have varying tuple lengths</span>
+   <span class="n">divBy3</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">trophyIndex</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+   <span class="k">if</span> <span class="n">divBy3</span> <span class="o">&lt;</span> <span class="n">NumHistory</span><span class="p">:</span>
+      <span class="n">retval</span> <span class="o">=</span> <span class="n">divBy3</span>
+   <span class="k">return</span> <span class="n">retval</span></div>
+
+<div class="viewcode-block" id="packGolfHoleBest"><a class="viewcode-back" href="../../toontown/golf.html#golf.GolfGlobals.packGolfHoleBest">[docs]</a><span class="k">def</span> <span class="nf">packGolfHoleBest</span><span class="p">(</span><span class="n">holeBest</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Returns a packed version of the holeBest uint8 list.&quot;&quot;&quot;</span>
+   <span class="n">retval</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="n">shiftLeft</span> <span class="o">=</span> <span class="kc">False</span>
+   <span class="k">for</span> <span class="n">hole</span> <span class="ow">in</span> <span class="n">holeBest</span><span class="p">:</span>
+      <span class="n">hole</span> <span class="o">&amp;=</span> <span class="mh">0xF</span>
+      <span class="k">if</span> <span class="n">shiftLeft</span><span class="p">:</span>
+         <span class="n">retval</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">|=</span> <span class="p">(</span><span class="n">hole</span> <span class="o">&lt;&lt;</span><span class="mi">4</span><span class="p">)</span>
+         <span class="n">shiftLeft</span> <span class="o">=</span> <span class="kc">False</span>
+      <span class="k">else</span><span class="p">:</span>
+         <span class="n">retval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hole</span><span class="p">)</span>
+         <span class="n">shiftLeft</span> <span class="o">=</span> <span class="kc">True</span>
+   <span class="k">return</span> <span class="n">retval</span></div>
+
+<div class="viewcode-block" id="unpackGolfHoleBest"><a class="viewcode-back" href="../../toontown/golf.html#golf.GolfGlobals.unpackGolfHoleBest">[docs]</a><span class="k">def</span> <span class="nf">unpackGolfHoleBest</span><span class="p">(</span><span class="n">packedHoleBest</span><span class="p">):</span>
+<span class="w">   </span><span class="sd">&quot;&quot;&quot;Returns an unpacked version of the holeBest uint8 list.&quot;&quot;&quot;</span>
+   <span class="n">retval</span> <span class="o">=</span> <span class="p">[]</span>
+   <span class="k">for</span> <span class="n">packedHole</span> <span class="ow">in</span> <span class="n">packedHoleBest</span><span class="p">:</span>
+      <span class="n">lowbitHole</span> <span class="o">=</span> <span class="n">packedHole</span> <span class="o">&amp;</span> <span class="mh">0xF</span>
+      <span class="n">retval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lowbitHole</span><span class="p">)</span>
+      <span class="n">highBitHole</span> <span class="o">=</span> <span class="p">(</span><span class="n">packedHole</span> <span class="o">&amp;</span><span class="mh">0xF0</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
+      <span class="n">retval</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">highBitHole</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">retval</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>chat.TalkMessage &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">chat.TalkMessage</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for chat.TalkMessage</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="TalkMessage"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage">[docs]</a><span></span><span class="k">class</span> <span class="nc">TalkMessage</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                    <span class="n">messageId</span><span class="p">,</span>
+                    <span class="n">timeStamp</span><span class="p">,</span>
+                    <span class="n">body</span><span class="p">,</span>
+                    <span class="n">senderAvatarId</span><span class="p">,</span>
+                    <span class="n">senderAvatarName</span><span class="p">,</span>
+                    <span class="n">senderAccountId</span><span class="p">,</span>
+                    <span class="n">senderAccountName</span><span class="p">,</span>
+                    <span class="n">receiverAvatarId</span><span class="p">,</span>
+                    <span class="n">receiverAvatarName</span><span class="p">,</span>
+                    <span class="n">receiverAccountId</span><span class="p">,</span>
+                    <span class="n">receiverAccountName</span><span class="p">,</span>
+                    <span class="n">talkType</span><span class="p">,</span>
+                    <span class="n">extraInfo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                    <span class="p">):</span>
+                    
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeStamp</span> <span class="o">=</span> <span class="n">timeStamp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">body</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAvatarId</span> <span class="o">=</span> <span class="n">senderAvatarId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAvatarName</span> <span class="o">=</span> <span class="n">senderAvatarName</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAccountId</span> <span class="o">=</span> <span class="n">senderAccountId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAccountName</span> <span class="o">=</span> <span class="n">senderAccountName</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAvatarId</span> <span class="o">=</span> <span class="n">receiverAvatarId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAvatarName</span> <span class="o">=</span> <span class="n">receiverAvatarName</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAccountId</span> <span class="o">=</span> <span class="n">receiverAccountId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAccountName</span> <span class="o">=</span> <span class="n">receiverAccountName</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">talkType</span> <span class="o">=</span> <span class="n">talkType</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extraInfo</span> <span class="o">=</span> <span class="n">extraInfo</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">messageId</span> <span class="o">=</span> <span class="n">messageId</span>
+        
+<div class="viewcode-block" id="TalkMessage.getMessageId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getMessageId">[docs]</a>    <span class="k">def</span> <span class="nf">getMessageId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">messageId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setMessageId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setMessageId">[docs]</a>    <span class="k">def</span> <span class="nf">setMessageId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">messageId</span> <span class="o">=</span> <span class="nb">id</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.getTimeStamp"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getTimeStamp">[docs]</a>    <span class="k">def</span> <span class="nf">getTimeStamp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeStamp</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setTimeStamp"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setTimeStamp">[docs]</a>    <span class="k">def</span> <span class="nf">setTimeStamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeStamp</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeStamp</span> <span class="o">=</span> <span class="n">timeStamp</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.getBody"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getBody">[docs]</a>    <span class="k">def</span> <span class="nf">getBody</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">body</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setBody"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setBody">[docs]</a>    <span class="k">def</span> <span class="nf">setBody</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">body</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">body</span> <span class="o">=</span> <span class="n">body</span></div>
+        
+                
+<div class="viewcode-block" id="TalkMessage.getSenderAvatarId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getSenderAvatarId">[docs]</a>    <span class="k">def</span> <span class="nf">getSenderAvatarId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">senderAvatarId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setSenderAvatarId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setSenderAvatarId">[docs]</a>    <span class="k">def</span> <span class="nf">setSenderAvatarId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">senderAvatarId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAvatarId</span> <span class="o">=</span> <span class="n">senderAvatarId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.getSenderAvatarName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getSenderAvatarName">[docs]</a>    <span class="k">def</span> <span class="nf">getSenderAvatarName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">senderAvatarName</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setSenderAvatarName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setSenderAvatarName">[docs]</a>    <span class="k">def</span> <span class="nf">setSenderAvatarName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">senderAvatarName</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAvatarName</span> <span class="o">=</span> <span class="n">senderAvatarName</span></div>
+        
+        
+<div class="viewcode-block" id="TalkMessage.getSenderAccountId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getSenderAccountId">[docs]</a>    <span class="k">def</span> <span class="nf">getSenderAccountId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">senderAccountId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setSenderAccountId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setSenderAccountId">[docs]</a>    <span class="k">def</span> <span class="nf">setSenderAccountId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">senderAccountId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAccountId</span> <span class="o">=</span> <span class="n">senderAccountId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.getSenderAccountName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getSenderAccountName">[docs]</a>    <span class="k">def</span> <span class="nf">getSenderAccountName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">senderAccountName</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setSenderAccountName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setSenderAccountName">[docs]</a>    <span class="k">def</span> <span class="nf">setSenderAccountName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">senderAccountName</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">senderAccountName</span> <span class="o">=</span> <span class="n">senderAccountName</span></div>
+        
+        
+<div class="viewcode-block" id="TalkMessage.getReceiverAvatarId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getReceiverAvatarId">[docs]</a>    <span class="k">def</span> <span class="nf">getReceiverAvatarId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiverAvatarId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setReceiverAvatarId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setReceiverAvatarId">[docs]</a>    <span class="k">def</span> <span class="nf">setReceiverAvatarId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiverAvatarId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAvatarId</span> <span class="o">=</span> <span class="n">receiverAvatarId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.getReceiverAvatarName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getReceiverAvatarName">[docs]</a>    <span class="k">def</span> <span class="nf">getReceiverAvatarName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiverAvatarName</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setReceiverAvatarName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setReceiverAvatarName">[docs]</a>    <span class="k">def</span> <span class="nf">setReceiverAvatarName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiverAvatarName</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAvatarName</span> <span class="o">=</span> <span class="n">receiverAvatarName</span></div>
+        
+        
+<div class="viewcode-block" id="TalkMessage.getReceiverAccountId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getReceiverAccountId">[docs]</a>    <span class="k">def</span> <span class="nf">getReceiverAccountId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiverAccountId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setReceiverAccountId"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setReceiverAccountId">[docs]</a>    <span class="k">def</span> <span class="nf">setReceiverAccountId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiverAccountId</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAccountId</span> <span class="o">=</span> <span class="n">receiverAccountId</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.getReceiverAccountName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getReceiverAccountName">[docs]</a>    <span class="k">def</span> <span class="nf">getReceiverAccountName</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">receiverAccountName</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setReceiverAccountName"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setReceiverAccountName">[docs]</a>    <span class="k">def</span> <span class="nf">setReceiverAccountName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiverAccountName</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receiverAccountName</span> <span class="o">=</span> <span class="n">receiverAccountName</span></div>
+
+        
+<div class="viewcode-block" id="TalkMessage.getTalkType"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getTalkType">[docs]</a>    <span class="k">def</span> <span class="nf">getTalkType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">talkType</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setTalkType"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setTalkType">[docs]</a>    <span class="k">def</span> <span class="nf">setTalkType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">talkType</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">talkType</span> <span class="o">=</span> <span class="n">talkType</span></div>
+
+<div class="viewcode-block" id="TalkMessage.getExtraInfo"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.getExtraInfo">[docs]</a>    <span class="k">def</span> <span class="nf">getExtraInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">extraInfo</span></div>
+        
+<div class="viewcode-block" id="TalkMessage.setExtraInfo"><a class="viewcode-back" href="../../otp/chat.html#chat.TalkMessage.TalkMessage.setExtraInfo">[docs]</a>    <span class="k">def</span> <span class="nf">setExtraInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">extraInfo</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extraInfo</span> <span class="o">=</span> <span class="n">extraInfo</span></div></div>
+
+        
+
+        
+
+                            
+                    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

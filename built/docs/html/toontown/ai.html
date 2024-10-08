@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ai package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="battle package" href="battle.html" />
+    <link rel="prev" title="toontown" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ai package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-aiservicestart-module">ai.AIServiceStart module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-aistart-module">ai.AIStart module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-aprilfoolsmanagerai-module">ai.AprilFoolsManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-blackcatholidaymgrai-module">ai.BlackCatHolidayMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-catalogwallpaperconversion-module">ai.CatalogWallpaperConversion module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-costumemanagerai-module">ai.CostumeManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-crashedleaderboarddecorator-module">ai.CrashedLeaderBoardDecorator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-databaseobject-module">ai.DatabaseObject module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-delaycatalog-module">ai.DelayCatalog module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedblackcatmgr-module">ai.DistributedBlackCatMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedblackcatmgrai-module">ai.DistributedBlackCatMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedgreentooneffectmgr-module">ai.DistributedGreenToonEffectMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedgreentooneffectmgrai-module">ai.DistributedGreenToonEffectMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedhydrantzeromgr-module">ai.DistributedHydrantZeroMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedhydrantzeromgrai-module">ai.DistributedHydrantZeroMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedmailboxzeromgr-module">ai.DistributedMailboxZeroMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedmailboxzeromgrai-module">ai.DistributedMailboxZeroMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedphaseeventmgr-module">ai.DistributedPhaseEventMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedphaseeventmgrai-module">ai.DistributedPhaseEventMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedpolarplaceeffectmgr-module">ai.DistributedPolarPlaceEffectMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedpolarplaceeffectmgrai-module">ai.DistributedPolarPlaceEffectMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedresistanceemotemgr-module">ai.DistributedResistanceEmoteMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedresistanceemotemgrai-module">ai.DistributedResistanceEmoteMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedscavengerhunttarget-module">ai.DistributedScavengerHuntTarget module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedscavengerhunttargetai-module">ai.DistributedScavengerHuntTargetAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedsillymetermgr-module">ai.DistributedSillyMeterMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedsillymetermgrai-module">ai.DistributedSillyMeterMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedtest-module">ai.DistributedTest module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedtestai-module">ai.DistributedTestAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedtrashcanzeromgr-module">ai.DistributedTrashcanZeroMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedtrashcanzeromgrai-module">ai.DistributedTrashcanZeroMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedtrickortreattarget-module">ai.DistributedTrickOrTreatTarget module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedtrickortreattargetai-module">ai.DistributedTrickOrTreatTargetAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedwintercarolingtarget-module">ai.DistributedWinterCarolingTarget module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedwintercarolingtargetai-module">ai.DistributedWinterCarolingTargetAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedzeromgr-module">ai.DistributedZeroMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-distributedzeromgrai-module">ai.DistributedZeroMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-fixpettraits-module">ai.FixPetTraits module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-greentooneventmgrai-module">ai.GreenToonEventMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-halloweenholidaydecorator-module">ai.HalloweenHolidayDecorator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidaybaseai-module">ai.HolidayBaseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidaydecorator-module">ai.HolidayDecorator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayinfo-module">ai.HolidayInfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayinfodaily-module">ai.HolidayInfoDaily module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayinfomonthly-module">ai.HolidayInfoMonthly module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayinfooncely-module">ai.HolidayInfoOncely module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayinforelatively-module">ai.HolidayInfoRelatively module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayinfoweekly-module">ai.HolidayInfoWeekly module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayinfoyearly-module">ai.HolidayInfoYearly module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidaymanagerai-module">ai.HolidayManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-holidayrepeaterai-module">ai.HolidayRepeaterAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-hydrantbuffholidayai-module">ai.HydrantBuffHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-hydrantzeroholidayai-module">ai.HydrantZeroHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-mailboxbuffholidayai-module">ai.MailboxBuffHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-mailboxzeroholidayai-module">ai.MailboxZeroHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-newsmanager-module">ai.NewsManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-newsmanagerai-module">ai.NewsManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-phasedholidayai-module">ai.PhasedHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-polarplaceeventmgrai-module">ai.PolarPlaceEventMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-propbuffholidayai-module">ai.PropBuffHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-raisemaxnpcfriends-module">ai.RaiseMaxNPCFriends module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-removedeadtasks-module">ai.RemoveDeadTasks module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-repairavatars-module">ai.RepairAvatars module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-resistanceeventmgrai-module">ai.ResistanceEventMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-roamingtrialerweekendmgrai-module">ai.RoamingTrialerWeekendMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-scavengerhuntmgrai-module">ai.ScavengerHuntMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-servereventbuffer-module">ai.ServerEventBuffer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-sillymeterholidayai-module">ai.SillyMeterHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-toonbarrier-module">ai.ToonBarrier module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-toontownaimsgtypes-module">ai.ToontownAIMsgTypes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-toontownairepository-module">ai.ToontownAIRepository module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-toontowngroupmanager-module">ai.ToontownGroupManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-toontownmagicwordmanager-module">ai.ToontownMagicWordManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-toontownmagicwordmanagerai-module">ai.ToontownMagicWordManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-trashcanbuffholidayai-module">ai.TrashcanBuffHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-trashcanzeroholidayai-module">ai.TrashcanZeroHolidayAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-trickortreatmgrai-module">ai.TrickOrTreatMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-utilityairepository-module">ai.UtilityAIRepository module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-utilitystart-module">ai.UtilityStart module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-valentinesdaymgrai-module">ai.ValentinesDayMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-welcomevalleymanager-module">ai.WelcomeValleyManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-welcomevalleymanagerai-module">ai.WelcomeValleyManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-wintercarolingmgrai-module">ai.WinterCarolingMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ai-testai-module">ai.testAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ai">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">ai package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/ai.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ai-package">
+<h1>ai package<a class="headerlink" href="#ai-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-aiservicestart-module">
+<h2>ai.AIServiceStart module<a class="headerlink" href="#ai-aiservicestart-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-aistart-module">
+<h2>ai.AIStart module<a class="headerlink" href="#ai-aistart-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-aprilfoolsmanagerai-module">
+<h2>ai.AprilFoolsManagerAI module<a class="headerlink" href="#ai-aprilfoolsmanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-blackcatholidaymgrai-module">
+<h2>ai.BlackCatHolidayMgrAI module<a class="headerlink" href="#ai-blackcatholidaymgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-catalogwallpaperconversion-module">
+<h2>ai.CatalogWallpaperConversion module<a class="headerlink" href="#ai-catalogwallpaperconversion-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-costumemanagerai-module">
+<h2>ai.CostumeManagerAI module<a class="headerlink" href="#ai-costumemanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-crashedleaderboarddecorator-module">
+<h2>ai.CrashedLeaderBoardDecorator module<a class="headerlink" href="#ai-crashedleaderboarddecorator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-databaseobject-module">
+<h2>ai.DatabaseObject module<a class="headerlink" href="#ai-databaseobject-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-delaycatalog-module">
+<h2>ai.DelayCatalog module<a class="headerlink" href="#ai-delaycatalog-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedblackcatmgr-module">
+<h2>ai.DistributedBlackCatMgr module<a class="headerlink" href="#ai-distributedblackcatmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedblackcatmgrai-module">
+<h2>ai.DistributedBlackCatMgrAI module<a class="headerlink" href="#ai-distributedblackcatmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedgreentooneffectmgr-module">
+<h2>ai.DistributedGreenToonEffectMgr module<a class="headerlink" href="#ai-distributedgreentooneffectmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedgreentooneffectmgrai-module">
+<h2>ai.DistributedGreenToonEffectMgrAI module<a class="headerlink" href="#ai-distributedgreentooneffectmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedhydrantzeromgr-module">
+<h2>ai.DistributedHydrantZeroMgr module<a class="headerlink" href="#ai-distributedhydrantzeromgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedhydrantzeromgrai-module">
+<h2>ai.DistributedHydrantZeroMgrAI module<a class="headerlink" href="#ai-distributedhydrantzeromgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedmailboxzeromgr-module">
+<h2>ai.DistributedMailboxZeroMgr module<a class="headerlink" href="#ai-distributedmailboxzeromgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedmailboxzeromgrai-module">
+<h2>ai.DistributedMailboxZeroMgrAI module<a class="headerlink" href="#ai-distributedmailboxzeromgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedphaseeventmgr-module">
+<h2>ai.DistributedPhaseEventMgr module<a class="headerlink" href="#ai-distributedphaseeventmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedphaseeventmgrai-module">
+<h2>ai.DistributedPhaseEventMgrAI module<a class="headerlink" href="#ai-distributedphaseeventmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedpolarplaceeffectmgr-module">
+<h2>ai.DistributedPolarPlaceEffectMgr module<a class="headerlink" href="#ai-distributedpolarplaceeffectmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedpolarplaceeffectmgrai-module">
+<h2>ai.DistributedPolarPlaceEffectMgrAI module<a class="headerlink" href="#ai-distributedpolarplaceeffectmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedresistanceemotemgr-module">
+<h2>ai.DistributedResistanceEmoteMgr module<a class="headerlink" href="#ai-distributedresistanceemotemgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedresistanceemotemgrai-module">
+<h2>ai.DistributedResistanceEmoteMgrAI module<a class="headerlink" href="#ai-distributedresistanceemotemgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedscavengerhunttarget-module">
+<h2>ai.DistributedScavengerHuntTarget module<a class="headerlink" href="#ai-distributedscavengerhunttarget-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedscavengerhunttargetai-module">
+<h2>ai.DistributedScavengerHuntTargetAI module<a class="headerlink" href="#ai-distributedscavengerhunttargetai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedsillymetermgr-module">
+<h2>ai.DistributedSillyMeterMgr module<a class="headerlink" href="#ai-distributedsillymetermgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedsillymetermgrai-module">
+<h2>ai.DistributedSillyMeterMgrAI module<a class="headerlink" href="#ai-distributedsillymetermgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedtest-module">
+<h2>ai.DistributedTest module<a class="headerlink" href="#ai-distributedtest-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedtestai-module">
+<h2>ai.DistributedTestAI module<a class="headerlink" href="#ai-distributedtestai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedtrashcanzeromgr-module">
+<h2>ai.DistributedTrashcanZeroMgr module<a class="headerlink" href="#ai-distributedtrashcanzeromgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedtrashcanzeromgrai-module">
+<h2>ai.DistributedTrashcanZeroMgrAI module<a class="headerlink" href="#ai-distributedtrashcanzeromgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedtrickortreattarget-module">
+<h2>ai.DistributedTrickOrTreatTarget module<a class="headerlink" href="#ai-distributedtrickortreattarget-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedtrickortreattargetai-module">
+<h2>ai.DistributedTrickOrTreatTargetAI module<a class="headerlink" href="#ai-distributedtrickortreattargetai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedwintercarolingtarget-module">
+<h2>ai.DistributedWinterCarolingTarget module<a class="headerlink" href="#ai-distributedwintercarolingtarget-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedwintercarolingtargetai-module">
+<h2>ai.DistributedWinterCarolingTargetAI module<a class="headerlink" href="#ai-distributedwintercarolingtargetai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedzeromgr-module">
+<h2>ai.DistributedZeroMgr module<a class="headerlink" href="#ai-distributedzeromgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-distributedzeromgrai-module">
+<h2>ai.DistributedZeroMgrAI module<a class="headerlink" href="#ai-distributedzeromgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-fixpettraits-module">
+<h2>ai.FixPetTraits module<a class="headerlink" href="#ai-fixpettraits-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-greentooneventmgrai-module">
+<h2>ai.GreenToonEventMgrAI module<a class="headerlink" href="#ai-greentooneventmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-halloweenholidaydecorator-module">
+<h2>ai.HalloweenHolidayDecorator module<a class="headerlink" href="#ai-halloweenholidaydecorator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidaybaseai-module">
+<h2>ai.HolidayBaseAI module<a class="headerlink" href="#ai-holidaybaseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidaydecorator-module">
+<h2>ai.HolidayDecorator module<a class="headerlink" href="#ai-holidaydecorator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayinfo-module">
+<h2>ai.HolidayInfo module<a class="headerlink" href="#ai-holidayinfo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayinfodaily-module">
+<h2>ai.HolidayInfoDaily module<a class="headerlink" href="#ai-holidayinfodaily-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayinfomonthly-module">
+<h2>ai.HolidayInfoMonthly module<a class="headerlink" href="#ai-holidayinfomonthly-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayinfooncely-module">
+<h2>ai.HolidayInfoOncely module<a class="headerlink" href="#ai-holidayinfooncely-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayinforelatively-module">
+<h2>ai.HolidayInfoRelatively module<a class="headerlink" href="#ai-holidayinforelatively-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayinfoweekly-module">
+<h2>ai.HolidayInfoWeekly module<a class="headerlink" href="#ai-holidayinfoweekly-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayinfoyearly-module">
+<h2>ai.HolidayInfoYearly module<a class="headerlink" href="#ai-holidayinfoyearly-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidaymanagerai-module">
+<h2>ai.HolidayManagerAI module<a class="headerlink" href="#ai-holidaymanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-holidayrepeaterai-module">
+<h2>ai.HolidayRepeaterAI module<a class="headerlink" href="#ai-holidayrepeaterai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-hydrantbuffholidayai-module">
+<h2>ai.HydrantBuffHolidayAI module<a class="headerlink" href="#ai-hydrantbuffholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-hydrantzeroholidayai-module">
+<h2>ai.HydrantZeroHolidayAI module<a class="headerlink" href="#ai-hydrantzeroholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-mailboxbuffholidayai-module">
+<h2>ai.MailboxBuffHolidayAI module<a class="headerlink" href="#ai-mailboxbuffholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-mailboxzeroholidayai-module">
+<h2>ai.MailboxZeroHolidayAI module<a class="headerlink" href="#ai-mailboxzeroholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-newsmanager-module">
+<h2>ai.NewsManager module<a class="headerlink" href="#ai-newsmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-newsmanagerai-module">
+<h2>ai.NewsManagerAI module<a class="headerlink" href="#ai-newsmanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-phasedholidayai-module">
+<h2>ai.PhasedHolidayAI module<a class="headerlink" href="#ai-phasedholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-polarplaceeventmgrai-module">
+<h2>ai.PolarPlaceEventMgrAI module<a class="headerlink" href="#ai-polarplaceeventmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-propbuffholidayai-module">
+<h2>ai.PropBuffHolidayAI module<a class="headerlink" href="#ai-propbuffholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-raisemaxnpcfriends-module">
+<h2>ai.RaiseMaxNPCFriends module<a class="headerlink" href="#ai-raisemaxnpcfriends-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-removedeadtasks-module">
+<h2>ai.RemoveDeadTasks module<a class="headerlink" href="#ai-removedeadtasks-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-repairavatars-module">
+<h2>ai.RepairAvatars module<a class="headerlink" href="#ai-repairavatars-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-resistanceeventmgrai-module">
+<h2>ai.ResistanceEventMgrAI module<a class="headerlink" href="#ai-resistanceeventmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-roamingtrialerweekendmgrai-module">
+<h2>ai.RoamingTrialerWeekendMgrAI module<a class="headerlink" href="#ai-roamingtrialerweekendmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-scavengerhuntmgrai-module">
+<h2>ai.ScavengerHuntMgrAI module<a class="headerlink" href="#ai-scavengerhuntmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-servereventbuffer-module">
+<h2>ai.ServerEventBuffer module<a class="headerlink" href="#ai-servereventbuffer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-sillymeterholidayai-module">
+<h2>ai.SillyMeterHolidayAI module<a class="headerlink" href="#ai-sillymeterholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-toonbarrier-module">
+<h2>ai.ToonBarrier module<a class="headerlink" href="#ai-toonbarrier-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-toontownaimsgtypes-module">
+<h2>ai.ToontownAIMsgTypes module<a class="headerlink" href="#ai-toontownaimsgtypes-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-toontownairepository-module">
+<h2>ai.ToontownAIRepository module<a class="headerlink" href="#ai-toontownairepository-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-toontowngroupmanager-module">
+<h2>ai.ToontownGroupManager module<a class="headerlink" href="#ai-toontowngroupmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-toontownmagicwordmanager-module">
+<h2>ai.ToontownMagicWordManager module<a class="headerlink" href="#ai-toontownmagicwordmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-toontownmagicwordmanagerai-module">
+<h2>ai.ToontownMagicWordManagerAI module<a class="headerlink" href="#ai-toontownmagicwordmanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-trashcanbuffholidayai-module">
+<h2>ai.TrashcanBuffHolidayAI module<a class="headerlink" href="#ai-trashcanbuffholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-trashcanzeroholidayai-module">
+<h2>ai.TrashcanZeroHolidayAI module<a class="headerlink" href="#ai-trashcanzeroholidayai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-trickortreatmgrai-module">
+<h2>ai.TrickOrTreatMgrAI module<a class="headerlink" href="#ai-trickortreatmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-utilityairepository-module">
+<h2>ai.UtilityAIRepository module<a class="headerlink" href="#ai-utilityairepository-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-utilitystart-module">
+<h2>ai.UtilityStart module<a class="headerlink" href="#ai-utilitystart-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-valentinesdaymgrai-module">
+<h2>ai.ValentinesDayMgrAI module<a class="headerlink" href="#ai-valentinesdaymgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-welcomevalleymanager-module">
+<h2>ai.WelcomeValleyManager module<a class="headerlink" href="#ai-welcomevalleymanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-welcomevalleymanagerai-module">
+<h2>ai.WelcomeValleyManagerAI module<a class="headerlink" href="#ai-welcomevalleymanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-wintercarolingmgrai-module">
+<h2>ai.WinterCarolingMgrAI module<a class="headerlink" href="#ai-wintercarolingmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="ai-testai-module">
+<h2>ai.testAI module<a class="headerlink" href="#ai-testai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-ai">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ai" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="toontown" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="battle.html" class="btn btn-neutral float-right" title="battle package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uberdog.OtpAvatarManager &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">uberdog.OtpAvatarManager</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for uberdog.OtpAvatarManager</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">The Avatar Manager handles all the avatar (avatar groups) accross all districts.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">pickle</span> <span class="kn">import</span> <span class="n">loads</span><span class="p">,</span> <span class="n">dumps</span>
+<span class="kn">from</span> <span class="nn">direct.distributed</span> <span class="kn">import</span> <span class="n">DistributedObject</span>
+<span class="kn">from</span> <span class="nn">direct.directnotify</span> <span class="kn">import</span> <span class="n">DirectNotifyGlobal</span>
+
+<span class="n">notify</span> <span class="o">=</span> <span class="n">DirectNotifyGlobal</span><span class="o">.</span><span class="n">directNotify</span><span class="o">.</span><span class="n">newCategory</span><span class="p">(</span><span class="s1">&#39;AvatarManager&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="OtpAvatarManager"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager">[docs]</a><span class="k">class</span> <span class="nc">OtpAvatarManager</span><span class="p">(</span><span class="n">DistributedObject</span><span class="o">.</span><span class="n">DistributedObject</span><span class="p">):</span>
+
+    <span class="n">notify</span> <span class="o">=</span> <span class="n">notify</span>
+
+    <span class="n">OnlineEvent</span> <span class="o">=</span> <span class="s1">&#39;GlobalAvatarManagerOnline&#39;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">DistributedObject</span><span class="o">.</span><span class="n">DistributedObject</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">avatars</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cr</span><span class="p">,</span> <span class="s2">&quot;avatarManager&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">cr</span><span class="o">.</span><span class="n">avatarManager</span> <span class="ow">is</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="OtpAvatarManager.delete"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ignoreAll</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cr</span><span class="o">.</span><span class="n">avatarManager</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">DistributedObject</span><span class="o">.</span><span class="n">DistributedObject</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="OtpAvatarManager.online"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.online">[docs]</a>    <span class="k">def</span> <span class="nf">online</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">OtpAvatarManager</span><span class="o">.</span><span class="n">OnlineEvent</span><span class="p">)</span></div>
+
+    <span class="c1">#------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="OtpAvatarManager.sendRequestAvatarList"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.sendRequestAvatarList">[docs]</a>    <span class="k">def</span> <span class="nf">sendRequestAvatarList</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;requestAvatarList&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.rejectAvatarList"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.rejectAvatarList">[docs]</a>    <span class="k">def</span> <span class="nf">rejectAvatarList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;avatarListFailed&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">result</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.avatarListResponse"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.avatarListResponse">[docs]</a>    <span class="k">def</span> <span class="nf">avatarListResponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pickleData</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">avatars</span><span class="o">=</span><span class="n">loads</span><span class="p">(</span><span class="n">pickleData</span><span class="p">)</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;avatarList&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">avatars</span><span class="p">])</span></div>
+
+    <span class="c1">#------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="OtpAvatarManager.rejectCreateAvatar"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.rejectCreateAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">rejectCreateAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;createdNewAvatarFailed&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">result</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.createAvatarResponse"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.createAvatarResponse">[docs]</a>    <span class="k">def</span> <span class="nf">createAvatarResponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">access</span><span class="p">,</span> <span class="n">founder</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;new avatarId: </span><span class="si">%s</span><span class="s2"> subId: </span><span class="si">%s</span><span class="s2"> access: </span><span class="si">%s</span><span class="s2"> founder: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">access</span><span class="p">,</span> <span class="n">founder</span><span class="p">))</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;createdNewAvatar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">])</span></div>
+
+    <span class="c1">#------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="OtpAvatarManager.sendRequestRemoveAvatar"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.sendRequestRemoveAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">sendRequestRemoveAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">confirmPassword</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;requestRemoveAvatar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">confirmPassword</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.rejectRemoveAvatar"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.rejectRemoveAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">rejectRemoveAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reasonId</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;rejectRemoveAvatar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">reasonId</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.removeAvatarResponse"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.removeAvatarResponse">[docs]</a>    <span class="k">def</span> <span class="nf">removeAvatarResponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;removeAvatarResponse&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">])</span></div>
+
+    <span class="c1">#------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="OtpAvatarManager.sendRequestShareAvatar"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.sendRequestShareAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">sendRequestShareAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">shared</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;requestShareAvatar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">shared</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.rejectShareAvatar"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.rejectShareAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">rejectShareAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reasonId</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;rejectShareAvatar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">reasonId</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.shareAvatarResponse"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.shareAvatarResponse">[docs]</a>    <span class="k">def</span> <span class="nf">shareAvatarResponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">shared</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;shareAvatarResponse&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">shared</span><span class="p">])</span></div>
+
+    <span class="c1">#------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="OtpAvatarManager.sendRequestAvatarSlot"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.sendRequestAvatarSlot">[docs]</a>    <span class="k">def</span> <span class="nf">sendRequestAvatarSlot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">slot</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;requestAvatarSlot&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">slot</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.rejectAvatarSlot"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.rejectAvatarSlot">[docs]</a>    <span class="k">def</span> <span class="nf">rejectAvatarSlot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reasonId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">slot</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;rejectAvatarSlot&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">reasonId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">slot</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.avatarSlotResponse"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.avatarSlotResponse">[docs]</a>    <span class="k">def</span> <span class="nf">avatarSlotResponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">slot</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;avatarSlotResponse&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">subId</span><span class="p">,</span> <span class="n">slot</span><span class="p">])</span></div>
+
+    <span class="c1">#------------------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="OtpAvatarManager.sendRequestPlayAvatar"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.sendRequestPlayAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">sendRequestPlayAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sendUpdate</span><span class="p">(</span><span class="s2">&quot;requestPlayAvatar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.rejectPlayAvatar"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.rejectPlayAvatar">[docs]</a>    <span class="k">def</span> <span class="nf">rejectPlayAvatar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reasonId</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;rejectPlayAvatar&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">reasonId</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="OtpAvatarManager.playAvatarResponse"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.OtpAvatarManager.OtpAvatarManager.playAvatarResponse">[docs]</a>    <span class="k">def</span> <span class="nf">playAvatarResponse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">access</span><span class="p">,</span> <span class="n">founder</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debugCall</span><span class="p">()</span>
+        <span class="n">messenger</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s2">&quot;playAvatarResponse&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">avatarId</span><span class="p">,</span> <span class="n">subId</span><span class="p">,</span> <span class="n">access</span><span class="p">,</span> <span class="n">founder</span><span class="p">])</span></div></div>
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

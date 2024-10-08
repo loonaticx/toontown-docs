@@ -1,0 +1,155 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hood.HQTelescopeAnimatedProp &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hood.HQTelescopeAnimatedProp</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hood.HQTelescopeAnimatedProp</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">AnimatedProp</span>
+<span class="kn">from</span> <span class="nn">direct.actor</span> <span class="kn">import</span> <span class="n">Actor</span>
+<span class="kn">from</span> <span class="nn">direct.interval.IntervalGlobal</span> <span class="kn">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="HQTelescopeAnimatedProp"><a class="viewcode-back" href="../../toontown/hood.html#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp">[docs]</a><span class="k">class</span> <span class="nc">HQTelescopeAnimatedProp</span><span class="p">(</span><span class="n">AnimatedProp</span><span class="o">.</span><span class="n">AnimatedProp</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="n">AnimatedProp</span><span class="o">.</span><span class="n">AnimatedProp</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+        <span class="n">parent</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">getParent</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span> <span class="o">=</span> <span class="n">Actor</span><span class="o">.</span><span class="n">Actor</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">copy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">reparentTo</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">loadAnims</span><span class="p">({</span><span class="s1">&#39;anim&#39;</span> <span class="p">:</span> <span class="s2">&quot;phase_3.5/models/props/HQ_telescope-chan&quot;</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">pose</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">track</span> <span class="o">=</span> <span class="n">Sequence</span><span class="p">(</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">5.0</span><span class="p">),</span>
+            <span class="c1"># pop up</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">32</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="c1"># move right</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">78</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="c1"># move left</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">112</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="c1"># move left reverse</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">112</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">79</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="c1"># move right reverse</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">78</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">32</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="c1"># move right</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">78</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="c1"># move left</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">112</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+            <span class="c1"># end</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span><span class="o">.</span><span class="n">actorInterval</span><span class="p">(</span><span class="s1">&#39;anim&#39;</span><span class="p">,</span> <span class="n">startFrame</span><span class="o">=</span><span class="mi">112</span><span class="p">,</span> <span class="n">endFrame</span><span class="o">=</span><span class="mi">148</span><span class="p">),</span>
+            <span class="n">Wait</span><span class="p">(</span><span class="mf">4.0</span><span class="p">),</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">uniqueName</span><span class="p">(</span><span class="s2">&quot;HQTelescope&quot;</span><span class="p">))</span>
+
+<div class="viewcode-block" id="HQTelescopeAnimatedProp.delete"><a class="viewcode-back" href="../../toontown/hood.html#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">AnimatedProp</span><span class="o">.</span><span class="n">AnimatedProp</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">node</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">telescope</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">track</span></div>
+   
+<div class="viewcode-block" id="HQTelescopeAnimatedProp.enter"><a class="viewcode-back" href="../../toontown/hood.html#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.enter">[docs]</a>    <span class="k">def</span> <span class="nf">enter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">AnimatedProp</span><span class="o">.</span><span class="n">AnimatedProp</span><span class="o">.</span><span class="n">enter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">track</span><span class="o">.</span><span class="n">loop</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="HQTelescopeAnimatedProp.exit"><a class="viewcode-back" href="../../toontown/hood.html#hood.HQTelescopeAnimatedProp.HQTelescopeAnimatedProp.exit">[docs]</a>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">AnimatedProp</span><span class="o">.</span><span class="n">AnimatedProp</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">track</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span></div></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

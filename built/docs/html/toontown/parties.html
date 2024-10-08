@@ -1,0 +1,900 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>parties package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pets package" href="pets.html" />
+    <link rel="prev" title="minigame package" href="minigame.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">parties package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties.ActivityBase">parties.ActivityBase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parties.ActivityBase.ActivityBase"><code class="docutils literal notranslate"><span class="pre">ActivityBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties.BaseActivityFSM">parties.BaseActivityFSM module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parties.BaseActivityFSM.BaseActivityFSM"><code class="docutils literal notranslate"><span class="pre">BaseActivityFSM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-calendarguiday-module">parties.CalendarGuiDay module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-calendarguimonth-module">parties.CalendarGuiMonth module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-cannon-module">parties.Cannon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-cannongui-module">parties.CannonGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties.DecorBase">parties.DecorBase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parties.DecorBase.DecorBase"><code class="docutils literal notranslate"><span class="pre">DecorBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-decoration-module">parties.Decoration module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedparty-module">parties.DistributedParty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyai-module">parties.DistributedPartyAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyactivity-module">parties.DistributedPartyActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyactivityai-module">parties.DistributedPartyActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycannon-module">parties.DistributedPartyCannon module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycannonai-module">parties.DistributedPartyCannonAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycannonactivity-module">parties.DistributedPartyCannonActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycannonactivityai-module">parties.DistributedPartyCannonActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycatchactivity-module">parties.DistributedPartyCatchActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycatchactivityai-module">parties.DistributedPartyCatchActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycatchactivitybase-module">parties.DistributedPartyCatchActivityBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycogactivity-module">parties.DistributedPartyCogActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartycogactivityai-module">parties.DistributedPartyCogActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartydance20activity-module">parties.DistributedPartyDance20Activity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartydance20activityai-module">parties.DistributedPartyDance20ActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartydanceactivity-module">parties.DistributedPartyDanceActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartydanceactivityai-module">parties.DistributedPartyDanceActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartydanceactivitybase-module">parties.DistributedPartyDanceActivityBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartydanceactivitybaseai-module">parties.DistributedPartyDanceActivityBaseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyfireworksactivity-module">parties.DistributedPartyFireworksActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyfireworksactivityai-module">parties.DistributedPartyFireworksActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyjukebox40activity-module">parties.DistributedPartyJukebox40Activity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyjukebox40activityai-module">parties.DistributedPartyJukebox40ActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyjukeboxactivity-module">parties.DistributedPartyJukeboxActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyjukeboxactivityai-module">parties.DistributedPartyJukeboxActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyjukeboxactivitybase-module">parties.DistributedPartyJukeboxActivityBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyjukeboxactivitybaseai-module">parties.DistributedPartyJukeboxActivityBaseAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyteamactivity-module">parties.DistributedPartyTeamActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyteamactivityai-module">parties.DistributedPartyTeamActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartytrampolineactivity-module">parties.DistributedPartyTrampolineActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartytrampolineactivityai-module">parties.DistributedPartyTrampolineActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartytugofwaractivity-module">parties.DistributedPartyTugOfWarActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartytugofwaractivityai-module">parties.DistributedPartyTugOfWarActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinedance20activity-module">parties.DistributedPartyValentineDance20Activity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinedance20activityai-module">parties.DistributedPartyValentineDance20ActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinedanceactivity-module">parties.DistributedPartyValentineDanceActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinedanceactivityai-module">parties.DistributedPartyValentineDanceActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinejukebox40activity-module">parties.DistributedPartyValentineJukebox40Activity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinejukebox40activityai-module">parties.DistributedPartyValentineJukebox40ActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinejukeboxactivity-module">parties.DistributedPartyValentineJukeboxActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinejukeboxactivityai-module">parties.DistributedPartyValentineJukeboxActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinetrampolineactivity-module">parties.DistributedPartyValentineTrampolineActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvalentinetrampolineactivityai-module">parties.DistributedPartyValentineTrampolineActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvictorytrampolineactivity-module">parties.DistributedPartyVictoryTrampolineActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartyvictorytrampolineactivityai-module">parties.DistributedPartyVictoryTrampolineActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartywintercatchactivity-module">parties.DistributedPartyWinterCatchActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartywintercatchactivityai-module">parties.DistributedPartyWinterCatchActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartywintercogactivity-module">parties.DistributedPartyWinterCogActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartywintercogactivityai-module">parties.DistributedPartyWinterCogActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartywintertrampolineactivity-module">parties.DistributedPartyWinterTrampolineActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-distributedpartywintertrampolineactivityai-module">parties.DistributedPartyWinterTrampolineActivityAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-inviteinfo-module">parties.InviteInfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-invitevisual-module">parties.InviteVisual module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-jellybeanrewardgui-module">parties.JellybeanRewardGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-jukeboxgui-module">parties.JukeboxGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-keycodes-module">parties.KeyCodes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-keycodesgui-module">parties.KeyCodesGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-party-module">parties.Party module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partycatchactivitytoonsd-module">parties.PartyCatchActivityToonSD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partycog-module">parties.PartyCog module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partycogactivity-module">parties.PartyCogActivity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partycogactivitygui-module">parties.PartyCogActivityGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partycogactivityinput-module">parties.PartyCogActivityInput module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partycogactivityplayer-module">parties.PartyCogActivityPlayer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partycogutils-module">parties.PartyCogUtils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partydanceactivitytoonfsm-module">parties.PartyDanceActivityToonFSM module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyeditor-module">parties.PartyEditor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyeditorgrid-module">parties.PartyEditorGrid module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyeditorgridelement-module">parties.PartyEditorGridElement module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyeditorgridsquare-module">parties.PartyEditorGridSquare module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyeditorlistelement-module">parties.PartyEditorListElement module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyglobals-module">parties.PartyGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyinfo-module">parties.PartyInfo module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyloader-module">parties.PartyLoader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyplanner-module">parties.PartyPlanner module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties.PartyReplyInfo">parties.PartyReplyInfo module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parties.PartyReplyInfo.PartyReplyInfoBase"><code class="docutils literal notranslate"><span class="pre">PartyReplyInfoBase</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.PartyReplyInfo.SingleReply"><code class="docutils literal notranslate"><span class="pre">SingleReply</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-partyutils-module">parties.PartyUtils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-publicpartygui-module">parties.PublicPartyGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-scrolledfriendlist-module">parties.ScrolledFriendList module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-servertimegui-module">parties.ServerTimeGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties.SimpleMailBase">parties.SimpleMailBase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parties.SimpleMailBase.SimpleMailBase"><code class="docutils literal notranslate"><span class="pre">SimpleMailBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-stretchingarrow-module">parties.StretchingArrow module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-teamactivitygui-module">parties.TeamActivityGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-toontowntimemanager-module">parties.ToontownTimeManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-winterpartycatchactivitytoonsd-module">parties.WinterPartyCatchActivityToonSD module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties.activityFSMMixins">parties.activityFSMMixins module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.ActiveMixin"><code class="docutils literal notranslate"><span class="pre">ActiveMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.ConclusionMixin"><code class="docutils literal notranslate"><span class="pre">ConclusionMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.DisabledMixin"><code class="docutils literal notranslate"><span class="pre">DisabledMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.IdleMixin"><code class="docutils literal notranslate"><span class="pre">IdleMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.RulesMixin"><code class="docutils literal notranslate"><span class="pre">RulesMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.WaitClientsReadyMixin"><code class="docutils literal notranslate"><span class="pre">WaitClientsReadyMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.WaitForEnoughMixin"><code class="docutils literal notranslate"><span class="pre">WaitForEnoughMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.WaitForServerMixin"><code class="docutils literal notranslate"><span class="pre">WaitForServerMixin</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMMixins.WaitToStartMixin"><code class="docutils literal notranslate"><span class="pre">WaitToStartMixin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties.activityFSMs">parties.activityFSMs module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMs.CatchActivityFSM"><code class="docutils literal notranslate"><span class="pre">CatchActivityFSM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMs.DanceActivityFSM"><code class="docutils literal notranslate"><span class="pre">DanceActivityFSM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMs.FireworksActivityFSM"><code class="docutils literal notranslate"><span class="pre">FireworksActivityFSM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMs.TeamActivityAIFSM"><code class="docutils literal notranslate"><span class="pre">TeamActivityAIFSM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMs.TeamActivityFSM"><code class="docutils literal notranslate"><span class="pre">TeamActivityFSM</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parties.activityFSMs.TrampolineActivityFSM"><code class="docutils literal notranslate"><span class="pre">TrampolineActivityFSM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parties-feedparser-module">parties.feedparser module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-parties">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">parties package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/parties.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="parties-package">
+<h1>parties package<a class="headerlink" href="#parties-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-parties.ActivityBase">
+<span id="parties-activitybase-module"></span><h2>parties.ActivityBase module<a class="headerlink" href="#module-parties.ActivityBase" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.ActivityBase.ActivityBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.ActivityBase.</span></span><span class="sig-name descname"><span class="pre">ActivityBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activityId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/ActivityBase.html#ActivityBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.ActivityBase.ActivityBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Python friendly representation of an activity.
+For now just straight up conversions of values we get from the database
+Make sure this class can be used on the AI side</p>
+</dd></dl>
+
+</section>
+<section id="module-parties.BaseActivityFSM">
+<span id="parties-baseactivityfsm-module"></span><h2>parties.BaseActivityFSM module<a class="headerlink" href="#module-parties.BaseActivityFSM" title="Permalink to this heading"></a></h2>
+<p>Individual ActivityFSMs are expected to subclass from BaseActivityFSM and from
+appropriate state mixins found in the activityGameFSMMixins module.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.BaseActivityFSM.BaseActivityFSM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.BaseActivityFSM.</span></span><span class="sig-name descname"><span class="pre">BaseActivityFSM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/BaseActivityFSM.html#BaseActivityFSM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.BaseActivityFSM.BaseActivityFSM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FSM</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="parties.BaseActivityFSM.BaseActivityFSM.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#parties.BaseActivityFSM.BaseActivityFSM.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="parties-calendarguiday-module">
+<h2>parties.CalendarGuiDay module<a class="headerlink" href="#parties-calendarguiday-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-calendarguimonth-module">
+<h2>parties.CalendarGuiMonth module<a class="headerlink" href="#parties-calendarguimonth-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-cannon-module">
+<h2>parties.Cannon module<a class="headerlink" href="#parties-cannon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-cannongui-module">
+<h2>parties.CannonGui module<a class="headerlink" href="#parties-cannongui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-parties.DecorBase">
+<span id="parties-decorbase-module"></span><h2>parties.DecorBase module<a class="headerlink" href="#module-parties.DecorBase" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.DecorBase.DecorBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.DecorBase.</span></span><span class="sig-name descname"><span class="pre">DecorBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decorId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/DecorBase.html#DecorBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.DecorBase.DecorBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Python friendly representation of a decoration.
+For now just straight up conversions of values we get from the database
+Make sure this class can be used on the AI side</p>
+</dd></dl>
+
+</section>
+<section id="parties-decoration-module">
+<h2>parties.Decoration module<a class="headerlink" href="#parties-decoration-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedparty-module">
+<h2>parties.DistributedParty module<a class="headerlink" href="#parties-distributedparty-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyai-module">
+<h2>parties.DistributedPartyAI module<a class="headerlink" href="#parties-distributedpartyai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyactivity-module">
+<h2>parties.DistributedPartyActivity module<a class="headerlink" href="#parties-distributedpartyactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyactivityai-module">
+<h2>parties.DistributedPartyActivityAI module<a class="headerlink" href="#parties-distributedpartyactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycannon-module">
+<h2>parties.DistributedPartyCannon module<a class="headerlink" href="#parties-distributedpartycannon-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycannonai-module">
+<h2>parties.DistributedPartyCannonAI module<a class="headerlink" href="#parties-distributedpartycannonai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycannonactivity-module">
+<h2>parties.DistributedPartyCannonActivity module<a class="headerlink" href="#parties-distributedpartycannonactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycannonactivityai-module">
+<h2>parties.DistributedPartyCannonActivityAI module<a class="headerlink" href="#parties-distributedpartycannonactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycatchactivity-module">
+<h2>parties.DistributedPartyCatchActivity module<a class="headerlink" href="#parties-distributedpartycatchactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycatchactivityai-module">
+<h2>parties.DistributedPartyCatchActivityAI module<a class="headerlink" href="#parties-distributedpartycatchactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycatchactivitybase-module">
+<h2>parties.DistributedPartyCatchActivityBase module<a class="headerlink" href="#parties-distributedpartycatchactivitybase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycogactivity-module">
+<h2>parties.DistributedPartyCogActivity module<a class="headerlink" href="#parties-distributedpartycogactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartycogactivityai-module">
+<h2>parties.DistributedPartyCogActivityAI module<a class="headerlink" href="#parties-distributedpartycogactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartydance20activity-module">
+<h2>parties.DistributedPartyDance20Activity module<a class="headerlink" href="#parties-distributedpartydance20activity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartydance20activityai-module">
+<h2>parties.DistributedPartyDance20ActivityAI module<a class="headerlink" href="#parties-distributedpartydance20activityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartydanceactivity-module">
+<h2>parties.DistributedPartyDanceActivity module<a class="headerlink" href="#parties-distributedpartydanceactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartydanceactivityai-module">
+<h2>parties.DistributedPartyDanceActivityAI module<a class="headerlink" href="#parties-distributedpartydanceactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartydanceactivitybase-module">
+<h2>parties.DistributedPartyDanceActivityBase module<a class="headerlink" href="#parties-distributedpartydanceactivitybase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartydanceactivitybaseai-module">
+<h2>parties.DistributedPartyDanceActivityBaseAI module<a class="headerlink" href="#parties-distributedpartydanceactivitybaseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyfireworksactivity-module">
+<h2>parties.DistributedPartyFireworksActivity module<a class="headerlink" href="#parties-distributedpartyfireworksactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyfireworksactivityai-module">
+<h2>parties.DistributedPartyFireworksActivityAI module<a class="headerlink" href="#parties-distributedpartyfireworksactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyjukebox40activity-module">
+<h2>parties.DistributedPartyJukebox40Activity module<a class="headerlink" href="#parties-distributedpartyjukebox40activity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyjukebox40activityai-module">
+<h2>parties.DistributedPartyJukebox40ActivityAI module<a class="headerlink" href="#parties-distributedpartyjukebox40activityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyjukeboxactivity-module">
+<h2>parties.DistributedPartyJukeboxActivity module<a class="headerlink" href="#parties-distributedpartyjukeboxactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyjukeboxactivityai-module">
+<h2>parties.DistributedPartyJukeboxActivityAI module<a class="headerlink" href="#parties-distributedpartyjukeboxactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyjukeboxactivitybase-module">
+<h2>parties.DistributedPartyJukeboxActivityBase module<a class="headerlink" href="#parties-distributedpartyjukeboxactivitybase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyjukeboxactivitybaseai-module">
+<h2>parties.DistributedPartyJukeboxActivityBaseAI module<a class="headerlink" href="#parties-distributedpartyjukeboxactivitybaseai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyteamactivity-module">
+<h2>parties.DistributedPartyTeamActivity module<a class="headerlink" href="#parties-distributedpartyteamactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyteamactivityai-module">
+<h2>parties.DistributedPartyTeamActivityAI module<a class="headerlink" href="#parties-distributedpartyteamactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartytrampolineactivity-module">
+<h2>parties.DistributedPartyTrampolineActivity module<a class="headerlink" href="#parties-distributedpartytrampolineactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartytrampolineactivityai-module">
+<h2>parties.DistributedPartyTrampolineActivityAI module<a class="headerlink" href="#parties-distributedpartytrampolineactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartytugofwaractivity-module">
+<h2>parties.DistributedPartyTugOfWarActivity module<a class="headerlink" href="#parties-distributedpartytugofwaractivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartytugofwaractivityai-module">
+<h2>parties.DistributedPartyTugOfWarActivityAI module<a class="headerlink" href="#parties-distributedpartytugofwaractivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinedance20activity-module">
+<h2>parties.DistributedPartyValentineDance20Activity module<a class="headerlink" href="#parties-distributedpartyvalentinedance20activity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinedance20activityai-module">
+<h2>parties.DistributedPartyValentineDance20ActivityAI module<a class="headerlink" href="#parties-distributedpartyvalentinedance20activityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinedanceactivity-module">
+<h2>parties.DistributedPartyValentineDanceActivity module<a class="headerlink" href="#parties-distributedpartyvalentinedanceactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinedanceactivityai-module">
+<h2>parties.DistributedPartyValentineDanceActivityAI module<a class="headerlink" href="#parties-distributedpartyvalentinedanceactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinejukebox40activity-module">
+<h2>parties.DistributedPartyValentineJukebox40Activity module<a class="headerlink" href="#parties-distributedpartyvalentinejukebox40activity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinejukebox40activityai-module">
+<h2>parties.DistributedPartyValentineJukebox40ActivityAI module<a class="headerlink" href="#parties-distributedpartyvalentinejukebox40activityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinejukeboxactivity-module">
+<h2>parties.DistributedPartyValentineJukeboxActivity module<a class="headerlink" href="#parties-distributedpartyvalentinejukeboxactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinejukeboxactivityai-module">
+<h2>parties.DistributedPartyValentineJukeboxActivityAI module<a class="headerlink" href="#parties-distributedpartyvalentinejukeboxactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinetrampolineactivity-module">
+<h2>parties.DistributedPartyValentineTrampolineActivity module<a class="headerlink" href="#parties-distributedpartyvalentinetrampolineactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvalentinetrampolineactivityai-module">
+<h2>parties.DistributedPartyValentineTrampolineActivityAI module<a class="headerlink" href="#parties-distributedpartyvalentinetrampolineactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvictorytrampolineactivity-module">
+<h2>parties.DistributedPartyVictoryTrampolineActivity module<a class="headerlink" href="#parties-distributedpartyvictorytrampolineactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartyvictorytrampolineactivityai-module">
+<h2>parties.DistributedPartyVictoryTrampolineActivityAI module<a class="headerlink" href="#parties-distributedpartyvictorytrampolineactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartywintercatchactivity-module">
+<h2>parties.DistributedPartyWinterCatchActivity module<a class="headerlink" href="#parties-distributedpartywintercatchactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartywintercatchactivityai-module">
+<h2>parties.DistributedPartyWinterCatchActivityAI module<a class="headerlink" href="#parties-distributedpartywintercatchactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartywintercogactivity-module">
+<h2>parties.DistributedPartyWinterCogActivity module<a class="headerlink" href="#parties-distributedpartywintercogactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartywintercogactivityai-module">
+<h2>parties.DistributedPartyWinterCogActivityAI module<a class="headerlink" href="#parties-distributedpartywintercogactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartywintertrampolineactivity-module">
+<h2>parties.DistributedPartyWinterTrampolineActivity module<a class="headerlink" href="#parties-distributedpartywintertrampolineactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-distributedpartywintertrampolineactivityai-module">
+<h2>parties.DistributedPartyWinterTrampolineActivityAI module<a class="headerlink" href="#parties-distributedpartywintertrampolineactivityai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-inviteinfo-module">
+<h2>parties.InviteInfo module<a class="headerlink" href="#parties-inviteinfo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-invitevisual-module">
+<h2>parties.InviteVisual module<a class="headerlink" href="#parties-invitevisual-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-jellybeanrewardgui-module">
+<h2>parties.JellybeanRewardGui module<a class="headerlink" href="#parties-jellybeanrewardgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-jukeboxgui-module">
+<h2>parties.JukeboxGui module<a class="headerlink" href="#parties-jukeboxgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-keycodes-module">
+<h2>parties.KeyCodes module<a class="headerlink" href="#parties-keycodes-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-keycodesgui-module">
+<h2>parties.KeyCodesGui module<a class="headerlink" href="#parties-keycodesgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-party-module">
+<h2>parties.Party module<a class="headerlink" href="#parties-party-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partycatchactivitytoonsd-module">
+<h2>parties.PartyCatchActivityToonSD module<a class="headerlink" href="#parties-partycatchactivitytoonsd-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partycog-module">
+<h2>parties.PartyCog module<a class="headerlink" href="#parties-partycog-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partycogactivity-module">
+<h2>parties.PartyCogActivity module<a class="headerlink" href="#parties-partycogactivity-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partycogactivitygui-module">
+<h2>parties.PartyCogActivityGui module<a class="headerlink" href="#parties-partycogactivitygui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partycogactivityinput-module">
+<h2>parties.PartyCogActivityInput module<a class="headerlink" href="#parties-partycogactivityinput-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partycogactivityplayer-module">
+<h2>parties.PartyCogActivityPlayer module<a class="headerlink" href="#parties-partycogactivityplayer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partycogutils-module">
+<h2>parties.PartyCogUtils module<a class="headerlink" href="#parties-partycogutils-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partydanceactivitytoonfsm-module">
+<h2>parties.PartyDanceActivityToonFSM module<a class="headerlink" href="#parties-partydanceactivitytoonfsm-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyeditor-module">
+<h2>parties.PartyEditor module<a class="headerlink" href="#parties-partyeditor-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyeditorgrid-module">
+<h2>parties.PartyEditorGrid module<a class="headerlink" href="#parties-partyeditorgrid-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyeditorgridelement-module">
+<h2>parties.PartyEditorGridElement module<a class="headerlink" href="#parties-partyeditorgridelement-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyeditorgridsquare-module">
+<h2>parties.PartyEditorGridSquare module<a class="headerlink" href="#parties-partyeditorgridsquare-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyeditorlistelement-module">
+<h2>parties.PartyEditorListElement module<a class="headerlink" href="#parties-partyeditorlistelement-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyglobals-module">
+<h2>parties.PartyGlobals module<a class="headerlink" href="#parties-partyglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyinfo-module">
+<h2>parties.PartyInfo module<a class="headerlink" href="#parties-partyinfo-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyloader-module">
+<h2>parties.PartyLoader module<a class="headerlink" href="#parties-partyloader-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-partyplanner-module">
+<h2>parties.PartyPlanner module<a class="headerlink" href="#parties-partyplanner-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-parties.PartyReplyInfo">
+<span id="parties-partyreplyinfo-module"></span><h2>parties.PartyReplyInfo module<a class="headerlink" href="#module-parties.PartyReplyInfo" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.PartyReplyInfo.PartyReplyInfoBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.PartyReplyInfo.</span></span><span class="sig-name descname"><span class="pre">PartyReplyInfoBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">partyId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">partyReplies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/PartyReplyInfo.html#PartyReplyInfoBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.PartyReplyInfo.PartyReplyInfoBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Python friendly representation of the replies for one party you’re hosting.
+For now just straight up conversions of values we get from the database
+Make sure this class can be used on the AI side</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.PartyReplyInfo.SingleReply">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.PartyReplyInfo.</span></span><span class="sig-name descname"><span class="pre">SingleReply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inviteeId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/PartyReplyInfo.html#SingleReply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.PartyReplyInfo.SingleReply" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Python friendly representation of a single replyt to a party you’re hosting.
+For now just straight up conversions of values we get from the database
+Make sure this class can be used on the AI side</p>
+</dd></dl>
+
+</section>
+<section id="parties-partyutils-module">
+<h2>parties.PartyUtils module<a class="headerlink" href="#parties-partyutils-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-publicpartygui-module">
+<h2>parties.PublicPartyGui module<a class="headerlink" href="#parties-publicpartygui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-scrolledfriendlist-module">
+<h2>parties.ScrolledFriendList module<a class="headerlink" href="#parties-scrolledfriendlist-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-servertimegui-module">
+<h2>parties.ServerTimeGui module<a class="headerlink" href="#parties-servertimegui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-parties.SimpleMailBase">
+<span id="parties-simplemailbase-module"></span><h2>parties.SimpleMailBase module<a class="headerlink" href="#module-parties.SimpleMailBase" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.SimpleMailBase.SimpleMailBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.SimpleMailBase.</span></span><span class="sig-name descname"><span class="pre">SimpleMailBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msgId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">senderId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">month</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/SimpleMailBase.html#SimpleMailBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.SimpleMailBase.SimpleMailBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Python friendly representation of a simple mail a toon got.
+For now just straight up conversions of values we get from the database
+Make sure this class can be used on the AI side</p>
+</dd></dl>
+
+</section>
+<section id="parties-stretchingarrow-module">
+<h2>parties.StretchingArrow module<a class="headerlink" href="#parties-stretchingarrow-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-teamactivitygui-module">
+<h2>parties.TeamActivityGui module<a class="headerlink" href="#parties-teamactivitygui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-toontowntimemanager-module">
+<h2>parties.ToontownTimeManager module<a class="headerlink" href="#parties-toontowntimemanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="parties-winterpartycatchactivitytoonsd-module">
+<h2>parties.WinterPartyCatchActivityToonSD module<a class="headerlink" href="#parties-winterpartycatchactivitytoonsd-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-parties.activityFSMMixins">
+<span id="parties-activityfsmmixins-module"></span><h2>parties.activityFSMMixins module<a class="headerlink" href="#module-parties.activityFSMMixins" title="Permalink to this heading"></a></h2>
+<p>This module provides mixin classes (mostly individual states) for use with
+ActivityFSM.  Functionality is provided in this manner to avoid massive code
+duplication that would occur otherwise.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ActiveMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">ActiveMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ActiveMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ActiveMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ActiveMixin.enterActive">
+<span class="sig-name descname"><span class="pre">enterActive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ActiveMixin.enterActive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ActiveMixin.enterActive" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ActiveMixin.exitActive">
+<span class="sig-name descname"><span class="pre">exitActive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ActiveMixin.exitActive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ActiveMixin.exitActive" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ActiveMixin.filterActive">
+<span class="sig-name descname"><span class="pre">filterActive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ActiveMixin.filterActive"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ActiveMixin.filterActive" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ConclusionMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">ConclusionMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ConclusionMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ConclusionMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ConclusionMixin.enterConclusion">
+<span class="sig-name descname"><span class="pre">enterConclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ConclusionMixin.enterConclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ConclusionMixin.enterConclusion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ConclusionMixin.exitConclusion">
+<span class="sig-name descname"><span class="pre">exitConclusion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ConclusionMixin.exitConclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ConclusionMixin.exitConclusion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.ConclusionMixin.filterConclusion">
+<span class="sig-name descname"><span class="pre">filterConclusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#ConclusionMixin.filterConclusion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.ConclusionMixin.filterConclusion" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.DisabledMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">DisabledMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#DisabledMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.DisabledMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.DisabledMixin.enterDisabled">
+<span class="sig-name descname"><span class="pre">enterDisabled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#DisabledMixin.enterDisabled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.DisabledMixin.enterDisabled" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.DisabledMixin.exitDisabled">
+<span class="sig-name descname"><span class="pre">exitDisabled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#DisabledMixin.exitDisabled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.DisabledMixin.exitDisabled" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.DisabledMixin.filterDisabled">
+<span class="sig-name descname"><span class="pre">filterDisabled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#DisabledMixin.filterDisabled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.DisabledMixin.filterDisabled" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.IdleMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">IdleMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#IdleMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.IdleMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.IdleMixin.enterIdle">
+<span class="sig-name descname"><span class="pre">enterIdle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#IdleMixin.enterIdle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.IdleMixin.enterIdle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.IdleMixin.exitIdle">
+<span class="sig-name descname"><span class="pre">exitIdle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#IdleMixin.exitIdle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.IdleMixin.exitIdle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.IdleMixin.filterIdle">
+<span class="sig-name descname"><span class="pre">filterIdle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#IdleMixin.filterIdle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.IdleMixin.filterIdle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.RulesMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">RulesMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#RulesMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.RulesMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.RulesMixin.enterRules">
+<span class="sig-name descname"><span class="pre">enterRules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#RulesMixin.enterRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.RulesMixin.enterRules" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.RulesMixin.exitRules">
+<span class="sig-name descname"><span class="pre">exitRules</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#RulesMixin.exitRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.RulesMixin.exitRules" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.RulesMixin.filterRules">
+<span class="sig-name descname"><span class="pre">filterRules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#RulesMixin.filterRules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.RulesMixin.filterRules" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitClientsReadyMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">WaitClientsReadyMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitClientsReadyMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitClientsReadyMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitClientsReadyMixin.enterWaitClientsReady">
+<span class="sig-name descname"><span class="pre">enterWaitClientsReady</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitClientsReadyMixin.enterWaitClientsReady"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitClientsReadyMixin.enterWaitClientsReady" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitClientsReadyMixin.exitWaitClientsReady">
+<span class="sig-name descname"><span class="pre">exitWaitClientsReady</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitClientsReadyMixin.exitWaitClientsReady"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitClientsReadyMixin.exitWaitClientsReady" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitClientsReadyMixin.filterWaitClientsReady">
+<span class="sig-name descname"><span class="pre">filterWaitClientsReady</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitClientsReadyMixin.filterWaitClientsReady"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitClientsReadyMixin.filterWaitClientsReady" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForEnoughMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">WaitForEnoughMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForEnoughMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForEnoughMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForEnoughMixin.enterWaitForEnough">
+<span class="sig-name descname"><span class="pre">enterWaitForEnough</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForEnoughMixin.enterWaitForEnough"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForEnoughMixin.enterWaitForEnough" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForEnoughMixin.exitWaitForEnough">
+<span class="sig-name descname"><span class="pre">exitWaitForEnough</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForEnoughMixin.exitWaitForEnough"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForEnoughMixin.exitWaitForEnough" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForEnoughMixin.filterWaitForEnough">
+<span class="sig-name descname"><span class="pre">filterWaitForEnough</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForEnoughMixin.filterWaitForEnough"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForEnoughMixin.filterWaitForEnough" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForServerMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">WaitForServerMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForServerMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForServerMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForServerMixin.enterWaitForServer">
+<span class="sig-name descname"><span class="pre">enterWaitForServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForServerMixin.enterWaitForServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForServerMixin.enterWaitForServer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForServerMixin.exitWaitForServer">
+<span class="sig-name descname"><span class="pre">exitWaitForServer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForServerMixin.exitWaitForServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForServerMixin.exitWaitForServer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitForServerMixin.filterWaitForServer">
+<span class="sig-name descname"><span class="pre">filterWaitForServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitForServerMixin.filterWaitForServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitForServerMixin.filterWaitForServer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitToStartMixin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMMixins.</span></span><span class="sig-name descname"><span class="pre">WaitToStartMixin</span></span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitToStartMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitToStartMixin" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitToStartMixin.enterWaitToStart">
+<span class="sig-name descname"><span class="pre">enterWaitToStart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitToStartMixin.enterWaitToStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitToStartMixin.enterWaitToStart" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitToStartMixin.exitWaitToStart">
+<span class="sig-name descname"><span class="pre">exitWaitToStart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitToStartMixin.exitWaitToStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitToStartMixin.exitWaitToStart" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="parties.activityFSMMixins.WaitToStartMixin.filterWaitToStart">
+<span class="sig-name descname"><span class="pre">filterWaitToStart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMMixins.html#WaitToStartMixin.filterWaitToStart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMMixins.WaitToStartMixin.filterWaitToStart" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-parties.activityFSMs">
+<span id="parties-activityfsms-module"></span><h2>parties.activityFSMs module<a class="headerlink" href="#module-parties.activityFSMs" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMs.CatchActivityFSM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMs.</span></span><span class="sig-name descname"><span class="pre">CatchActivityFSM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMs.html#CatchActivityFSM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMs.CatchActivityFSM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#parties.BaseActivityFSM.BaseActivityFSM" title="parties.BaseActivityFSM.BaseActivityFSM"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseActivityFSM</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.IdleMixin" title="parties.activityFSMMixins.IdleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdleMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ActiveMixin" title="parties.activityFSMMixins.ActiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ConclusionMixin" title="parties.activityFSMMixins.ConclusionMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConclusionMixin</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="parties.activityFSMs.CatchActivityFSM.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#parties.activityFSMs.CatchActivityFSM.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMs.DanceActivityFSM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMs.</span></span><span class="sig-name descname"><span class="pre">DanceActivityFSM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMs.html#DanceActivityFSM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMs.DanceActivityFSM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#parties.BaseActivityFSM.BaseActivityFSM" title="parties.BaseActivityFSM.BaseActivityFSM"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseActivityFSM</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.IdleMixin" title="parties.activityFSMMixins.IdleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdleMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ActiveMixin" title="parties.activityFSMMixins.ActiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.DisabledMixin" title="parties.activityFSMMixins.DisabledMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisabledMixin</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="parties.activityFSMs.DanceActivityFSM.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#parties.activityFSMs.DanceActivityFSM.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMs.FireworksActivityFSM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMs.</span></span><span class="sig-name descname"><span class="pre">FireworksActivityFSM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMs.html#FireworksActivityFSM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMs.FireworksActivityFSM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#parties.BaseActivityFSM.BaseActivityFSM" title="parties.BaseActivityFSM.BaseActivityFSM"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseActivityFSM</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.IdleMixin" title="parties.activityFSMMixins.IdleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdleMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ActiveMixin" title="parties.activityFSMMixins.ActiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.DisabledMixin" title="parties.activityFSMMixins.DisabledMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">DisabledMixin</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="parties.activityFSMs.FireworksActivityFSM.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#parties.activityFSMs.FireworksActivityFSM.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMs.TeamActivityAIFSM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMs.</span></span><span class="sig-name descname"><span class="pre">TeamActivityAIFSM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMs.html#TeamActivityAIFSM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMs.TeamActivityAIFSM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#parties.BaseActivityFSM.BaseActivityFSM" title="parties.BaseActivityFSM.BaseActivityFSM"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseActivityFSM</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.WaitForEnoughMixin" title="parties.activityFSMMixins.WaitForEnoughMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">WaitForEnoughMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.WaitToStartMixin" title="parties.activityFSMMixins.WaitToStartMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">WaitToStartMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.WaitClientsReadyMixin" title="parties.activityFSMMixins.WaitClientsReadyMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">WaitClientsReadyMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ActiveMixin" title="parties.activityFSMMixins.ActiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ConclusionMixin" title="parties.activityFSMMixins.ConclusionMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConclusionMixin</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="parties.activityFSMs.TeamActivityAIFSM.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#parties.activityFSMs.TeamActivityAIFSM.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMs.TeamActivityFSM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMs.</span></span><span class="sig-name descname"><span class="pre">TeamActivityFSM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMs.html#TeamActivityFSM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMs.TeamActivityFSM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#parties.BaseActivityFSM.BaseActivityFSM" title="parties.BaseActivityFSM.BaseActivityFSM"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseActivityFSM</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.WaitForEnoughMixin" title="parties.activityFSMMixins.WaitForEnoughMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">WaitForEnoughMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.WaitToStartMixin" title="parties.activityFSMMixins.WaitToStartMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">WaitToStartMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.RulesMixin" title="parties.activityFSMMixins.RulesMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RulesMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.WaitForServerMixin" title="parties.activityFSMMixins.WaitForServerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">WaitForServerMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ActiveMixin" title="parties.activityFSMMixins.ActiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ConclusionMixin" title="parties.activityFSMMixins.ConclusionMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConclusionMixin</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="parties.activityFSMs.TeamActivityFSM.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#parties.activityFSMs.TeamActivityFSM.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="parties.activityFSMs.TrampolineActivityFSM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">parties.activityFSMs.</span></span><span class="sig-name descname"><span class="pre">TrampolineActivityFSM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">activity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/parties/activityFSMs.html#TrampolineActivityFSM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#parties.activityFSMs.TrampolineActivityFSM" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#parties.BaseActivityFSM.BaseActivityFSM" title="parties.BaseActivityFSM.BaseActivityFSM"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseActivityFSM</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.IdleMixin" title="parties.activityFSMMixins.IdleMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">IdleMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.RulesMixin" title="parties.activityFSMMixins.RulesMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">RulesMixin</span></code></a>, <a class="reference internal" href="#parties.activityFSMMixins.ActiveMixin" title="parties.activityFSMMixins.ActiveMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">ActiveMixin</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="parties.activityFSMs.TrampolineActivityFSM.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#parties.activityFSMs.TrampolineActivityFSM.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="parties-feedparser-module">
+<h2>parties.feedparser module<a class="headerlink" href="#parties-feedparser-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-parties">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-parties" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="minigame.html" class="btn btn-neutral float-left" title="minigame package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pets.html" class="btn btn-neutral float-right" title="pets package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

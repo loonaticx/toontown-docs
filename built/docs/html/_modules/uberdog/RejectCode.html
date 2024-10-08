@@ -1,0 +1,182 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>uberdog.RejectCode &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">uberdog.RejectCode</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for uberdog.RejectCode</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+
+<div class="viewcode-block" id="RejectCode"><a class="viewcode-back" href="../../otp/uberdog.html#uberdog.RejectCode.RejectCode">[docs]</a><span class="k">class</span> <span class="nc">RejectCode</span><span class="p">:</span>
+    <span class="n">TIMEOUT</span> <span class="o">=</span>                     <span class="mi">65535</span>
+
+    <span class="n">NO_GUILD</span> <span class="o">=</span>                    <span class="mi">10000</span>
+    <span class="n">MAY_NOT_JOIN_GUILD</span> <span class="o">=</span>          <span class="mi">10001</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">MAY_NOT_INVITE_GUILD</span> <span class="o">=</span>        <span class="mi">10002</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">NO_MEMBERSHIP</span> <span class="o">=</span>               <span class="mi">10003</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">GUILD_FULL</span> <span class="o">=</span>                  <span class="mi">10004</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">LEAVE_CURRENT_GUILD_FIRST</span> <span class="o">=</span>   <span class="mi">10005</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">ALREADY_IN_GUILD</span> <span class="o">=</span>            <span class="mi">10006</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">JOIN_OWN_GUILD</span> <span class="o">=</span>              <span class="mi">10007</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">NOT_IN_A_GUILD</span> <span class="o">=</span>              <span class="mi">10008</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">OTHER_AVATAR_NO_MEMBERSHIP</span> <span class="o">=</span>  <span class="mi">10009</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">OTHER_AVATAR_NO_GUILD</span> <span class="o">=</span>       <span class="mi">10010</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">OTHER_AVATAR_NO_GUILD_FOUND</span> <span class="o">=</span> <span class="mi">10011</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">ALREADY_HAS_GUILD</span> <span class="o">=</span>           <span class="mi">10012</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">MAY_NOT_CREATE_GUILD</span> <span class="o">=</span>        <span class="mi">10013</span> <span class="c1"># NO_GUILD+n</span>
+    <span class="n">BUSY</span> <span class="o">=</span>                        <span class="mi">10014</span> <span class="c1"># NO_GUILD+n</span>
+
+    <span class="n">NO_CREW</span> <span class="o">=</span>                     <span class="mi">20000</span>
+    <span class="n">MAY_NOT_JOIN_CREW</span> <span class="o">=</span>           <span class="mi">20001</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">JOIN_OWN_CREW</span> <span class="o">=</span>               <span class="mi">20002</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">NOT_IN_A_CREW</span> <span class="o">=</span>               <span class="mi">20003</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">MAY_NOT_INVITE_CREW</span> <span class="o">=</span>         <span class="mi">20004</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">ALREADY_IN_CREW</span> <span class="o">=</span>             <span class="mi">20005</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">ALREADY_INVITED_TO_CREW</span> <span class="o">=</span>     <span class="mi">20006</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">NOT_CAPTAIN_OF_CREW</span> <span class="o">=</span>         <span class="mi">20007</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">NO_SELF_CREW_INVITE</span> <span class="o">=</span>         <span class="mi">20008</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">CREW_INVITATION_DECLINED</span> <span class="o">=</span>    <span class="mi">20009</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">ALREADY_LOCKED</span> <span class="o">=</span>              <span class="mi">20010</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">NOT_LOCKED</span> <span class="o">=</span>                  <span class="mi">20011</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">NOT_YOUR_LOCK</span> <span class="o">=</span>               <span class="mi">20012</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">YOUR_CREW_IS_LOCKED</span> <span class="o">=</span>         <span class="mi">20013</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">OTHER_CREW_IS_LOCKED</span> <span class="o">=</span>        <span class="mi">20014</span> <span class="c1"># NO_CREW+n</span>
+    <span class="n">NOT_IN_YOUR_CREW</span> <span class="o">=</span>            <span class="mi">20015</span> <span class="c1"># NO_CREW+n</span>
+
+    <span class="n">NO_TRADE</span> <span class="o">=</span>                    <span class="mi">30000</span>
+    <span class="n">NOT_YOUR_TRADE</span> <span class="o">=</span>              <span class="mi">30001</span> <span class="c1"># NO_TRADE+n</span>
+    <span class="n">TRADE_NOT_ACTIVE</span> <span class="o">=</span>            <span class="mi">30002</span> <span class="c1"># NO_TRADE+n</span>
+    <span class="n">AVATAR_NOT_HERE</span> <span class="o">=</span>             <span class="mi">30003</span> <span class="c1"># NO_TRADE+n</span>
+    <span class="n">MAY_NOT_TRADE</span> <span class="o">=</span>               <span class="mi">30004</span> <span class="c1"># NO_TRADE+n</span>
+    <span class="n">NO_SELF_TRADE</span> <span class="o">=</span>               <span class="mi">30005</span> <span class="c1"># NO_TRADE+n</span>
+    <span class="n">OTHER_AVATAR_NOT_HERE</span> <span class="o">=</span>       <span class="mi">30006</span> <span class="c1"># NO_TRADE+n</span>
+    <span class="n">OTHER_AVATAR_MAY_NOT_TRADE</span> <span class="o">=</span>  <span class="mi">30007</span> <span class="c1"># NO_TRADE+n</span>
+
+    <span class="n">NO_INVENTORY</span> <span class="o">=</span>                <span class="mi">40000</span>
+    <span class="n">CONTENT_TYPE_NOT_ALLOWED</span> <span class="o">=</span>    <span class="mi">40001</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">HAS_NONE_OF_THAT_TYPE</span> <span class="o">=</span>       <span class="mi">40002</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">NO_MORE_SLOTS</span> <span class="o">=</span>               <span class="mi">40003</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">SLOT_TYPE_NOT_FOUND</span> <span class="o">=</span>         <span class="mi">40004</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">OVERFLOW</span> <span class="o">=</span>                    <span class="mi">40005</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">UNDERFLOW</span> <span class="o">=</span>                   <span class="mi">40006</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">MULTIPLE_OF_SAME_ITEM</span> <span class="o">=</span>       <span class="mi">40007</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">MAY_NOT_DESTROY</span> <span class="o">=</span>             <span class="mi">40008</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">NO_REMOVE</span> <span class="o">=</span>                   <span class="mi">40009</span> <span class="c1"># NO_INVENTORY+n</span>
+    <span class="n">NOT_YOUR_DO_ID</span> <span class="o">=</span>              <span class="mi">40010</span> <span class="c1"># NO_INVENTORY+n</span>
+
+    <span class="n">NO_AVATAR</span> <span class="o">=</span>                   <span class="mi">50000</span>
+    <span class="n">NOT_YOUR_AVATAR</span> <span class="o">=</span>             <span class="mi">50001</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">BAD_DELETE_PASSWORD</span> <span class="o">=</span>         <span class="mi">50002</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">MAY_NOT_LIST_AVATARS</span> <span class="o">=</span>        <span class="mi">50003</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">MAY_NOT_CREATE_AVATAR</span> <span class="o">=</span>       <span class="mi">50004</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">MAY_NOT_REMOVE_AVATAR</span> <span class="o">=</span>       <span class="mi">50005</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">SLOT_OUT_OF_RANGE</span> <span class="o">=</span>           <span class="mi">50006</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">SLOT_TAKEN</span> <span class="o">=</span>                  <span class="mi">50007</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">INVALID_ACCOUNT</span> <span class="o">=</span>             <span class="mi">50008</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">AVATAR_ONLINE</span> <span class="o">=</span>               <span class="mi">50009</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">MAX_AVATAR_LIMIT</span> <span class="o">=</span>            <span class="mi">50010</span> <span class="c1"># NO_AVATAR+n</span>
+    <span class="n">NO_LOCK_ON_SLOT</span> <span class="o">=</span>             <span class="mi">50011</span> <span class="c1"># NO_AVATAR+n</span>
+
+    <span class="n">NO_FRIENDS_LIST</span> <span class="o">=</span>             <span class="mi">60000</span>
+    <span class="n">FRIENDS_LIST_NOT_HANDY</span> <span class="o">=</span>      <span class="mi">60001</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">INVITEE_NOT_ONLINE</span> <span class="o">=</span>          <span class="mi">60002</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">ALREADY_INVITED</span> <span class="o">=</span>             <span class="mi">60003</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">ALREADY_YOUR_FRIEND</span> <span class="o">=</span>         <span class="mi">60004</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">FRIENDS_LIST_FULL</span> <span class="o">=</span>           <span class="mi">60005</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">OTHER_FRIENDS_LIST_FULL</span> <span class="o">=</span>     <span class="mi">60006</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">ALREADY_NOT_YOUR_FRIEND</span> <span class="o">=</span>     <span class="mi">60007</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">INVITATION_DECLINED</span> <span class="o">=</span>         <span class="mi">60008</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">NOT_YOUR_FRIENDS_LIST</span> <span class="o">=</span>       <span class="mi">60009</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">ALREADY_FRIENDS_WITH_SELF</span> <span class="o">=</span>   <span class="mi">60010</span> <span class="c1"># NO_FRIENDS_LIST+n</span>
+    <span class="n">MAY_NOT_OPEN_INVITE</span> <span class="o">=</span>         <span class="mi">60011</span> <span class="c1"># NO_FRIENDS_LIST+n</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

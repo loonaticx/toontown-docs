@@ -1,0 +1,627 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>racing package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rpc package" href="rpc.html" />
+    <link rel="prev" title="quest package" href="quest.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">racing package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedgag-module">racing.DistributedGag module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedgagai-module">racing.DistributedGagAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-racing.DistributedKartPad">racing.DistributedKartPad module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#racing.DistributedKartPad.DistributedKartPad"><code class="docutils literal notranslate"><span class="pre">DistributedKartPad</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-racing.DistributedKartPadAI">racing.DistributedKartPadAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#racing.DistributedKartPadAI.DistributedKartPadAI"><code class="docutils literal notranslate"><span class="pre">DistributedKartPadAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedleaderboard-module">racing.DistributedLeaderBoard module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedleaderboardai-module">racing.DistributedLeaderBoardAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedprojectile-module">racing.DistributedProjectile module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedprojectileai-module">racing.DistributedProjectileAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedrace-module">racing.DistributedRace module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedraceai-module">racing.DistributedRaceAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedracepad-module">racing.DistributedRacePad module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedracepadai-module">racing.DistributedRacePadAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedstartingblock-module">racing.DistributedStartingBlock module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedstartingblockai-module">racing.DistributedStartingBlockAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedvehicle-module">racing.DistributedVehicle module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedvehicleai-module">racing.DistributedVehicleAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedviewpad-module">racing.DistributedViewPad module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-distributedviewpadai-module">racing.DistributedViewPadAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-droppedgag-module">racing.DroppedGag module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-effectmanager-module">racing.EffectManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-flyinggag-module">racing.FlyingGag module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-kart-module">racing.Kart module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-kartdna-module">racing.KartDNA module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-racing.KartShopGlobals">racing.KartShopGlobals module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#racing.KartShopGlobals.KartGlobals"><code class="docutils literal notranslate"><span class="pre">KartGlobals</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.KartShopGlobals.KartShopGlobals"><code class="docutils literal notranslate"><span class="pre">KartShopGlobals</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-kartshopgui-module">racing.KartShopGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-piejectile-module">racing.Piejectile module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-piejectilemanager-module">racing.PiejectileManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-raceendpanels-module">racing.RaceEndPanels module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-racegui-module">racing.RaceGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-racegag-module">racing.RaceGag module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-racing.RaceGlobals">racing.RaceGlobals module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.RaceInfo2RacePadId"><code class="docutils literal notranslate"><span class="pre">RaceInfo2RacePadId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getCanonicalPadId"><code class="docutils literal notranslate"><span class="pre">getCanonicalPadId()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getCircuitLoop"><code class="docutils literal notranslate"><span class="pre">getCircuitLoop()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getDefaultRecordTime"><code class="docutils literal notranslate"><span class="pre">getDefaultRecordTime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getEntryFee"><code class="docutils literal notranslate"><span class="pre">getEntryFee()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getGenreFromString"><code class="docutils literal notranslate"><span class="pre">getGenreFromString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getNextRaceInfo"><code class="docutils literal notranslate"><span class="pre">getNextRaceInfo()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getQualifyingTime"><code class="docutils literal notranslate"><span class="pre">getQualifyingTime()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getTrackGenre"><code class="docutils literal notranslate"><span class="pre">getTrackGenre()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getTrackGenreString"><code class="docutils literal notranslate"><span class="pre">getTrackGenreString()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getTrackListByType"><code class="docutils literal notranslate"><span class="pre">getTrackListByType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#racing.RaceGlobals.getTunnelSignName"><code class="docutils literal notranslate"><span class="pre">getTunnelSignName()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-raceheadframe-module">racing.RaceHeadFrame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-racemanager-module">racing.RaceManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#racing-racemanagerai-module">racing.RaceManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-racing.Racer">racing.Racer module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#racing.Racer.Racer"><code class="docutils literal notranslate"><span class="pre">Racer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-racing">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">racing package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/racing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="racing-package">
+<h1>racing package<a class="headerlink" href="#racing-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedgag-module">
+<h2>racing.DistributedGag module<a class="headerlink" href="#racing-distributedgag-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedgagai-module">
+<h2>racing.DistributedGagAI module<a class="headerlink" href="#racing-distributedgagai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-racing.DistributedKartPad">
+<span id="racing-distributedkartpad-module"></span><h2>racing.DistributedKartPad module<a class="headerlink" href="#module-racing.DistributedKartPad" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="racing.DistributedKartPad.DistributedKartPad">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racing.DistributedKartPad.</span></span><span class="sig-name descname"><span class="pre">DistributedKartPad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPad.html#DistributedKartPad"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPad.DistributedKartPad" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObject</span></code></p>
+<p>Purpose: Add Comments Here…</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPad.DistributedKartPad.addStartingBlock">
+<span class="sig-name descname"><span class="pre">addStartingBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPad.html#DistributedKartPad.addStartingBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPad.DistributedKartPad.addStartingBlock" title="Permalink to this definition"></a></dt>
+<dd><p>Comment:</p>
+<p>Params: block - the kart block that is associated to the pad.
+Return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPad.DistributedKartPad.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPad.html#DistributedKartPad.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPad.DistributedKartPad.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Comment:</p>
+<p>Params: None
+Return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPad.DistributedKartPad.getArea">
+<span class="sig-name descname"><span class="pre">getArea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPad.html#DistributedKartPad.getArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPad.DistributedKartPad.getArea" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: Comments go here…</p>
+<p>Params: None
+Return: area - the area of the zone where its found.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.DistributedKartPad.DistributedKartPad.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#racing.DistributedKartPad.DistributedKartPad.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPad.DistributedKartPad.setArea">
+<span class="sig-name descname"><span class="pre">setArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPad.html#DistributedKartPad.setArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPad.DistributedKartPad.setArea" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: Comments go here…</p>
+<p>Params: area - the area of the zone where its found.
+Return: None</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racing.DistributedKartPadAI">
+<span id="racing-distributedkartpadai-module"></span><h2>racing.DistributedKartPadAI module<a class="headerlink" href="#module-racing.DistributedKartPadAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racing.DistributedKartPadAI.</span></span><span class="sig-name descname"><span class="pre">DistributedKartPadAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<p>Purpose: …</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.addAvBlock">
+<span class="sig-name descname"><span class="pre">addAvBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">paid</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.addAvBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.addAvBlock" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: The addAvBlock Method updates the starting block of the avatar which
+has requested entry to the block.</p>
+<dl class="simple">
+<dt>Params: avId - the id of the avatar entering the block.</dt><dd><p>block - the Starting Block object that the avatar will enter.</p>
+</dd>
+</dl>
+<p>Return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.addStartingBlock">
+<span class="sig-name descname"><span class="pre">addStartingBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.addStartingBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.addStartingBlock" title="Permalink to this definition"></a></dt>
+<dd><p>Comment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.allMoviesDone">
+<span class="sig-name descname"><span class="pre">allMoviesDone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.allMoviesDone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.allMoviesDone" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.delete"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.delete" title="Permalink to this definition"></a></dt>
+<dd><p>Comment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.getArea">
+<span class="sig-name descname"><span class="pre">getArea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.getArea"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.getArea" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: The getArea Method returns the area for which the
+object is located.</p>
+<p>Params: None
+Return: Int - area id</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.kartMovieDone">
+<span class="sig-name descname"><span class="pre">kartMovieDone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.kartMovieDone"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.kartMovieDone" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.removeAvBlock">
+<span class="sig-name descname"><span class="pre">removeAvBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">avId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.removeAvBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.removeAvBlock" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: The removeAvBlock Method updates the starting block of the avatar
+which has requested removal from the starting block.</p>
+<dl class="simple">
+<dt>Params: avId - the id of the avatar to remove from the block.</dt><dd><p>block - the starting block object that the avatar will exit.</p>
+</dd>
+</dl>
+<p>Return: None</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.startCountdown">
+<span class="sig-name descname"><span class="pre">startCountdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.startCountdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.startCountdown" title="Permalink to this definition"></a></dt>
+<dd><p>Purpose: The __startCountdown Method generates a task that acts as
+a timer. It calls a specified callback method after the time period
+expires, and it additionally records a timestamp for when the timer
+began.</p>
+<dl class="simple">
+<dt>Params: name - a unique name for the task.</dt><dd><p>callback - method to handle the case when the timer expires.
+time - amount of time before the timer expires.
+params - extra arguments for the callback method.</p>
+</dd>
+</dl>
+<p>Return: task</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.DistributedKartPadAI.DistributedKartPadAI.stopCountdown">
+<span class="sig-name descname"><span class="pre">stopCountdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/DistributedKartPadAI.html#DistributedKartPadAI.stopCountdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.DistributedKartPadAI.DistributedKartPadAI.stopCountdown" title="Permalink to this definition"></a></dt>
+<dd><p>Comment:</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="racing-distributedleaderboard-module">
+<h2>racing.DistributedLeaderBoard module<a class="headerlink" href="#racing-distributedleaderboard-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedleaderboardai-module">
+<h2>racing.DistributedLeaderBoardAI module<a class="headerlink" href="#racing-distributedleaderboardai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedprojectile-module">
+<h2>racing.DistributedProjectile module<a class="headerlink" href="#racing-distributedprojectile-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedprojectileai-module">
+<h2>racing.DistributedProjectileAI module<a class="headerlink" href="#racing-distributedprojectileai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedrace-module">
+<h2>racing.DistributedRace module<a class="headerlink" href="#racing-distributedrace-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedraceai-module">
+<h2>racing.DistributedRaceAI module<a class="headerlink" href="#racing-distributedraceai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedracepad-module">
+<h2>racing.DistributedRacePad module<a class="headerlink" href="#racing-distributedracepad-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedracepadai-module">
+<h2>racing.DistributedRacePadAI module<a class="headerlink" href="#racing-distributedracepadai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedstartingblock-module">
+<h2>racing.DistributedStartingBlock module<a class="headerlink" href="#racing-distributedstartingblock-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedstartingblockai-module">
+<h2>racing.DistributedStartingBlockAI module<a class="headerlink" href="#racing-distributedstartingblockai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedvehicle-module">
+<h2>racing.DistributedVehicle module<a class="headerlink" href="#racing-distributedvehicle-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedvehicleai-module">
+<h2>racing.DistributedVehicleAI module<a class="headerlink" href="#racing-distributedvehicleai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedviewpad-module">
+<h2>racing.DistributedViewPad module<a class="headerlink" href="#racing-distributedviewpad-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-distributedviewpadai-module">
+<h2>racing.DistributedViewPadAI module<a class="headerlink" href="#racing-distributedviewpadai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-droppedgag-module">
+<h2>racing.DroppedGag module<a class="headerlink" href="#racing-droppedgag-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-effectmanager-module">
+<h2>racing.EffectManager module<a class="headerlink" href="#racing-effectmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-flyinggag-module">
+<h2>racing.FlyingGag module<a class="headerlink" href="#racing-flyinggag-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-kart-module">
+<h2>racing.Kart module<a class="headerlink" href="#racing-kart-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-kartdna-module">
+<h2>racing.KartDNA module<a class="headerlink" href="#racing-kartdna-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-racing.KartShopGlobals">
+<span id="racing-kartshopglobals-module"></span><h2>racing.KartShopGlobals module<a class="headerlink" href="#module-racing.KartShopGlobals" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racing.KartShopGlobals.</span></span><span class="sig-name descname"><span class="pre">KartGlobals</span></span><a class="reference internal" href="../_modules/racing/KartShopGlobals.html#KartGlobals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.BOARDING_TIME">
+<span class="sig-name descname"><span class="pre">BOARDING_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">10.0</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.BOARDING_TIME" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.COUNTDOWN_TIME">
+<span class="sig-name descname"><span class="pre">COUNTDOWN_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.COUNTDOWN_TIME" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.ENTER_MOVIE">
+<span class="sig-name descname"><span class="pre">ENTER_MOVIE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.ENTER_MOVIE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.ENTER_RACE_TIME">
+<span class="sig-name descname"><span class="pre">ENTER_RACE_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6.0</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.ENTER_RACE_TIME" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.ERROR_CODE">
+<span class="sig-name descname"><span class="pre">ERROR_CODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.showbase.PythonUtil.Enum</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.ERROR_CODE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.EXIT_MOVIE">
+<span class="sig-name descname"><span class="pre">EXIT_MOVIE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.EXIT_MOVIE" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.FRONT_LEFT_SPOT">
+<span class="sig-name descname"><span class="pre">FRONT_LEFT_SPOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.FRONT_LEFT_SPOT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.FRONT_RIGHT_SPOT">
+<span class="sig-name descname"><span class="pre">FRONT_RIGHT_SPOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.FRONT_RIGHT_SPOT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.PAD_GROUP_NUM">
+<span class="sig-name descname"><span class="pre">PAD_GROUP_NUM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.PAD_GROUP_NUM" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.REAR_LEFT_SPOT">
+<span class="sig-name descname"><span class="pre">REAR_LEFT_SPOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.REAR_LEFT_SPOT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.REAR_RIGHT_SPOT">
+<span class="sig-name descname"><span class="pre">REAR_RIGHT_SPOT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.REAR_RIGHT_SPOT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartGlobals.getPadLocation">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPadLocation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">padId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/KartShopGlobals.html#KartGlobals.getPadLocation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.KartShopGlobals.KartGlobals.getPadLocation" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartShopGlobals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racing.KartShopGlobals.</span></span><span class="sig-name descname"><span class="pre">KartShopGlobals</span></span><a class="reference internal" href="../_modules/racing/KartShopGlobals.html#KartShopGlobals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.KartShopGlobals.KartShopGlobals" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartShopGlobals.EVENTDICT">
+<span class="sig-name descname"><span class="pre">EVENTDICT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'buyAccessory':</span> <span class="pre">'buyAccessory',</span> <span class="pre">'buyKart':</span> <span class="pre">'buyAKart',</span> <span class="pre">'guiDone':</span> <span class="pre">'guiDone',</span> <span class="pre">'returnKart':</span> <span class="pre">'returnKart'}</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartShopGlobals.EVENTDICT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartShopGlobals.KARTCLERK_TIMER">
+<span class="sig-name descname"><span class="pre">KARTCLERK_TIMER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">180</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartShopGlobals.KARTCLERK_TIMER" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="racing.KartShopGlobals.KartShopGlobals.MAX_KART_ACC">
+<span class="sig-name descname"><span class="pre">MAX_KART_ACC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></em><a class="headerlink" href="#racing.KartShopGlobals.KartShopGlobals.MAX_KART_ACC" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="racing-kartshopgui-module">
+<h2>racing.KartShopGui module<a class="headerlink" href="#racing-kartshopgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-piejectile-module">
+<h2>racing.Piejectile module<a class="headerlink" href="#racing-piejectile-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-piejectilemanager-module">
+<h2>racing.PiejectileManager module<a class="headerlink" href="#racing-piejectilemanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-raceendpanels-module">
+<h2>racing.RaceEndPanels module<a class="headerlink" href="#racing-raceendpanels-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-racegui-module">
+<h2>racing.RaceGUI module<a class="headerlink" href="#racing-racegui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-racegag-module">
+<h2>racing.RaceGag module<a class="headerlink" href="#racing-racegag-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-racing.RaceGlobals">
+<span id="racing-raceglobals-module"></span><h2>racing.RaceGlobals module<a class="headerlink" href="#module-racing.RaceGlobals" title="Permalink to this heading"></a></h2>
+<p>RaceGlobals modules: defines constants used across the Kart racing classes.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.RaceInfo2RacePadId">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">RaceInfo2RacePadId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trackId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trackType</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#RaceInfo2RacePadId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.RaceInfo2RacePadId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getCanonicalPadId">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getCanonicalPadId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">padId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getCanonicalPadId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getCanonicalPadId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getCircuitLoop">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getCircuitLoop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">startingTrack</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getCircuitLoop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getCircuitLoop" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getDefaultRecordTime">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getDefaultRecordTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trackId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getDefaultRecordTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getDefaultRecordTime" title="Permalink to this definition"></a></dt>
+<dd><p>Get the qualifying time for this track.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getEntryFee">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getEntryFee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trackId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raceType</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getEntryFee"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getEntryFee" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getGenreFromString">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getGenreFromString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getGenreFromString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getGenreFromString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getNextRaceInfo">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getNextRaceInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prevTrackId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">genreString</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getNextRaceInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getNextRaceInfo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getQualifyingTime">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getQualifyingTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trackId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getQualifyingTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getQualifyingTime" title="Permalink to this definition"></a></dt>
+<dd><p>Get the qualifying time for this track.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getTrackGenre">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getTrackGenre</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trackId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getTrackGenre"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getTrackGenre" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getTrackGenreString">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getTrackGenreString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">genreId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getTrackGenreString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getTrackGenreString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getTrackListByType">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getTrackListByType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">genre</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getTrackListByType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getTrackListByType" title="Permalink to this definition"></a></dt>
+<dd><p>type - normal or reverse</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="racing.RaceGlobals.getTunnelSignName">
+<span class="sig-prename descclassname"><span class="pre">racing.RaceGlobals.</span></span><span class="sig-name descname"><span class="pre">getTunnelSignName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">genreId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/RaceGlobals.html#getTunnelSignName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.RaceGlobals.getTunnelSignName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="racing-raceheadframe-module">
+<h2>racing.RaceHeadFrame module<a class="headerlink" href="#racing-raceheadframe-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-racemanager-module">
+<h2>racing.RaceManager module<a class="headerlink" href="#racing-racemanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="racing-racemanagerai-module">
+<h2>racing.RaceManagerAI module<a class="headerlink" href="#racing-racemanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-racing.Racer">
+<span id="racing-racer-module"></span><h2>racing.Racer module<a class="headerlink" href="#module-racing.Racer" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="racing.Racer.Racer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">racing.Racer.</span></span><span class="sig-name descname"><span class="pre">Racer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">race</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/Racer.html#Racer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.Racer.Racer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="racing.Racer.Racer.setLapT">
+<span class="sig-name descname"><span class="pre">setLapT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numLaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lapT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/racing/Racer.html#Racer.setLapT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#racing.Racer.Racer.setLapT" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-racing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-racing" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="quest.html" class="btn btn-neutral float-left" title="quest package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rpc.html" class="btn btn-neutral float-right" title="rpc package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

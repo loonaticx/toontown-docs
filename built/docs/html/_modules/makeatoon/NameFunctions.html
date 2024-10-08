@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>makeatoon.NameFunctions &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">makeatoon.NameFunctions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for makeatoon.NameFunctions</h1><div class="highlight"><pre>
+<span></span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<div class="viewcode-block" id="NameFunctions"><a class="viewcode-back" href="../../toontown/makeatoon.html#makeatoon.NameFunctions.NameFunctions">[docs]</a><span class="k">class</span> <span class="nc">NameFunctions</span><span class="p">:</span>
+
+    <span class="n">boyTitles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Baron&quot;</span><span class="p">,</span> <span class="s2">&quot;Duke&quot;</span><span class="p">,</span> <span class="s2">&quot;King&quot;</span><span class="p">,</span> <span class="s2">&quot;Master&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Mister&quot;</span><span class="p">,</span> <span class="s2">&quot;Prince&quot;</span><span class="p">,</span> <span class="s2">&quot;Sir&quot;</span><span class="p">,</span>
+                 <span class="p">]</span>
+
+    <span class="n">girlTitles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Lady&quot;</span><span class="p">,</span> <span class="s2">&quot;Miss&quot;</span><span class="p">,</span> <span class="s2">&quot;Princess&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Queen&quot;</span><span class="p">,</span> <span class="s2">&quot;Granny&quot;</span><span class="p">,</span> <span class="s2">&quot;Aunt&quot;</span><span class="p">,</span>
+                  <span class="p">]</span>
+
+    <span class="n">neutralTitles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Big&quot;</span><span class="p">,</span> <span class="s2">&quot;Captain&quot;</span><span class="p">,</span> <span class="s2">&quot;Cool&quot;</span><span class="p">,</span> <span class="s2">&quot;Colonel&quot;</span><span class="p">,</span> <span class="s2">&quot;Crazy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Deputy&quot;</span><span class="p">,</span> <span class="s2">&quot;Dippy&quot;</span><span class="p">,</span> <span class="s2">&quot;Doctor&quot;</span><span class="p">,</span> <span class="s2">&quot;Fat&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Good ol&#39;&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Little&quot;</span><span class="p">,</span> <span class="s2">&quot;Loopy&quot;</span><span class="p">,</span> <span class="s2">&quot;Loud&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Noisy&quot;</span><span class="p">,</span> <span class="s2">&quot;Prof.&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Sheriff&quot;</span><span class="p">,</span> <span class="s2">&quot;Skinny&quot;</span><span class="p">,</span> <span class="s2">&quot;Silly&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Super&quot;</span><span class="p">,</span> <span class="s2">&quot;Ugly&quot;</span><span class="p">,</span> <span class="s2">&quot;Weird&quot;</span><span class="p">]</span>
+    <span class="c1"># First Names</span>
+    <span class="n">boyFirsts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alvin&quot;</span><span class="p">,</span> <span class="s2">&quot;Astro&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Barney&quot;</span><span class="p">,</span> <span class="s2">&quot;Bart&quot;</span><span class="p">,</span> <span class="s2">&quot;Beppo&quot;</span><span class="p">,</span> <span class="s2">&quot;Bert&quot;</span><span class="p">,</span> <span class="s2">&quot;Bonzo&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Buford&quot;</span><span class="p">,</span> <span class="s2">&quot;Bunky&quot;</span><span class="p">,</span> <span class="s2">&quot;Buster&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Butch&quot;</span><span class="p">,</span> <span class="s2">&quot;Buzz&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Cecil&quot;</span><span class="p">,</span> <span class="s2">&quot;Chester&quot;</span><span class="p">,</span> <span class="s2">&quot;Chip&quot;</span><span class="p">,</span> <span class="s2">&quot;Chipper&quot;</span><span class="p">,</span> <span class="s2">&quot;Clancy&quot;</span><span class="p">,</span> <span class="s2">&quot;Clarence&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Cliff&quot;</span><span class="p">,</span> <span class="s2">&quot;Clyde&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Dudley&quot;</span><span class="p">,</span> <span class="s2">&quot;Duke&quot;</span><span class="p">,</span> <span class="s2">&quot;Ernie&quot;</span><span class="p">,</span>
+                 <span class="c1">#&quot;Fenimore&quot;,</span>
+                 <span class="s2">&quot;Felix&quot;</span><span class="p">,</span> <span class="s2">&quot;Fritz&quot;</span><span class="p">,</span> <span class="s2">&quot;Graham&quot;</span><span class="p">,</span> <span class="s2">&quot;Harvey&quot;</span><span class="p">,</span> <span class="s2">&quot;Hector&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Huey&quot;</span><span class="p">,</span> <span class="s2">&quot;Jacques&quot;</span><span class="p">,</span> <span class="s2">&quot;Jake&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Knuckles&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Lancelot&quot;</span><span class="p">,</span> <span class="s2">&quot;Leroy&quot;</span><span class="p">,</span> <span class="s2">&quot;Lionel&quot;</span><span class="p">,</span> <span class="s2">&quot;Lloyd&quot;</span><span class="p">,</span> <span class="s2">&quot;Louie&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Mac&quot;</span><span class="p">,</span> <span class="s2">&quot;Max&quot;</span><span class="p">,</span> <span class="s2">&quot;Moe&quot;</span><span class="p">,</span> <span class="s2">&quot;Monty&quot;</span><span class="p">,</span> <span class="s2">&quot;Milton&quot;</span><span class="p">,</span> <span class="s2">&quot;Ned&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Orville&quot;</span><span class="p">,</span> <span class="s2">&quot;Oscar&quot;</span><span class="p">,</span> <span class="s2">&quot;Oswald&quot;</span><span class="p">,</span> <span class="s2">&quot;Ozzie&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Pierre&quot;</span><span class="p">,</span>
+                 <span class="c1">#&quot;Poindexter&quot;,</span>
+                 <span class="s2">&quot;Reggie&quot;</span><span class="p">,</span> <span class="s2">&quot;Ricky&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Rocco&quot;</span><span class="p">,</span> <span class="s2">&quot;Rollie&quot;</span><span class="p">,</span> <span class="s2">&quot;Romeo&quot;</span><span class="p">,</span> <span class="s2">&quot;Rusty&quot;</span><span class="p">,</span> <span class="s2">&quot;Sammie&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Skip&quot;</span><span class="p">,</span> <span class="s2">&quot;Skipper&quot;</span><span class="p">,</span> <span class="s2">&quot;Skippy&quot;</span><span class="p">,</span> <span class="s2">&quot;Spike&quot;</span><span class="p">,</span> <span class="s2">&quot;Stinky&quot;</span><span class="p">,</span>
+                 <span class="c1">#&quot;Thaddeus&quot;,</span>
+                 <span class="s2">&quot;Teddy&quot;</span><span class="p">,</span> <span class="s2">&quot;Tom&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;Waldo&quot;</span><span class="p">,</span> <span class="s2">&quot;Wally&quot;</span><span class="p">,</span> <span class="s2">&quot;Wilbur&quot;</span><span class="p">,</span>
+                 <span class="p">]</span>
+    <span class="n">girlFirsts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bonnie&quot;</span><span class="p">,</span> <span class="s2">&quot;Bubbles&quot;</span><span class="p">,</span>
+                  <span class="c1">#&quot;Buttercup&quot;,</span>
+                  <span class="s2">&quot;Candy&quot;</span><span class="p">,</span>
+                  <span class="c1">#&quot;Cinnamon&quot;,</span>
+                  <span class="s2">&quot;Clover&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Cuddles&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Daffodil&quot;</span><span class="p">,</span>
+                  <span class="c1">#&quot;Dandelion&quot;,</span>
+                  <span class="s2">&quot;Daphne&quot;</span><span class="p">,</span> <span class="s2">&quot;Dee Dee&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Dottie&quot;</span><span class="p">,</span> <span class="s2">&quot;Ginger&quot;</span><span class="p">,</span> <span class="s2">&quot;Gwen&quot;</span><span class="p">,</span> <span class="s2">&quot;Ladybug&quot;</span><span class="p">,</span> <span class="s2">&quot;Lily&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Marigold&quot;</span><span class="p">,</span> <span class="s2">&quot;Maxie&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Melody&quot;</span><span class="p">,</span> <span class="s2">&quot;Mo Mo&quot;</span><span class="p">,</span>
+                  <span class="c1">#&quot;Moonbeam&quot;,</span>
+                  <span class="s2">&quot;Nutmeg&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Olive&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Peaches&quot;</span><span class="p">,</span> <span class="s2">&quot;Pearl&quot;</span><span class="p">,</span> <span class="s2">&quot;Penny&quot;</span><span class="p">,</span> <span class="s2">&quot;Petunia&quot;</span><span class="p">,</span>
+                  <span class="c1">#&quot;Penelope&quot;,</span>
+                  <span class="s2">&quot;Rainbow&quot;</span><span class="p">,</span> <span class="s2">&quot;Raven&quot;</span><span class="p">,</span> <span class="s2">&quot;Robin&quot;</span><span class="p">,</span> <span class="s2">&quot;Rosie&quot;</span><span class="p">,</span> <span class="s2">&quot;Roxy&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Sadie&quot;</span><span class="p">,</span> <span class="s2">&quot;Sally&quot;</span><span class="p">,</span> <span class="s2">&quot;Sandy&quot;</span><span class="p">,</span>
+                  <span class="c1">#&quot;Snowflake&quot;,</span>
+                  <span class="c1">#&quot;Sunflower&quot;,</span>
+                  <span class="s2">&quot;Taffy&quot;</span><span class="p">,</span> <span class="s2">&quot;Trixie&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Ursula&quot;</span><span class="p">,</span> <span class="s2">&quot;Valentine&quot;</span><span class="p">,</span> <span class="s2">&quot;Violet&quot;</span><span class="p">,</span> <span class="s2">&quot;Vicky&quot;</span><span class="p">,</span>
+                  <span class="s2">&quot;Willow&quot;</span><span class="p">,</span>
+                  <span class="p">]</span>
+    <span class="n">neutralFirsts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;B.D.&quot;</span><span class="p">,</span> <span class="s2">&quot;Banjo&quot;</span><span class="p">,</span> <span class="s2">&quot;Batty&quot;</span><span class="p">,</span> <span class="s2">&quot;Beany&quot;</span><span class="p">,</span> <span class="s2">&quot;Bebop&quot;</span><span class="p">,</span> <span class="s2">&quot;Bingo&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Binky&quot;</span><span class="p">,</span> <span class="s2">&quot;Biscuit&quot;</span><span class="p">,</span> <span class="s2">&quot;Bongo&quot;</span><span class="p">,</span> <span class="s2">&quot;Boo Boo&quot;</span><span class="p">,</span> <span class="s2">&quot;Bonkers&quot;</span><span class="p">,</span> <span class="s2">&quot;Bouncey&quot;</span><span class="p">,</span> <span class="s2">&quot;Bizzy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Blinky&quot;</span><span class="p">,</span> <span class="s2">&quot;Bumpy&quot;</span><span class="p">,</span> <span class="s2">&quot;C.J.&quot;</span><span class="p">,</span> <span class="s2">&quot;C.W.&quot;</span><span class="p">,</span> <span class="s2">&quot;Chirpy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Chunky&quot;</span><span class="p">,</span> <span class="s2">&quot;Coconut&quot;</span><span class="p">,</span> <span class="s2">&quot;Comet&quot;</span><span class="p">,</span> <span class="s2">&quot;Corky&quot;</span><span class="p">,</span> <span class="s2">&quot;Corny&quot;</span><span class="p">,</span> <span class="s2">&quot;Cranky&quot;</span><span class="p">,</span> <span class="s2">&quot;Crazy&quot;</span><span class="p">,</span>
+                     <span class="c1">#&quot;Creampuff&quot;,</span>
+                     <span class="s2">&quot;Cricket&quot;</span><span class="p">,</span> <span class="s2">&quot;Crumbly&quot;</span><span class="p">,</span> <span class="s2">&quot;Curly&quot;</span><span class="p">,</span> <span class="s2">&quot;Cuckoo&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Daffy&quot;</span><span class="p">,</span>
+                     <span class="c1">#&quot;Dingdong&quot;,</span>
+                     <span class="s2">&quot;Dinky&quot;</span><span class="p">,</span> <span class="s2">&quot;Dizzy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Domino&quot;</span><span class="p">,</span> <span class="s2">&quot;Drippy&quot;</span><span class="p">,</span> <span class="s2">&quot;Droopy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Dusty&quot;</span><span class="p">,</span> <span class="s2">&quot;Dynamite&quot;</span><span class="p">,</span> <span class="s2">&quot;Fancy&quot;</span><span class="p">,</span> <span class="s2">&quot;Fangs&quot;</span><span class="p">,</span> <span class="s2">&quot;Fireball&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Fleabag&quot;</span><span class="p">,</span> <span class="s2">&quot;Flapjack&quot;</span><span class="p">,</span> <span class="s2">&quot;Flappy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Flip&quot;</span><span class="p">,</span> <span class="s2">&quot;Fluffy&quot;</span><span class="p">,</span> <span class="s2">&quot;Freckles&quot;</span><span class="p">,</span> <span class="s2">&quot;Frizzy&quot;</span><span class="p">,</span> <span class="s2">&quot;Furball&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Goopy&quot;</span><span class="p">,</span>
+                     <span class="c1">#&quot;Gumdrop&quot;,</span>
+                     <span class="c1">#&quot;Harebrain&quot;,</span>
+                     <span class="s2">&quot;Huddles&quot;</span><span class="p">,</span> <span class="s2">&quot;J.C.&quot;</span><span class="p">,</span> <span class="s2">&quot;Jazzy&quot;</span><span class="p">,</span>
+                     <span class="c1">#&quot;Jellybean&quot;,</span>
+                     <span class="s2">&quot;Jellyroll&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Kippy&quot;</span><span class="p">,</span> <span class="s2">&quot;Kit&quot;</span><span class="p">,</span> <span class="s2">&quot;Lefty&quot;</span><span class="p">,</span> <span class="s2">&quot;Lollipop&quot;</span><span class="p">,</span> <span class="s2">&quot;Loony&quot;</span><span class="p">,</span> <span class="s2">&quot;Loopy&quot;</span><span class="p">,</span> <span class="s2">&quot;Lucky&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Mildew&quot;</span><span class="p">,</span>
+                     <span class="c1">#&quot;Mumbles&quot;,</span>
+                     <span class="s2">&quot;Murky&quot;</span><span class="p">,</span> <span class="s2">&quot;Nutty&quot;</span><span class="p">,</span> <span class="s2">&quot;Pancake&quot;</span><span class="p">,</span> <span class="s2">&quot;Peanut&quot;</span><span class="p">,</span>
+                     <span class="c1">#&quot;Peppermint&quot;,</span>
+                     <span class="s2">&quot;Peppy&quot;</span><span class="p">,</span> <span class="s2">&quot;Pickles&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Pinky&quot;</span><span class="p">,</span> <span class="s2">&quot;Popcorn&quot;</span><span class="p">,</span> <span class="s2">&quot;Poppy&quot;</span><span class="p">,</span> <span class="s2">&quot;Presto&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Rhubarb&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Salty&quot;</span><span class="p">,</span> <span class="s2">&quot;Scooter&quot;</span><span class="p">,</span>
+                     <span class="c1">#&quot;Scratchy&quot;,</span>
+                     <span class="s2">&quot;Skids&quot;</span><span class="p">,</span> <span class="s2">&quot;Skimpy&quot;</span><span class="p">,</span> <span class="s2">&quot;Soupy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Slappy&quot;</span><span class="p">,</span> <span class="s2">&quot;Slippy&quot;</span><span class="p">,</span> <span class="s2">&quot;Slumpy&quot;</span><span class="p">,</span> <span class="s2">&quot;Smirky&quot;</span><span class="p">,</span> <span class="s2">&quot;Snappy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Sniffy&quot;</span><span class="p">,</span> <span class="s2">&quot;Snuffy&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Spiffy&quot;</span><span class="p">,</span> <span class="s2">&quot;Spotty&quot;</span><span class="p">,</span> <span class="s2">&quot;Spunky&quot;</span><span class="p">,</span> <span class="s2">&quot;Squeaky&quot;</span><span class="p">,</span> <span class="s2">&quot;Stripey&quot;</span><span class="p">,</span> <span class="s2">&quot;Star&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Stubby&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Tricky&quot;</span><span class="p">,</span> <span class="s2">&quot;Tubby&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Von&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Wacky&quot;</span><span class="p">,</span> <span class="s2">&quot;Wacko&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Whiskers&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Winky&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Yippie&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Z.Z.&quot;</span><span class="p">,</span> <span class="s2">&quot;Zany&quot;</span><span class="p">,</span> <span class="s2">&quot;Ziggy&quot;</span><span class="p">,</span> <span class="s2">&quot;Zilly&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;Zippy&quot;</span><span class="p">,</span> <span class="s2">&quot;Zippety&quot;</span><span class="p">,</span> <span class="s2">&quot;Zowie&quot;</span><span class="p">,</span>
+                     <span class="p">]</span>
+    <span class="c1"># Last name prefixes</span>
+
+    <span class="c1"># Prefixes that will require suffix capitalization</span>
+    <span class="n">capPrefixes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mc&quot;</span><span class="p">,</span> <span class="s2">&quot;Mac&quot;</span><span class="p">]</span>
+
+    <span class="n">lastPrefixes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bagel&quot;</span><span class="p">,</span> <span class="s2">&quot;Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;Bean&quot;</span><span class="p">,</span> <span class="s2">&quot;Beanie&quot;</span><span class="p">,</span> <span class="s2">&quot;Biggen&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Bizzen&quot;</span><span class="p">,</span> <span class="s2">&quot;Blubber&quot;</span><span class="p">,</span> <span class="s2">&quot;Boingen&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Bumber&quot;</span><span class="p">,</span> <span class="s2">&quot;Bumble&quot;</span><span class="p">,</span> <span class="s2">&quot;Bumpen&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Cheezy&quot;</span><span class="p">,</span> <span class="s2">&quot;Crinkle&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Crumble&quot;</span><span class="p">,</span> <span class="s2">&quot;Crunchen&quot;</span><span class="p">,</span> <span class="s2">&quot;Crunchy&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Dandy&quot;</span><span class="p">,</span> <span class="s2">&quot;Dingle&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Dizzen&quot;</span><span class="p">,</span> <span class="s2">&quot;Dizzy&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Doggen&quot;</span><span class="p">,</span> <span class="s2">&quot;Dyno&quot;</span><span class="p">,</span> <span class="s2">&quot;Electro&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Feather&quot;</span><span class="p">,</span> <span class="s2">&quot;Fiddle&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Frinkel&quot;</span><span class="p">,</span> <span class="s2">&quot;Fizzle&quot;</span><span class="p">,</span> <span class="s2">&quot;Flippen&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Flipper&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Fumble&quot;</span><span class="p">,</span> <span class="s2">&quot;Funny&quot;</span><span class="p">,</span> <span class="s2">&quot;Fuzzy&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Giggle&quot;</span><span class="p">,</span> <span class="s2">&quot;Glitter&quot;</span><span class="p">,</span> <span class="s2">&quot;Google&quot;</span><span class="p">,</span> <span class="s2">&quot;Grumble&quot;</span><span class="p">,</span> <span class="s2">&quot;Gumdrop&quot;</span><span class="p">,</span> <span class="s2">&quot;Huckle&quot;</span><span class="p">,</span> <span class="s2">&quot;Hula&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Jabber&quot;</span><span class="p">,</span> <span class="s2">&quot;Jeeper&quot;</span><span class="p">,</span> <span class="s2">&quot;Jinx&quot;</span><span class="p">,</span> <span class="s2">&quot;Jumble&quot;</span><span class="p">,</span> <span class="s2">&quot;Kooky&quot;</span><span class="p">,</span> <span class="s2">&quot;Lemon&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Loopen&quot;</span><span class="p">,</span> <span class="s2">&quot;Mac&quot;</span><span class="p">,</span> <span class="s2">&quot;Mc&quot;</span><span class="p">,</span> <span class="s2">&quot;Mega&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Mizzen&quot;</span><span class="p">,</span> <span class="s2">&quot;Nickel&quot;</span><span class="p">,</span> <span class="s2">&quot;Nutty&quot;</span><span class="p">,</span> <span class="s2">&quot;Octo&quot;</span><span class="p">,</span> <span class="s2">&quot;Paddle&quot;</span><span class="p">,</span> <span class="s2">&quot;Pale&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Pedal&quot;</span><span class="p">,</span> <span class="s2">&quot;Pepper&quot;</span><span class="p">,</span> <span class="s2">&quot;Petal&quot;</span><span class="p">,</span> <span class="s2">&quot;Pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;Pinker&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Poodle&quot;</span><span class="p">,</span> <span class="s2">&quot;Precious&quot;</span><span class="p">,</span> <span class="s2">&quot;Pumpkin&quot;</span><span class="p">,</span> <span class="s2">&quot;Purple&quot;</span><span class="p">,</span> <span class="s2">&quot;Poppen&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Rhino&quot;</span><span class="p">,</span> <span class="s2">&quot;Robo&quot;</span><span class="p">,</span> <span class="s2">&quot;Rocken&quot;</span><span class="p">,</span> <span class="s2">&quot;Ruffle&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Sniffle&quot;</span><span class="p">,</span> <span class="s2">&quot;Snorkel&quot;</span><span class="p">,</span> <span class="s2">&quot;Sour&quot;</span><span class="p">,</span> <span class="s2">&quot;Sparkle&quot;</span><span class="p">,</span> <span class="s2">&quot;Squiggle&quot;</span><span class="p">,</span> <span class="s2">&quot;Super&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Spackle&quot;</span><span class="p">,</span> <span class="s2">&quot;Thunder&quot;</span><span class="p">,</span> <span class="s2">&quot;Toppen&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Tricky&quot;</span><span class="p">,</span> <span class="s2">&quot;Tweedle&quot;</span><span class="p">,</span> <span class="s2">&quot;Twiddle&quot;</span><span class="p">,</span> <span class="s2">&quot;Twinkle&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Wacky&quot;</span><span class="p">,</span> <span class="s2">&quot;Weasel&quot;</span><span class="p">,</span> <span class="s2">&quot;Whisker&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Whistle&quot;</span><span class="p">,</span> <span class="s2">&quot;Wild&quot;</span><span class="p">,</span> <span class="s2">&quot;Witty&quot;</span><span class="p">,</span> <span class="s2">&quot;Wonder&quot;</span><span class="p">,</span> <span class="s2">&quot;Wrinkle&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Ziller&quot;</span><span class="p">,</span> <span class="s2">&quot;Zippen&quot;</span><span class="p">,</span> <span class="s2">&quot;Zooble&quot;</span><span class="p">,</span>
+                    <span class="p">]</span>
+    <span class="n">lastSuffixes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bee&quot;</span><span class="p">,</span> <span class="s2">&quot;berry&quot;</span><span class="p">,</span> <span class="s2">&quot;blabber&quot;</span><span class="p">,</span> <span class="s2">&quot;bocker&quot;</span><span class="p">,</span> <span class="s2">&quot;boing&quot;</span><span class="p">,</span> <span class="s2">&quot;boom&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;bounce&quot;</span><span class="p">,</span> <span class="s2">&quot;bouncer&quot;</span><span class="p">,</span> <span class="s2">&quot;brains&quot;</span><span class="p">,</span> <span class="s2">&quot;bubble&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;bumble&quot;</span><span class="p">,</span> <span class="s2">&quot;bump&quot;</span><span class="p">,</span> <span class="s2">&quot;bumper&quot;</span><span class="p">,</span> <span class="s2">&quot;burger&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;chomp&quot;</span><span class="p">,</span> <span class="s2">&quot;corn&quot;</span><span class="p">,</span> <span class="s2">&quot;crash&quot;</span><span class="p">,</span> <span class="s2">&quot;crumbs&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;crump&quot;</span><span class="p">,</span> <span class="s2">&quot;crunch&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;doodle&quot;</span><span class="p">,</span> <span class="s2">&quot;dorf&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;face&quot;</span><span class="p">,</span> <span class="s2">&quot;fidget&quot;</span><span class="p">,</span> <span class="s2">&quot;fish&quot;</span><span class="p">,</span> <span class="s2">&quot;flap&quot;</span><span class="p">,</span> <span class="s2">&quot;fuddy&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;flapper&quot;</span><span class="p">,</span> <span class="s2">&quot;fink&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;flinger&quot;</span><span class="p">,</span> <span class="s2">&quot;flip&quot;</span><span class="p">,</span> <span class="s2">&quot;flipper&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;foot&quot;</span><span class="p">,</span> <span class="s2">&quot;fussen&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;gadget&quot;</span><span class="p">,</span> <span class="s2">&quot;gargle&quot;</span><span class="p">,</span> <span class="s2">&quot;glop&quot;</span><span class="p">,</span> <span class="s2">&quot;gloop&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;goober&quot;</span><span class="p">,</span> <span class="s2">&quot;goose&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;grooven&quot;</span><span class="p">,</span> <span class="s2">&quot;hoffer&quot;</span><span class="p">,</span> <span class="s2">&quot;hopper&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;jinks&quot;</span><span class="p">,</span> <span class="s2">&quot;klunk&quot;</span><span class="p">,</span> <span class="s2">&quot;knees&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;marble&quot;</span><span class="p">,</span> <span class="s2">&quot;mash&quot;</span><span class="p">,</span> <span class="s2">&quot;monkey&quot;</span><span class="p">,</span> <span class="s2">&quot;mooch&quot;</span><span class="p">,</span> <span class="s2">&quot;mouth&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;muddle&quot;</span><span class="p">,</span> <span class="s2">&quot;muffin&quot;</span><span class="p">,</span> <span class="s2">&quot;mush&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;nerd&quot;</span><span class="p">,</span> <span class="s2">&quot;noodle&quot;</span><span class="p">,</span> <span class="s2">&quot;nose&quot;</span><span class="p">,</span> <span class="s2">&quot;nugget&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;phew&quot;</span><span class="p">,</span> <span class="s2">&quot;phooey&quot;</span><span class="p">,</span> <span class="s2">&quot;pocket&quot;</span><span class="p">,</span> <span class="s2">&quot;pop&quot;</span><span class="p">,</span> <span class="s2">&quot;pow&quot;</span><span class="p">,</span> <span class="s2">&quot;pretzel&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;pounce&quot;</span><span class="p">,</span> <span class="s2">&quot;poof&quot;</span><span class="p">,</span> <span class="s2">&quot;quack&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;roni&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;scooter&quot;</span><span class="p">,</span> <span class="s2">&quot;screech&quot;</span><span class="p">,</span> <span class="s2">&quot;seed&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;smirk&quot;</span><span class="p">,</span> <span class="s2">&quot;snoop&quot;</span><span class="p">,</span> <span class="s2">&quot;snooker&quot;</span><span class="p">,</span> <span class="s2">&quot;snout&quot;</span><span class="p">,</span> <span class="s2">&quot;socks&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="s2">&quot;spinner&quot;</span><span class="p">,</span> <span class="s2">&quot;splat&quot;</span><span class="p">,</span> <span class="s2">&quot;sprinkles&quot;</span><span class="p">,</span> <span class="s2">&quot;sticks&quot;</span><span class="p">,</span> <span class="s2">&quot;stink&quot;</span><span class="p">,</span> <span class="s2">&quot;swirl&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;teeth&quot;</span><span class="p">,</span> <span class="s2">&quot;thud&quot;</span><span class="p">,</span> <span class="s2">&quot;toes&quot;</span><span class="p">,</span> <span class="s2">&quot;ton&quot;</span><span class="p">,</span> <span class="s2">&quot;toon&quot;</span><span class="p">,</span> <span class="s2">&quot;tooth&quot;</span><span class="p">,</span> <span class="s2">&quot;twist&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;whip&quot;</span><span class="p">,</span> <span class="s2">&quot;wig&quot;</span><span class="p">,</span> <span class="s2">&quot;woof&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;zaner&quot;</span><span class="p">,</span> <span class="s2">&quot;zap&quot;</span><span class="p">,</span> <span class="s2">&quot;zapper&quot;</span><span class="p">,</span> <span class="s2">&quot;zilla&quot;</span><span class="p">,</span> <span class="s2">&quot;zoom&quot;</span><span class="p">,</span>
+                    <span class="p">]</span>
+
+    <span class="n">header</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;# This file contains all the possible names used in toon name generation.&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;# Each name has a unique id and a category:&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     0 - boyTitle&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     1 - girlTitle&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     2 - neutralTitle&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     3 - boyFirst&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     4 - girlFirst&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     5 - neutralFirst&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     6 - capPrefix&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     7 - lastPrefix&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;#                                     8 - lastSuffix&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span>
+
+<div class="viewcode-block" id="NameFunctions.writeNameMaster"><a class="viewcode-back" href="../../toontown/makeatoon.html#makeatoon.NameFunctions.NameFunctions.writeNameMaster">[docs]</a>    <span class="k">def</span> <span class="nf">writeNameMaster</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Writing Name Master&quot;</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;NameMasterEnglish.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">header</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">categoryNames</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">boyTitles</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">girlTitles</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">neutralTitles</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">boyFirsts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">girlFirsts</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">neutralFirsts</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">capPrefixes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastPrefixes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastSuffixes</span><span class="p">]</span>
+
+        <span class="n">uniqueID</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">cat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Working on list &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.  UniqueID is up to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">uniqueID</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">categoryNames</span><span class="p">[</span><span class="n">cat</span><span class="p">]:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">uniqueID</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">uniqueID</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NameFunctions.readNameMaster"><a class="viewcode-back" href="../../toontown/makeatoon.html#makeatoon.NameFunctions.NameFunctions.readNameMaster">[docs]</a>    <span class="k">def</span> <span class="nf">readNameMaster</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nameDictionary</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">input</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;NameMasterEnglish.txt1&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NameFunctions: Error opening list text file.&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">for</span> <span class="n">currentLine</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">currentLine</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;#&#39;</span><span class="p">:</span>
+                <span class="n">a1</span> <span class="o">=</span> <span class="n">currentLine</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span>
+                <span class="n">a2</span> <span class="o">=</span> <span class="n">currentLine</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">a1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">nameDictionary</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">currentLine</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">a1</span><span class="p">])]</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">currentLine</span><span class="p">[</span><span class="n">a1</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">a2</span><span class="p">]),</span>
+                                                             <span class="n">currentLine</span><span class="p">[</span><span class="n">a2</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">currentLine</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">masterList</span> <span class="o">=</span> <span class="p">[[],[],[],[],[],[],[],[],[]]</span>
+        <span class="k">for</span> <span class="n">tu</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nameDictionary</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+            <span class="n">masterList</span><span class="p">[</span><span class="n">tu</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tu</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nboyTitles</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ngirlTitles</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nneutralTitles</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nboyFirsts</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ngirlFirsts</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nneutralFirsts</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ncapPrefixes</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nlastPrefixes</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nlastSuffixes</span> <span class="o">=</span> <span class="n">masterList</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boyTitles</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nboyTitles</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

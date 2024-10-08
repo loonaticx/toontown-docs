@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>chat package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="debug package" href="debug.html" />
+    <link rel="prev" title="avatar package" href="avatar.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../toontown/modules.html">toontown</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">otp</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="avatar.html">avatar package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">chat package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-chatgarbler-module">chat.ChatGarbler module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-chat.ChatGlobals">chat.ChatGlobals module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chat.ChatGlobals.isThought"><code class="docutils literal notranslate"><span class="pre">isThought()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#chat.ChatGlobals.removeThoughtPrefix"><code class="docutils literal notranslate"><span class="pre">removeThoughtPrefix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-chatinputnormal-module">chat.ChatInputNormal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-chatinputtyped-module">chat.ChatInputTyped module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-chatinputwhitelist-module">chat.ChatInputWhiteList module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-chatinputwhitelistframe-module">chat.ChatInputWhiteListFrame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-chatmanager-module">chat.ChatManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-chatmanagerv2-module">chat.ChatManagerV2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-chat.ChatMessage">chat.ChatMessage module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chat.ChatMessage.ChatMessage"><code class="docutils literal notranslate"><span class="pre">ChatMessage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-talkassistant-module">chat.TalkAssistant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-chat.TalkGlobals">chat.TalkGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chat-talkhandle-module">chat.TalkHandle module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-chat.TalkMessage">chat.TalkMessage module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chat.TalkMessage.TalkMessage"><code class="docutils literal notranslate"><span class="pre">TalkMessage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-chat.WhiteList">chat.WhiteList module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#chat.WhiteList.WhiteList"><code class="docutils literal notranslate"><span class="pre">WhiteList</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-chat">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="debug.html">debug package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guild.html">guild package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inventory.html">inventory package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="level.html">level package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="movement.html">movement package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namepanel.html">namepanel package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="navigation.html">navigation package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpbase.html">otpbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="otpgui.html">otpgui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshot.html">snapshot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="status.html">status package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="switchboard.html">switchboard package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web.html">web package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">otp</a></li>
+      <li class="breadcrumb-item active">chat package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/otp/chat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chat-package">
+<h1>chat package<a class="headerlink" href="#chat-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="chat-chatgarbler-module">
+<h2>chat.ChatGarbler module<a class="headerlink" href="#chat-chatgarbler-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-chat.ChatGlobals">
+<span id="chat-chatglobals-module"></span><h2>chat.ChatGlobals module<a class="headerlink" href="#module-chat.ChatGlobals" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="chat.ChatGlobals.isThought">
+<span class="sig-prename descclassname"><span class="pre">chat.ChatGlobals.</span></span><span class="sig-name descname"><span class="pre">isThought</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatGlobals.html#isThought"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatGlobals.isThought" title="Permalink to this definition"></a></dt>
+<dd><p>message is a string.</p>
+<p>Return 1 if the given string contains the thought prefix,
+Return 0 otherwise</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chat.ChatGlobals.removeThoughtPrefix">
+<span class="sig-prename descclassname"><span class="pre">chat.ChatGlobals.</span></span><span class="sig-name descname"><span class="pre">removeThoughtPrefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatGlobals.html#removeThoughtPrefix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatGlobals.removeThoughtPrefix" title="Permalink to this definition"></a></dt>
+<dd><p>message is a string.</p>
+<p>Return the string with the thought prefix removed</p>
+</dd></dl>
+
+</section>
+<section id="chat-chatinputnormal-module">
+<h2>chat.ChatInputNormal module<a class="headerlink" href="#chat-chatinputnormal-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="chat-chatinputtyped-module">
+<h2>chat.ChatInputTyped module<a class="headerlink" href="#chat-chatinputtyped-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="chat-chatinputwhitelist-module">
+<h2>chat.ChatInputWhiteList module<a class="headerlink" href="#chat-chatinputwhitelist-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="chat-chatinputwhitelistframe-module">
+<h2>chat.ChatInputWhiteListFrame module<a class="headerlink" href="#chat-chatinputwhitelistframe-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="chat-chatmanager-module">
+<h2>chat.ChatManager module<a class="headerlink" href="#chat-chatmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="chat-chatmanagerv2-module">
+<h2>chat.ChatManagerV2 module<a class="headerlink" href="#chat-chatmanagerv2-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-chat.ChatMessage">
+<span id="chat-chatmessage-module"></span><h2>chat.ChatMessage module<a class="headerlink" href="#module-chat.ChatMessage" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chat.ChatMessage.</span></span><span class="sig-name descname"><span class="pre">ChatMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeStamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isPlayer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">whisper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentRatherThanReceived</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getBody">
+<span class="sig-name descname"><span class="pre">getBody</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getBody" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getFlags">
+<span class="sig-name descname"><span class="pre">getFlags</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getFlags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getFlags" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getId">
+<span class="sig-name descname"><span class="pre">getId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getIsPlayer">
+<span class="sig-name descname"><span class="pre">getIsPlayer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getIsPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getIsPlayer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getName">
+<span class="sig-name descname"><span class="pre">getName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getSentRatherThanReceived">
+<span class="sig-name descname"><span class="pre">getSentRatherThanReceived</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getSentRatherThanReceived"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getSentRatherThanReceived" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getTimeStamp">
+<span class="sig-name descname"><span class="pre">getTimeStamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getTimeStamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getTimeStamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getType">
+<span class="sig-name descname"><span class="pre">getType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getType" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.getWhisper">
+<span class="sig-name descname"><span class="pre">getWhisper</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.getWhisper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.getWhisper" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setBody">
+<span class="sig-name descname"><span class="pre">setBody</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setBody" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setFlags">
+<span class="sig-name descname"><span class="pre">setFlags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flags</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setFlags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setFlags" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setId">
+<span class="sig-name descname"><span class="pre">setId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setIsPlayer">
+<span class="sig-name descname"><span class="pre">setIsPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isPlayer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setIsPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setIsPlayer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setName">
+<span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setSentRatherThanReceived">
+<span class="sig-name descname"><span class="pre">setSentRatherThanReceived</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sentRatherThanReceived</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setSentRatherThanReceived"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setSentRatherThanReceived" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setTimeStamp">
+<span class="sig-name descname"><span class="pre">setTimeStamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeStamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setTimeStamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setTimeStamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setType">
+<span class="sig-name descname"><span class="pre">setType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setType" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.ChatMessage.ChatMessage.setWhisper">
+<span class="sig-name descname"><span class="pre">setWhisper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">whisper</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/ChatMessage.html#ChatMessage.setWhisper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.ChatMessage.ChatMessage.setWhisper" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="chat-talkassistant-module">
+<h2>chat.TalkAssistant module<a class="headerlink" href="#chat-talkassistant-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-chat.TalkGlobals">
+<span id="chat-talkglobals-module"></span><h2>chat.TalkGlobals module<a class="headerlink" href="#module-chat.TalkGlobals" title="Permalink to this heading"></a></h2>
+</section>
+<section id="chat-talkhandle-module">
+<h2>chat.TalkHandle module<a class="headerlink" href="#chat-talkhandle-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-chat.TalkMessage">
+<span id="chat-talkmessage-module"></span><h2>chat.TalkMessage module<a class="headerlink" href="#module-chat.TalkMessage" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chat.TalkMessage.</span></span><span class="sig-name descname"><span class="pre">TalkMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messageId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeStamp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">senderAvatarId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">senderAvatarName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">senderAccountId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">senderAccountName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiverAvatarId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiverAvatarName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiverAccountId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiverAccountName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">talkType</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extraInfo</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getBody">
+<span class="sig-name descname"><span class="pre">getBody</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getBody" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getExtraInfo">
+<span class="sig-name descname"><span class="pre">getExtraInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getExtraInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getExtraInfo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getMessageId">
+<span class="sig-name descname"><span class="pre">getMessageId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getMessageId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getMessageId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getReceiverAccountId">
+<span class="sig-name descname"><span class="pre">getReceiverAccountId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getReceiverAccountId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getReceiverAccountId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getReceiverAccountName">
+<span class="sig-name descname"><span class="pre">getReceiverAccountName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getReceiverAccountName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getReceiverAccountName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getReceiverAvatarId">
+<span class="sig-name descname"><span class="pre">getReceiverAvatarId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getReceiverAvatarId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getReceiverAvatarId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getReceiverAvatarName">
+<span class="sig-name descname"><span class="pre">getReceiverAvatarName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getReceiverAvatarName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getReceiverAvatarName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getSenderAccountId">
+<span class="sig-name descname"><span class="pre">getSenderAccountId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getSenderAccountId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getSenderAccountId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getSenderAccountName">
+<span class="sig-name descname"><span class="pre">getSenderAccountName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getSenderAccountName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getSenderAccountName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getSenderAvatarId">
+<span class="sig-name descname"><span class="pre">getSenderAvatarId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getSenderAvatarId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getSenderAvatarId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getSenderAvatarName">
+<span class="sig-name descname"><span class="pre">getSenderAvatarName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getSenderAvatarName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getSenderAvatarName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getTalkType">
+<span class="sig-name descname"><span class="pre">getTalkType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getTalkType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getTalkType" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.getTimeStamp">
+<span class="sig-name descname"><span class="pre">getTimeStamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.getTimeStamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.getTimeStamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setBody">
+<span class="sig-name descname"><span class="pre">setBody</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setBody"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setBody" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setExtraInfo">
+<span class="sig-name descname"><span class="pre">setExtraInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extraInfo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setExtraInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setExtraInfo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setMessageId">
+<span class="sig-name descname"><span class="pre">setMessageId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setMessageId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setMessageId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setReceiverAccountId">
+<span class="sig-name descname"><span class="pre">setReceiverAccountId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receiverAccountId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setReceiverAccountId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setReceiverAccountId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setReceiverAccountName">
+<span class="sig-name descname"><span class="pre">setReceiverAccountName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receiverAccountName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setReceiverAccountName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setReceiverAccountName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setReceiverAvatarId">
+<span class="sig-name descname"><span class="pre">setReceiverAvatarId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receiverAvatarId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setReceiverAvatarId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setReceiverAvatarId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setReceiverAvatarName">
+<span class="sig-name descname"><span class="pre">setReceiverAvatarName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receiverAvatarName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setReceiverAvatarName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setReceiverAvatarName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setSenderAccountId">
+<span class="sig-name descname"><span class="pre">setSenderAccountId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">senderAccountId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setSenderAccountId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setSenderAccountId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setSenderAccountName">
+<span class="sig-name descname"><span class="pre">setSenderAccountName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">senderAccountName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setSenderAccountName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setSenderAccountName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setSenderAvatarId">
+<span class="sig-name descname"><span class="pre">setSenderAvatarId</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">senderAvatarId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setSenderAvatarId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setSenderAvatarId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setSenderAvatarName">
+<span class="sig-name descname"><span class="pre">setSenderAvatarName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">senderAvatarName</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setSenderAvatarName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setSenderAvatarName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setTalkType">
+<span class="sig-name descname"><span class="pre">setTalkType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">talkType</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setTalkType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setTalkType" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.TalkMessage.TalkMessage.setTimeStamp">
+<span class="sig-name descname"><span class="pre">setTimeStamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeStamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/TalkMessage.html#TalkMessage.setTimeStamp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.TalkMessage.TalkMessage.setTimeStamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-chat.WhiteList">
+<span id="chat-whitelist-module"></span><h2>chat.WhiteList module<a class="headerlink" href="#module-chat.WhiteList" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="chat.WhiteList.WhiteList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">chat.WhiteList.</span></span><span class="sig-name descname"><span class="pre">WhiteList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wordlist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/WhiteList.html#WhiteList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.WhiteList.WhiteList" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for white list chat filtering.  Accepts a list of good words and offers
+filtering functions performed against that list.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.WhiteList.WhiteList.cleanText">
+<span class="sig-name descname"><span class="pre">cleanText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/WhiteList.html#WhiteList.cleanText"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.WhiteList.WhiteList.cleanText" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.WhiteList.WhiteList.isPrefix">
+<span class="sig-name descname"><span class="pre">isPrefix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/WhiteList.html#WhiteList.isPrefix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.WhiteList.WhiteList.isPrefix" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.WhiteList.WhiteList.isWord">
+<span class="sig-name descname"><span class="pre">isWord</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/WhiteList.html#WhiteList.isWord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.WhiteList.WhiteList.isWord" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.WhiteList.WhiteList.prefixCount">
+<span class="sig-name descname"><span class="pre">prefixCount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/WhiteList.html#WhiteList.prefixCount"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.WhiteList.WhiteList.prefixCount" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="chat.WhiteList.WhiteList.prefixList">
+<span class="sig-name descname"><span class="pre">prefixList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/chat/WhiteList.html#WhiteList.prefixList"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#chat.WhiteList.WhiteList.prefixList" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-chat">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-chat" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="avatar.html" class="btn btn-neutral float-left" title="avatar package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="debug.html" class="btn btn-neutral float-right" title="debug package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

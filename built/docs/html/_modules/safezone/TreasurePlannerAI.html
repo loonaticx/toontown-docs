@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>safezone.TreasurePlannerAI &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">safezone.TreasurePlannerAI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for safezone.TreasurePlannerAI</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">direct.distributed.ClockDelta</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">direct.showbase</span> <span class="kn">import</span> <span class="n">DirectObject</span>
+<span class="kn">from</span> <span class="nn">direct.directnotify</span> <span class="kn">import</span> <span class="n">DirectNotifyGlobal</span>
+<span class="kn">from</span> <span class="nn">direct.task</span> <span class="kn">import</span> <span class="n">Task</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<div class="viewcode-block" id="TreasurePlannerAI"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI">[docs]</a><span class="k">class</span> <span class="nc">TreasurePlannerAI</span><span class="p">(</span><span class="n">DirectObject</span><span class="o">.</span><span class="n">DirectObject</span><span class="p">):</span>
+    <span class="n">notify</span> <span class="o">=</span> <span class="n">DirectNotifyGlobal</span><span class="o">.</span><span class="n">directNotify</span><span class="o">.</span><span class="n">newCategory</span><span class="p">(</span>
+        <span class="s2">&quot;TreasurePlannerAI&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zoneId</span><span class="p">,</span> <span class="n">treasureConstructor</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">zoneId</span> <span class="o">=</span> <span class="n">zoneId</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treasureConstructor</span> <span class="o">=</span> <span class="n">treasureConstructor</span>
+        <span class="c1"># Callback should be a function that takes one argument (avId)</span>
+        <span class="c1"># It is called when an avatar grabs a treasure so the owner of</span>
+        <span class="c1"># the treasure planner can implement collection logic like scoring</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">callback</span>
+
+        <span class="c1"># Determine the spawn points</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initSpawnPoints</span><span class="p">()</span>
+
+        <span class="c1"># Make a parallel list of what treasures are at what spawn points.</span>
+        <span class="c1"># None means there is no treasure there right now.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">spawnPoint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawnPoints</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># keep a list of the names of the treasure deletion tasks</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deleteTaskNames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="c1"># These are used to check for a single toon grabbing several</span>
+        <span class="c1"># treasures in a short interval--highly suspicious behavior!</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lastRequestId</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requestStartTime</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">requestCount</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="TreasurePlannerAI.initSpawnPoints"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.initSpawnPoints">[docs]</a>    <span class="k">def</span> <span class="nf">initSpawnPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># In this function, a list of (x, y, z) tuples should be created</span>
+        <span class="c1"># that defines all the possible places that treasure might be.</span>
+        <span class="c1"># The list should be called self.spawnPoints</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spawnPoints</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawnPoints</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.numTreasures"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.numTreasures">[docs]</a>    <span class="k">def</span> <span class="nf">numTreasures</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">treasure</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">treasure</span><span class="p">:</span>
+                <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">counter</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.countEmptySpawnPoints"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.countEmptySpawnPoints">[docs]</a>    <span class="k">def</span> <span class="nf">countEmptySpawnPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">treasure</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">treasure</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">counter</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.nthEmptyIndex"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.nthEmptyIndex">[docs]</a>    <span class="k">def</span> <span class="nf">nthEmptyIndex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">emptyCounter</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">spawnPointCounter</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">while</span> <span class="n">emptyCounter</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">spawnPointCounter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">[</span><span class="n">spawnPointCounter</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">emptyCounter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">spawnPointCounter</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.findIndexOfTreasureId"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.findIndexOfTreasureId">[docs]</a>    <span class="k">def</span> <span class="nf">findIndexOfTreasureId</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">treasureId</span><span class="p">):</span>
+        <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">treasure</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">treasure</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">treasureId</span> <span class="o">==</span> <span class="n">treasure</span><span class="o">.</span><span class="n">getDoId</span><span class="p">():</span>
+                    <span class="k">return</span> <span class="n">counter</span>
+            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.placeAllTreasures"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.placeAllTreasures">[docs]</a>    <span class="k">def</span> <span class="nf">placeAllTreasures</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">treasure</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">treasure</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">placeTreasure</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.placeTreasure"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.placeTreasure">[docs]</a>    <span class="k">def</span> <span class="nf">placeTreasure</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="c1"># make sure this spot is empty</span>
+        <span class="k">assert</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span><span class="p">)</span>
+        
+        <span class="c1"># Get the spawn point xyz</span>
+        <span class="n">spawnPoint</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawnPoints</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+        <span class="c1"># Create the treasure</span>
+        <span class="n">treasure</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasureConstructor</span><span class="p">(</span><span class="n">simbase</span><span class="o">.</span><span class="n">air</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span>
+                                            <span class="n">spawnPoint</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                            <span class="n">spawnPoint</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                            <span class="n">spawnPoint</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="c1"># Generate the treasure</span>
+        <span class="n">treasure</span><span class="o">.</span><span class="n">generateWithRequired</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zoneId</span><span class="p">)</span>
+        <span class="c1"># Record the presence of the treasure</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">treasure</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.grabAttempt"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.grabAttempt">[docs]</a>    <span class="k">def</span> <span class="nf">grabAttempt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="n">treasureId</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lastRequestId</span> <span class="o">==</span> <span class="n">avId</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">requestCount</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getFrameTime</span><span class="p">()</span>
+            <span class="n">elapsed</span> <span class="o">=</span> <span class="n">now</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">requestStartTime</span>
+            <span class="k">if</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="c1"># Reset the counter after 10 seconds.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">requestCount</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">requestStartTime</span> <span class="o">=</span> <span class="n">now</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">secondsPerGrab</span> <span class="o">=</span> <span class="n">elapsed</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">requestCount</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">requestCount</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">secondsPerGrab</span> <span class="o">&lt;=</span> <span class="mf">0.4</span><span class="p">:</span>
+                    <span class="n">simbase</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;TreasurePlannerAI.grabAttempt </span><span class="si">%s</span><span class="s1"> treasures in </span><span class="si">%s</span><span class="s1"> seconds&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">requestCount</span><span class="p">,</span> <span class="n">elapsed</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lastRequestId</span> <span class="o">=</span> <span class="n">avId</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">requestCount</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">requestStartTime</span> <span class="o">=</span> <span class="n">globalClock</span><span class="o">.</span><span class="n">getFrameTime</span><span class="p">()</span>
+
+        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findIndexOfTreasureId</span><span class="p">(</span><span class="n">treasureId</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># If it isn&#39;t here, it isn&#39;t here. Someone else must have</span>
+            <span class="c1"># grabbed it. </span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">av</span> <span class="o">=</span> <span class="n">simbase</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">doId2do</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">av</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># If avatar isn&#39;t here, do nothing</span>
+                <span class="n">simbase</span><span class="o">.</span><span class="n">air</span><span class="o">.</span><span class="n">writeServerEvent</span><span class="p">(</span><span class="s1">&#39;suspicious&#39;</span><span class="p">,</span> <span class="n">avId</span><span class="p">,</span> <span class="s1">&#39;TreasurePlannerAI.grabAttempt unknown avatar&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;avid: </span><span class="si">%s</span><span class="s2"> does not exist&quot;</span> <span class="o">%</span> <span class="n">avId</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Find the treasure</span>
+                <span class="n">treasure</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">treasure</span><span class="o">.</span><span class="n">validAvatar</span><span class="p">(</span><span class="n">av</span><span class="p">):</span>
+                    <span class="c1"># Clear the slot</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+                    <span class="c1"># Call the grab callback with avId (if we have one)</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+                    <span class="c1"># Tell everyone that the treasure was grabbed, and by who.</span>
+                    <span class="n">treasure</span><span class="o">.</span><span class="n">d_setGrab</span><span class="p">(</span><span class="n">avId</span><span class="p">)</span>
+                    <span class="c1"># Wait five seconds, then delete the treasure</span>
+                    <span class="c1"># I assume that five seconds is plenty of time for the treasure</span>
+                    <span class="c1"># animation to complete on the client.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">deleteTreasureSoon</span><span class="p">(</span><span class="n">treasure</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Reject the attempt.</span>
+                    <span class="n">treasure</span><span class="o">.</span><span class="n">d_setReject</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.deleteTreasureSoon"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.deleteTreasureSoon">[docs]</a>    <span class="k">def</span> <span class="nf">deleteTreasureSoon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">treasure</span><span class="p">):</span>
+        <span class="c1"># Spawns a task that waits five seconds, then deletes the treasure.</span>
+        <span class="n">taskName</span> <span class="o">=</span> <span class="n">treasure</span><span class="o">.</span><span class="n">uniqueName</span><span class="p">(</span><span class="s2">&quot;deletingTreasure&quot;</span><span class="p">)</span>
+        <span class="n">taskMgr</span><span class="o">.</span><span class="n">doMethodLater</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__deleteTreasureNow</span><span class="p">,</span> <span class="n">taskName</span><span class="p">,</span>
+                              <span class="n">extraArgs</span> <span class="o">=</span> <span class="p">(</span><span class="n">treasure</span><span class="p">,</span> <span class="n">taskName</span><span class="p">,))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deleteTaskNames</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">taskName</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TreasurePlannerAI.deleteAllTreasuresNow"><a class="viewcode-back" href="../../toontown/safezone.html#safezone.TreasurePlannerAI.TreasurePlannerAI.deleteAllTreasuresNow">[docs]</a>    <span class="k">def</span> <span class="nf">deleteAllTreasuresNow</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">treasure</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">treasure</span><span class="p">:</span>
+                <span class="n">treasure</span><span class="o">.</span><span class="n">requestDelete</span><span class="p">()</span>
+        <span class="c1"># we also have to manually delete all the treasures that</span>
+        <span class="c1"># have been scheduled for deletion</span>
+        <span class="k">for</span> <span class="n">taskName</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">deleteTaskNames</span><span class="p">:</span>
+            <span class="n">tasks</span> <span class="o">=</span> <span class="n">taskMgr</span><span class="o">.</span><span class="n">getTasksNamed</span><span class="p">(</span><span class="n">taskName</span><span class="p">)</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">):</span>
+                <span class="n">treasure</span> <span class="o">=</span> <span class="n">tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">getArgs</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">treasure</span><span class="o">.</span><span class="n">requestDelete</span><span class="p">()</span>
+                <span class="n">taskMgr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">taskName</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deleteTaskNames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="c1"># Clear out the treasure list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">spawnPoint</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spawnPoints</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">treasures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+            
+    <span class="k">def</span> <span class="nf">__deleteTreasureNow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">treasure</span><span class="p">,</span> <span class="n">taskName</span><span class="p">):</span>
+        <span class="n">treasure</span><span class="o">.</span><span class="n">requestDelete</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deleteTaskNames</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">taskName</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

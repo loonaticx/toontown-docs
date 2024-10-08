@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>level.EntityTypeDesc &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+
+  
+      <script src="../../_static/jquery.js"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">level.EntityTypeDesc</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for level.EntityTypeDesc</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;EntityTypeDesc module: contains the EntityTypeDesc class&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">direct.directnotify</span> <span class="kn">import</span> <span class="n">DirectNotifyGlobal</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">AttribDesc</span>
+<span class="kn">from</span> <span class="nn">direct.showbase.PythonUtil</span> <span class="kn">import</span> <span class="n">mostDerivedLast</span>
+
+<div class="viewcode-block" id="EntityTypeDesc"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc">[docs]</a><span class="k">class</span> <span class="nc">EntityTypeDesc</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class is meta-data that describes an Entity type.&quot;&quot;&quot;</span>
+    <span class="n">notify</span> <span class="o">=</span> <span class="n">DirectNotifyGlobal</span><span class="o">.</span><span class="n">directNotify</span><span class="o">.</span><span class="n">newCategory</span><span class="p">(</span><span class="s1">&#39;EntityTypeDesc&#39;</span><span class="p">)</span>
+
+    <span class="n">output</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">privCompileAttribDescs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribNames</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribDescDict</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># ordered list of attrib descriptors</span>
+        <span class="n">attribDescs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">_attribDescs</span>
+
+        <span class="c1"># create ordered list of attrib names, dict of attrib name to attribDesc</span>
+        <span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">attribDescs</span><span class="p">:</span>
+            <span class="n">attribName</span> <span class="o">=</span> <span class="n">desc</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attribNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribName</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">attribDescDict</span><span class="p">[</span><span class="n">attribName</span><span class="p">]</span> <span class="o">=</span> <span class="n">desc</span>
+
+<div class="viewcode-block" id="EntityTypeDesc.isConcrete"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc.isConcrete">[docs]</a>    <span class="k">def</span> <span class="nf">isConcrete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; means that entity of this exact type can be created &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;abstract&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__dict__</span></div>
+
+<div class="viewcode-block" id="EntityTypeDesc.isPermanent"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc.isPermanent">[docs]</a>    <span class="k">def</span> <span class="nf">isPermanent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; means that entity of this exact type cannot be inserted or</span>
+<span class="sd">        removed in the editor &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;permanent&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__dict__</span></div>
+
+<div class="viewcode-block" id="EntityTypeDesc.getOutputType"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc.getOutputType">[docs]</a>    <span class="k">def</span> <span class="nf">getOutputType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span></div>
+
+<div class="viewcode-block" id="EntityTypeDesc.getAttribNames"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc.getAttribNames">[docs]</a>    <span class="k">def</span> <span class="nf">getAttribNames</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; returns ordered list of attribute names for this entity type &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribNames</span></div>
+
+<div class="viewcode-block" id="EntityTypeDesc.getAttribDescDict"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc.getAttribDescDict">[docs]</a>    <span class="k">def</span> <span class="nf">getAttribDescDict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; returns dict of attribName -&gt; attribDescriptor &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribDescDict</span></div>
+
+<div class="viewcode-block" id="EntityTypeDesc.getAttribsOfType"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc.getAttribsOfType">[docs]</a>    <span class="k">def</span> <span class="nf">getAttribsOfType</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;returns list of attrib names of the given type&quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">attribName</span><span class="p">,</span> <span class="n">desc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">attribDescDict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">desc</span><span class="o">.</span><span class="n">getDatatype</span><span class="p">()</span> <span class="o">==</span> <span class="nb">type</span><span class="p">:</span>
+                <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attribName</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">names</span></div>
+
+<div class="viewcode-block" id="EntityTypeDesc.privCompileAttribDescs"><a class="viewcode-back" href="../../otp/level.html#level.EntityTypeDesc.EntityTypeDesc.privCompileAttribDescs">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">privCompileAttribDescs</span><span class="p">(</span><span class="n">entTypeClass</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;this compiles an ordered list of attribDescs for the Entity class</span>
+<span class="sd">        passed in. The attribute descriptors describe the properties of each</span>
+<span class="sd">        of the Entity type&#39;s attributes&quot;&quot;&quot;</span>
+        <span class="c1"># has someone already compiled the info?</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;_attribDescs&#39;</span> <span class="ow">in</span> <span class="n">entTypeClass</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">entTypeClass</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">):</span>
+            <span class="k">return</span>
+
+        <span class="n">c</span> <span class="o">=</span> <span class="n">entTypeClass</span>
+        <span class="n">EntityTypeDesc</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;compiling attrib descriptors for </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span>
+                                    <span class="n">c</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+        <span class="n">bases</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Removing built-in repr(object) from base list&quot;</span><span class="p">)</span>
+            <span class="n">bases</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+
+        <span class="c1"># make sure all of our base classes have their complete list of</span>
+        <span class="c1"># attribDescs</span>
+        <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+            <span class="n">EntityTypeDesc</span><span class="o">.</span><span class="n">privCompileAttribDescs</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+
+        <span class="c1"># aggregate the attribute descriptors from our direct base classes</span>
+        <span class="n">blockAttribs</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;blockAttribs&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">baseADs</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># make sure base-class attribs show up before derived-class attribs</span>
+        <span class="n">mostDerivedLast</span><span class="p">(</span><span class="n">bases</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">desc</span> <span class="ow">in</span> <span class="n">base</span><span class="o">.</span><span class="n">_attribDescs</span><span class="p">:</span>
+                <span class="c1"># are we blocking this attribute?</span>
+                <span class="k">if</span> <span class="n">desc</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="ow">in</span> <span class="n">blockAttribs</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                    
+                <span class="c1"># make sure we haven&#39;t already picked up this attribute</span>
+                <span class="c1"># from an earlier base class</span>
+                <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">baseADs</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">desc</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="n">d</span><span class="o">.</span><span class="n">getName</span><span class="p">():</span>
+                        <span class="n">EntityTypeDesc</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                            <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> inherits attrib </span><span class="si">%s</span><span class="s1"> from multiple bases&#39;</span> <span class="o">%</span>
+                            <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">desc</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+                        <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">baseADs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span>
+
+        <span class="c1"># now that we have all of the descriptors from our base classes,</span>
+        <span class="c1"># add the descriptors from this class</span>
+        <span class="n">attribDescs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="s1">&#39;attribs&#39;</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">attrib</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">attribs</span><span class="p">:</span>
+                <span class="n">desc</span> <span class="o">=</span> <span class="n">AttribDesc</span><span class="o">.</span><span class="n">AttribDesc</span><span class="p">(</span><span class="o">*</span><span class="n">attrib</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="p">(</span><span class="n">desc</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;type&#39;</span> <span class="ow">and</span>
+                    <span class="n">entTypeClass</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">!=</span> <span class="s1">&#39;Entity&#39;</span><span class="p">):</span>
+                    <span class="n">EntityTypeDesc</span><span class="o">.</span><span class="n">notify</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                        <span class="s1">&#39;(</span><span class="si">%s</span><span class="s1">): </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1"> is a reserved attribute name&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                        <span class="n">entTypeClass</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">desc</span><span class="o">.</span><span class="n">getName</span><span class="p">()))</span>
+
+                <span class="c1"># if we picked up an attribute with the same name from a base</span>
+                <span class="c1"># class, this overrides it</span>
+                <span class="k">for</span> <span class="n">ad</span> <span class="ow">in</span> <span class="n">baseADs</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">ad</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">==</span> <span class="n">desc</span><span class="o">.</span><span class="n">getName</span><span class="p">():</span>
+                        <span class="n">baseADs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">ad</span><span class="p">)</span>
+                        <span class="c1"># there ought to be no more than one desc with</span>
+                        <span class="c1"># this name from the base classes</span>
+                        <span class="k">assert</span> <span class="n">ad</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">baseADs</span>
+                        <span class="k">break</span>
+                    
+                <span class="n">attribDescs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">desc</span><span class="p">)</span>
+
+        <span class="n">c</span><span class="o">.</span><span class="n">_attribDescs</span> <span class="o">=</span> <span class="n">baseADs</span> <span class="o">+</span> <span class="n">attribDescs</span></div>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># this is used to produce a hash value</span>
+        <span class="k">return</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">))</span><span class="o">+</span>
+                <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">)</span><span class="o">+</span>
+                <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">attribDescDict</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pets package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="publish package" href="publish.html" />
+    <link rel="prev" title="parties package" href="parties.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cogdominium.html">cogdominium package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pets package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-distributedpet-module">pets.DistributedPet module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-distributedpetai-module">pets.DistributedPetAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-distributedpetproxy-module">pets.DistributedPetProxy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-distributedpetproxyai-module">pets.DistributedPetProxyAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-pet-module">pets.Pet module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petactionfsm-module">pets.PetActionFSM module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petavatarpanel-module">pets.PetAvatarPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petbase-module">pets.PetBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petbrain-module">pets.PetBrain module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petchase-module">pets.PetChase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petcollider-module">pets.PetCollider module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petconstants-module">pets.PetConstants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pets.PetDCImports">pets.PetDCImports module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petdcimportsai-module">pets.PetDCImportsAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petdna-module">pets.PetDNA module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petdetail-module">pets.PetDetail module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petdetailpanel-module">pets.PetDetailPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petflee-module">pets.PetFlee module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petgoal-module">pets.PetGoal module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petgoalmgr-module">pets.PetGoalMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-pethandle-module">pets.PetHandle module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petleash-module">pets.PetLeash module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petlookerai-module">pets.PetLookerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petmanager-module">pets.PetManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petmanagerai-module">pets.PetManagerAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petmood-module">pets.PetMood module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petnamegenerator-module">pets.PetNameGenerator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pets.PetObserve">pets.PetObserve module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.PetActionObserve"><code class="docutils literal notranslate"><span class="pre">PetActionObserve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.PetObserve"><code class="docutils literal notranslate"><span class="pre">PetObserve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.PetPhraseObserve"><code class="docutils literal notranslate"><span class="pre">PetPhraseObserve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.SCObserve"><code class="docutils literal notranslate"><span class="pre">SCObserve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.TrickRequestObserve"><code class="docutils literal notranslate"><span class="pre">TrickRequestObserve</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.getEventName"><code class="docutils literal notranslate"><span class="pre">getEventName()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.getSCObserve"><code class="docutils literal notranslate"><span class="pre">getSCObserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.notify"><code class="docutils literal notranslate"><span class="pre">notify</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetObserve.send"><code class="docutils literal notranslate"><span class="pre">send()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petsphere-module">pets.PetSphere module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-pettraits-module">pets.PetTraits module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pets.PetTricks">pets.PetTricks module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetTricks.getSoundIval"><code class="docutils literal notranslate"><span class="pre">getSoundIval()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pets.PetTricks.getTrickIval"><code class="docutils literal notranslate"><span class="pre">getTrickIval()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-pettutorial-module">pets.PetTutorial module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petutil-module">pets.PetUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petwander-module">pets.PetWander module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pets-petshopgui-module">pets.PetshopGUI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pets">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">pets package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/pets.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pets-package">
+<h1>pets package<a class="headerlink" href="#pets-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-distributedpet-module">
+<h2>pets.DistributedPet module<a class="headerlink" href="#pets-distributedpet-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-distributedpetai-module">
+<h2>pets.DistributedPetAI module<a class="headerlink" href="#pets-distributedpetai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-distributedpetproxy-module">
+<h2>pets.DistributedPetProxy module<a class="headerlink" href="#pets-distributedpetproxy-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-distributedpetproxyai-module">
+<h2>pets.DistributedPetProxyAI module<a class="headerlink" href="#pets-distributedpetproxyai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-pet-module">
+<h2>pets.Pet module<a class="headerlink" href="#pets-pet-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petactionfsm-module">
+<h2>pets.PetActionFSM module<a class="headerlink" href="#pets-petactionfsm-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petavatarpanel-module">
+<h2>pets.PetAvatarPanel module<a class="headerlink" href="#pets-petavatarpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petbase-module">
+<h2>pets.PetBase module<a class="headerlink" href="#pets-petbase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petbrain-module">
+<h2>pets.PetBrain module<a class="headerlink" href="#pets-petbrain-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petchase-module">
+<h2>pets.PetChase module<a class="headerlink" href="#pets-petchase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petcollider-module">
+<h2>pets.PetCollider module<a class="headerlink" href="#pets-petcollider-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petconstants-module">
+<h2>pets.PetConstants module<a class="headerlink" href="#pets-petconstants-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-pets.PetDCImports">
+<span id="pets-petdcimports-module"></span><h2>pets.PetDCImports module<a class="headerlink" href="#module-pets.PetDCImports" title="Permalink to this heading"></a></h2>
+<p>This file allows us to conditionally import pet-related modules for the DC</p>
+</section>
+<section id="pets-petdcimportsai-module">
+<h2>pets.PetDCImportsAI module<a class="headerlink" href="#pets-petdcimportsai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petdna-module">
+<h2>pets.PetDNA module<a class="headerlink" href="#pets-petdna-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petdetail-module">
+<h2>pets.PetDetail module<a class="headerlink" href="#pets-petdetail-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petdetailpanel-module">
+<h2>pets.PetDetailPanel module<a class="headerlink" href="#pets-petdetailpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petflee-module">
+<h2>pets.PetFlee module<a class="headerlink" href="#pets-petflee-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petgoal-module">
+<h2>pets.PetGoal module<a class="headerlink" href="#pets-petgoal-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petgoalmgr-module">
+<h2>pets.PetGoalMgr module<a class="headerlink" href="#pets-petgoalmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-pethandle-module">
+<h2>pets.PetHandle module<a class="headerlink" href="#pets-pethandle-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petleash-module">
+<h2>pets.PetLeash module<a class="headerlink" href="#pets-petleash-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petlookerai-module">
+<h2>pets.PetLookerAI module<a class="headerlink" href="#pets-petlookerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petmanager-module">
+<h2>pets.PetManager module<a class="headerlink" href="#pets-petmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petmanagerai-module">
+<h2>pets.PetManagerAI module<a class="headerlink" href="#pets-petmanagerai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petmood-module">
+<h2>pets.PetMood module<a class="headerlink" href="#pets-petmood-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petnamegenerator-module">
+<h2>pets.PetNameGenerator module<a class="headerlink" href="#pets-petnamegenerator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-pets.PetObserve">
+<span id="pets-petobserve-module"></span><h2>pets.PetObserve module<a class="headerlink" href="#module-pets.PetObserve" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pets.PetObserve.PetActionObserve">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">PetActionObserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetActionObserve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetActionObserve" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pets.PetObserve.PetObserve" title="pets.PetObserve.PetObserve"><code class="xref py py-class docutils literal notranslate"><span class="pre">PetObserve</span></code></a></p>
+<p>An avatar or pet has done something that pets should take note of.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetActionObserve.getAction">
+<span class="sig-name descname"><span class="pre">getAction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetActionObserve.getAction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetActionObserve.getAction" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetActionObserve.getAvId">
+<span class="sig-name descname"><span class="pre">getAvId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetActionObserve.getAvId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetActionObserve.getAvId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetActionObserve.getData">
+<span class="sig-name descname"><span class="pre">getData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetActionObserve.getData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetActionObserve.getData" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pets.PetObserve.PetObserve">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">PetObserve</span></span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetObserve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetObserve" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetObserve.isForgettable">
+<span class="sig-name descname"><span class="pre">isForgettable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetObserve.isForgettable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetObserve.isForgettable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetObserve.isValid">
+<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetObserve.isValid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetObserve.isValid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pets.PetObserve.PetPhraseObserve">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">PetPhraseObserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">petPhrase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetPhraseObserve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetPhraseObserve" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pets.PetObserve.PetObserve" title="pets.PetObserve.PetObserve"><code class="xref py py-class docutils literal notranslate"><span class="pre">PetObserve</span></code></a></p>
+<p>An avatar is ‘communicating’ in a way that can be expressed with a
+PetPhrase. This could be pressing a button on a pet panel, or saying
+something in SpeedChat, etc.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetPhraseObserve.getAvId">
+<span class="sig-name descname"><span class="pre">getAvId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetPhraseObserve.getAvId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetPhraseObserve.getAvId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetPhraseObserve.getPetPhrase">
+<span class="sig-name descname"><span class="pre">getPetPhrase</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetPhraseObserve.getPetPhrase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetPhraseObserve.getPetPhrase" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.PetPhraseObserve.isForgettable">
+<span class="sig-name descname"><span class="pre">isForgettable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#PetPhraseObserve.isForgettable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.PetPhraseObserve.isForgettable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pets.PetObserve.SCObserve">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">SCObserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msgId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">petPhrase</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#SCObserve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.SCObserve" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pets.PetObserve.PetPhraseObserve" title="pets.PetObserve.PetPhraseObserve"><code class="xref py py-class docutils literal notranslate"><span class="pre">PetPhraseObserve</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.SCObserve.isValid">
+<span class="sig-name descname"><span class="pre">isValid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#SCObserve.isValid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.SCObserve.isValid" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pets.PetObserve.TrickRequestObserve">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">TrickRequestObserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trickId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#TrickRequestObserve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.TrickRequestObserve" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pets.PetObserve.PetPhraseObserve" title="pets.PetObserve.PetPhraseObserve"><code class="xref py py-class docutils literal notranslate"><span class="pre">PetPhraseObserve</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.TrickRequestObserve.getTrickId">
+<span class="sig-name descname"><span class="pre">getTrickId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#TrickRequestObserve.getTrickId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.TrickRequestObserve.getTrickId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pets.PetObserve.TrickRequestObserve.isForgettable">
+<span class="sig-name descname"><span class="pre">isForgettable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#TrickRequestObserve.isForgettable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.TrickRequestObserve.isForgettable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pets.PetObserve.getEventName">
+<span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">getEventName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#getEventName"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.getEventName" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pets.PetObserve.getSCObserve">
+<span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">getSCObserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msgId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speakerDoId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#getSCObserve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.getSCObserve" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="pets.PetObserve.notify">
+<span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pets.PetObserve.notify" title="Permalink to this definition"></a></dt>
+<dd><p>PetObserve
+A PetObserve is something that pets should be able to observe. Examples
+are things that avatars say, the fact that an avatar or pet is paying
+attention to the pet, sounds, etc. PetObserves serve the function of the
+senses, the eyes, ears, etc. of the pets.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pets.PetObserve.send">
+<span class="sig-prename descclassname"><span class="pre">pets.PetObserve.</span></span><span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zoneIds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">petObserve</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetObserve.html#send"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetObserve.send" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="pets-petsphere-module">
+<h2>pets.PetSphere module<a class="headerlink" href="#pets-petsphere-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-pettraits-module">
+<h2>pets.PetTraits module<a class="headerlink" href="#pets-pettraits-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-pets.PetTricks">
+<span id="pets-pettricks-module"></span><h2>pets.PetTricks module<a class="headerlink" href="#module-pets.PetTricks" title="Permalink to this heading"></a></h2>
+<p>PetTricks.py</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pets.PetTricks.getSoundIval">
+<span class="sig-prename descclassname"><span class="pre">pets.PetTricks.</span></span><span class="sig-name descname"><span class="pre">getSoundIval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trickId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetTricks.html#getSoundIval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetTricks.getSoundIval" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pets.PetTricks.getTrickIval">
+<span class="sig-prename descclassname"><span class="pre">pets.PetTricks.</span></span><span class="sig-name descname"><span class="pre">getTrickIval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trickId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pets/PetTricks.html#getTrickIval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pets.PetTricks.getTrickIval" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="pets-pettutorial-module">
+<h2>pets.PetTutorial module<a class="headerlink" href="#pets-pettutorial-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petutil-module">
+<h2>pets.PetUtil module<a class="headerlink" href="#pets-petutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petwander-module">
+<h2>pets.PetWander module<a class="headerlink" href="#pets-petwander-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="pets-petshopgui-module">
+<h2>pets.PetshopGUI module<a class="headerlink" href="#pets-petshopgui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-pets">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pets" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="parties.html" class="btn btn-neutral float-left" title="parties package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="publish.html" class="btn btn-neutral float-right" title="publish package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

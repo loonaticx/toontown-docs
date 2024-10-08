@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cogdominium package &mdash; toontown  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+      <script src="../_static/jquery.js"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+      <script src="../_static/doctools.js"></script>
+      <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="coghq package" href="coghq.html" />
+    <link rel="prev" title="coderedemption package" href="coderedemption.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            toontown
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">toontown</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ai.html">ai package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="battle.html">battle package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building.html">building package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="catalog.html">catalog package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="char.html">char package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chat.html">chat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classicchars.html">classicchars package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="coderedemption.html">coderedemption package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">cogdominium package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdobarrelroom-module">cogdominium.CogdoBarrelRoom module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdobarrelroomai-module">cogdominium.CogdoBarrelRoomAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdobarrelroomconsts-module">cogdominium.CogdoBarrelRoomConsts module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdobarrelroomrewardpanel-module">cogdominium.CogdoBarrelRoomRewardPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoboardroomgamebase-module">cogdominium.CogdoBoardroomGameBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoboardroomgameconsts-module">cogdominium.CogdoBoardroomGameConsts module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoboardroomgamespec-module">cogdominium.CogdoBoardroomGameSpec module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdocranegamebase-module">cogdominium.CogdoCraneGameBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdocranegameconsts-module">cogdominium.CogdoCraneGameConsts module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdocranegamespec-module">cogdominium.CogdoCraneGameSpec module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoelevatormovie-module">cogdominium.CogdoElevatorMovie module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoentitycreator-module">cogdominium.CogdoEntityCreator module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoentitycreatorai-module">cogdominium.CogdoEntityCreatorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoentitytypes-module">cogdominium.CogdoEntityTypes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoexecutivesuitemovies-module">cogdominium.CogdoExecutiveSuiteMovies module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingcameramanager-module">cogdominium.CogdoFlyingCameraManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingcollisions-module">cogdominium.CogdoFlyingCollisions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinggame-module">cogdominium.CogdoFlyingGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinggameglobals-module">cogdominium.CogdoFlyingGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinggameguis-module">cogdominium.CogdoFlyingGameGuis module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinggamemovies-module">cogdominium.CogdoFlyingGameMovies module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingguimanager-module">cogdominium.CogdoFlyingGuiManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinginputmanager-module">cogdominium.CogdoFlyingInputManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinglegaleagle-module">cogdominium.CogdoFlyingLegalEagle module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinglevel-module">cogdominium.CogdoFlyingLevel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinglevelquadrant-module">cogdominium.CogdoFlyingLevelQuadrant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyinglocalplayer-module">cogdominium.CogdoFlyingLocalPlayer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingobjects-module">cogdominium.CogdoFlyingObjects module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingobstacles-module">cogdominium.CogdoFlyingObstacles module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingplayer-module">cogdominium.CogdoFlyingPlayer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingshadowplacer-module">cogdominium.CogdoFlyingShadowPlacer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoflyingutil-module">cogdominium.CogdoFlyingUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdogameaudiomanager-module">cogdominium.CogdoGameAudioManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdogameconsts-module">cogdominium.CogdoGameConsts module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdogameexit-module">cogdominium.CogdoGameExit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdogamegatherable-module">cogdominium.CogdoGameGatherable module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdogamemessagedisplay-module">cogdominium.CogdoGameMessageDisplay module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdogamerulespanel-module">cogdominium.CogdoGameRulesPanel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdointerior-module">cogdominium.CogdoInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cogdominium.CogdoLayout">cogdominium.CogdoLayout module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cogdominium.CogdoLayout.CogdoLayout"><code class="docutils literal notranslate"><span class="pre">CogdoLayout</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdolevelgamebase-module">cogdominium.CogdoLevelGameBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdolevelmgr-module">cogdominium.CogdoLevelMgr module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdolevelmgrai-module">cogdominium.CogdoLevelMgrAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomaze-module">cogdominium.CogdoMaze module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazecameramanager-module">cogdominium.CogdoMazeCameraManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cogdominium.CogdoMazeData">cogdominium.CogdoMazeData module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazegame-module">cogdominium.CogdoMazeGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazegameglobals-module">cogdominium.CogdoMazeGameGlobals module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazegameguis-module">cogdominium.CogdoMazeGameGuis module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazegamemovies-module">cogdominium.CogdoMazeGameMovies module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazegameobjects-module">cogdominium.CogdoMazeGameObjects module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazeguimanager-module">cogdominium.CogdoMazeGuiManager module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazelocalplayer-module">cogdominium.CogdoMazeLocalPlayer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazeplayer-module">cogdominium.CogdoMazePlayer module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomazesuits-module">cogdominium.CogdoMazeSuits module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdomemogui-module">cogdominium.CogdoMemoGui module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-cogdoutil-module">cogdominium.CogdoUtil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdoboardroomgame-module">cogdominium.DistCogdoBoardroomGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdoboardroomgameai-module">cogdominium.DistCogdoBoardroomGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocrane-module">cogdominium.DistCogdoCrane module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocraneai-module">cogdominium.DistCogdoCraneAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocranecog-module">cogdominium.DistCogdoCraneCog module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cogdominium.DistCogdoCraneCogAI">cogdominium.DistCogdoCraneCogAI module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI"><code class="docutils literal notranslate"><span class="pre">DistCogdoCraneCogAI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocranegame-module">cogdominium.DistCogdoCraneGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocranegameai-module">cogdominium.DistCogdoCraneGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocranemoneybag-module">cogdominium.DistCogdoCraneMoneyBag module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocranemoneybagai-module">cogdominium.DistCogdoCraneMoneyBagAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocraneobject-module">cogdominium.DistCogdoCraneObject module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdocraneobjectai-module">cogdominium.DistCogdoCraneObjectAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdoflyinggame-module">cogdominium.DistCogdoFlyingGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdoflyinggameai-module">cogdominium.DistCogdoFlyingGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdogame-module">cogdominium.DistCogdoGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdogameai-module">cogdominium.DistCogdoGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cogdominium.DistCogdoGameBase">cogdominium.DistCogdoGameBase module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cogdominium.DistCogdoGameBase.DistCogdoGameBase"><code class="docutils literal notranslate"><span class="pre">DistCogdoGameBase</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdolevelgame-module">cogdominium.DistCogdoLevelGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdolevelgameai-module">cogdominium.DistCogdoLevelGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdomazegame-module">cogdominium.DistCogdoMazeGame module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdomazegameai-module">cogdominium.DistCogdoMazeGameAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distcogdomazegamebase-module">cogdominium.DistCogdoMazeGameBase module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdobarrel-module">cogdominium.DistributedCogdoBarrel module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdobarrelai-module">cogdominium.DistributedCogdoBarrelAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdobattlebldg-module">cogdominium.DistributedCogdoBattleBldg module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdobattlebldgai-module">cogdominium.DistributedCogdoBattleBldgAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdoelevatorext-module">cogdominium.DistributedCogdoElevatorExt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdoelevatorextai-module">cogdominium.DistributedCogdoElevatorExtAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdoelevatorint-module">cogdominium.DistributedCogdoElevatorInt module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdoelevatorintai-module">cogdominium.DistributedCogdoElevatorIntAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdointerior-module">cogdominium.DistributedCogdoInterior module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdointeriorai-module">cogdominium.DistributedCogdoInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdointerioraiorg-module">cogdominium.DistributedCogdoInteriorAIORG module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-distributedcogdointeriororg-module">cogdominium.DistributedCogdoInteriorORG module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cogdominium-suitplannercogdointeriorai-module">cogdominium.SuitPlannerCogdoInteriorAI module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cogdominium">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="coghq.html">coghq package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distributed.html">distributed package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dna.html">dna package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="effects.html">effects package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="estate.html">estate package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fishing.html">fishing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="friends.html">friends package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="golf.html">golf package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hood.html">hood package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="launcher.html">launcher package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="leveleditor.html">leveleditor package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">login package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="makeatoon.html">makeatoon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="minigame.html">minigame package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parties.html">parties package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pets.html">pets package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publish.html">publish package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quest.html">quest package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="racing.html">racing package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rpc.html">rpc package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="safezone.html">safezone package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scavengerhunt.html">scavengerhunt package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shtiker.html">shtiker package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="speedchat.html">speedchat package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="suit.html">suit package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testenv.html">testenv package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toon.html">toon package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toonbase.html">toonbase package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toontowngui.html">toontowngui package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="town.html">town package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trolley.html">trolley package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttinst.html">ttinst package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html">tutorial package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uberdog.html">uberdog package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../otp/modules.html">otp</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">toontown</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">toontown</a></li>
+      <li class="breadcrumb-item active">cogdominium package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/toontown/cogdominium.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cogdominium-package">
+<h1>cogdominium package<a class="headerlink" href="#cogdominium-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdobarrelroom-module">
+<h2>cogdominium.CogdoBarrelRoom module<a class="headerlink" href="#cogdominium-cogdobarrelroom-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdobarrelroomai-module">
+<h2>cogdominium.CogdoBarrelRoomAI module<a class="headerlink" href="#cogdominium-cogdobarrelroomai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdobarrelroomconsts-module">
+<h2>cogdominium.CogdoBarrelRoomConsts module<a class="headerlink" href="#cogdominium-cogdobarrelroomconsts-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdobarrelroomrewardpanel-module">
+<h2>cogdominium.CogdoBarrelRoomRewardPanel module<a class="headerlink" href="#cogdominium-cogdobarrelroomrewardpanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoboardroomgamebase-module">
+<h2>cogdominium.CogdoBoardroomGameBase module<a class="headerlink" href="#cogdominium-cogdoboardroomgamebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoboardroomgameconsts-module">
+<h2>cogdominium.CogdoBoardroomGameConsts module<a class="headerlink" href="#cogdominium-cogdoboardroomgameconsts-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoboardroomgamespec-module">
+<h2>cogdominium.CogdoBoardroomGameSpec module<a class="headerlink" href="#cogdominium-cogdoboardroomgamespec-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdocranegamebase-module">
+<h2>cogdominium.CogdoCraneGameBase module<a class="headerlink" href="#cogdominium-cogdocranegamebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdocranegameconsts-module">
+<h2>cogdominium.CogdoCraneGameConsts module<a class="headerlink" href="#cogdominium-cogdocranegameconsts-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdocranegamespec-module">
+<h2>cogdominium.CogdoCraneGameSpec module<a class="headerlink" href="#cogdominium-cogdocranegamespec-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoelevatormovie-module">
+<h2>cogdominium.CogdoElevatorMovie module<a class="headerlink" href="#cogdominium-cogdoelevatormovie-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoentitycreator-module">
+<h2>cogdominium.CogdoEntityCreator module<a class="headerlink" href="#cogdominium-cogdoentitycreator-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoentitycreatorai-module">
+<h2>cogdominium.CogdoEntityCreatorAI module<a class="headerlink" href="#cogdominium-cogdoentitycreatorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoentitytypes-module">
+<h2>cogdominium.CogdoEntityTypes module<a class="headerlink" href="#cogdominium-cogdoentitytypes-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoexecutivesuitemovies-module">
+<h2>cogdominium.CogdoExecutiveSuiteMovies module<a class="headerlink" href="#cogdominium-cogdoexecutivesuitemovies-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingcameramanager-module">
+<h2>cogdominium.CogdoFlyingCameraManager module<a class="headerlink" href="#cogdominium-cogdoflyingcameramanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingcollisions-module">
+<h2>cogdominium.CogdoFlyingCollisions module<a class="headerlink" href="#cogdominium-cogdoflyingcollisions-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinggame-module">
+<h2>cogdominium.CogdoFlyingGame module<a class="headerlink" href="#cogdominium-cogdoflyinggame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinggameglobals-module">
+<h2>cogdominium.CogdoFlyingGameGlobals module<a class="headerlink" href="#cogdominium-cogdoflyinggameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinggameguis-module">
+<h2>cogdominium.CogdoFlyingGameGuis module<a class="headerlink" href="#cogdominium-cogdoflyinggameguis-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinggamemovies-module">
+<h2>cogdominium.CogdoFlyingGameMovies module<a class="headerlink" href="#cogdominium-cogdoflyinggamemovies-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingguimanager-module">
+<h2>cogdominium.CogdoFlyingGuiManager module<a class="headerlink" href="#cogdominium-cogdoflyingguimanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinginputmanager-module">
+<h2>cogdominium.CogdoFlyingInputManager module<a class="headerlink" href="#cogdominium-cogdoflyinginputmanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinglegaleagle-module">
+<h2>cogdominium.CogdoFlyingLegalEagle module<a class="headerlink" href="#cogdominium-cogdoflyinglegaleagle-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinglevel-module">
+<h2>cogdominium.CogdoFlyingLevel module<a class="headerlink" href="#cogdominium-cogdoflyinglevel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinglevelquadrant-module">
+<h2>cogdominium.CogdoFlyingLevelQuadrant module<a class="headerlink" href="#cogdominium-cogdoflyinglevelquadrant-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyinglocalplayer-module">
+<h2>cogdominium.CogdoFlyingLocalPlayer module<a class="headerlink" href="#cogdominium-cogdoflyinglocalplayer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingobjects-module">
+<h2>cogdominium.CogdoFlyingObjects module<a class="headerlink" href="#cogdominium-cogdoflyingobjects-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingobstacles-module">
+<h2>cogdominium.CogdoFlyingObstacles module<a class="headerlink" href="#cogdominium-cogdoflyingobstacles-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingplayer-module">
+<h2>cogdominium.CogdoFlyingPlayer module<a class="headerlink" href="#cogdominium-cogdoflyingplayer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingshadowplacer-module">
+<h2>cogdominium.CogdoFlyingShadowPlacer module<a class="headerlink" href="#cogdominium-cogdoflyingshadowplacer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoflyingutil-module">
+<h2>cogdominium.CogdoFlyingUtil module<a class="headerlink" href="#cogdominium-cogdoflyingutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdogameaudiomanager-module">
+<h2>cogdominium.CogdoGameAudioManager module<a class="headerlink" href="#cogdominium-cogdogameaudiomanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdogameconsts-module">
+<h2>cogdominium.CogdoGameConsts module<a class="headerlink" href="#cogdominium-cogdogameconsts-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdogameexit-module">
+<h2>cogdominium.CogdoGameExit module<a class="headerlink" href="#cogdominium-cogdogameexit-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdogamegatherable-module">
+<h2>cogdominium.CogdoGameGatherable module<a class="headerlink" href="#cogdominium-cogdogamegatherable-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdogamemessagedisplay-module">
+<h2>cogdominium.CogdoGameMessageDisplay module<a class="headerlink" href="#cogdominium-cogdogamemessagedisplay-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdogamerulespanel-module">
+<h2>cogdominium.CogdoGameRulesPanel module<a class="headerlink" href="#cogdominium-cogdogamerulespanel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdointerior-module">
+<h2>cogdominium.CogdoInterior module<a class="headerlink" href="#cogdominium-cogdointerior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-cogdominium.CogdoLayout">
+<span id="cogdominium-cogdolayout-module"></span><h2>cogdominium.CogdoLayout module<a class="headerlink" href="#module-cogdominium.CogdoLayout" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cogdominium.CogdoLayout.CogdoLayout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cogdominium.CogdoLayout.</span></span><span class="sig-name descname"><span class="pre">CogdoLayout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">numFloors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/CogdoLayout.html#CogdoLayout"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.CogdoLayout.CogdoLayout" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.CogdoLayout.CogdoLayout.getBossBattleFloor">
+<span class="sig-name descname"><span class="pre">getBossBattleFloor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/CogdoLayout.html#CogdoLayout.getBossBattleFloor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.CogdoLayout.CogdoLayout.getBossBattleFloor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.CogdoLayout.CogdoLayout.getNumFloors">
+<span class="sig-name descname"><span class="pre">getNumFloors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/CogdoLayout.html#CogdoLayout.getNumFloors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.CogdoLayout.CogdoLayout.getNumFloors" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.CogdoLayout.CogdoLayout.getNumGameFloors">
+<span class="sig-name descname"><span class="pre">getNumGameFloors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/CogdoLayout.html#CogdoLayout.getNumGameFloors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.CogdoLayout.CogdoLayout.getNumGameFloors" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.CogdoLayout.CogdoLayout.hasBossBattle">
+<span class="sig-name descname"><span class="pre">hasBossBattle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/CogdoLayout.html#CogdoLayout.hasBossBattle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.CogdoLayout.CogdoLayout.hasBossBattle" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cogdominium.CogdoLayout.CogdoLayout.notify">
+<span class="sig-name descname"><span class="pre">notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;direct.directnotify.Notifier.Notifier</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#cogdominium.CogdoLayout.CogdoLayout.notify" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="cogdominium-cogdolevelgamebase-module">
+<h2>cogdominium.CogdoLevelGameBase module<a class="headerlink" href="#cogdominium-cogdolevelgamebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdolevelmgr-module">
+<h2>cogdominium.CogdoLevelMgr module<a class="headerlink" href="#cogdominium-cogdolevelmgr-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdolevelmgrai-module">
+<h2>cogdominium.CogdoLevelMgrAI module<a class="headerlink" href="#cogdominium-cogdolevelmgrai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomaze-module">
+<h2>cogdominium.CogdoMaze module<a class="headerlink" href="#cogdominium-cogdomaze-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazecameramanager-module">
+<h2>cogdominium.CogdoMazeCameraManager module<a class="headerlink" href="#cogdominium-cogdomazecameramanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-cogdominium.CogdoMazeData">
+<span id="cogdominium-cogdomazedata-module"></span><h2>cogdominium.CogdoMazeData module<a class="headerlink" href="#module-cogdominium.CogdoMazeData" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazegame-module">
+<h2>cogdominium.CogdoMazeGame module<a class="headerlink" href="#cogdominium-cogdomazegame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazegameglobals-module">
+<h2>cogdominium.CogdoMazeGameGlobals module<a class="headerlink" href="#cogdominium-cogdomazegameglobals-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazegameguis-module">
+<h2>cogdominium.CogdoMazeGameGuis module<a class="headerlink" href="#cogdominium-cogdomazegameguis-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazegamemovies-module">
+<h2>cogdominium.CogdoMazeGameMovies module<a class="headerlink" href="#cogdominium-cogdomazegamemovies-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazegameobjects-module">
+<h2>cogdominium.CogdoMazeGameObjects module<a class="headerlink" href="#cogdominium-cogdomazegameobjects-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazeguimanager-module">
+<h2>cogdominium.CogdoMazeGuiManager module<a class="headerlink" href="#cogdominium-cogdomazeguimanager-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazelocalplayer-module">
+<h2>cogdominium.CogdoMazeLocalPlayer module<a class="headerlink" href="#cogdominium-cogdomazelocalplayer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazeplayer-module">
+<h2>cogdominium.CogdoMazePlayer module<a class="headerlink" href="#cogdominium-cogdomazeplayer-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomazesuits-module">
+<h2>cogdominium.CogdoMazeSuits module<a class="headerlink" href="#cogdominium-cogdomazesuits-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdomemogui-module">
+<h2>cogdominium.CogdoMemoGui module<a class="headerlink" href="#cogdominium-cogdomemogui-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-cogdoutil-module">
+<h2>cogdominium.CogdoUtil module<a class="headerlink" href="#cogdominium-cogdoutil-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdoboardroomgame-module">
+<h2>cogdominium.DistCogdoBoardroomGame module<a class="headerlink" href="#cogdominium-distcogdoboardroomgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdoboardroomgameai-module">
+<h2>cogdominium.DistCogdoBoardroomGameAI module<a class="headerlink" href="#cogdominium-distcogdoboardroomgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocrane-module">
+<h2>cogdominium.DistCogdoCrane module<a class="headerlink" href="#cogdominium-distcogdocrane-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocraneai-module">
+<h2>cogdominium.DistCogdoCraneAI module<a class="headerlink" href="#cogdominium-distcogdocraneai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocranecog-module">
+<h2>cogdominium.DistCogdoCraneCog module<a class="headerlink" href="#cogdominium-distcogdocranecog-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-cogdominium.DistCogdoCraneCogAI">
+<span id="cogdominium-distcogdocranecogai-module"></span><h2>cogdominium.DistCogdoCraneCogAI module<a class="headerlink" href="#module-cogdominium.DistCogdoCraneCogAI" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cogdominium.DistCogdoCraneCogAI.</span></span><span class="sig-name descname"><span class="pre">DistCogdoCraneCogAI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">air</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dna</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entranceId</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spawnTime</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/DistCogdoCraneCogAI.html#DistCogdoCraneCogAI"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DistributedObjectAI</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI.getDNAString">
+<span class="sig-name descname"><span class="pre">getDNAString</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/DistCogdoCraneCogAI.html#DistCogdoCraneCogAI.getDNAString"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI.getDNAString" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI.getGameId">
+<span class="sig-name descname"><span class="pre">getGameId</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/DistCogdoCraneCogAI.html#DistCogdoCraneCogAI.getGameId"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI.getGameId" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI.getSpawnInfo">
+<span class="sig-name descname"><span class="pre">getSpawnInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/DistCogdoCraneCogAI.html#DistCogdoCraneCogAI.getSpawnInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoCraneCogAI.DistCogdoCraneCogAI.getSpawnInfo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="cogdominium-distcogdocranegame-module">
+<h2>cogdominium.DistCogdoCraneGame module<a class="headerlink" href="#cogdominium-distcogdocranegame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocranegameai-module">
+<h2>cogdominium.DistCogdoCraneGameAI module<a class="headerlink" href="#cogdominium-distcogdocranegameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocranemoneybag-module">
+<h2>cogdominium.DistCogdoCraneMoneyBag module<a class="headerlink" href="#cogdominium-distcogdocranemoneybag-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocranemoneybagai-module">
+<h2>cogdominium.DistCogdoCraneMoneyBagAI module<a class="headerlink" href="#cogdominium-distcogdocranemoneybagai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocraneobject-module">
+<h2>cogdominium.DistCogdoCraneObject module<a class="headerlink" href="#cogdominium-distcogdocraneobject-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdocraneobjectai-module">
+<h2>cogdominium.DistCogdoCraneObjectAI module<a class="headerlink" href="#cogdominium-distcogdocraneobjectai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdoflyinggame-module">
+<h2>cogdominium.DistCogdoFlyingGame module<a class="headerlink" href="#cogdominium-distcogdoflyinggame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdoflyinggameai-module">
+<h2>cogdominium.DistCogdoFlyingGameAI module<a class="headerlink" href="#cogdominium-distcogdoflyinggameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdogame-module">
+<h2>cogdominium.DistCogdoGame module<a class="headerlink" href="#cogdominium-distcogdogame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdogameai-module">
+<h2>cogdominium.DistCogdoGameAI module<a class="headerlink" href="#cogdominium-distcogdogameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-cogdominium.DistCogdoGameBase">
+<span id="cogdominium-distcogdogamebase-module"></span><h2>cogdominium.DistCogdoGameBase module<a class="headerlink" href="#module-cogdominium.DistCogdoGameBase" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoGameBase.DistCogdoGameBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cogdominium.DistCogdoGameBase.</span></span><span class="sig-name descname"><span class="pre">DistCogdoGameBase</span></span><a class="reference internal" href="../_modules/cogdominium/DistCogdoGameBase.html#DistCogdoGameBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoGameBase.DistCogdoGameBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoGameBase.DistCogdoGameBase.game2LocalTime">
+<span class="sig-name descname"><span class="pre">game2LocalTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/DistCogdoGameBase.html#DistCogdoGameBase.game2LocalTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoGameBase.DistCogdoGameBase.game2LocalTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoGameBase.DistCogdoGameBase.getCurrentGameTime">
+<span class="sig-name descname"><span class="pre">getCurrentGameTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/DistCogdoGameBase.html#DistCogdoGameBase.getCurrentGameTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoGameBase.DistCogdoGameBase.getCurrentGameTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cogdominium.DistCogdoGameBase.DistCogdoGameBase.local2GameTime">
+<span class="sig-name descname"><span class="pre">local2GameTime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/cogdominium/DistCogdoGameBase.html#DistCogdoGameBase.local2GameTime"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#cogdominium.DistCogdoGameBase.DistCogdoGameBase.local2GameTime" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="cogdominium-distcogdolevelgame-module">
+<h2>cogdominium.DistCogdoLevelGame module<a class="headerlink" href="#cogdominium-distcogdolevelgame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdolevelgameai-module">
+<h2>cogdominium.DistCogdoLevelGameAI module<a class="headerlink" href="#cogdominium-distcogdolevelgameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdomazegame-module">
+<h2>cogdominium.DistCogdoMazeGame module<a class="headerlink" href="#cogdominium-distcogdomazegame-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdomazegameai-module">
+<h2>cogdominium.DistCogdoMazeGameAI module<a class="headerlink" href="#cogdominium-distcogdomazegameai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distcogdomazegamebase-module">
+<h2>cogdominium.DistCogdoMazeGameBase module<a class="headerlink" href="#cogdominium-distcogdomazegamebase-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdobarrel-module">
+<h2>cogdominium.DistributedCogdoBarrel module<a class="headerlink" href="#cogdominium-distributedcogdobarrel-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdobarrelai-module">
+<h2>cogdominium.DistributedCogdoBarrelAI module<a class="headerlink" href="#cogdominium-distributedcogdobarrelai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdobattlebldg-module">
+<h2>cogdominium.DistributedCogdoBattleBldg module<a class="headerlink" href="#cogdominium-distributedcogdobattlebldg-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdobattlebldgai-module">
+<h2>cogdominium.DistributedCogdoBattleBldgAI module<a class="headerlink" href="#cogdominium-distributedcogdobattlebldgai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdoelevatorext-module">
+<h2>cogdominium.DistributedCogdoElevatorExt module<a class="headerlink" href="#cogdominium-distributedcogdoelevatorext-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdoelevatorextai-module">
+<h2>cogdominium.DistributedCogdoElevatorExtAI module<a class="headerlink" href="#cogdominium-distributedcogdoelevatorextai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdoelevatorint-module">
+<h2>cogdominium.DistributedCogdoElevatorInt module<a class="headerlink" href="#cogdominium-distributedcogdoelevatorint-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdoelevatorintai-module">
+<h2>cogdominium.DistributedCogdoElevatorIntAI module<a class="headerlink" href="#cogdominium-distributedcogdoelevatorintai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdointerior-module">
+<h2>cogdominium.DistributedCogdoInterior module<a class="headerlink" href="#cogdominium-distributedcogdointerior-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdointeriorai-module">
+<h2>cogdominium.DistributedCogdoInteriorAI module<a class="headerlink" href="#cogdominium-distributedcogdointeriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdointerioraiorg-module">
+<h2>cogdominium.DistributedCogdoInteriorAIORG module<a class="headerlink" href="#cogdominium-distributedcogdointerioraiorg-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-distributedcogdointeriororg-module">
+<h2>cogdominium.DistributedCogdoInteriorORG module<a class="headerlink" href="#cogdominium-distributedcogdointeriororg-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="cogdominium-suitplannercogdointeriorai-module">
+<h2>cogdominium.SuitPlannerCogdoInteriorAI module<a class="headerlink" href="#cogdominium-suitplannercogdointeriorai-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-cogdominium">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cogdominium" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="coderedemption.html" class="btn btn-neutral float-left" title="coderedemption package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coghq.html" class="btn btn-neutral float-right" title="coghq package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, toontown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
